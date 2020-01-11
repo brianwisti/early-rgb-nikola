@@ -2,6 +2,7 @@
 
 """Import Hugo content, generating metadata and converting as necessary"""
 
+import logging
 import os
 
 from nikola.plugin_categories import Command
@@ -16,10 +17,12 @@ class CommandImportRgb(Command):
 
     def _execute(self, options, args):
         """Run the import."""
+        log = logging.getLogger(os.path.basename(__file__))
         rgb_config = os.path.expanduser(self.site.config["IMPORT_RGB_CONFIG"])
 
         if not os.path.exists(rgb_config):
             print(f"Error: Missing {rgb_config}?")
+            log.error(f"Missing {rgb_config}?")
         else:
-            print(f"Using {rgb_config}")
+            log.info(f"Using {rgb_config}")
 
