@@ -1,0 +1,12 @@
+[Core]
+Name = import_rgb
+Module = import_rgb
+
+[Nikola]
+PluginCategory = Command
+
+[Documentation]
+Author = Brian Wisti
+Version = 0.1
+Website = https://randomgeekery.org/
+Description = Import my own site from Hugo
