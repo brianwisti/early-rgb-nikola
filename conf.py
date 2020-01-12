@@ -323,6 +323,7 @@ COMPILERS = {
 # "TOML": TOML wrapped in "+++"
 # "Pelican": Native markdown metadata or reST docinfo fields. Nikola style for other formats.
 # METADATA_FORMAT = "Nikola"
+METADATA_FORMAT = "YAML"
 
 # Use date-based path when creating posts?
 # Can be enabled on a per-post basis with `nikola new_post -d`.
@@ -1249,6 +1250,11 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 #     "markdown_metadata": {"summary": "description", "modified": "updated"}
 # }
 # Other examples: https://getnikola.com/handbook.html#mapping-metadata-from-other-formats
+METADATA_MAPPING = {
+    "yaml": {
+        "category": "categories",
+    }
+}
 
 # Map metadata between types/values. (Runs after METADATA_MAPPING.)
 # Supported formats: nikola, yaml, toml, rest_docinfo, markdown_metadata
@@ -1262,6 +1268,13 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 #         "tags": str.lower  # nikola: force lowercase 'tags' (input would be string)
 #      }
 # }
+METADATA_VALUE_MAPPING = {
+    "yaml": {
+        "author": lambda value: ', '.join(value),
+        "categories": lambda value: str.lower(', '.join(value)),
+        "tags": lambda value: str.lower(', '.join(value))
+    }
+}
 
 # Additional metadata that is added to a post when creating a new_post
 # ADDITIONAL_METADATA = {}
