@@ -44,7 +44,7 @@ class CommandImportRgb(Command):
         log.info(f"Using {rgb_config}")
 
         # collect all the filenames
-        safe_extensions = (".md", ".rst")
+        safe_extensions = (".md", ".rst", ".adoc")
         extensions = {}
         site_dir = os.path.dirname(rgb_config)
         content_dir = os.path.join(site_dir, "content/post/")

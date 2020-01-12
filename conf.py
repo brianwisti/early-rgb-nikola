@@ -221,12 +221,16 @@ POSTS = (
     ("posts/*.md", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.html", "posts", "post.tmpl"),
+    ("posts/*.adoc", "posts", "post.tmpl"),
+    ("posts/*.asc", "posts", "post.tmpl"),
 )
 PAGES = (
     ("pages/*.rst", "pages", "page.tmpl"),
     ("pages/*.md", "pages", "page.tmpl"),
     ("pages/*.txt", "pages", "page.tmpl"),
     ("pages/*.html", "pages", "page.tmpl"),
+    ("pages/*.adoc", "pages", "page.tmpl"),
+    ("pages/*.asc", "pages", "page.tmpl"),
 )
 
 
@@ -306,6 +310,7 @@ COMPILERS = {
     # but is disabled by default as it would conflict
     # with many of the others.
     # "pandoc": ('.rst', '.md', '.txt'),
+    "asciidoc": (".adoc", ".asc"),
 }
 
 # Enable reST directives that insert the contents of external files such
@@ -1272,7 +1277,7 @@ METADATA_VALUE_MAPPING = {
     "yaml": {
         "author": lambda value: ', '.join(value),
         "categories": lambda value: str.lower(', '.join(value)),
-        "tags": lambda value: str.lower(', '.join(value))
+        "tags": lambda value: str.lower(', '.join(value)),
     }
 }
 
@@ -1367,6 +1372,12 @@ GLOBAL_CONTEXT_FILLER = []
 #
 # Plugins
 #
+
+# You can choose what command to use for processing.
+# For example, you can replace asciidoc with asciidoctor
+# Or use the full path to the program.
+# ASCIIDOC_BINARY = "asciidoc"
+ASCIIDOC_BINARY = "asciidoctor"
 
 # Location of Hugo site config file
 IMPORT_RGB_CONFIG = "~/Sites/random-geekery-blog/config.toml"
