@@ -6,7 +6,7 @@ import logging
 import os
 
 from nikola.plugin_categories import Command
-from nikola.utils import copy_file, makedirs
+from nikola.utils import copy_file, makedirs, remove_file
 
 log = logging.getLogger(os.path.basename(__file__))
 HUGO_CONFIG_SETTING = "IMPORT_RGB_CONFIG"
@@ -44,11 +44,13 @@ class CommandImportRgb(Command):
         log.info(f"Using {rgb_config}")
 
         # collect all the filenames
-        safe_extensions = (".md",)
+        safe_extensions = (".md", ".rst")
         extensions = {}
         site_dir = os.path.dirname(rgb_config)
         content_dir = os.path.join(site_dir, "content/post/")
         posts_dir = "posts"
+        log.info(f"Removing {posts_dir}")
+        remove_file(posts_dir)
 
         log.info(f"site_dir: {site_dir}")
         log.info(f"content_dir: {content_dir}")
@@ -73,12 +75,8 @@ class CommandImportRgb(Command):
                 extensions[ext] = extensions.get(ext, 0) + 1
                 log.info(full_path)
                 hugo_path = full_path.replace(content_dir, "")
-                log.info(hugo_path)
-                log.info(f"hugo_path: {hugo_path}")
                 nikola_path = os.path.join(posts_dir, hugo_path)
-                log.info(f"nikola_path: {nikola_path}")
-                nikola_dir = os.path.dirname(nikola_path)
-                log.info(f"post will go in {nikola_dir}")
-                copy_file(full_path, nikola_dir)
+                log.info(f"--> {nikola_path}")
+                copy_file(full_path, nikola_path)
 
         log.info(extensions)
