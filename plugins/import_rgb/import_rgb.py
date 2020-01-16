@@ -8,7 +8,7 @@ import re
 from typing import Any, Dict, List, Tuple
 
 from nikola.plugin_categories import Command
-from nikola.utils import copy_file, get_logger, makedirs, remove_file, to_datetime
+from nikola.utils import copy_file, get_logger, makedirs, remove_file, slugify
 from ruamel.yaml import YAML
 
 log = get_logger(os.path.basename(__file__))
@@ -28,16 +28,23 @@ class HugoContent:
         delimiter = "---\n"
         _, yaml_text, body_text = open(self.hugo_file).read().split(delimiter, maxsplit=2)
         self.content = body_text
+        yaml_text = re.sub(r"^(date: \d{4}-\d{2}-\d{2})T", r"\1 ", yaml_text)
         self.frontmatter = yaml.load(yaml_text)
 
-        if self.frontmatter.get("date", None):
-            self.is_post=True
+        date = self.frontmatter.get("date", None)
+
+        if date:
+            self.is_post = True
+        else:
+            self.is_post = False
     
     def preferred_path(self):
         """My location in the nikola site"""
-        branch = self.hugo_file.replace(self.content_dir, "")
-        branch = re.sub(r"\d+?/", "", branch)
-        return branch
+        _, ext = os.path.splitext(self.hugo_file)
+        date_path = self.frontmatter["date"].strftime("%Y/%m")
+        title_path = slugify(self.frontmatter["title"])
+        base_path = f"index{ext}"
+        return os.path.join(date_path, title_path, base_path)
 
 
 @dataclass
@@ -49,7 +56,7 @@ class HugoSite:
     def collect_content_files(self) -> List[HugoContent]:
         """Return a list of files in the Hugo site that are safe for import"""
         site_dir = os.path.dirname(self.config_file)
-        content_dir = os.path.join(site_dir, "content/post/")
+        content_dir = os.path.join(site_dir, "content")
         content_files = []
         extensions: Dict[str, int] = {}
 
@@ -123,10 +130,10 @@ class CommandImportRgb(Command):
         log.info(f"content_dir: {content_dir}")
 
         for hugo_content_file in content_files:
-            content_path = hugo_content_file.preferred_path()
+            log.info(hugo_content_file.hugo_file)
             if hugo_content_file.is_post:
+                content_path = hugo_content_file.preferred_path()
                 # TODO: Use NEW_POST_DATE_PATH_FORMAT, if NEW_POST_DATE_PATH is True
-                date_path = hugo_content_file.frontmatter["date"].strftime("%Y/%m")
-                nikola_path = os.path.join(posts_dir, date_path, content_path)
+                nikola_path = os.path.join(posts_dir, content_path)
                 log.info(f"{hugo_content_file.frontmatter['title']} -> {nikola_path}")
                 copy_file(hugo_content_file.hugo_file, nikola_path)
