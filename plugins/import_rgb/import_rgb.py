@@ -2,14 +2,80 @@
 
 """Import Hugo content, generating metadata and converting as necessary"""
 
-import logging
+from dataclasses import dataclass, field
 import os
+import re
+from typing import Any, Dict, List, Tuple
 
 from nikola.plugin_categories import Command
-from nikola.utils import copy_file, makedirs, remove_file
+from nikola.utils import copy_file, get_logger, makedirs, remove_file, to_datetime
+from ruamel.yaml import YAML
 
-log = logging.getLogger(os.path.basename(__file__))
+log = get_logger(os.path.basename(__file__))
+yaml = YAML()
 HUGO_CONFIG_SETTING = "IMPORT_RGB_CONFIG"
+
+@dataclass
+class HugoContent:
+    """Knows enough about a Hugo content file to help import itself into Nikola"""
+    hugo_file: str
+    content_dir: str
+    frontmatter: Dict[str, Any] = field(init=False)
+    content: str = field(init=False)
+    is_post: bool = field(init=False)
+
+    def __post_init__(self):
+        delimiter = "---\n"
+        _, yaml_text, body_text = open(self.hugo_file).read().split(delimiter, maxsplit=2)
+        self.content = body_text
+        self.frontmatter = yaml.load(yaml_text)
+
+        if self.frontmatter.get("date", None):
+            self.is_post=True
+    
+    def preferred_path(self):
+        """My location in the nikola site"""
+        branch = self.hugo_file.replace(self.content_dir, "")
+        branch = re.sub(r"\d+?/", "", branch)
+        return branch
+
+
+@dataclass
+class HugoSite:
+    """Knows enough about a Hugo site to help import its content into Nikola"""
+    config_file: str
+    safe_extensions: Tuple[str]
+    
+    def collect_content_files(self) -> List[HugoContent]:
+        """Return a list of files in the Hugo site that are safe for import"""
+        site_dir = os.path.dirname(self.config_file)
+        content_dir = os.path.join(site_dir, "content/post/")
+        content_files = []
+        extensions: Dict[str, int] = {}
+
+        for root, dirs, files in os.walk(content_dir):
+            for filename in files:
+                if filename.startswith("_"):
+                    # leading underscores are for section summaries.
+                    continue
+
+                if filename.endswith("~"):
+                    # A backup file got in there somehow.
+                    continue
+
+                full_path = os.path.join(root, filename)
+                _, ext = os.path.splitext(filename)
+
+                extensions[ext] = extensions.get(ext, 0) + 1
+
+                if ext not in self.safe_extensions:
+                    # Dunno how to handle these
+                    continue
+
+                content_files.append(HugoContent(hugo_file=full_path, content_dir=content_dir))
+
+        log.info(extensions)
+        return content_files
 
 class CommandImportRgb(Command):
     """Import Hugo content from my site
@@ -29,24 +95,25 @@ class CommandImportRgb(Command):
         if not import_rgb_config_setting:
             log.error(f"I need a setting for {HUGO_CONFIG_SETTING}!")
             return 0
+        
+        rgb_config_path = os.path.expanduser(import_rgb_config_setting)
 
-        return self.import_using_config(import_rgb_config_setting)
+        if not os.path.exists(rgb_config_path):
+            log.error(f"I can't find f{rgb_config_path}!")
+
+        return self.import_using_config(rgb_config_path)
 
 
     def import_using_config(self, hugo_config):
         """The actual import process"""
-        rgb_config = os.path.expanduser(hugo_config)
-
-        if not os.path.exists(rgb_config):
-            log.error(f"Missing {rgb_config}?")
-            return 0
-
-        log.info(f"Using {rgb_config}")
+        log.info(f"Using {hugo_config}")
 
         # collect all the filenames
         safe_extensions = (".md", ".rst", ".adoc", ".html")
-        extensions = {}
-        site_dir = os.path.dirname(rgb_config)
+        hugo_site = HugoSite(config_file=hugo_config, safe_extensions=safe_extensions)
+        log.info(hugo_site)
+        content_files = hugo_site.collect_content_files()
+        site_dir = os.path.dirname(hugo_config)
         content_dir = os.path.join(site_dir, "content/post/")
         posts_dir = "posts"
         log.info(f"Removing {posts_dir}")
@@ -55,28 +122,11 @@ class CommandImportRgb(Command):
         log.info(f"site_dir: {site_dir}")
         log.info(f"content_dir: {content_dir}")
 
-        for root, dirs, files in os.walk(content_dir):
-            for filename in files:
-                if filename.startswith("_"):
-                    # leading underscores are for section summaries.
-                    continue
-
-                if filename.endswith("~"):
-                    # A backup file got in there somehow.
-                    continue
-
-                full_path = os.path.join(root, filename)
-                _, ext = os.path.splitext(filename)
-
-                if ext not in safe_extensions:
-                    # Dunno how to handle it yet.
-                    continue
-
-                extensions[ext] = extensions.get(ext, 0) + 1
-                log.info(full_path)
-                hugo_path = full_path.replace(content_dir, "")
-                nikola_path = os.path.join(posts_dir, hugo_path)
-                log.info(f"--> {nikola_path}")
-                copy_file(full_path, nikola_path)
-
-        log.info(extensions)
+        for hugo_content_file in content_files:
+            content_path = hugo_content_file.preferred_path()
+            if hugo_content_file.is_post:
+                # TODO: Use NEW_POST_DATE_PATH_FORMAT, if NEW_POST_DATE_PATH is True
+                date_path = hugo_content_file.frontmatter["date"].strftime("%Y/%m")
+                nikola_path = os.path.join(posts_dir, date_path, content_path)
+                log.info(f"{hugo_content_file.frontmatter['title']} -> {nikola_path}")
+                copy_file(hugo_content_file.hugo_file, nikola_path)
