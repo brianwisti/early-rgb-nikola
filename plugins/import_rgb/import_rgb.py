@@ -8,7 +8,7 @@ import re
 from typing import Any, Dict, List, Tuple
 
 from nikola.plugin_categories import Command
-from nikola.utils import copy_file, get_logger, makedirs, remove_file, to_datetime
+from nikola.utils import copy_file, get_logger, makedirs, remove_file, slugify
 from ruamel.yaml import YAML
 
 log = get_logger(os.path.basename(__file__))
@@ -35,9 +35,11 @@ class HugoContent:
     
     def preferred_path(self):
         """My location in the nikola site"""
-        branch = self.hugo_file.replace(self.content_dir, "")
-        branch = re.sub(r"\d+?/", "", branch)
-        return branch
+        _, ext = os.path.splitext(self.hugo_file)
+        date_path = self.frontmatter["date"].strftime("%Y/%m")
+        title_path = slugify(self.frontmatter["title"])
+        base_path = f"index{ext}"
+        return os.path.join(date_path, title_path, base_path)
 
 
 @dataclass
@@ -126,7 +128,6 @@ class CommandImportRgb(Command):
             content_path = hugo_content_file.preferred_path()
             if hugo_content_file.is_post:
                 # TODO: Use NEW_POST_DATE_PATH_FORMAT, if NEW_POST_DATE_PATH is True
-                date_path = hugo_content_file.frontmatter["date"].strftime("%Y/%m")
-                nikola_path = os.path.join(posts_dir, date_path, content_path)
+                nikola_path = os.path.join(posts_dir, content_path)
                 log.info(f"{hugo_content_file.frontmatter['title']} -> {nikola_path}")
                 copy_file(hugo_content_file.hugo_file, nikola_path)
