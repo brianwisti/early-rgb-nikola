@@ -2,15 +2,43 @@
 
 """Import Hugo content, generating metadata and converting as necessary"""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import os
-from typing import List, Tuple
+import re
+from typing import Any, Dict, List, Tuple
 
 from nikola.plugin_categories import Command
-from nikola.utils import copy_file, get_logger, makedirs, remove_file
+from nikola.utils import copy_file, get_logger, makedirs, remove_file, to_datetime
+from ruamel.yaml import YAML
 
 log = get_logger(os.path.basename(__file__))
+yaml = YAML()
 HUGO_CONFIG_SETTING = "IMPORT_RGB_CONFIG"
+
+@dataclass
+class HugoContent:
+    """Knows enough about a Hugo content file to help import itself into Nikola"""
+    hugo_file: str
+    content_dir: str
+    frontmatter: Dict[str, Any] = field(init=False)
+    content: str = field(init=False)
+    is_post: bool = field(init=False)
+
+    def __post_init__(self):
+        delimiter = "---\n"
+        _, yaml_text, body_text = open(self.hugo_file).read().split(delimiter, maxsplit=2)
+        self.content = body_text
+        self.frontmatter = yaml.load(yaml_text)
+
+        if self.frontmatter.get("date", None):
+            self.is_post=True
+    
+    def preferred_path(self):
+        """My location in the nikola site"""
+        branch = self.hugo_file.replace(self.content_dir, "")
+        branch = re.sub(r"\d+?/", "", branch)
+        return branch
+
 
 @dataclass
 class HugoSite:
@@ -18,12 +46,12 @@ class HugoSite:
     config_file: str
     safe_extensions: Tuple[str]
     
-    def collect_content_files(self) -> List[str]:
+    def collect_content_files(self) -> List[HugoContent]:
         """Return a list of files in the Hugo site that are safe for import"""
         site_dir = os.path.dirname(self.config_file)
         content_dir = os.path.join(site_dir, "content/post/")
         content_files = []
-        extensions = {}
+        extensions: Dict[str, int] = {}
 
         for root, dirs, files in os.walk(content_dir):
             for filename in files:
@@ -44,7 +72,7 @@ class HugoSite:
                     # Dunno how to handle these
                     continue
 
-                content_files.append(full_path)
+                content_files.append(HugoContent(hugo_file=full_path, content_dir=content_dir))
 
         log.info(extensions)
         return content_files
@@ -95,7 +123,10 @@ class CommandImportRgb(Command):
         log.info(f"content_dir: {content_dir}")
 
         for hugo_content_file in content_files:
-            log.info(hugo_content_file)
-            content_path = hugo_content_file.replace(content_dir, "")
-            nikola_path = os.path.join(posts_dir, content_path)
-            copy_file(hugo_content_file, nikola_path)
+            content_path = hugo_content_file.preferred_path()
+            if hugo_content_file.is_post:
+                # TODO: Use NEW_POST_DATE_PATH_FORMAT, if NEW_POST_DATE_PATH is True
+                date_path = hugo_content_file.frontmatter["date"].strftime("%Y/%m")
+                nikola_path = os.path.join(posts_dir, date_path, content_path)
+                log.info(f"{hugo_content_file.frontmatter['title']} -> {nikola_path}")
+                copy_file(hugo_content_file.hugo_file, nikola_path)
