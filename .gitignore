@@ -1,4 +1,6 @@
 __pycache__
 cache
-output
 .doit*
+.lvimrc
+.mypy_cache
+output
