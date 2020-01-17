@@ -472,7 +472,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 # If you do not want to display a category publicly, you can mark it as hidden.
 # The category will not be displayed on the category list page.
 # Category pages will still be generated.
-HIDDEN_CATEGORIES = []
+HIDDEN_CATEGORIES = ["blogspot", "coolnamehere"]
 
 # A list of dictionaries specifying categories which translate to each other.
 # Format: a list of dicts {language: translation, language2: translation2, …}
@@ -1257,11 +1257,7 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 #     "markdown_metadata": {"summary": "description", "modified": "updated"}
 # }
 # Other examples: https://getnikola.com/handbook.html#mapping-metadata-from-other-formats
-METADATA_MAPPING = {
-    "yaml": {
-        "category": "categories",
-    }
-}
+METADATA_MAPPING = {}
 
 # Map metadata between types/values. (Runs after METADATA_MAPPING.)
 # Supported formats: nikola, yaml, toml, rest_docinfo, markdown_metadata
@@ -1278,7 +1274,6 @@ METADATA_MAPPING = {
 METADATA_VALUE_MAPPING = {
     "yaml": {
         "author": lambda value: ', '.join(value),
-        "categories": lambda value: str.lower(', '.join(value)),
         "tags": lambda value: str.lower(', '.join(value)),
     }
 }
