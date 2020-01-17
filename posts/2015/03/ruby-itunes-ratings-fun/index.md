@@ -4,8 +4,6 @@ aliases:
 - /post/2015/ruby-itunes-ratings-fun/
 announcements:
   twitter: https://twitter.com/brianwisti/status/577379613657042944
-categories:
-- programming
 date: 2015-03-16T00:00:00Z
 description: I use the plist and gruff gems to summarize my iTunes music ratings.
 tags:
@@ -17,6 +15,7 @@ title: Ruby iTunes Ratings Fun
 type: post
 updated: 2015-07-26T00:00:00Z
 year: '2015'
+category: programming
 ---
 [plist]: https://github.com/bleything/plist
 [gruff]: https://github.com/topfunky/gruff

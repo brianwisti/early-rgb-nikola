@@ -5,8 +5,6 @@ aliases:
 - /post/2013/yapcna-links-from-a-non-attendee/
 announcements:
   twitter: https://twitter.com/brianwisti/status/343075431399964672
-categories:
-- programming
 date: 2013-06-06T00:00:00Z
 tags:
 - perl
@@ -15,6 +13,7 @@ title: YAPC::NA 2013 Links From a Non-Attendee
 type: post
 updated: 2017-04-10T00:00:00Z
 year: '2013'
+category: programming
 ---
 
 [YAPC::NA](http://yapcna.org), the Yet Another Perl Conference for

@@ -1,14 +1,13 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1005882408233603072
-categories:
-- marginalia
 date: 2018-06-10T00:00:00Z
 draft: false
 tags:
 - personal
 title: Two Weeks Without Cigarettes
 year: '2018'
+category: marginalia
 ---
 
 I stopped smoking cigarettes two weeks ago. For now I [vape][] instead. Time to put down some notes about what

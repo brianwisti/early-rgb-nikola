@@ -1,8 +1,6 @@
 ---
 aliases:
 - /post/2017/disqus-refresh/
-categories:
-- marginalia
 date: 2017-05-07T00:00:00Z
 draft: 'false'
 tags:
@@ -10,6 +8,7 @@ tags:
 - disqus
 title: Disqus Refresh
 year: '2017'
+category: marginalia
 ---
 Tentatively adding fresh [Disqus][] conversations to the site.
 [Disqus]: https://disqus.com/

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2007/06/14_03-handling-multiple-turns.html
 - /post/2007/03-handling-multiple-turns/
-categories:
-- coolnamehere
 date: 2007-06-14T00:00:00Z
 tags:
 - python
@@ -15,6 +13,7 @@ updated: 2009-07-11T00:00:00Z
 year: '2007'
 series:
 - Python Interactive Fiction
+archived_category: coolnamehere
 ---
 
 [ongoing series]: /post/2007/interactive-fiction-with-python/

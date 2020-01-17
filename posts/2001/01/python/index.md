@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2001/01/17_python.html
 - /post/2001/python/
-categories:
-- coolnamehere
 date: 2001-01-17T00:00:00Z
 tags:
 - python
@@ -11,6 +9,7 @@ title: Python
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2001'
+archived_category: coolnamehere
 ---
 <!--more-->
 You may have already heard me say that I do not have a favorite programming 

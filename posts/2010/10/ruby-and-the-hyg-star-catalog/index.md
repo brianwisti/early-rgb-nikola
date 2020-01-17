@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2010/10/05_ruby-and-the-hyg-star-catalog.html
 - /post/2010/ruby-and-the-hyg-star-catalog/
-categories:
-- coolnamehere
 date: 2010-10-05T00:00:00Z
 tags:
 - ruby
 title: Ruby and the HYG Star Catalog
 type: post
 year: '2010'
+archived_category: coolnamehere
 ---
 
 [Parrot Babysteps]: /post/2009/parrot-babysteps/

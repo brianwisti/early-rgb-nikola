@@ -2,13 +2,12 @@
 aliases:
 - /blogspot/2010/07/27_whered-he-go.html
 - /post/2010/whered-he-go/
-categories:
-- Blogspot
 date: 2010-07-27T00:00:00Z
 title: Where'd He Go?
 type: post
 updated: 2015-03-27T00:00:00Z
 year: '2010'
+archived_category: blogspot
 ---
 
 I haven't updated this blog in a while, and to be honest I don't really plan to. I tend to dump my thoughts of the moment on

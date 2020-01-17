@@ -1,14 +1,13 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/995851385508773888
-categories:
-- marginalia
 date: 2018-05-13T00:00:00Z
 draft: false
 tags:
 - site
 title: New Theme for a Bit
 year: '2018'
+category: marginalia
 ---
 
 

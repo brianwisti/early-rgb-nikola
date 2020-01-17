@@ -1,14 +1,13 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1033864008527298561
-categories:
-- craft
 date: 2018-08-26T00:00:00Z
 draft: false
 tags:
 - crochet
 title: Potholders
 year: '2018'
+category: craft
 ---
 
 Yes, they look like that on purpose.

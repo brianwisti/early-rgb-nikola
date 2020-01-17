@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2016/mistakes-were-made/
-categories:
-- craft
 date: 2016-10-28T00:00:00Z
 updated: 2018-06-15T00:00:00Z
 image: /img/2016/mistakes-were-made-medium.png
@@ -17,5 +15,6 @@ store:
 - name: Mistakes Were Made
   link: https://www.designbyhumans.com/shop/t-shirt/men/mistakes-were-made/935686/
   image: mistakes-were-made-shirt.jpg
+category: craft
 ---
 Title says it all, I hope.

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2006/04/30_reduce-reuse-recycle.html
 - /post/2006/reduce-reuse-recycle/
-categories:
-- coolnamehere
 date: 2006-04-30T00:00:00Z
 tags:
 - rebol
@@ -11,6 +9,7 @@ title: Reduce, Reuse, Recycle in REBOL
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2006'
+archived_category: coolnamehere
 ---
 I had to share a "Eureka!" moment that I recently experienced about REBOL. I 
 never did get around to refining it, but it stands here as a rambling 

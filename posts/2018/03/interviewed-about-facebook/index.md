@@ -1,14 +1,13 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/978657904759681029
-categories:
-- Marginalia
 date: 2018-03-27T00:00:00Z
 draft: false
 tags:
 - links
 title: Interviewed About Facebook
 year: '2018'
+category: marginalia
 ---
 
 As mentioned [on Twitter](https://twitter.com/brianwisti/status/978439728226738176):

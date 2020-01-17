@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2016/mixing-apps/
-categories:
-- craft
 date: 2016-12-02T00:00:00Z
 tags:
 - drawing
@@ -10,6 +8,7 @@ tags:
 - Procreate
 title: Mixing Apps
 year: '2016'
+category: craft
 ---
 Used [Amaziograph][] for the design, then switched over to [Procreate][] for the
 color and detail.

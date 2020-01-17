@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/06/01_ruby.html
 - /post/2002/ruby/
-categories:
-- coolnamehere
 date: 2002-06-01T00:00:00Z
 tags:
 - ruby
@@ -11,6 +9,7 @@ title: Ruby
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 I say that I do not have a favorite programming language. If I did have a 
 favorite language, it might be [Ruby](http://www.ruby-lang.org/).  I've been 

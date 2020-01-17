@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/943371892517306368
-categories:
-- craft
 date: 2017-12-19T00:00:00Z
 draft: false
 tags:
@@ -12,6 +10,7 @@ tags:
 - zentangle
 title: Duotone Panel
 year: '2017'
+category: craft
 ---
 Last month I read an article about [duotone illustrations][] and decided to try a version of the technique
 myself someday. Today was that day.

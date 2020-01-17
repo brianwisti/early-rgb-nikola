@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2015/my-first-socks/
-categories:
-- craft
 date: 2015-11-25T00:00:00Z
 image: /img/2015/my-first-socks.jpg
 tags:
@@ -11,6 +9,7 @@ tags:
 thumbnail: /img/2015/my-first-socks-thumbnail.jpg
 title: My First Socks
 year: '2015'
+category: craft
 ---
 Not my first socks ever, of course. But there are many firsts in these socks.
 <!--more-->

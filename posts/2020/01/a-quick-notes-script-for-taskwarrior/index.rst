@@ -7,8 +7,7 @@ draft: false
 tags:
 - taskwarrior
 - python
-categories:
-- Programming
+category: programming
 ---
 
 I need more than annotations for my `Taskwarrior`_ tasks. Let's write some `Python`_!

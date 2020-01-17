@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2015/amicable-socks/
-categories:
-- craft
 date: 2015-05-20T00:00:00Z
 tags:
 - knitting
@@ -10,6 +8,7 @@ tags:
 title: Amicable Socks
 year: '2015'
 updated: 2018-02-18T00:00:00Z
+category: craft
 ---
 I just finished my "Amicable Socks" - so named because I made them for my ex, and we split on friendly terms.
 <!--more-->

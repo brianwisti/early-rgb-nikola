@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2010/08/02_0d-the-spacetrade-project.html
 - /post/2010/0d-the-spacetrade-project/
-categories:
-- coolnamehere
 date: 2010-08-02T00:00:00Z
 tags:
 - parrot
@@ -14,6 +12,7 @@ updated: 2010-08-30T00:00:00Z
 year: '2010'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 
 [Parrot Babysteps]: /post/2009/parrot-babysteps/

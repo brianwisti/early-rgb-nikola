@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2003/07/11_living-in-seattle.html
 - /post/2003/living-in-seattle/
-categories:
-- coolnamehere
 date: 2003-07-11T00:00:00Z
 tags:
 - babblings
@@ -12,6 +10,7 @@ title: Living in Seattle
 type: post
 updated: 2004-07-11T00:00:00Z
 year: '2003'
+archived_category: coolnamehere
 ---
 
 Seattle is a city. It may not be as big as Los Angeles or New York, but it is 

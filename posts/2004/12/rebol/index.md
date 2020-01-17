@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/12/22_rebol.html
 - /post/2004/rebol/
-categories:
-- coolnamehere
 date: 2004-12-22T00:00:00Z
 tags:
 - rebol
@@ -11,6 +9,7 @@ title: REBOL
 type: post
 updated: 2017-04-09T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 
 This is unusual. I've come across the first language that I don't want to tell 

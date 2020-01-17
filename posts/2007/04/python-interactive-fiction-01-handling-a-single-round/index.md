@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2007/04/19_01-handling-a-single-round.html
 - /post/2007/01-handling-a-single-round/
-categories:
-- coolnamehere
 date: 2007-04-19T00:00:00Z
 tags:
 - python
@@ -15,6 +13,7 @@ updated: 2009-07-11T00:00:00Z
 year: '2007'
 series:
 - Python Interactive Fiction
+archived_category: coolnamehere
 ---
 I think the next step is to write the code for a single round of the game. We'll 
 limit ourselves to Scene 1 to stay focussed.

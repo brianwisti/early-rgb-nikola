@@ -2,8 +2,6 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/101882459939490036
   twitter: https://twitter.com/brianwisti/status/1114712015904366592
-categories:
-- Tools
 date: 2019-04-06T00:00:00Z
 draft: false
 series:
@@ -13,6 +11,7 @@ tags:
 - Eleventy
 title: Eleventy
 year: '2019'
+category: tools
 ---
 
 Spring has sprung, and with it comes thoughts of new tools to build a Web site. Okay no the picture has

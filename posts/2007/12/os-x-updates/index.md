@@ -2,14 +2,13 @@
 aliases:
 - /blogspot/2007/12/20_os-x-updates.html
 - /post/2007/os-x-updates/
-categories:
-- Blogspot
 date: 2007-12-20T00:00:00Z
 tags:
 - os x
 title: OS X Updates
 type: post
 year: '2007'
+archived_category: blogspot
 ---
 Had to reinstall OS X late last night because something left our trusty iMac in an unbootable state and a simple Repair from the install disc wouldn't do the trick. This happened after running a system update, but I'm not sure I can blame Apple for this one. I also happened to interrupt a syncing iPod during that session. It's possible that either of those things could have whacked the filesystem tree. Of course, I would expect the iPod sync to whack the iPod. Still, I'm not exactly an expert on these matters.
 <!--more-->

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/06/02_pagetemplate.html
 - /post/2002/pagetemplate/
-categories:
-- coolnamehere
 date: 2002-06-02T00:00:00Z
 tags:
 - pagetemplate
@@ -11,6 +9,7 @@ title: PageTemplate
 type: post
 updated: 2015-03-22T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 <!--more-->
 ## Vital Information and Links

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2011/08/23_moose.html
 - /post/2011/moose/
-categories:
-- coolnamehere
 date: 2011-08-23T00:00:00Z
 tags:
 - perl
@@ -11,6 +9,7 @@ tags:
 title: Moose
 type: post
 year: '2011'
+archived_category: coolnamehere
 ---
 [Perl]: /tags/perl/
 [Moose]: https://metacpan.org/module/Moose

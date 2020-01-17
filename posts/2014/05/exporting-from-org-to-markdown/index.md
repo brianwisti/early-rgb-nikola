@@ -4,8 +4,6 @@ aliases:
 - /post/2014/exporting-from-org-to-markdown/
 announcements:
   twitter: https://twitter.com/brianwisti/status/467276373107544064
-categories:
-- tools
 date: 2014-05-16T00:00:00Z
 tags:
 - emacs
@@ -14,6 +12,7 @@ tags:
 title: Exporting From Org to Markdown
 type: post
 year: '2014'
+category: tools
 ---
 *TL;DR?* `C-h v org-export-backends` to ensure that Markdown export
 is available. `C-c C-e m m` invokes `org-md-export-to-markdown`. You

@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2009/06/09_python-blogger-refresh-part-1.html
 - /post/2009/python-blogger-refresh-part-1/
-categories:
-- Blogspot
 date: 2009-06-09T00:00:00Z
 tags:
 - blogger
@@ -16,6 +14,7 @@ updated: 2009-06-12T00:00:00Z
 year: '2009'
 series:
 - Python Blogger Refresh
+archived_category: blogspot
 ---
 
 <!--more-->

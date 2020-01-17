@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2005/12/26_learn-rebol.html
 - /post/2005/learn-rebol/
-categories:
-- coolnamehere
 date: 2004-12-25T00:00:00Z
 tags:
 - rebol
@@ -14,6 +12,7 @@ updated: 2009-07-11T00:00:00Z
 year: '2004'
 series:
 - REBOL Babysteps
+archived_category: coolnamehere
 ---
 <!--more-->
 

@@ -4,8 +4,6 @@ aliases:
 - /post/2014/perl-reply-repl/
 announcements:
   twitter: https://twitter.com/brianwisti/status/500033601124052992
-categories:
-- tools
 date: 2014-08-14T00:00:00Z
 series:
 - The Reply Perl REPL
@@ -17,6 +15,7 @@ title: REPL In Perl With Reply
 type: post
 updated: 2017-04-10T00:00:00Z
 year: '2014'
+category: tools
 ---
 
 [Reply]: https://metacpan.org/release/Reply

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2005/01/04_perl-babysteps.html
 - /post/2005/perl-babysteps/
-categories:
-- coolnamehere
 date: 2005-01-04T00:00:00Z
 tags:
 - perl
@@ -12,6 +10,7 @@ title: Perl Babysteps
 type: post
 updated: 2011-08-25T00:00:00Z
 year: '2005'
+archived_category: coolnamehere
 ---
 
 Let's admit it. Perl is *everywhere*. It powers most of the Internet, in 

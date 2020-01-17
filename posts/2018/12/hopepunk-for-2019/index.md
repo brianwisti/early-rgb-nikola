@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1079806993223675904
-categories:
-- Marginalia
 date: 2018-12-31T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 title: Hopepunk for 2019
 updated: 2019-02-16T00:00:00Z
 year: '2018'
+category: marginalia
 ---
 
 Writing these late night thoughts is as close as I get to making resolutions.

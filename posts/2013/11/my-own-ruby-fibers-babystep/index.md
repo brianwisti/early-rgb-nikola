@@ -2,14 +2,13 @@
 aliases:
 - /programming/2013/11/25_my-own-ruby-fibers-babystep.html
 - /post/2013/my-own-ruby-fibers-babystep/
-categories:
-- programming
 date: 2013-11-25T00:00:00Z
 tags:
 - ruby
 title: My Own Ruby Fibers Babystep
 type: post
 year: '2013'
+category: programming
 ---
 [old static pages]: /categories/coolnamehere/
 

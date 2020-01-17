@@ -3,8 +3,6 @@ announcement: In which I use Crystal for a simple shell task
 announcements:
   mastodon: https://hackers.town/@randomgeek/102680987046371636
   twitter: https://twitter.com/brianwisti/status/1165817982104346624
-categories:
-- Programming
 date: 2019-08-25
 tags:
 - crystal
@@ -12,6 +10,7 @@ tags:
 title: Trying the Crystal Language
 updated: 2019-08-28
 year: '2019'
+category: programming
 ---
 :source-highlighter: rouge
 

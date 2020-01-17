@@ -6,8 +6,7 @@ draft: false
 tags:
 - knitting
 - vest
-categories:
-- craft
+category: craft
 ---
 Finished this last month, but the blog fell behind a bit.
 <!--more-->

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/06/02_pagetemplate-history.html
 - /post/2002/pagetemplate-history/
-categories:
-- coolnamehere
 date: 2002-06-02T00:00:00Z
 tags:
 - pagetemplate
@@ -11,6 +9,7 @@ title: PageTemplate History
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 
 I'll admit it. This list is very bad. Nevertheless, I keep telling myself it's better than nothing.

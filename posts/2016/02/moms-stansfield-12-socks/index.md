@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2016/moms-stansfield-12-socks/
-categories:
-- craft
 date: 2016-02-07T00:00:00Z
 image: /img/2016/moms-stansfield-socks-wrapped-medium.jpg
 tags:
@@ -11,6 +9,7 @@ tags:
 thumbnail: /img/2016/moms-stansfield-socks-wrapped-thumbnail.jpg
 title: Mom's Stansfield 12 Socks
 year: '2016'
+category: craft
 ---
 After more than ten years knitting, I finally had enough confidence in my ability
 to make something for Mom.

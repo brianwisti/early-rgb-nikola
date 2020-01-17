@@ -5,8 +5,7 @@ year: '2017'
 draft: false
 tags:
 - site
-categories:
-- marginalia
+category: marginalia
 ---
 Trying to add Disqus comments once again. I adjusted permalinks, since the old `/:section/:year/:title/`
 structure seemed to confuse Disqus. Here's hoping. I assigned aliases to content so that old links should

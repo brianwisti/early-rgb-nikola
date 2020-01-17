@@ -4,8 +4,6 @@ aliases:
 - /craft/2015/zentangle-doodle/
 announcements:
   twitter: https://twitter.com/brianwisti/status/627375512445427712
-categories:
-- craft
 date: 2015-08-01T00:00:00Z
 description: Trying to get back into the habit of drawing regularly.
 image: /img/2015/tangle-01-medium.png
@@ -15,6 +13,7 @@ tags:
 thumbnail: /img/2015/tangle-01-medium-thumbnail.png
 title: Zentangle Doodle
 year: '2015'
+category: craft
 ---
 [Zentangle]: https://www.zentangle.com/
 Trying to get back into the habit of drawing regularly. This is a

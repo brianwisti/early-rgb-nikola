@@ -2,8 +2,6 @@
 aliases:
 - /programming/2014/10/02_counting-words.html
 - /post/2014/counting-words/
-categories:
-- programming
 date: 2014-10-02T00:00:00Z
 description: Using Ruby to track my verbosity
 tags:
@@ -11,6 +9,7 @@ tags:
 title: Counting Words in Blog Posts
 type: post
 year: '2014'
+category: programming
 ---
 I want to write at least 250 words per day. This is not a 30 day
 challenge. It is just something I want to do. I write more than 250

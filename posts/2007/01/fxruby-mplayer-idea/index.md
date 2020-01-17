@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2007/01/30_fxruby-mplayer-idea.html
 - /post/2007/fxruby-mplayer-idea/
-categories:
-- Blogspot
 date: 2007-01-30T00:00:00Z
 tags:
 - project
@@ -11,6 +9,7 @@ tags:
 title: FXRuby MPlayer Idea
 type: post
 year: '2007'
+archived_category: blogspot
 ---
 A few weeks back I wrote up a GUI front-end for <a href="http://www.mplayerhq.hu/">mplayer</a>. It works nice enough, but it suffers from a few aesthetic issues:
 <!--more-->

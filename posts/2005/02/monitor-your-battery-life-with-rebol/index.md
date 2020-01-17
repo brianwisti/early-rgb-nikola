@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2005/02/28_monitor-your-battery-life.html
 - /post/2005/monitor-your-battery-life/
-categories:
-- coolnamehere
 date: 2005-02-28T00:00:00Z
 tags:
 - rebol
@@ -12,6 +10,7 @@ title: Monitor Your Battery Life With REBOL
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2005'
+archived_category: coolnamehere
 ---
 
 One thing you like to keep track of on your laptop is how much juice is left 

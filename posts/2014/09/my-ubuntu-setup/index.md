@@ -2,14 +2,13 @@
 aliases:
 - /tools/2014/09/17_my-ubuntu-setup.html
 - /post/2014/my-ubuntu-setup/
-categories:
-- tools
 date: 2014-09-17T00:00:00Z
 tags:
 - linux
 title: My Ubuntu Setup
 type: post
 year: '2014'
+category: tools
 ---
 I installed [Ubuntu](http://ubuntu.com) 14.04 on a partition of my laptop today. This is not a
 novelty. What *is* unusual is the fact that today I decided to track

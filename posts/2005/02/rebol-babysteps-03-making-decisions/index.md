@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2005/02/27_03-making-decisions.html
 - /post/2005/03-making-decisions/
-categories:
-- coolnamehere
 date: 2005-02-27T00:00:00Z
 tags:
 - rebol
@@ -14,6 +12,7 @@ updated: 2009-07-11T00:00:00Z
 year: '2005'
 series:
 - REBOL Babysteps
+archived_category: coolnamehere
 ---
 
 [part 1]: /post/2004/01-getting-started/

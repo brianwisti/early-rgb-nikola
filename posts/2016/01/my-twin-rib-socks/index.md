@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2016/my-twin-rib-socks/
-categories:
-- craft
 date: 2016-01-30T00:00:00Z
 image: /img/2016/my-twin-rib-socks-medium.jpg
 tags:
@@ -11,6 +9,7 @@ tags:
 thumbnail: /img/2016/my-twin-rib-socks-thumbnail.jpg
 title: My Twin Rib Socks
 year: '2016'
+category: craft
 ---
 Took me a couple months, mainly because I started a pair for my mom while
 in the middle of making this pair.

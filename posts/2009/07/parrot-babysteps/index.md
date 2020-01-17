@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/07/11_parrot-babysteps.html
 - /post/2009/parrot-babysteps/
-categories:
-- coolnamehere
 date: 2009-07-10T00:00:00Z
 tags:
 - parrot
@@ -14,6 +12,7 @@ updated: 2019-05-13T00:00:00Z
 year: '2009'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 This is the introduction to Parrot Babysteps, my archived Parrot PIR tutorial.
 <!--more-->

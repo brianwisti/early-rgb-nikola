@@ -4,14 +4,13 @@ announcements:
   facebook: https://www.facebook.com/brianwisti/posts/10157926545034665
   mastodon: https://hackers.town/@randomgeek/102661524295419673
   twitter: https://twitter.com/brianwisti/status/1164572447707979779
-categories:
-- Craft
 date: 2019-08-22
 tags:
 - drawing
 - Infinite Painter
 title: Chaotic Symmetry
 year: '2019'
+category: craft
 ---
 
 

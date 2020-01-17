@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1031343694673104896
-categories:
-- marginalia
 date: 2018-08-19T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - exploring
 title: Island Center Forest
 year: '2018'
+category: marginalia
 ---
 
 [Island Center Forest][] contains roughly ten miles of trails. I walked about six of them yesterday. Today my

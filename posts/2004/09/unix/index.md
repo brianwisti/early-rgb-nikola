@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/09/15_unix.html
 - /post/2004/unix/
-categories:
-- coolnamehere
 date: 2004-09-15T00:00:00Z
 tags:
 - unix
@@ -11,6 +9,7 @@ title: UNIX
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 
 People who come to UNIX (or [Linux](http://www.linux.org/)) from the world of

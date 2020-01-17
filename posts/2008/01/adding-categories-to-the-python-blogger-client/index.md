@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2008/01/02_adding-categories-to-python-blogger.html
 - /post/2008/adding-categories-to-python-blogger/
-categories:
-- Blogspot
 date: 2008-01-02T00:00:00Z
 tags:
 - blogger
@@ -13,6 +11,7 @@ title: Adding Categories to the Python Blogger Client
 type: post
 update: 2009-06-09
 year: '2008'
+archived_category: blogspot
 ---
 [Python Blogger refresh]: /post/2009/python-blogger-refresh-part-1/
 

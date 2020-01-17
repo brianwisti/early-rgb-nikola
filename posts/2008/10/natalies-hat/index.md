@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2008/natalies-hat/
-categories:
-- craft
 date: 2008-10-01T00:00:00Z
 image: /img/2015/natalies-hat.jpg
 posts:
@@ -14,5 +12,6 @@ tags:
 thumbnail: /img/2015/natalies-hat-thumbnail.jpg
 title: Natalie's Hat
 year: '2008'
+category: craft
 ---
 Now for a hat using the same yarn I used for her sweater.

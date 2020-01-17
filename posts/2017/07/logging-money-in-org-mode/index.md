@@ -1,8 +1,6 @@
 ---
 aliases:
 - /post/2017/logging-money-in-org-mode/
-categories:
-- tools
 date: 2017-07-31T00:00:00Z
 draft: false
 tags:
@@ -11,6 +9,7 @@ tags:
 title: Logging Money In Org Mode
 updated: 2017-08-05T00:00:00Z
 year: '2017'
+category: tools
 ---
 I am setting up Emacs [org mode][] to track how I use my money. This is a healthy habit, which I applied in
 the past with a little paper notebook. This needs to be as easy as that little notebook, or I will never use

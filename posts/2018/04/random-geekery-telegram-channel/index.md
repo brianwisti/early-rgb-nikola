@@ -1,6 +1,4 @@
 ---
-categories:
-- marginalia
 date: 2018-04-10T00:00:00Z
 draft: false
 tags:
@@ -8,6 +6,7 @@ tags:
 - site
 title: Random Geekery Telegram Channel
 year: '2018'
+category: marginalia
 ---
 
 I started experimenting with the [Telegram][] messaging platform. [Signal][] too, but Telegram's [API][] looks

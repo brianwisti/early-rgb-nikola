@@ -2,14 +2,13 @@
 aliases:
 - /tools/2014/06/22_what-is-build-essentials-for-opensuse.html
 - /post/2014/what-is-build-essentials-for-opensuse/
-categories:
-- tools
 date: 2014-06-22T00:00:00Z
 tags:
 - suse
 title: What is build-essentials for openSUSE
 type: post
 year: '2014'
+category: tools
 ---
 *TL;DR* `devel_basis`
 <!--more-->

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/06/02_variables.html
 - /post/2002/variables/
-categories:
-- coolnamehere
 date: 2002-06-02T00:00:00Z
 tags:
 - pagetemplate
@@ -11,6 +9,7 @@ title: PageTemplate - Variables
 type: post
 updated: 2009-11-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 <!--more-->
 The major directives require *variables*, which are just names for the value 

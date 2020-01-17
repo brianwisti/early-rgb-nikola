@@ -2,14 +2,13 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/102167342505236721
   twitter: https://twitter.com/brianwisti/status/1132944399011405825
-categories:
-- Tools
 date: 2019-05-27T00:00:00Z
 tags:
 - shell
 title: Kitty Terminal
 updated: 2019-05-27T00:00:00Z
 year: '2019'
+category: tools
 ---
 
 

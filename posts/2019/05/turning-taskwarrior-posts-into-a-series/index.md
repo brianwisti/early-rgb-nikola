@@ -2,8 +2,6 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/102082058493417205
   twitter: https://twitter.com/brianwisti/status/1127486161340063745
-categories:
-- Tools
 date: 2019-05-12T00:00:00Z
 tags:
 - taskwarrior
@@ -11,6 +9,7 @@ tags:
 - site
 title: Turning Taskwarrior Posts Into a Series
 year: '2019'
+category: tools
 ---
 
 There's a new taxonomy for posts that are written in a particular order!

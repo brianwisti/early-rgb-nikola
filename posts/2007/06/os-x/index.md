@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2007/06/13_os-x.html
 - /post/2007/os-x/
-categories:
-- coolnamehere
 date: 2007-06-13T00:00:00Z
 tags:
 - os x
@@ -11,6 +9,7 @@ title: OS X
 type: post
 updated: 2006-04-25T00:00:00Z
 year: '2007'
+archived_category: coolnamehere
 ---
 This is a dumping ground for anything I've figured out to make command line
 existence on a Mac nearly as pleasant as sitting and looking at all the pretty

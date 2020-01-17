@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/12/16_08-testing-with-test-more.html
 - /post/2009/08-testing-with-test-more/
-categories:
-- coolnamehere
 date: 2009-12-16T00:00:00Z
 tags:
 - parrot
@@ -14,6 +12,7 @@ updated: 2011-04-12T00:00:00Z
 year: '2009'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 
 [Tapir]: http://github.com/leto/tapir

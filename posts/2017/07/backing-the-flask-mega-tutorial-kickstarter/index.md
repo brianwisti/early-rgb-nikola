@@ -1,14 +1,13 @@
 ---
 aliases:
 - /post/2017/backing-the-flask-mega-tutorial-kickstarter/
-categories:
-- marginalia
 date: 2017-07-09T00:00:00Z
 draft: false
 tags:
 - python
 title: Backing The Flask Mega Tutorial Kickstarter
 year: '2017'
+category: marginalia
 ---
 Miguel Grenbergs' [Flask Mega-Tutorial][] and [book][] helped me understand using Python's [Flask microframework][]. Well, somewhat.
 My understanding would improve if I used it more. Haven't taken advantage of the opportunity yet.

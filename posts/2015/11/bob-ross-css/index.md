@@ -1,8 +1,6 @@
 ---
 aliases:
 - /post/2015/bob-ross-css/
-categories:
-- tools
 date: 2015-11-29T00:00:00Z
 description: 'Note to self: use the Bob Ross CSS that Thomas Park conveniently worked
   out.'
@@ -10,6 +8,7 @@ tags:
 - css
 title: Bob Ross CSS
 year: '2015'
+category: tools
 ---
 Note to self: use the [Bob Ross CSS][] that [Thomas Park][] conveniently worked out.
 [Bob Ross CSS]: https://gist.github.com/thomaspark/41f381048adcceb6d261

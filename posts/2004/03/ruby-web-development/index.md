@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/03/10_ruby-web-development.html
 - /post/2004/ruby-web-development/
-categories:
-- coolnamehere
 date: 2004-03-10T00:00:00Z
 tags:
 - ruby
@@ -12,6 +10,7 @@ title: Ruby Web Development
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 <!--more-->
 As much as I admire the clever braintwistings of <a href="http://www.freeride.rubyforge.org/">FreeRide</a> and the many other excellent projects that are 

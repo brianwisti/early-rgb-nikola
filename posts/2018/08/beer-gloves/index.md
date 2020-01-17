@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1025894930600718336
-categories:
-- craft
 date: 2018-08-04T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - gloves
 title: Beer Gloves
 year: '2018'
+category: craft
 ---
 
 

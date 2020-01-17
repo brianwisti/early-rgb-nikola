@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2007/01/25_gnu-screen.html
 - /post/2007/gnu-screen/
-categories:
-- coolnamehere
 date: 2007-01-25T00:00:00Z
 tags:
 - unix
@@ -11,6 +9,7 @@ title: GNU screen
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2007'
+archived_category: coolnamehere
 ---
 
 Sometimes it's helpful to have multiple consoles open. The best example I can 

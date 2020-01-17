@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/948398630695612416
-categories:
-- tools
 date: 2018-01-02T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - taskwarrior
 title: Taskwarrior Due Dates
 year: '2018'
+category: tools
 ---
 
 I checked out some library books again. Time to correctly record their due

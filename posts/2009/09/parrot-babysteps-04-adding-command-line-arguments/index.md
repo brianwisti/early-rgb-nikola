@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/09/17_04-adding-command-line-arguments.html
 - /post/2009/04-adding-command-line-arguments/
-categories:
-- coolnamehere
 date: 2009-09-17T00:00:00Z
 tags:
 - parrot
@@ -14,6 +12,7 @@ updated: 2010-07-21T00:00:00Z
 year: '2009'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 
 [Parrot Babysteps]: /post/2009/parrot-babysteps/

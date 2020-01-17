@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/12/26_rebol-datatypes.html
 - /post/2004/rebol-datatypes/
-categories:
-- coolnamehere
 date: 2004-12-26T00:00:00Z
 tags:
 - rebol
@@ -11,6 +9,7 @@ title: REBOL Datatypes
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 
 One of [REBOL](http://www.rebol.com/)'s strengths is the rich selection of 

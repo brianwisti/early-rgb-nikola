@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2011/04/19_spreadsheet-story-1-general-idea.html
 - /post/2011/spreadsheet-story-1-general-idea/
-categories:
-- Blogspot
 date: 2011-04-19T00:00:00Z
 tags:
 - google apps script
@@ -11,6 +9,7 @@ tags:
 title: The Spreadsheet Story 1
 type: post
 year: '2011'
+archived_category: blogspot
 ---
 
 [marysplace-rails]: https://github.com/brianwisti/marysplace-rails

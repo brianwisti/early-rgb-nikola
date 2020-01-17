@@ -3,8 +3,6 @@ aliases:
 - /post/2017/hugo-archetype-templates/
 announcements:
   twitter: https://twitter.com/brianwisti/status/881595135540080640
-categories:
-- Tools
 date: 2017-07-01T00:00:00Z
 draft: false
 tags:
@@ -13,6 +11,7 @@ tags:
 - bash
 title: Hugo Archetype Templates
 year: '2017'
+category: tools
 ---
 I try out archetype templates from the Hugo static site generator, smoothing the whole thing into my
 workflow with a bash script.

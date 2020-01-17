@@ -1,12 +1,11 @@
 ---
 aliases:
 - /post/2017/amazon-donates-space-for-marys-place-home/
-categories:
-- marginalia
 date: 2017-05-11T00:00:00Z
 draft: 'false'
 title: Amazon Donates Space For Mary's Place Home
 year: '2017'
+category: marginalia
 ---
 My [main code hobby project][] is for [Mary's Place][], a local homeless
 shelter network in Seattle. It was immensely satisfying to see their

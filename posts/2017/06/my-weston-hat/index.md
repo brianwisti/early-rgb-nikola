@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2017/my-weston-hat/
-categories:
-- craft
 date: 2017-06-28T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - hat
 title: My Weston Hat
 year: '2017'
+category: craft
 ---
 Ended up knitting this one twice. Tried the large size first, and it ended up way too large for my taste.
 Frogged and restarted the smaller size, making a new set of mistakes. But the hat fits now and I'm not

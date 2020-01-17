@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/964955519587729408
-categories:
-- craft
 date: 2018-02-17T00:00:00Z
 draft: false
 tags:
@@ -12,6 +10,7 @@ tags:
 title: My Sloppy Floppy Fingerless Mitten
 updated: 2018-02-17T00:00:00Z
 year: '2018'
+category: craft
 ---
 
 I knit a fingerless mitten. Mistakes were made. I also figured out some stuff about Hugo Page Bundles and

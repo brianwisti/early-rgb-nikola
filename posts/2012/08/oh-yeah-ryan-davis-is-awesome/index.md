@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2012/08/20_oh-yeah-ryan-davis-is-awesome.html
 - /post/2012/oh-yeah-ryan-davis-is-awesome/
-categories:
-- Blogspot
 date: 2012-08-20T00:00:00Z
 draft: 'false'
 tags:
@@ -11,6 +9,7 @@ tags:
 title: Oh yeah, Ryan Davis is awesome
 type: post
 year: '2012'
+archived_category: blogspot
 ---
 
 [this talk from Ryan Davis at Cascadia RubyConf]: http://confreaks.com/videos/1085-cascadiaruby2012-occupy-ruby-why-we-need-to-moderate-the-1

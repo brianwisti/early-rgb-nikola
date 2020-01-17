@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/12/26_02-getting-started-with-view.html
 - /post/2004/02-getting-started-with-view/
-categories:
-- coolnamehere
 date: 2004-12-26T00:00:00Z
 tags:
 - rebol
@@ -14,6 +12,7 @@ updated: 2009-07-11T00:00:00Z
 year: '2004'
 series:
 - REBOL Babysteps
+archived_category: coolnamehere
 ---
 
 I'm sure you thought that getting started was fun, but it really didn't do 

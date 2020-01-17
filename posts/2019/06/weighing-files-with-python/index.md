@@ -2,8 +2,6 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/102199106551447993
   twitter: https://twitter.com/brianwisti/status/1134977256684761089
-categories:
-- programming
 date: 2019-06-01T00:00:00Z
 tags:
 - python
@@ -11,6 +9,7 @@ tags:
 title: Weighing Files With Python
 updated: 2019-06-02T00:00:00Z
 year: '2019'
+category: programming
 ---
 
 I want to optimize this site's file sizes, but first I should see if I need to.

@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1092993084428738560
-categories:
-- Craft
 date: 2019-02-05T00:00:00Z
 draft: false
 store:
@@ -15,6 +13,7 @@ tags:
 - buy me
 title: Three Circles
 year: '2019'
+category: craft
 ---
 
 That [circle template][] I mentioned a couple weeks ago? Well, I made it so I could draw stuff like this!

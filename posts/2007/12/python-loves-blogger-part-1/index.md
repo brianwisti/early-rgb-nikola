@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2007/12/28_python-loves-blogger.html
 - /post/2007/python-loves-blogger/
-categories:
-- Blogspot
 date: 2007-12-28T00:00:00Z
 tags:
 - blogger
@@ -12,6 +10,7 @@ title: Python Loves Blogger (Part 1)
 type: post
 updated: 2015-03-28T00:00:00Z
 year: '2007'
+archived_category: blogspot
 ---
 [here]: /post/2009/python-blogger-refresh-part-1/
 I've revisited the code for Blogger posting with Python. Start [here][] to see the new starting point.

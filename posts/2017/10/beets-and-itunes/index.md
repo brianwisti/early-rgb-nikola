@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/914570723456200704
-categories:
-- tools
 date: 2017-10-01T00:00:00Z
 draft: false
 tags:
@@ -12,6 +10,7 @@ tags:
 title: Beets and iTunes
 updated: 2017-10-02T00:00:00Z
 year: '2017'
+category: tools
 ---
 
 My macOS iTunes music library includes over 21,000 songs. Some of those tracks contain the wrong information. Wrong

@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/975486724062105600
-categories:
-- craft
 date: 2018-03-18T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - hat
 title: My Replacement Boy Beanie
 year: '2018'
+category: craft
 ---
 
 I crocheted another "Boy Beanie" from [Stitch 'n Bitch Crochet][]. This time I followed the pattern!

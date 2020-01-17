@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2011/04/11_my-parrot-and-rakudo-todo.html
 - /post/2011/my-parrot-and-rakudo-todo/
-categories:
-- Blogspot
 date: 2011-04-11T00:00:00Z
 tags:
 - parrot
@@ -11,6 +9,7 @@ tags:
 title: My Parrot and Rakudo TODO
 type: post
 year: '2011'
+archived_category: blogspot
 ---
 This is more of a personal reminder than a big announcement or anything like that. I have a tendency to get an idea in my &nbsp;head and then lose it when a bright shiny object comes into my field of view.<br />
 <br />

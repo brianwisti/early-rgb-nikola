@@ -2,14 +2,13 @@
 aliases:
 - /tools/2015/07/09_use-cpan-outdated.html
 - /post/2015/use-cpan-outdated/
-categories:
-- tools
 date: 2015-07-09T00:00:00Z
 tags:
 - perl
 title: Use cpan-outdated
 type: post
 year: '2015'
+category: tools
 ---
 [cpan-outdated]: https://metacpan.org/pod/distribution/cpan-outdated/script/cpan-outdated
 [TOKUHIROM]: https://metacpan.org/author/TOKUHIROM

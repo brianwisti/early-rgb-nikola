@@ -2,13 +2,12 @@
 aliases:
 - /coolnamehere/2001/12/29_about-brian.html
 - /post/2001/about-brian/
-categories:
-- coolnamehere
 date: 2001-12-29T00:00:00Z
 title: About Brian
 type: post
 updated: 2017-04-09T00:00:00Z
 year: '2001'
+archived_category: coolnamehere
 ---
 
 ****

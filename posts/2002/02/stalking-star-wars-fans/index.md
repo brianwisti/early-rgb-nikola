@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/02/11_stalking-star-wars-fans.html
 - /post/2002/stalking-star-wars-fans/
-categories:
-- coolnamehere
 date: 2002-02-11T00:00:00Z
 tags:
 - babblings
@@ -11,6 +9,7 @@ title: Stalking Star Wars Fans
 type: post
 updated: 2017-04-09T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 
 <aside>

@@ -1,14 +1,13 @@
 ---
 aliases:
 - /post/2017/maybe-ration-my-time-in-hot-take-land/
-categories:
-- marginalia
 date: 2017-03-13T00:00:00Z
 tags:
 - personal
 title: Maybe Ration My Time In Hot Take Land
 updated: 2017-03-15T00:00:00Z
 year: '2017'
+category: marginalia
 ---
 I dunno, folks. Over the years I have seen so much [outrage][] - sincere or feigned - on social media.
 Then there's the [echo chamber][] problem. Yeah. Nice thing about an RSS feed is that I'm guaranteed to see

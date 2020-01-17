@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/961804226476167169
-categories:
-- craft
 date: 2018-02-08T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - hat
 title: A Couple Crochet Hats
 year: '2018'
+category: craft
 ---
 
 I crocheted two hats from [Stitch 'N Bitch Crochet][] over the last week or so.

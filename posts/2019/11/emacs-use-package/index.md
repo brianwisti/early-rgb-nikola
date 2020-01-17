@@ -1,8 +1,6 @@
 ---
 author:
 - Random Geek
-categories:
-- Tools
 date: 2019-11-09
 draft: false
 tags:
@@ -11,6 +9,7 @@ tags:
 title: Emacs use-package
 updated: 2019-11-17T12:15:12-08:00
 year: '2019'
+category: tools
 ---
 
 Just declared `.emacs` bankruptcy. Starting over with [`use-package`](https://github.com/jwiegley/use-package).

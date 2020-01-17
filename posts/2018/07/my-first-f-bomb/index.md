@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1013516279834034176
-categories:
-- craft
 date: 2018-07-01T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - crochet
 title: My First F Bomb
 year: '2018'
+category: craft
 ---
 
 Took a break this weekend with a quick yarn project.

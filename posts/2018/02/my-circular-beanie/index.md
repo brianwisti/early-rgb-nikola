@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/961443397788614656
-categories:
-- craft
 date: 2018-02-07T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - hat
 title: My Circular Beanie
 year: '2018'
+category: craft
 ---
 
 I made myself a snug beanie hat by knitting in the round.

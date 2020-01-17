@@ -2,8 +2,6 @@
 aliases:
 - /marginalia/2014/10/03_coursera-proglang.html
 - /post/2014/coursera-proglang/
-categories:
-- marginalia
 date: 2014-10-03T00:00:00Z
 description: A quick confession about learning how to learn
 tags:
@@ -11,6 +9,7 @@ tags:
 title: Starting The Coursera Programming Languages Course
 type: post
 year: '2014'
+category: marginalia
 ---
 [Programming Languages]: https://www.coursera.org/course/proglang
 [Coursera]: https://www.coursera.org/

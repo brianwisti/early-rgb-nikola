@@ -4,8 +4,6 @@ aliases:
 - /post/2014/and-now-pelican/
 announcements:
   twitter: https://twitter.com/brianwisti/status/481771033590919168
-categories:
-- marginalia
 date: 2014-06-23T00:00:00Z
 tags:
 - pelican
@@ -13,6 +11,7 @@ tags:
 title: And now, Pelican!
 type: post
 year: '2014'
+category: marginalia
 ---
 I know. I'm fickle. Maybe this one will stick for a while. *Edit: Nope.*
 <!--more-->

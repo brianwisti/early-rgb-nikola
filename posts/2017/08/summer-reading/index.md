@@ -3,14 +3,13 @@ aliases:
 - /post/2017/summer-reading/
 announcements:
   twitter: https://twitter.com/brianwisti/status/898433031416889344
-categories:
-- marginalia
 date: 2017-08-17T00:00:00Z
 draft: false
 tags:
 - books
 title: Summer Reading
 year: '2017'
+category: marginalia
 ---
 
 What have I been doing with my spare time? I've been reading books. Not too much. Mostly tech.

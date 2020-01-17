@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/07/11_perl-6.html
 - /post/2009/perl-6/
-categories:
-- coolnamehere
 date: 2009-07-11T00:00:00Z
 tags:
 - perl
@@ -12,6 +10,7 @@ title: Perl 6
 type: post
 updated: 2010-09-08T00:00:00Z
 year: '2009'
+archived_category: coolnamehere
 ---
 
 [Perl 6]: http://perl6.org

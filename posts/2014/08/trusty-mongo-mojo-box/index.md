@@ -4,8 +4,6 @@ aliases:
 - /post/2014/trusty-mongo-mojo/
 announcements:
   twitter: https://twitter.com/brianwisti/status/496796921269198848
-categories:
-- tools
 date: 2014-08-05T00:00:00Z
 tags:
 - virtualization
@@ -16,6 +14,7 @@ tags:
 title: Trusty Mongo Mojo Box
 type: post
 year: '2014'
+category: tools
 ---
 [MongoDB]: https://www.mongodb.org/
 [Mojolicious]: http://mojolicio.us/

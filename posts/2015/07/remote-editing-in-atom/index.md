@@ -2,8 +2,6 @@
 aliases:
 - /tools/2015/07/16_remote-editing-in-atom.html
 - /post/2015/remote-editing-in-atom/
-categories:
-- tools
 date: 2015-07-16T00:00:00Z
 description: I am slowly learning more about how to use Atom for real work.
 tags:
@@ -11,6 +9,7 @@ tags:
 title: Remote Editing In Atom
 type: post
 year: '2015'
+category: tools
 ---
 [Atom]: https://atom.io
 [remote-atom]: https://atom.io/packages/remote-atom

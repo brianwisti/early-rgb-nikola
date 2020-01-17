@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2008/01/02_reinstalling-jruby.html
 - /post/2008/reinstalling-jruby/
-categories:
-- Blogspot
 date: 2008-01-02T00:00:00Z
 tags:
 - java
@@ -12,6 +10,7 @@ tags:
 title: Reinstalling JRuby
 type: post
 year: '2008'
+archived_category: blogspot
 ---
 [JRuby]: http://jruby.org
 I'm still getting everything back together after the iMac upgrade fiasco. [JRuby][],

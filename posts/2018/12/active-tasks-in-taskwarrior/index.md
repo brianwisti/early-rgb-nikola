@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1069017480306147328
-categories:
-- Tools
 date: 2018-12-01T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - taskwarrior
 title: Active Tasks in Taskwarrior
 year: '2018'
+category: tools
 ---
 
 tl;dr: Use the `start`, `stop`, and `active` [Taskwarrior][] commands to manage what you're doing right now.

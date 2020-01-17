@@ -2,8 +2,6 @@
 aliases:
 - /tools/2015/07/27_itunes-to-rhythmbox.html
 - /post/2015/itunes-to-rhythmbox/
-categories:
-- tools
 date: 2015-07-27T00:00:00Z
 description: I nearly wrote a script that transfers my iTunes ratings to Rhythmbox.
   Instead I used Edgar Salgado's version of iTunesToRhythm.
@@ -14,6 +12,7 @@ tags:
 title: iTunes to Rhythmbox
 type: post
 year: '2015'
+category: tools
 ---
 [iTunes ratings]: /post/2015/ruby-itunes-ratings-fun/
 [Rhythmbox]: https://wiki.gnome.org/Apps/Rhythmbox

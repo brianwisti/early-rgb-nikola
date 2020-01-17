@@ -2,14 +2,13 @@
 aliases:
 - /blogspot/2008/01/30_php-extract-and-compact-functions.html
 - /post/2008/php-extract-and-compact-functions/
-categories:
-- Blogspot
 date: 2008-01-30T00:00:00Z
 tags:
 - php
 title: PHP's extract and compact functions
 type: post
 year: '2008'
+archived_category: blogspot
 ---
 
 [PHP]: http://php.net

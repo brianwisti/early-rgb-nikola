@@ -2,14 +2,13 @@
 aliases:
 - /blogspot/2011/04/14_elaborate-answers-to-simple-questions.html
 - /post/2011/elaborate-answers-to-simple-questions/
-categories:
-- Blogspot
 date: 2011-04-14T00:00:00Z
 tags:
 - python
 title: Elaborate Answers To Simple Questions
 type: post
 year: '2011'
+archived_category: blogspot
 ---
 <p><strong>tl;dr</strong>: Use <tt>string</tt> methods instead of importing <tt>string</tt>. Build email messages with the standard <a href="http://docs.python.org/library/email.html">email</a> library.</p>
 <!--more-->

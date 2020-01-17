@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/12/09_nqp-not-quite-perl.html
 - /post/2009/nqp-not-quite-perl/
-categories:
-- coolnamehere
 date: 2009-12-09T00:00:00Z
 tags:
 - parrot
@@ -11,6 +9,7 @@ tags:
 title: NQP - Not Quite Perl
 type: post
 year: '2009'
+archived_category: coolnamehere
 ---
 
 [Parrot]: http://parrot.org

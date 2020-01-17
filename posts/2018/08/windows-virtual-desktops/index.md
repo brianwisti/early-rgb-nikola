@@ -1,12 +1,11 @@
 ---
-categories:
-- tools
 date: 2018-08-30T00:00:00Z
 draft: false
 tags:
 - windows
 title: Windows Virtual Desktops
 year: '2018'
+category: tools
 ---
 
 A short post noting Windows 10 keyboard shortcuts for virtual desktops

@@ -3,12 +3,11 @@ title: DWIM is consistent
 date: 2019-12-27
 draft: false
 year: '2019'
-categories:
-- Programming
 tags:
 - perl
 - python
 - DWIM
+category: programming
 ---
 
 Moshe Zadka has been [writing][] a mostly excellent exploration of the [Zen of Python][] for [Opensource.com][].

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2010/09/09_rakudo-babysteps.html
 - /post/2010/rakudo-babysteps/
-categories:
-- coolnamehere
 date: 2010-09-09T00:00:00Z
 tags:
 - rakudo
@@ -12,6 +10,7 @@ title: Rakudo Babysteps
 type: post
 updated: 2010-09-09T00:00:00Z
 year: '2010'
+archived_category: coolnamehere
 ---
 <!--more-->
 [Rakudo]: /tags/rakudo/

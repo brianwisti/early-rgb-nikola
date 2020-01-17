@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2007/04/19_interactive-fiction-with-python.html
 - /post/2007/interactive-fiction-with-python/
-categories:
-- coolnamehere
 date: 2007-04-18T00:00:00Z
 tags:
 - python
@@ -15,6 +13,7 @@ updated: 2009-07-11T00:00:00Z
 year: '2007'
 series:
 - Python Interactive Fiction
+archived_category: coolnamehere
 ---
 The idea for this article came from a coolnamehere reader 
 named Laura. Thanks, Laura! I was looking for good Python ideas.

@@ -2,14 +2,13 @@
 aliases:
 - /blogspot/2008/05/28_jquery-uis-getting-fancy.html
 - /post/2008/jquery-uis-getting-fancy/
-categories:
-- Blogspot
 date: 2008-05-28T00:00:00Z
 tags:
 - javascript
 title: JQuery UI's getting fancy
 type: post
 year: '2008'
+archived_category: blogspot
 ---
 <a href="http://jquery.com/">JQuery</a>'s my favorite JavaScript library by a long shot (very straightforward approach to manipulating page elements), and the <a href="http://ui.jquery.com/">JQuery UI</a> makes it even better (so much shiny). I'm looking forward to using it in future projects.
 

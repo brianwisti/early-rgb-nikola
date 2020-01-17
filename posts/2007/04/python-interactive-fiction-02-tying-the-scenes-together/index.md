@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2007/04/19_02-tying-the-scenes-together.html
 - /post/2007/02-tying-the-scenes-together/
-categories:
-- coolnamehere
 date: 2007-04-20T00:00:00Z
 tags:
 - python
@@ -15,6 +13,7 @@ updated: 2009-07-11T00:00:00Z
 year: '2007'
 series:
 - Python Interactive Fiction
+archived_category: coolnamehere
 ---
 
 [ongoing series]: /post/2007/interactive-fiction-with-python/

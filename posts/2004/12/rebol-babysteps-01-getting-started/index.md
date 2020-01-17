@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/12/26_01-getting-started.html
 - /post/2004/01-getting-started/
-categories:
-- coolnamehere
 date: 2004-12-26T00:00:00Z
 tags:
 - rebol
@@ -14,6 +12,7 @@ updated: 2017-04-09T00:00:00Z
 year: '2004'
 series:
 - REBOL Babysteps
+archived_category: coolnamehere
 ---
 
 [REBOL](http://www.rebol.com/) is the "Relative Expression-Based Object 

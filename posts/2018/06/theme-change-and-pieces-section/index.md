@@ -1,6 +1,4 @@
 ---
-categories:
-- marginalia
 date: 2018-06-29T00:00:00Z
 draft: false
 store:
@@ -13,6 +11,7 @@ tags:
 - drawing
 title: Theme Change and Pieces Section
 year: '2018'
+category: marginalia
 ---
 
 Yeah I switched the theme back — with some changes. May take a bit for the CDN to catch up. Also still

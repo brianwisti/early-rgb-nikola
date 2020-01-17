@@ -4,8 +4,6 @@ aliases:
 - /post/2015/making-a-jekyll-collection/
 announcements:
   twitter: https://twitter.com/brianwisti/status/622878343470256128
-categories:
-- tools
 date: 2015-07-19T00:00:00Z
 description: I am curious about Jekyll's experimental collections feature and whether
   it could be useful for me.
@@ -16,6 +14,7 @@ title: Making a Jekyll Collection
 type: post
 updated: 2015-08-07T00:00:00Z
 year: '2015'
+category: tools
 ---
 [Jekyll]: http://jekyllrb.com
 [collections]: http://jekyllrb.com/docs/collections/

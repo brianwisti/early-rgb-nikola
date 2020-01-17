@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/945369082076921856
-categories:
-- tools
 date: 2017-12-25T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - taskwarrior
 title: Taskwarrior Priorities
 year: '2017'
+category: tools
 ---
 
 Merry Christmas! Time to organize my [Taskwarrior](/tags/taskwarrior) tasks.

@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/932417066128125952
-categories:
-- craft
 date: 2017-11-19T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - hat
 title: My Ski Beanie
 year: '2017'
+category: craft
 ---
 Took me less than a week. I like that. On the other hand, I established for certain that when I knit fast my
 gauge loosens up. The hat fits looser than it should. I like that less. On the *other* other hand, I already

@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1006899778670612480
-categories:
-- craft
 date: 2018-06-13T00:00:00Z
 draft: false
 store:
@@ -15,6 +13,7 @@ tags:
 - buy me
 title: Vegvisir
 year: '2018'
+category: craft
 ---
 
 

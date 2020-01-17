@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/07/11_getting-it.html
 - /post/2002/getting-it/
-categories:
-- coolnamehere
 date: 2002-07-11T00:00:00Z
 tags:
 - pagetemplate
@@ -11,6 +9,7 @@ title: PageTemplate - Getting It
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 We have tried to make installing PageTemplate as easy as possible. There are three basic ways to install PageTemplate:
 <!--more-->

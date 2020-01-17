@@ -1,14 +1,13 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/934167921537855488
-categories:
-- Programming
 date: 2017-11-24T00:00:00Z
 draft: false
 tags:
 - python
 title: Drawing Grids With Python and Pillow
 year: '2017'
+category: programming
 ---
 Hey I used [Python][] and [Pillow][] to make grids for my drawing. Read on to watch my brain while I figured
 it out. Apologies for the minimal editing and the ridiculous number of images.

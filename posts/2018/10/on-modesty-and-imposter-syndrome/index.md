@@ -1,14 +1,13 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1054133667147051008
-categories:
-- marginalia
 date: 2018-10-21T00:00:00Z
 draft: false
 tags:
 - personal
 title: On Modesty And Imposter Syndrome
 year: '2018'
+category: marginalia
 ---
 
 

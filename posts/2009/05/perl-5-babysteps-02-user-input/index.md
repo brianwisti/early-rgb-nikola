@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/05/05_02-user-input.html
 - /post/2009/02-user-input/
-categories:
-- coolnamehere
 date: 2009-05-05T00:00:00Z
 tags:
 - perl
@@ -12,6 +10,7 @@ title: Perl 5 Babysteps 02 - User Input
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2009'
+archived_category: coolnamehere
 ---
 
 Having a program that displays the exact same message every time you

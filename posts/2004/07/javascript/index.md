@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2004/07/11_javascript.html
 - /post/2004/javascript/
-categories:
-- coolnamehere
 date: 2004-07-11T00:00:00Z
 tags:
 - javascript
 title: JavaScript
 type: post
 year: '2004'
+archived_category: coolnamehere
 ---
 
 [Perl]: /tags/perl/

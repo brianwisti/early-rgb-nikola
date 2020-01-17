@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1056381446934286336
-categories:
-- craft
 date: 2018-10-27T00:00:00Z
 draft: false
 tags:
@@ -11,6 +9,7 @@ tags:
 - gloves
 title: Winter Hat and Gloves
 year: '2018'
+category: craft
 ---
 
 I made  myself a hat and gloves in matching colors for winter.

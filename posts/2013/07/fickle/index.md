@@ -2,12 +2,11 @@
 aliases:
 - /marginalia/2013/07/23_fickle.html
 - /post/2013/fickle/
-categories:
-- marginalia
 date: 2013-07-23T00:00:00Z
 title: Fickle
 type: post
 year: '2013'
+category: marginalia
 ---
 I've got a pretty nice flow here. It's easy to make quick posts and have a mini blog along with the lengthy stuff - whenever I get around to those. 
 <!--more-->

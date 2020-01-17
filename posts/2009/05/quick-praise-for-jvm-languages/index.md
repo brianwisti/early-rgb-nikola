@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2009/05/15_quick-praise-for-jvm-languages.html
 - /post/2009/quick-praise-for-jvm-languages/
-categories:
-- Blogspot
 date: 2009-05-15T00:00:00Z
 tags:
 - groovy
@@ -13,6 +11,7 @@ tags:
 title: Quick Praise for JVM languages
 type: post
 year: '2009'
+archived_category: blogspot
 ---
 I've been digging a lot into the [Java][] world in the last few months at work. Not Java
 specifically, because the language still bugs me. Why does Java bug me? Honestly at this

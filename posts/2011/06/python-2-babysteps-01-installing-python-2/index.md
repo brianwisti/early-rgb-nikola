@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2011/06/16_01-installing-python-2.html
 - /post/2011/01-installing-python-2/
-categories:
-- coolnamehere
 date: 2011-06-16T00:00:00Z
 tags:
 - python
@@ -12,6 +10,7 @@ title: Python 2 Babysteps 01 Installing Python 2
 type: post
 updated: 2011-06-21T00:00:00Z
 year: '2011'
+archived_category: coolnamehere
 ---
 Think of this as Step Zero for the other Python tutorials out there.
 <!--more-->

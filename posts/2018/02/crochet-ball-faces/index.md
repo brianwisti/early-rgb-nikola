@@ -1,6 +1,4 @@
 ---
-categories:
-- craft
 date: 2018-02-28T00:00:00Z
 draft: false
 tags:
@@ -8,6 +6,7 @@ tags:
 - amigurumi
 title: Crochet Ball Faces
 year: '2018'
+category: craft
 ---
 
 I still aspire to learn [amigurumi][].

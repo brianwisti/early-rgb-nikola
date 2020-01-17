@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/941831058193924096
-categories:
-- craft
 date: 2017-12-15T00:00:00Z
 draft: false
 tags:
@@ -12,6 +10,7 @@ tags:
 - zentangle
 title: Knotwork Practice
 year: '2017'
+category: craft
 ---
 This started with practicing a knotwork pattern from [Celtic Art: The Methods of Construction][], and ended up
 as an exercise in how long I could add stuff before I got bored. Thirteen hours. Not bad.

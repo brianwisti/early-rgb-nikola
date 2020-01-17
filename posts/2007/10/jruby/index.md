@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2007/10/29_jruby.html
 - /post/2007/jruby/
-categories:
-- coolnamehere
 date: 2007-10-29T00:00:00Z
 tags:
 - ruby
@@ -11,6 +9,7 @@ title: JRuby
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2007'
+archived_category: coolnamehere
 ---
 
 [Ruby]: /tags/ruby/

@@ -2,14 +2,13 @@
 aliases:
 - /tools/2014/07/04_python3-venv.html
 - /post/2014/python3-venv/
-categories:
-- tools
 date: 2014-07-04T00:00:00Z
 tags:
 - python
 title: Python3 and pyvenv
 type: post
 year: '2014'
+category: tools
 ---
 [Python]: http://python.org
 [Pelican]: http://blog.getpelican.com/

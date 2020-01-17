@@ -2,8 +2,6 @@
 aliases:
 - /tools/2014/08/06_mongo-vagrant-connect.html
 - /post/2014/mongo-vagrant-connect/
-categories:
-- tools
 date: 2014-08-06T00:00:00Z
 tags:
 - vagrant
@@ -11,6 +9,7 @@ tags:
 title: Connect To MongoDB on a Vagrant box from the host
 type: post
 year: '2014'
+category: tools
 ---
 [Yesterday]: /post/2014/trusty-mongo-mojo/
 

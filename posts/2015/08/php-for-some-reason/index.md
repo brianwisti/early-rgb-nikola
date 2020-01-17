@@ -2,8 +2,6 @@
 aliases:
 - /programming/2015/08/14_php-for-some-reason.html
 - /post/2015/php-for-some-reason/
-categories:
-- programming
 date: 2015-08-14T00:00:00Z
 description: I have been looking at PHP for the first time in years. I don't know
   why.
@@ -12,6 +10,7 @@ tags:
 title: PHP, for Some Reason
 type: post
 year: '2015'
+category: programming
 ---
 I have been looking at [PHP][] for the first time in years. I don't know why.
 [PHP]: http://php.net/

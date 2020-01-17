@@ -2,14 +2,13 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/102132792782409820
   twitter: https://twitter.com/brianwisti/status/1130733283384410112
-categories:
-- Tools
 date: 2019-05-20T00:00:00Z
 tags:
 - site
 - hugo
 title: Chronological Taxonomy Listings in Hugo
 year: '2019'
+category: tools
 ---
 
 The archive pages now list tags and categories such that the ones with most

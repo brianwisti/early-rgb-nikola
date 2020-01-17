@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2004/10/28_lisp.html
 - /post/2004/lisp/
-categories:
-- coolnamehere
 date: 2004-10-28T00:00:00Z
 tags:
 - lisp
 title: Lisp
 type: post
 year: '2004'
+archived_category: coolnamehere
 ---
 
 Okay, I'll be honest. LISP scares the dickens out of me. It's ancient by the 

@@ -2,8 +2,6 @@
 aliases:
 - /marginalia/2015/08/08_wrapped-panel.html
 - /craft/2015/wrapped-panel/
-categories:
-- craft
 date: 2015-08-08T00:00:00Z
 description: I like this one. Stretching myself with each picture is starting to look
   interesting.
@@ -14,6 +12,7 @@ tags:
 thumbnail: /img/2015/wrapped-panel-medium-thumbnail.png
 title: Wrapped Panel
 year: '2015'
+category: craft
 ---
 I like this one. Stretching myself with each picture is starting to look interesting.
 <!--more-->

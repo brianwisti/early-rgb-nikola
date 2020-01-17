@@ -3,8 +3,6 @@ aliases:
 - /post/2017/making-a-mojo-link-checker/
 announcements:
   twitter: https://twitter.com/brianwisti/status/851963025850474496
-categories:
-- programming
 date: 2017-04-11T00:00:00Z
 draft: false
 tags:
@@ -13,6 +11,7 @@ tags:
 - mojolicious
 title: Making A Mojo Link Checker
 year: '2017'
+category: programming
 ---
 
 I wrote a Perl script using utility features in Mojolicious to check all of the links in my Hugo site.

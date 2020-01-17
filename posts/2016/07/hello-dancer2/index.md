@@ -3,8 +3,6 @@ aliases:
 - /post/2016/dancer2-hello/
 announcements:
   twitter: https://twitter.com/brianwisti/status/752670315885441024
-categories:
-- programming
 date: 2016-07-11T00:00:00Z
 description: Some simple first steps with the Perl 5 Dancer2 web framework
 draft: false
@@ -14,6 +12,7 @@ tags:
 - learn
 title: Hello Dancer2
 year: '2016'
+category: programming
 ---
 
 [Dancer2]: https://metacpan.org/pod/Dancer2

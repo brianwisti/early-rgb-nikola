@@ -2,14 +2,13 @@
 aliases:
 - /tools/2015/07/23_pandoc.html
 - /post/2015/pandoc/
-categories:
-- tools
 date: 2015-07-23T00:00:00Z
 tags:
 - pandoc
 title: Pandoc
 type: post
 year: '2015'
+category: tools
 ---
 [Pandoc]: http://pandoc.org/
 I could use [Pandoc][] to build HTML from my site sources.

@@ -1,6 +1,4 @@
 ---
-categories:
-- tools
 date: 2018-11-10T00:00:00Z
 draft: false
 tags:
@@ -8,6 +6,7 @@ tags:
 - site
 title: Using Hugo Data Templates
 year: '2018'
+category: tools
 ---
 
 I put my frequently used links in a [Hugo][] data template to cut down on copying and pasting between posts.

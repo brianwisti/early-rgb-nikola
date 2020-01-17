@@ -3,8 +3,6 @@ aliases:
 - /post/2016/yearly-post-archives-in-hugo/
 announcements:
   twitter: https://twitter.com/brianwisti/status/721859815358595072
-categories:
-- tools
 date: 2016-04-17T08:11:16-07:00
 tags:
 - hugo
@@ -12,6 +10,7 @@ tags:
 - perl
 title: Yearly Post Archives In Hugo
 year: '2016'
+category: tools
 ---
 I spent a little time this weekend creating [yearly post archives][] for my [Hugo][] site.
 

@@ -4,8 +4,6 @@ aliases:
 - /post/2014/replyrc/
 announcements:
   twitter: https://twitter.com/brianwisti/status/501831715401117696
-categories:
-- tools
 date: 2014-08-19T00:00:00Z
 description: Customizing Perl Reply and using -Mojo
 series:
@@ -17,6 +15,7 @@ tags:
 title: .replyrc And reply -Mojo
 type: post
 year: '2014'
+category: tools
 ---
 [started playing]: /post/2014/perl-reply-repl/
 [Reply]: https://metacpan.org/pod/Reply

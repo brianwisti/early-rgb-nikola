@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/05/29_perl.html
 - /post/2002/perl/
-categories:
-- coolnamehere
 date: 2002-05-29T00:00:00Z
 tags:
 - perl
@@ -11,6 +9,7 @@ title: Perl
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 
 [Ruby]: /tags/ruby/

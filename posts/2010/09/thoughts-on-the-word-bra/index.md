@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2010/09/30_thoughts-on-the-word-bra.html
 - /post/2010/thoughts-on-the-word-bra/
-categories:
-- coolnamehere
 date: 2010-09-30T00:00:00Z
 tags:
 - babblings
 title: Thoughts on the word "Bra"
 type: post
 year: '2010'
+archived_category: coolnamehere
 ---
 
 ****

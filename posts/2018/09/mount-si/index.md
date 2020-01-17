@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1038922212319744001
-categories:
-- Marginalia
 date: 2018-09-09T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - exploring
 title: Mount Si
 year: '2018'
+category: marginalia
 ---
 
 I sauntered up the main trail of [Mount Si][] this weekend.

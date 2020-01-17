@@ -3,8 +3,6 @@ aliases:
 - /post/2017/geekish-update/
 announcements:
   twitter: https://twitter.com/brianwisti/status/846963326718480384
-categories:
-- marginalia
 date: 2017-03-28T00:00:00Z
 draft: 'false'
 tags:
@@ -12,6 +10,7 @@ tags:
 - site
 title: Geekish Update
 year: '2017'
+category: marginalia
 ---
 I set up a space for myself in the basement. This is now where I keep my desktop - running [Ubuntu][] at the
 moment. Easy enough to get at from the laptop upstairs. Maybe keep [Irssi][] running in a [Tmux][] session or

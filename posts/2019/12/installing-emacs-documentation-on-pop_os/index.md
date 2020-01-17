@@ -1,7 +1,5 @@
 ---
 caption: Emacs Info (zoomed with `text-scale-adjust`)
-categories:
-- Tools
 date: 2019-12-01T11:11:00-08:00
 draft: false
 summary: Apt spells "emacs core docs" as "emacs-common-non-dfsg".
@@ -12,6 +10,7 @@ tags:
 title: Installing Emacs Documentation on POP!_os
 updated: 2019-12-01T11:30:44-08:00
 year: '2019'
+category: tools
 ---
 
 On a Linux flavor like [Ubuntu](https://ubuntu.com/) or [Pop!\_os](https://system76.com/pop) which uses [`apt`](https://en.wikipedia.org/wiki/APT%5F(software)) for package management?

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2011/06/07_python-2.x-babysteps.html
 - /post/2011/python-2.x-babysteps/
-categories:
-- coolnamehere
 date: 2011-06-07T00:00:00Z
 tags:
 - python
@@ -12,6 +10,7 @@ title: Python 2.x Babysteps
 type: post
 updated: 2011-06-16T00:00:00Z
 year: '2011'
+archived_category: coolnamehere
 ---
 <!--more-->
 [Python]: http://python.org

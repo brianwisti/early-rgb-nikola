@@ -3,8 +3,6 @@ aliases:
 - /post/2015/hugo/
 announcements:
   twitter: https://twitter.com/brianwisti/status/648310702290022400
-categories:
-- tools
 date: 2015-09-27T13:36:30-07:00
 description: I Rebuilt Random Geekery with Hugo
 tags:
@@ -12,6 +10,7 @@ tags:
 - hugo
 title: Next? Hugo
 year: '2015'
+category: tools
 ---
 Hey it has been a while since I shuffled the site around completely. I'll
 just redo the whole thing in [Hugo][].

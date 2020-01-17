@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2016/chibi-rainyday-superstar/
-categories:
-- craft
 date: 2016-09-01T00:00:00Z
 tags:
 - drawing
@@ -15,6 +13,7 @@ store:
 - name: Chibi Rainyday Superstar
   link: https://www.designbyhumans.com/shop/t-shirt/men/chibi-rainyday-superstar/1046338/
   image: chibi-rainy-shirt.jpg
+category: craft
 ---
 I was so unhappy with my attempts to draw realistic pictures of my friend Rainy that I went in the complete
 opposite direction and drew her in sort of a [chibi][] style.

@@ -1,8 +1,6 @@
 ---
 author:
 - Random Geek
-categories:
-- Programming
 date: 2019-11-17
 draft: false
 tags:
@@ -11,6 +9,7 @@ tags:
 title: Summarizing A File With Crystal
 updated: 2019-11-24T08:31:33-08:00
 year: '2019'
+category: programming
 ---
 
 Been busy, but let's take a minute to summarize a file's details with

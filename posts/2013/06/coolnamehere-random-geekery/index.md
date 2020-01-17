@@ -2,14 +2,13 @@
 aliases:
 - /marginalia/2013/06/05_coolnamehere-random-geekery.html
 - /post/2013/coolnamehere-random-geekery/
-categories:
-- marginalia
 date: 2013-06-05T00:00:00Z
 tags:
 - site
 title: coolnamehere -> Random Geekery
 type: post
 year: '2013'
+category: marginalia
 ---
 So I used to have another site. I also used to have a Yahoo email account. The domain name was registered under a Network Solutions account using the Yahoo account. All was well for years.
 <!--more-->

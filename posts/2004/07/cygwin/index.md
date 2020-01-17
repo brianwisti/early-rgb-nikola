@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/07/08_cygwin.html
 - /post/2004/cygwin/
-categories:
-- coolnamehere
 date: 2004-07-08T00:00:00Z
 tags:
 - cygwin
@@ -11,6 +9,7 @@ title: Cygwin
 type: post
 updated: 2017-04-09T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 <!--more-->
 

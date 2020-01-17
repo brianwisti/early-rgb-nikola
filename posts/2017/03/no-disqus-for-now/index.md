@@ -1,8 +1,6 @@
 ---
 aliases:
 - /post/2017/no-disqus-for-now/
-categories:
-- marginalia
 date: 2017-03-17T00:00:00Z
 draft: 'false'
 tags:
@@ -10,6 +8,7 @@ tags:
 - disqus
 title: No Disqus For Now
 year: '2017'
+category: marginalia
 ---
 Disabling comments until I figure out why Disqus insists on loading the same discussion for all 2017 posts.
 Not crafts, just posts.

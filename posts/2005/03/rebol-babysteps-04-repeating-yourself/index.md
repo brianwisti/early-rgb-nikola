@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2005/03/07_04-repeating-yourself.html
 - /post/2005/04-repeating-yourself/
-categories:
-- coolnamehere
 date: 2005-03-07T00:00:00Z
 tags:
 - rebol
@@ -14,6 +12,7 @@ updated: 2009-07-11T00:00:00Z
 year: '2005'
 series:
 - REBOL Babysteps
+archived_category: coolnamehere
 ---
 
 Now we know how to do things, and we know how to choose whether or not we will 

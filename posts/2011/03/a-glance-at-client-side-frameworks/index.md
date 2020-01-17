@@ -3,14 +3,13 @@
 aliases:
 - /blogspot/2011/03/16_glance-at-client-side-frameworks.html
 - /post/2011/glance-at-client-side-frameworks/
-categories:
-- Blogspot
 date: 2011-03-16T00:00:00Z
 tags: []
 'tags:':
 title: A Glance at Client-Side Frameworks
 type: post
 year: '2011'
+archived_category: blogspot
 ---
 <p>
 I was one of those lucky suckers who got a <a href="http://www.google.com/chromeos/pilot-program-cr48.html">Google CR-48 netbook</a> a few months back. Although I've failed miserably in making it my primary machine, it has gotten me thinking a lot more about browser applications and JavaScript frameworks. That's good. It got me out of my twelve year server-side rut.

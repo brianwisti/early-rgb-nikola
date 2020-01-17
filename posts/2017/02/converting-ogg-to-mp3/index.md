@@ -3,8 +3,6 @@ aliases:
 - /post/2017/converting-ogg-to-mp3/
 announcements:
   twitter: https://twitter.com/brianwisti/status/835617803424051200
-categories:
-- programming
 date: 2017-02-25T00:00:00Z
 draft: 'false'
 tags:
@@ -13,6 +11,7 @@ tags:
 - music
 title: Converting OGG To MP3
 year: '2017'
+category: programming
 ---
 
 I have ignored my MacBook Pro for a few months. Now my iTunes and Rhythmbox music libraries are out of sync.

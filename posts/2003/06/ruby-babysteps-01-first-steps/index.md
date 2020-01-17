@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2003/06/23_01-first-steps.html
 - /post/2003/01-first-steps/
-categories:
-- coolnamehere
 date: 2003-06-23T00:00:00Z
 tags:
 - ruby
@@ -12,6 +10,7 @@ title: Ruby Babysteps 01 - First Steps
 type: post
 updated: 2017-04-09T00:00:00Z
 year: '2003'
+archived_category: coolnamehere
 ---
 
 Ruby is an exciting language with a huge number of features that appeal to 

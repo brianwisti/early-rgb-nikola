@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2001/07/11_editors.html
 - /post/2001/editors/
-categories:
-- coolnamehere
 date: 2001-07-11T00:00:00Z
 tags:
 - editors
 title: Editors
 type: post
 year: '2001'
+archived_category: coolnamehere
 ---
 <!--more-->
 

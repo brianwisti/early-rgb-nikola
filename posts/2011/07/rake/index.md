@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2011/07/18_rake.html
 - /post/2011/rake/
-categories:
-- coolnamehere
 date: 2011-07-18T00:00:00Z
 tags:
 - ruby
 title: Rake
 type: post
 year: '2011'
+archived_category: coolnamehere
 ---
 
 [Rake]: http://rake.rubyforge.org/

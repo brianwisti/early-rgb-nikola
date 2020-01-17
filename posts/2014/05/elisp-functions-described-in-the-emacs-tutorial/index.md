@@ -2,8 +2,6 @@
 aliases:
 - /emacs/2014/05/27_elisp-functions-described-in-the-emacs-tutorial.html
 - /post/2014/elisp-functions-described-in-the-emacs-tutorial/
-categories:
-- tools
 date: 2014-05-27T00:00:00Z
 tags:
 - emacs
@@ -12,6 +10,7 @@ tags:
 title: Elisp Functions Described in the Emacs Tutorial
 type: post
 year: '2014'
+category: tools
 ---
 [other day]: /post/2014/the-emacs-tutorial-as-elisp-tour/
 The [other day][] I talked some sort of nonsense about organizing my

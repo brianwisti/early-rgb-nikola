@@ -2,13 +2,12 @@
 aliases:
 - /coolnamehere/2002/06/01_tools.html
 - /post/2002/tools/
-categories:
-- coolnamehere
 date: 2002-06-01T00:00:00Z
 title: Tools
 type: post
 updated: 2011-07-18T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 <!--more-->
 

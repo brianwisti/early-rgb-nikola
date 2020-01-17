@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/989859967447502848
-categories:
-- craft
 date: 2018-04-27T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - hat
 title: Stocking Cap
 year: '2018'
+category: craft
 ---
 
 I knitted myself a slightly silly stocking cap which I quite enjoy.

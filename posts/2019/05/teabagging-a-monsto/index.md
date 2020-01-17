@@ -2,14 +2,13 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/102049691879467282
   twitter: https://twitter.com/brianwisti/status/1125414752375713792
-categories:
-- Craft
 date: 2019-05-06T00:00:00Z
 tags:
 - drawing
 - Procreate
 title: Teabagging a Monsto
 year: '2019'
+category: craft
 ---
 
 

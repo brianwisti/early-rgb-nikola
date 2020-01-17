@@ -1,6 +1,4 @@
 ---
-categories:
-- programming
 date: 2018-05-26T00:00:00Z
 draft: false
 tags:
@@ -9,6 +7,7 @@ tags:
 - hugo
 title: Crafts Are Now Posts
 year: '2018'
+category: programming
 ---
 
 **TL;DR**: I turned the craft section into a [Craft][] category. [Drawing][], [Knitting][], and [Crochet][]

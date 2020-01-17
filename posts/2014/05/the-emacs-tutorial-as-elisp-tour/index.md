@@ -2,8 +2,6 @@
 aliases:
 - /emacs/2014/05/24_the-emacs-tutorial-as-elisp-tour.html
 - /post/2014/the-emacs-tutorial-as-elisp-tour/
-categories:
-- tools
 date: 2014-05-24T00:00:00Z
 tags:
 - emacs
@@ -12,6 +10,7 @@ tags:
 title: The Emacs Tutorial as ELisp Tour
 type: post
 year: '2014'
+category: tools
 ---
 [GNU Emacs]: https://www.gnu.org/software/emacs
 I am trying to *really* learn how to use [GNU Emacs][]. One thing that

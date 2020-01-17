@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2010/06/15_0b-subroutine-params.html
 - /post/2010/0b-subroutine-params/
-categories:
-- coolnamehere
 date: 2010-06-15T00:00:00Z
 tags:
 - parrot
@@ -14,6 +12,7 @@ updated: 2011-04-11T00:00:00Z
 year: '2010'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 
 [Parrot Babysteps]: /post/2009/parrot-babysteps/

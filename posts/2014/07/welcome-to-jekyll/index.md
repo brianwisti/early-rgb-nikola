@@ -2,8 +2,6 @@
 aliases:
 - /programming/2014/07/20_welcome-to-jekyll.html
 - /post/2014/welcome-to-jekyll/
-categories:
-- programming
 date: 2014-07-26T00:00:00Z
 tags:
 - site
@@ -12,6 +10,7 @@ tags:
 title: Welcome to Jekyll!
 type: post
 year: '2014'
+category: programming
 ---
 Just don't even ask. I am in a highly fickle phase with the Web site.
 <!--more-->

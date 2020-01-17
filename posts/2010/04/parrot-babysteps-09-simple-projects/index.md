@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2010/04/29_09-simple-projects.html
 - /post/2010/09-simple-projects/
-categories:
-- coolnamehere
 date: 2010-04-29T00:00:00Z
 tags:
 - parrot
@@ -14,6 +12,7 @@ updated: 2011-04-12T00:00:00Z
 year: '2010'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 
 [Parrot Babysteps]: /post/2009/parrot-babysteps/

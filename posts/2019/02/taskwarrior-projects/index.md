@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1096968817358471168
-categories:
-- Tools
 date: 2019-02-16T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - taskwarrior
 title: Taskwarrior Projects
 year: '2019'
+category: tools
 ---
 
 Use [Taskwarrior][] projects to organize closely related tasks!

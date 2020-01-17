@@ -1,8 +1,6 @@
 ---
 aliases:
 - /post/2016/osmi/
-categories:
-- marginalia
 date: 2016-06-21T00:00:00Z
 updated: 2018-06-13T00:00:00Z
 description: Ed Finkler's OSMI project
@@ -10,6 +8,7 @@ tags:
 - mental health
 title: Open Sourcing Mental Illness
 year: '2016'
+category: marginalia
 ---
 Watching [YAPCNA][] videos, and the most important to me today is
 [Ed Finkler][]'s talk about

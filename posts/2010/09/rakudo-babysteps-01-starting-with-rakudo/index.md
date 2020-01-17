@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2010/09/09_starting-with-rakudo.html
 - /post/2010/starting-with-rakudo/
-categories:
-- coolnamehere
 date: 2010-09-09T00:00:00Z
 tags:
 - rakudo
@@ -11,6 +9,7 @@ tags:
 title: Rakudo Babysteps 01 - Starting With Rakudo
 type: post
 year: '2010'
+archived_category: coolnamehere
 ---
 <!--more-->
 [Rakudo]: http://rakudo.org

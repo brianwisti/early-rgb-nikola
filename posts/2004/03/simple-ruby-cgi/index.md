@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/03/10_simple-ruby-cgi.html
 - /post/2004/simple-ruby-cgi/
-categories:
-- coolnamehere
 date: 2004-03-10T00:00:00Z
 tags:
 - ruby
@@ -13,6 +11,7 @@ title: Simple Ruby CGI
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 [Ruby]: /tags/ruby/
 

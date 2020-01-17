@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1028338292045967360
-categories:
-- Craft
 date: 2018-08-11T00:00:00Z
 draft: false
 store:
@@ -22,6 +20,7 @@ tags:
 - buy me
 title: Satellite
 year: '2018'
+category: craft
 ---
 
 This one took a while.

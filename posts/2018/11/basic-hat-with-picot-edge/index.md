@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1065109705507319808
-categories:
-- Craft
 date: 2018-11-20T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - hat
 title: Basic Hat With Picot Edge
 year: '2018'
+category: craft
 ---
 
 I continue building my hat knitting knowledge!

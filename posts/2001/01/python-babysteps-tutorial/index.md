@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2001/01/17_python-babysteps-tutorial.html
 - /post/2001/python-babysteps-tutorial/
-categories:
-- coolnamehere
 date: 2001-01-17T00:00:00Z
 tags:
 - python
@@ -12,6 +10,7 @@ title: Python Babysteps Tutorial
 type: post
 updated: 2017-04-09T00:00:00Z
 year: '2001'
+archived_category: coolnamehere
 ---
 
 [better version]: /post/2011/python-2.x-babysteps/

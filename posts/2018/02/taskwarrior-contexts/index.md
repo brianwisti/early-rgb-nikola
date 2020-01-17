@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/960315758629634049
-categories:
-- tools
 date: 2018-02-04T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - taskwarrior
 title: Taskwarrior Contexts
 year: '2018'
+category: tools
 ---
 
 I manually applied tag filters to keep task listings relevent in my previous Taskwarrior [posts][], but

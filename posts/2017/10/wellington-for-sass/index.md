@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/925593674230112256
-categories:
-- tools
 date: 2017-10-31T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - css
 title: Wellington for Sass
 year: '2017'
+category: tools
 ---
 I found [Wellington][], a [Sass][] compiler written in [Go][].
 

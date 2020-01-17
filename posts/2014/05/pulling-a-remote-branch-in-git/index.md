@@ -2,8 +2,6 @@
 aliases:
 - /tools/2014/05/31_pulling-a-remote-branch-in-git.html
 - /post/2014/pulling-a-remote-branch-in-git/
-categories:
-- tools
 date: 2014-05-31T00:00:00Z
 tags:
 - git
@@ -11,6 +9,7 @@ tags:
 title: Pulling a Remote Branch In Git
 type: post
 year: '2014'
+category: tools
 ---
 *TL;DR?* `git branch -r` to list remote branches. `git checkout
 --track -b <local-branch> <remote>/<branch>` to check your branch

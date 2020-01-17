@@ -1,14 +1,13 @@
 ---
 aliases:
 - /post/2017/new-twitter-account-just-for-the-site/
-categories:
-- marginalia
 date: 2017-03-18T00:00:00Z
 draft: 'false'
 tags:
 - site
 title: New Twitter Account Just For The Site
 year: '2017'
+category: marginalia
 ---
 Follow [@randgeekery][] if Twitter is your news feed.
 [@randgeekery]: https://twitter.com/randgeekery/

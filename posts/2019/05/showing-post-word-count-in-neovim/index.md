@@ -2,8 +2,6 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/102046653899640488
   twitter: https://twitter.com/brianwisti/status/1125220640640962566
-categories:
-- programming
 date: 2019-05-05T00:00:00Z
 tags:
 - vim
@@ -11,6 +9,7 @@ tags:
 title: Showing Post Word Count in (neo)vim
 updated: 2019-05-06T00:00:00Z
 year: '2019'
+category: programming
 ---
 
 

@@ -1,6 +1,4 @@
 ---
-categories:
-- Tools
 date: 2017-12-16T00:00:00Z
 draft: false
 series:
@@ -10,6 +8,7 @@ tags:
 title: Taskwarrior
 updated: 2017-12-22T00:00:00Z
 year: '2017'
+category: tools
 ---
 
 I ended up with a mess after half a year trying to use *every feature* of [Taskwarrior][]. It's time to focus

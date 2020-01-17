@@ -4,8 +4,7 @@ year: '2019'
 date: 2019-06-16
 tags:
 - site
-categories:
-- marginalia
+category: marginalia
 ---
 
 The site's moved from [AWS][] to [Dreamhost][]!

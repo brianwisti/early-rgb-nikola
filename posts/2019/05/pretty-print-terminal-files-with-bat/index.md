@@ -2,13 +2,12 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/102153562058385171
   twitter: https://twitter.com/brianwisti/status/1132062293209092098
-categories:
-- tools
 date: 2019-05-24T00:00:00Z
 tags:
 - shell
 title: Pretty Print Terminal Files With Bat
 year: '2019'
+category: tools
 ---
 
 

@@ -13,6 +13,7 @@ from ruamel.yaml import YAML
 
 log = get_logger(os.path.basename(__file__))
 yaml = YAML()
+ARCHIVED_CATEGORIES = ("blogspot", "coolnamehere")
 HUGO_CONFIG_SETTING = "IMPORT_RGB_CONFIG"
 DELIMITER = "---\n"
 
@@ -49,11 +50,25 @@ class HugoContent:
     def write_to(self, destination: str):
         """Create a new nikola post using my content and frontmatter."""
         destination_dir = os.path.dirname(destination)
-        log.info(f"Writing [{self.frontmatter['title']}] to [{destination}]]")
+        metadata = self.frontmatter.copy()
+
+        if "categories" in metadata:
+            log.info("categories -> category")
+            category = metadata["categories"][0].lower()
+
+            # Can't figure out how to hide archived categories in the theme or taxonomy plugin
+            if category in ARCHIVED_CATEGORIES:
+                metadata["archived_category"] = category
+            else:
+                metadata["category"] = category
+
+            del metadata["categories"]
+
+        log.info(f"Writing [{metadata['title']}] to [{destination}]]")
         makedirs(destination_dir)
         with open(destination, "w") as f:
             f.write(DELIMITER)
-            yaml.dump(self.frontmatter, f)
+            yaml.dump(metadata, f)
             f.write(DELIMITER)
             f.write(self.content)
 

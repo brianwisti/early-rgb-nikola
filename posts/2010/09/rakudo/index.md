@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2010/09/08_rakudo.html
 - /post/2010/rakudo/
-categories:
-- coolnamehere
 date: 2010-09-08T00:00:00Z
 tags:
 - rakudo
 title: Rakudo
 type: post
 year: '2010'
+archived_category: coolnamehere
 ---
 
 [Perl]: /tags/perl/

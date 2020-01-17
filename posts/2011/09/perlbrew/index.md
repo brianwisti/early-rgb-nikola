@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2011/09/05_perlbrew.html
 - /post/2011/perlbrew/
-categories:
-- coolnamehere
 date: 2011-09-05T00:00:00Z
 tags:
 - perl
@@ -11,6 +9,7 @@ title: perlbrew
 type: post
 updated: 2011-09-06T00:00:00Z
 year: '2011'
+archived_category: coolnamehere
 ---
 <!--more-->
 ## Introduction

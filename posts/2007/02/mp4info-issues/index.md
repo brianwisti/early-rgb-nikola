@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2007/02/12_mp4info-issues.html
 - /post/2007/mp4info-issues/
-categories:
-- Blogspot
 date: 2007-02-12T00:00:00Z
 tags:
 - ruby
@@ -11,6 +9,7 @@ title: Mp4Info issues
 type: post
 updated: 2015-03-28T00:00:00Z
 year: '2007'
+archived_category: blogspot
 ---
 <!--more-->
 <aside>

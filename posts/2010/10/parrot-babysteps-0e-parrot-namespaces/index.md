@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2010/10/11_0e-parrot-namespaces.html
 - /post/2010/0e-parrot-namespaces/
-categories:
-- coolnamehere
 date: 2010-10-11T00:00:00Z
 tags:
 - parrot
@@ -13,6 +11,7 @@ type: post
 year: '2010'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 This is part 14 of [Parrot Babysteps](/post/2009/parrot-babysteps/), my ongoing Parrot PIR tutorial.
 <!--more-->

@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2007/05/02_coolnamehere-is-open-to-commons.html
 - /post/2007/coolnamehere-is-open-to-commons/
-categories:
-- Blogspot
 date: 2007-05-02T00:00:00Z
 tags:
 - site
@@ -11,6 +9,7 @@ title: Coolnamehere is open to the Commons
 type: post
 updated: 2015-03-28T00:00:00Z
 year: '2007'
+archived_category: blogspot
 ---
 
 [Creative Commons Attribution License]: http://creativecommons.org/licenses/by/4.0/

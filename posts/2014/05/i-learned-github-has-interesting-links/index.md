@@ -2,14 +2,13 @@
 aliases:
 - /tools/2014/05/30_i-learned-github-has-interesting-links.html
 - /post/2014/i-learned-github-has-interesting-links/
-categories:
-- tools
 date: 2014-05-30T00:00:00Z
 tags:
 - github
 title: I Learned GitHub Has Interesting Links
 type: post
 year: '2014'
+category: tools
 ---
 Today I got to take part in a User Experience Research interview
 with some fine folks from GitHub. It was straightforward. We chatted

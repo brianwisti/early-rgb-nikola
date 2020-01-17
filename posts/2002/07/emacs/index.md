@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/07/11_emacs.html
 - /post/2002/emacs/
-categories:
-- coolnamehere
 date: 2002-07-11T00:00:00Z
 tags:
 - emacs
@@ -11,6 +9,7 @@ title: Emacs
 type: post
 updated: 2002-07-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 <!--more-->
 ![GNU Emacs](/img/2002/emacs-logo.png)

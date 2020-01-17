@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2006/03/17_learning-xml.html
 - /post/2006/learning-xml/
-categories:
-- coolnamehere
 date: 2006-03-17T00:00:00Z
 tags:
 - xml
@@ -12,6 +10,7 @@ title: Learning XML
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2006'
+archived_category: coolnamehere
 ---
 A mountain of standards and specifications have piled on top of XML over the 
 years, but the core language is still pretty easy to get started in. Because it 

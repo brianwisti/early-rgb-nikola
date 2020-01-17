@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2009/09/21_perl-hacks-in-my-workspace.html
 - /post/2009/perl-hacks-in-my-workspace/
-categories:
-- coolnamehere
 date: 2009-09-21T00:00:00Z
 tags:
 - perl
 title: Perl Hacks In My Workspace
 type: post
 year: '2009'
+archived_category: coolnamehere
 ---
 
 This page shines a fresh light on specific hacks from the O'Reilly [Perl 

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2005/02/28_rebol-grab-bag.html
 - /post/2005/rebol-grab-bag/
-categories:
-- coolnamehere
 date: 2005-02-28T00:00:00Z
 tags:
 - rebol
@@ -11,6 +9,7 @@ title: REBOL Grab Bag
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2005'
+archived_category: coolnamehere
 ---
 <!--more-->
 

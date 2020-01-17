@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1016053980676276224
-categories:
-- marginalia
 date: 2018-07-08T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - exploring
 title: Fauntleroy Park
 year: '2018'
+category: marginalia
 ---
 
 Today I explored [Fauntleroy Park][], a 28 acre park in West Seattle with some nice trails.

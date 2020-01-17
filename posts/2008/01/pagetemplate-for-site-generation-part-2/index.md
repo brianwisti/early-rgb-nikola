@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2008/01/07_pagetemplate-for-site-generation-part-2.html
 - /post/2008/pagetemplate-for-site-generation-part-2/
-categories:
-- blogspot
 date: 2008-01-07T00:00:00Z
 tags:
 - pagetemplate
@@ -12,6 +10,7 @@ title: PageTemplate for Site Generation Part 2
 type: post
 update: 2009-06-09
 year: '2008'
+archived_category: blogspot
 ---
 I've got my code [filtering Markdown][] and now I want to stuff that filtered content into an HTML page. I could just use
 `maruku#to_html_document`, but I need the ability to add details like a title and site-related links.

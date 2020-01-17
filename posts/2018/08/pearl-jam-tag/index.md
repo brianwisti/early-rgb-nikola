@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1026868774576607232
-categories:
-- marginalia
 date: 2018-08-07T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - seen
 title: Pearl Jam Tag
 year: '2018'
+category: marginalia
 ---
 
 Dog and I saw a [Pearl Jam][] logo tag while walking near [Easy Street Records][] this morning.

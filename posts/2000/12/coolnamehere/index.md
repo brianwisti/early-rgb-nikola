@@ -1,14 +1,13 @@
 ---
 author:
 - Random Geek
-categories:
-- coolnamehere
 date: 2000-12-06
 draft: false
 formatter: ox-hugo
 title: coolnamehere
 updated: 2019-12-01T08:43:10-08:00
 year: '2000'
+archived_category: coolnamehere
 ---
 
 Once upon a time I kept my stuff on a different Web site.

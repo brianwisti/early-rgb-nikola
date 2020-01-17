@@ -4,8 +4,8 @@ date: 2019-11-29
 draft: false
 summary: I swear I'm not reinventing `ls`.
 tags: [crystal, files]
-categories: [Programming]
 year: '2019'
+category: programming
 ---
 :source-highlighter: rouge
 

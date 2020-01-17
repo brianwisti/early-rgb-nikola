@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2015/professor-whom-scarf/
-categories:
-- craft
 date: 2015-11-02T00:00:00Z
 image: /img/2015/professor-whom-scarf.jpg
 tags:
@@ -11,6 +9,7 @@ tags:
 thumbnail: /img/2015/professor-whom-scarf-thumbnail.jpg
 title: Professor Whom Scarf
 year: '2015'
+category: craft
 ---
 [pattern site]: http://doctorwhoscarf.com
 [Doctor Who]: https://en.wikipedia.org/wiki/Doctor_Who

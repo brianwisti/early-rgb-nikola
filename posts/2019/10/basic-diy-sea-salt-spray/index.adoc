@@ -11,8 +11,7 @@ tags:
 - diy
 - recipe
 - grooming
-categories:
-- Marginalia
+category: marginalia
 ---
 
 *tl;dr:* Heat a cup of water. Mix in 2 teaspoons argan oil, 1 tablespoon sea salt, and a few drops

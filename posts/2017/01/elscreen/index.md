@@ -1,8 +1,6 @@
 ---
 aliases:
 - /post/2017/elscreen/
-categories:
-- tools
 date: 2017-01-11T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - elscreen
 title: elscreen
 year: '2017'
+category: tools
 ---
 I use [ElScreen] every time I open Emacs. May as well make a quick note about it.
 

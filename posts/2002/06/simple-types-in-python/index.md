@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/06/12_simple-types-in-python.html
 - /post/2002/simple-types-in-python/
-categories:
-- coolnamehere
 date: 2002-06-12T00:00:00Z
 tags:
 - python
@@ -12,6 +10,7 @@ title: Simple Types in Python
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 
 [Python Babysteps Tutorial]: /post/2001/python-babysteps-tutorial/

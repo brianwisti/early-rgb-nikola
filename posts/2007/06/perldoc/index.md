@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2007/06/16_perldoc.html
 - /post/2007/perldoc/
-categories:
-- coolnamehere
 date: 2007-06-16T00:00:00Z
 tags:
 - perl
@@ -12,6 +10,7 @@ title: Perldoc
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2007'
+archived_category: coolnamehere
 ---
 I have heard first-time Perl programmers complain about the lack of documentation. 
 This is understandable. They don't know all the nifty stuff that comes with the 

@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/03/12_php.html
 - /post/2004/php/
-categories:
-- coolnamehere
 date: 2004-03-12T00:00:00Z
 tags:
 - php
@@ -11,6 +9,7 @@ title: PHP
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 
 [Perl]: /tags/perl/

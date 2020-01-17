@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2017/kalaidoscope-symmetry/
-categories:
-- craft
 date: 2017-04-22T00:00:00Z
 draft: 'false'
 tags:
@@ -10,6 +8,7 @@ tags:
 - Infinite Painter
 title: Kalaidoscope Symmetry
 year: '2017'
+category: craft
 ---
 I've been enjoying [Infinite Painter][]'s symmetry tools.
 

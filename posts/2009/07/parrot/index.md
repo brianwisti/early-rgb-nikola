@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2009/07/11_parrot.html
 - /post/2009/parrot/
-categories:
-- coolnamehere
 date: 2009-07-11T00:00:00Z
 tags:
 - parrot
 title: Parrot
 type: post
 year: '2009'
+archived_category: coolnamehere
 ---
 
 [Parrot](http://parrot.org) is a virtual machine that provides the base for [Rakudo](http://rakudo.org)

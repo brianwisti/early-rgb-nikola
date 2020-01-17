@@ -2,8 +2,6 @@
 aliases:
 - /tools/2015/09/14_adding-suggested-posts.html
 - /post/2015/adding-suggested-posts/
-categories:
-- tools
 date: 2015-09-14T00:00:00Z
 description: I started writing about PNWPHP but got distracted and added "Suggested
   Reading" to my posts instead.
@@ -13,6 +11,7 @@ tags:
 title: Added Suggested Posts
 type: post
 year: '2015'
+category: tools
 ---
 I started writing about [PNWPHP][] but got distracted and added "Suggested
 Reading" to my posts instead.

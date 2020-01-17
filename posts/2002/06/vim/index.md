@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/06/28_vim.html
 - /post/2002/vim/
-categories:
-- coolnamehere
 date: 2002-06-28T00:00:00Z
 tags:
 - vim
@@ -11,6 +9,7 @@ title: Vim
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 
 [Emacs]: /tags/emacs/

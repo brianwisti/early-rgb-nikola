@@ -2,8 +2,6 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/101781261652356567
   twitter: https://twitter.com/brianwisti/status/1108232025503195138
-categories:
-- Craft
 date: 2019-03-19T00:00:00Z
 draft: false
 store:
@@ -16,6 +14,7 @@ tags:
 - buy me
 title: Garden Mandala
 year: '2019'
+category: craft
 ---
 
 A Samsung Note 9 means my phone drawing has been upgraded.

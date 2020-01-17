@@ -3,8 +3,6 @@ aliases:
 - /post/2016/all-the-hugo-themes/
 announcements:
   twitter: https://twitter.com/brianwisti/status/683446375275560960
-categories:
-- programming
 date: 2016-01-02T00:00:00Z
 description: Using Python to preview my Hugo site with many themes
 image: /img/2016/chrome-redlounge-medium.png
@@ -15,6 +13,7 @@ thumbnail: /img/2016/chrome-redlounge-medium-thumbnail.png
 title: All The Hugo Themes
 updated: 2016-01-04T00:00:00Z
 year: '2016'
+category: programming
 ---
 [Hugo]: http://gohugo.io/
 [themes repository]: http://themes.gohugo.io/

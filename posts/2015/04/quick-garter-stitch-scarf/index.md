@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2015/quick-garter-scarf/
-categories:
-- craft
 date: 2015-04-04T00:00:00Z
 image: /img/2015/garter-scarf-wrapped.jpg
 posts:
@@ -14,6 +12,7 @@ tags:
 thumbnail: /img/2015/garter-scarf-wrapped-thumbnail.jpg
 title: Quick Garter Stitch Scarf
 year: '2015'
+category: craft
 ---
 [wikiHow]: http://www.wikihow.com/Add-Fringe-to-a-Crochet-or-Knit-Project
 [blue blog]: http://alison.knitsmiths.us/pattern_beginners_scarves.html

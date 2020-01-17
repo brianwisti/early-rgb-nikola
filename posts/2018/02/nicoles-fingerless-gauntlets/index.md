@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/959597904536092672
-categories:
-- craft
 date: 2018-02-02T00:00:00Z
 draft: false
 tags:
@@ -10,6 +8,7 @@ tags:
 - gloves
 title: Nicole's Fingerless Gauntlets
 year: '2018'
+category: craft
 ---
 Still catching up with the backlog of finished knitting. Finished these a couple weeks ago.
 

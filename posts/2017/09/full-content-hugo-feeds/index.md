@@ -3,8 +3,6 @@ aliases:
 - /post/2017/full-content-hugo-feeds/
 announcements:
   twitter: https://twitter.com/brianwisti/status/908887290050527232
-categories:
-- tools
 date: 2017-09-15T00:00:00Z
 draft: false
 tags:
@@ -13,6 +11,7 @@ tags:
 title: Full Content Hugo Feeds
 updated: 2019-09-19
 year: '2017'
+category: tools
 ---
 
 [Hugo][] defaults to filling your [RSS file][] with the summary of every post. I prefer the full content of

@@ -1,7 +1,5 @@
 ---
 announcement: In which I rediscover make && make test && make install
-categories:
-- Tools
 date: 2019-11-03
 tags:
 - rakulang
@@ -9,6 +7,7 @@ tags:
 - linux
 title: Building Rakudo and Moarvm on Linux
 year: '2019'
+category: tools
 ---
 
 

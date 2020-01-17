@@ -3,8 +3,6 @@ aliases:
 - /craft/2017/my-stripes-and-stripes-scarf/
 announcements:
   twitter: https://twitter.com/brianwisti/status/883053925032644608
-categories:
-- craft
 date: 2017-07-06T00:00:00Z
 draft: false
 tags:
@@ -12,6 +10,7 @@ tags:
 - scarf
 title: My Stripes (And Stripes) Forever Scarf
 year: '2017'
+category: craft
 ---
 This is my version of the "Stripes (And Stripes) Forever Scarf" from [Stitch 'N Bitch Crochet: The Happy
 Hooker][]. It came together quickly. The only real challenge was getting the first row of single chains in.

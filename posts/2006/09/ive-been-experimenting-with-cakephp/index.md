@@ -2,14 +2,13 @@
 aliases:
 - /blogspot/2006/09/22_ive-been-experimenting-with-cakephp.html
 - /post/2006/ive-been-experimenting-with-cakephp/
-categories:
-- Blogspot
 date: 2006-09-22T00:00:00Z
 tags:
 - php
 title: I've Been Experimenting With CakePHP
 type: post
 year: '2006'
+archived_category: blogspot
 ---
 I've been experimenting with <a href="http://cakephp.org/">CakePHP</a> over the last couple of weeks for a project. It's definitely not <a href="http://rubyonrails.com/">Ruby on Rails</a>, but it has a lot of charm. This library provides a MVC system for PHP applications, but the really interesting thing is that you can just drop it onto your Web server space with no fuss or bother. You don't even have to worry about clever mod_rewrite rules if you don't want to.
 <!--more-->

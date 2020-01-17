@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/09/29_05-more-about-arrays.html
 - /post/2009/05-more-about-arrays/
-categories:
-- coolnamehere
 date: 2009-09-29T00:00:00Z
 tags:
 - parrot
@@ -14,6 +12,7 @@ updated: 2010-02-12T00:00:00Z
 year: '2009'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 
 [Parrot Babysteps]: /post/2009/parrot-babysteps/

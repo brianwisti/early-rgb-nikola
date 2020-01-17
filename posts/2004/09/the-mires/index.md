@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/09/17_the-mires.html
 - /post/2004/the-mires/
-categories:
-- coolnamehere
 date: 2004-09-17T00:00:00Z
 tags:
 - ruby
@@ -11,6 +9,7 @@ title: The MIRES
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 A short series of posts I wrote on doing moderately interesting ruby exercises.
 <!--more-->

@@ -4,8 +4,6 @@ aliases:
 - /post/2014/duplicate-files/
 announcements:
   twitter: https://twitter.com/brianwisti/status/543919408276467712
-categories:
-- programming
 date: 2014-12-13T00:00:00Z
 description: Perl CPAN modules to simplify file cleanup
 tags:
@@ -13,6 +11,7 @@ tags:
 title: Finding and Removing Duplicate Files
 type: post
 year: '2014'
+category: programming
 ---
 [MD5 hash]: http://en.wikipedia.org/wiki/MD5#MD5_hashes
 [CPAN]: http://www.cpan.org/

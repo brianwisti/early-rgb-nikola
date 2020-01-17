@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2010/07/15_0c-the-stellar-app.html
 - /post/2010/0c-the-stellar-app/
-categories:
-- coolnamehere
 date: 2010-07-15T00:00:00Z
 tags:
 - parrot
@@ -15,6 +13,7 @@ updated: 2010-07-15T00:00:00Z
 year: '2010'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 
 [Parrot Babysteps]: /post/2009/parrot-babysteps/

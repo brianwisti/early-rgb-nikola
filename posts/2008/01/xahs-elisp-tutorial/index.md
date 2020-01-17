@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2008/01/03_xah-elisp-tutorial.html
 - /post/2008/xah-elisp-tutorial/
-categories:
-- Blogspot
 date: 2008-01-03T00:00:00Z
 tags:
 - elisp
@@ -11,6 +9,7 @@ tags:
 title: Xah's Elisp Tutorial
 type: post
 year: '2008'
+archived_category: blogspot
 ---
 <p>I'd <em>really</em> love to master an editor. Any editor. <a href="http://www.vim.org/">Vim</a> has been my weapon
    of choice for years, but <a href="http://www.gnu.org/software/emacs/">Emacs</a> has always intrigued me.

@@ -1,14 +1,13 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1051543183383977984
-categories:
-- tools
 date: 2018-10-14T00:00:00Z
 draft: false
 tags:
 - org
 title: Trying Beorg
 year: '2018'
+category: tools
 ---
 
 

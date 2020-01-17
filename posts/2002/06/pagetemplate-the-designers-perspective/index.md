@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2002/06/02_the-designers-perspective.html
 - /post/2002/the-designers-perspective/
-categories:
-- coolnamehere
 date: 2002-06-02T00:00:00Z
 tags:
 - pagetemplate
@@ -11,6 +9,7 @@ title: PageTemplate - The Designer's Perspective
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 <!--more-->
 ## Who Are You?

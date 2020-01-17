@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/07/11_control-structures.html
 - /post/2004/control-structures/
-categories:
-- coolnamehere
 date: 2004-07-11T00:00:00Z
 tags:
 - python
@@ -12,6 +10,7 @@ title: Control Structures
 type: post
 updated: 2004-07-11T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 
 There are several different approaches to programming, but the one that is easiest

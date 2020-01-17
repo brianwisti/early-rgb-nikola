@@ -2,12 +2,11 @@
 aliases:
 - /blogspot/2006/03/24_there-must-be-something-wrong-with-me.html
 - /post/2006/there-must-be-something-wrong-with-me/
-categories:
-- Blogspot
 date: 2006-03-24T00:00:00Z
 title: There Must Be Something Wrong With Me
 type: post
 year: '2006'
+archived_category: blogspot
 ---
 
 [Jigdo]: http://atterer.org/jigdo

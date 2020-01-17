@@ -3,8 +3,6 @@ announcement: In which I mention more ways to edit Taskwarrior tasks
 announcements:
   mastodon: https://hackers.town/@randomgeek/102744038346579949
   twitter: https://twitter.com/brianwisti/status/1169853116612628481
-categories:
-- tools
 date: 2019-09-05
 series:
 - Taskwarrior babysteps
@@ -12,6 +10,7 @@ tags:
 - taskwarrior
 title: Taskwarrior Editing Refinements
 year: '2019'
+category: tools
 ---
 
 :taskwarrior-url: https://taskwarrior.org

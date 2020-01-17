@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2005/01/04_01-getting-started.html
 - /post/2005/01-getting-started/
-categories:
-- coolnamehere
 date: 2005-01-04T00:00:00Z
 tags:
 - perl
@@ -12,6 +10,7 @@ title: Perl 5 Babysteps 01 - Getting Started
 type: post
 updated: 2011-08-25T00:00:00Z
 year: '2005'
+archived_category: coolnamehere
 ---
 
 [Perl Babysteps]: /post/2005/perl-babysteps/

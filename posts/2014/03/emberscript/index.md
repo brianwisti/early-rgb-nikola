@@ -2,8 +2,6 @@
 aliases:
 - /tools/2014/03/26_emberscript.html
 - /post/2014/emberscript/
-categories:
-- tools
 date: 2014-03-26T00:00:00Z
 slug: emberscript
 tags:
@@ -12,6 +10,7 @@ tags:
 title: EmberScript
 type: post
 year: '2014'
+category: tools
 ---
 [Ember.js](http://emberjs.com/) is an impressive piece of work. It can also be painfully verbose. A little syntactic sugar would make that go down easier. [EmberScript](http://emberscript.com/) is [CoffeeScript](http://coffeescript.org/) with fine-tuning specifically for Ember.js. Fine-tuning includes bits like replacing `class` and `extends` with `Ember.class` and `Ember.extends`.
 <!--more-->

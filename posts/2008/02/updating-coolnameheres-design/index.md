@@ -2,14 +2,13 @@
 aliases:
 - /blogspot/2008/02/01_updating-coolnameheres-design.html
 - /post/2008/updating-coolnameheres-design/
-categories:
-- Blogspot
 date: 2008-02-01T00:00:00Z
 tags:
 - site
 title: Updating coolnamehere's design
 type: post
 year: '2008'
+archived_category: blogspot
 ---
 
 [coolnamehere]: /categories/coolnamehere/

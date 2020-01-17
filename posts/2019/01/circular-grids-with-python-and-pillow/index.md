@@ -1,14 +1,13 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1087987300846456832
-categories:
-- Programming
 date: 2019-01-23T00:00:00Z
 draft: false
 tags:
 - python
 title: Circular Grids With Python and Pillow
 year: '2019'
+category: programming
 ---
 
 I want a circular grid for drawing. Let's make one with Python!

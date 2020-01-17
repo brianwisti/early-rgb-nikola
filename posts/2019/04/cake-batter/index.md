@@ -2,8 +2,6 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/101905230728697448
   twitter: https://twitter.com/brianwisti/status/1116169118858792960
-categories:
-- Craft
 date: 2019-04-10T00:00:00Z
 draft: false
 tags:
@@ -11,6 +9,7 @@ tags:
 - Procreate
 title: Cake Batter
 year: '2019'
+category: craft
 ---
 
 Getting the doodle time in.

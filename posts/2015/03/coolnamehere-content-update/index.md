@@ -4,8 +4,6 @@ aliases:
 - /post/2015/coolnamehere-ported/
 announcements:
   twitter: https://twitter.com/brianwisti/status/580226613951930368
-categories:
-- marginalia
 date: 2015-03-23T00:00:00Z
 description: The really old pages are now really old posts
 tags:
@@ -13,6 +11,7 @@ tags:
 title: coolnamehere Content Update
 type: post
 year: '2015'
+category: marginalia
 ---
 [Jekyll]: http://jekyllrb.com
 [Ruby]: /tags/ruby/

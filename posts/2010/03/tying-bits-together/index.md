@@ -2,14 +2,13 @@
 aliases:
 - /blogspot/2010/03/04_tying-bits-together.html
 - /post/2010/tying-bits-together/
-categories:
-- Blogspot
 date: 2010-03-04T00:00:00Z
 tags:
 - coolnamehere
 title: Tying Bits Together
 type: post
 year: '2010'
+archived_category: blogspot
 ---
 
 [coolnamehere]: /categories/coolnamehere/

@@ -1,8 +1,6 @@
 ---
 aliases:
 - /post/2016/disqus-in-hugo/
-categories:
-- tools
 date: 2016-06-23T00:00:00Z
 tags:
 - hugo
@@ -10,6 +8,7 @@ tags:
 - disqus
 title: Using Disqus in Hugo
 year: '2016'
+category: tools
 ---
 All right fine. Some visitor may want to leave a comment about one or another
 of my posts. I can do that with Hugo.

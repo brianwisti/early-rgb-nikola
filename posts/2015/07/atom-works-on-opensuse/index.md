@@ -2,8 +2,6 @@
 aliases:
 - /tools/2015/07/13_atom-works-on-opensuse.html
 - /post/2015/atom-works-on-opensuse/
-categories:
-- tools
 date: 2015-07-13T00:00:00Z
 tags:
 - suse
@@ -11,6 +9,7 @@ tags:
 title: Atom Works on openSUSE
 type: post
 year: '2015'
+category: tools
 ---
 [Atom Editor]: https://atom.io
 [openSUSE]: http://opensuse.org

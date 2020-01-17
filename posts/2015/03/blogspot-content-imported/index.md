@@ -4,8 +4,6 @@ aliases:
 - /post/2015/blogspot-ported/
 announcements:
   twitter: https://twitter.com/brianwisti/status/582041548822462464
-categories:
-- marginalia
 date: 2015-03-28T00:00:00Z
 description: More new old pages
 tags:
@@ -13,6 +11,7 @@ tags:
 title: Blogspot Content Imported
 type: post
 year: '2015'
+category: marginalia
 ---
 [coolnamehere]: /categories/coolnamehere/
 [Blogspot]: /categories/blogspot/

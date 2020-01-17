@@ -2,8 +2,6 @@
 aliases:
 - /emacs/2014/06/02_start-using-emacsclient.html
 - /post/2014/start-using-emacsclient/
-categories:
-- tools
 date: 2014-06-02T00:00:00Z
 tags:
 - emacs
@@ -11,6 +9,7 @@ title: Start Using Emacsclient
 type: post
 updated: 2017-07-06T00:00:00Z
 year: '2014'
+category: tools
 ---
 [Emacs Client]: http://www.emacswiki.org/emacs/EmacsClient
 I have been curious about the [Emacs Client][] for a long time. Because

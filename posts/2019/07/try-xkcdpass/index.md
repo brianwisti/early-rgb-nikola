@@ -5,14 +5,13 @@ announcements:
   mastodon: https://hackers.town/@randomgeek/102531070232066570
   twitter: https://twitter.com/brianwisti/status/1156223226063794182
 caption: '[XKCD 936](https://xkcd.com/936/) _([CC BY-NC 2.5](https://xkcd.com/license.html))_'
-categories:
-- tools
 date: 2019-07-30T07:36:11-07:00
 tags:
 - linux
 - security
 title: Try xkcdpass
 year: '2019'
+category: tools
 ---
 
 *tl;dr*: Use [`xkcdpass`][] to generate more secure passwords, like

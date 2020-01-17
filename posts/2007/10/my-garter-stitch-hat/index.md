@@ -1,8 +1,6 @@
 ---
 aliases:
 - /craft/2007/my-garter-stitch-hat/
-categories:
-- craft
 date: 2007-10-15T00:00:00Z
 image: /img/2015/my-garter-stitch-hat.jpg
 posts:
@@ -14,6 +12,7 @@ tags:
 thumbnail: /img/2015/my-garter-stitch-hat-thumbnail.jpg
 title: My Garter Stitch Hat
 year: '2007'
+category: craft
 ---
 It's not the best hat I've made. It wasn't even the best hat I'd made when I made it.
 <!--more-->

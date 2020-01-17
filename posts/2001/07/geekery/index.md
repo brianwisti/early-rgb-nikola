@@ -2,13 +2,12 @@
 aliases:
 - /coolnamehere/2001/07/11_geekery.html
 - /post/2001/geekery/
-categories:
-- coolnamehere
 date: 2001-07-11T00:00:00Z
 title: Geekery
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2001'
+archived_category: coolnamehere
 ---
 
 Computers are all about programs. If you take the time to learn how to program, 

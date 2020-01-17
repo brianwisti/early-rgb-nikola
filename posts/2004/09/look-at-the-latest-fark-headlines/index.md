@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/09/17_look-at-the-latest-fark-headlines.html
 - /post/2004/look-at-the-latest-fark-headlines/
-categories:
-- coolnamehere
 date: 2004-09-17T00:00:00Z
 tags:
 - ruby
@@ -12,6 +10,7 @@ title: Look at the Latest Fark Headlines
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 <!--more-->
 

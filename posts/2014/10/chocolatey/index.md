@@ -2,8 +2,6 @@
 aliases:
 - /tools/2014/10/04_windows-chocolatey.html
 - /post/2014/windows-chocolatey/
-categories:
-- tools
 date: 2014-10-04T00:00:00Z
 description: A package manager for Windows
 tags:
@@ -11,6 +9,7 @@ tags:
 title: chocolatey
 type: post
 year: '2014'
+category: tools
 ---
 [Programming Languages]: https://www.coursera.org/course/proglang/
 [Coursera]: https://www.coursera.org/

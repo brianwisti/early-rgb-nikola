@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/965748609156198400
-categories:
-- Tools
 date: 2018-02-19T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - taskwarrior
 title: Setting Task Dependencies in Taskwarrior
 year: '2018'
+category: tools
 ---
 
 

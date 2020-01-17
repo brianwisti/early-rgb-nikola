@@ -3,14 +3,13 @@ aliases:
 - /post/2017/emacs-writegood-mode/
 announcements:
   twitter: https://twitter.com/brianwisti/status/894103914915667968
-categories:
-- tools
 date: 2017-08-06T00:00:00Z
 draft: false
 tags:
 - emacs
 title: Emacs Writegood Mode
 year: '2017'
+category: tools
 ---
 
 

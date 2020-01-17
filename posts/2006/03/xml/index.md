@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2006/03/17_xml.html
 - /post/2006/xml/
-categories:
-- coolnamehere
 date: 2006-03-17T00:00:00Z
 tags:
 - xml
@@ -11,6 +9,7 @@ title: XML
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2006'
+archived_category: coolnamehere
 ---
 
 XML is the core language of the Web. It forms the foundation for nearly 

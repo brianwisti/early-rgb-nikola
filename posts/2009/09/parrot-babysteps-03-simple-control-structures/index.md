@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/09/11_03-simple-control-structures.html
 - /post/2009/03-simple-control-structures/
-categories:
-- coolnamehere
 date: 2009-09-11T00:00:00Z
 tags:
 - parrot
@@ -14,6 +12,7 @@ updated: 2010-02-12T00:00:00Z
 year: '2009'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 [Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 3 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.

@@ -1,14 +1,13 @@
 ---
 aliases:
 - /post/2015/half-a-life/
-categories:
-- marginalia
 date: 2015-10-02T00:00:00Z
 description: Brian ponders midlife and plutoids
 tags:
 - space
 title: Half a Life
 year: '2015'
+category: marginalia
 ---
 Scientists discovered Pluto had a moon when I was six years old. This is
 what they had to work with.

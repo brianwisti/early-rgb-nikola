@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2004/10/01_drawing-celtic-knotwork.html
 - /post/2004/drawing-celtic-knotwork/
-categories:
-- coolnamehere
 date: 2004-10-01T00:00:00Z
 tags:
 - ruby
@@ -12,6 +10,7 @@ title: Drawing Celtic Knotwork
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2004'
+archived_category: coolnamehere
 ---
 
 Thanks to everybody for the positive feedback on the first MIRE. I still have

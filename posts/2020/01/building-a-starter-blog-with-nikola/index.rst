@@ -4,12 +4,11 @@ year: '2019'
 draft: false
 date: 2020-01-05
 announcement: In which I play with another site builder
-categories:
-- tools
 tags:
 - python
 - site
 - nikola
+category: tools
 ---
 
 I messed with Nikola_ a while back, but ended up going with Hugo_.

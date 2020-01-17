@@ -2,13 +2,12 @@
 aliases:
 - /coolnamehere/2002/07/11_products.html
 - /post/2002/products/
-categories:
-- coolnamehere
 date: 2002-07-11T00:00:00Z
 title: Products
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2002'
+archived_category: coolnamehere
 ---
 [PageTemplate]: /post/2002/pagetemplate/
 

@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2008/02/14_lots-of-nifty-newness-for-church-site.html
 - /post/2008/lots-of-nifty-newness-for-church-site/
-categories:
-- Blogspot
 date: 2008-02-14T00:00:00Z
 tags:
 - design
@@ -11,6 +9,7 @@ tags:
 title: Lots of Nifty Newness for the Church Site
 type: post
 year: '2008'
+archived_category: blogspot
 ---
 
 I volunteered a little while ago to be the maintainer for the <a href="http://greenlakeumc.org/">Green Lake

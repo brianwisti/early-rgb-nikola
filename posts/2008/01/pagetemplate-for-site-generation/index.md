@@ -2,8 +2,6 @@
 aliases:
 - /blogspot/2008/01/06_pagetemplate-for-site-generation.html
 - /post/2008/pagetemplate-for-site-generation/
-categories:
-- Blogspot
 date: 2008-01-06T00:00:00Z
 tags:
 - pagetemplate
@@ -12,6 +10,7 @@ title: PageTemplate for Site Generation
 type: post
 updated: 2015-03-28T00:00:00Z
 year: '2008'
+archived_category: blogspot
 ---
 
 [Python Blogger client]: /post/2007/python-loves-blogger/

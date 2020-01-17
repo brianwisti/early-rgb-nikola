@@ -1,6 +1,4 @@
 ---
-categories:
-- craft
 date: 2018-11-11T00:00:00Z
 draft: false
 tags:
@@ -8,6 +6,7 @@ tags:
 - hat
 title: Basic Hat With Hemmed Edge
 year: '2018'
+category: craft
 ---
 
 I made another hat! This time I learned how to make a hemmed edge.

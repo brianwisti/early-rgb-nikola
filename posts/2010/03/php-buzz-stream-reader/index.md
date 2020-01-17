@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2010/03/12_php-buzz-stream-reader.html
 - /post/2010/php-buzz-stream-reader/
-categories:
-- coolnamehere
 date: 2010-03-12T00:00:00Z
 tags:
 - php
@@ -11,6 +9,7 @@ title: PHP Buzz Stream Reader
 type: post
 updated: 2017-04-10T00:00:00Z
 year: '2010'
+archived_category: coolnamehere
 ---
 
 ****

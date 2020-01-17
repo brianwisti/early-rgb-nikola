@@ -2,8 +2,6 @@
 announcements:
   mastodon: https://hackers.town/@randomgeek/101928306169432164
   twitter: https://twitter.com/brianwisti/status/1117646166508883968
-categories:
-- Craft
 date: 2019-04-14T00:00:00Z
 draft: false
 tags:
@@ -12,6 +10,7 @@ tags:
 - symmetry
 title: Psychedelic Playing Card
 year: '2019'
+category: craft
 ---
 
 That cover image is kinda fuzzy. Better click on the original link image to see it properly.

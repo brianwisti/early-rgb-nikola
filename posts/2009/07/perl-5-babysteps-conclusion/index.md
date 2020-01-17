@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/07/11_conclusion.html
 - /post/2009/conclusion/
-categories:
-- coolnamehere
 date: 2009-07-11T00:00:00Z
 tags:
 - perl
@@ -12,6 +10,7 @@ title: Perl 5 Babysteps - Conclusion
 type: post
 updated: 2009-07-11T00:00:00Z
 year: '2009'
+archived_category: coolnamehere
 ---
 Nice work! You have begun to learn Perl by writing a complete program which
 gets input from a user and prints output including a modified version of their

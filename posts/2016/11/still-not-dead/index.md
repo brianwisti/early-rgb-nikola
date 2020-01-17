@@ -1,13 +1,12 @@
 ---
 aliases:
 - /post/2016/art-and-indieweb/
-categories:
-- marginalia
 date: 2016-11-20T00:00:00Z
 tags:
 - site
 title: Still Not Dead
 year: '2016'
+category: marginalia
 ---
 Another one of those "no I'm not dead" posts. Instead of writing I've been [drawing](/categories/drawing/)
 quite a bit this year. The writing will resume. For now, enjoy a sample of my favorite sketches from the last

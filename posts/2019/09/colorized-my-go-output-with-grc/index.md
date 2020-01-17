@@ -3,14 +3,13 @@ announcement: In which I spent Sunday having fun learning stuff
 announcements:
   mastodon: https://hackers.town/@randomgeek/102759304764890808
   twitter: https://twitter.com/brianwisti/status/1170830219390963713
-categories:
-- Tools
 date: 2019-09-08
 tags:
 - go
 - shell
 title: Colorized my go output with grc
 year: '2019'
+category: tools
 ---
 
 [Go]: https://golang.org/

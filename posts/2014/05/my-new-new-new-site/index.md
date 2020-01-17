@@ -2,8 +2,6 @@
 aliases:
 - /emacs/2014/05/15_my-new-new-new-site.html
 - /post/2014/my-new-new-new-site/
-categories:
-- marginalia
 date: 2014-05-15T00:00:00Z
 tags:
 - site
@@ -12,6 +10,7 @@ tags:
 title: My New New (New) Site
 type: post
 year: '2014'
+category: marginalia
 ---
 [GNU Emacs]: http://www.gnu.org/software/emacs/
 [o-blog]: http://renard.github.io/o-blog/

@@ -4,8 +4,6 @@ aliases:
 - /post/2015/draft-mode-in-jekyll-templates/
 announcements:
   twitter: https://twitter.com/brianwisti/status/623300128145715201
-categories:
-- tools
 date: 2015-07-20T00:00:00Z
 description: Use site.show_drafts in templates if the local and live versions of your
   jekyll site need to be different.
@@ -14,6 +12,7 @@ tags:
 title: Draft Mode in Jekyll Templates
 type: post
 year: '2015'
+category: tools
 ---
 [Jekyll]:  http://jekyllrb.com
 Use `site.show_drafts` in templates if the local and live versions of your [Jekyll][] site need to be different.

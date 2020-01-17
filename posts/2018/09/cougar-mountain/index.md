@@ -1,8 +1,6 @@
 ---
 announcements:
   twitter: https://twitter.com/brianwisti/status/1046612330845372416
-categories:
-- Marginalia
 date: 2018-09-30T00:00:00Z
 draft: false
 series:
@@ -11,6 +9,7 @@ tags:
 - exploring
 title: Cougar Mountain
 year: '2018'
+category: marginalia
 ---
 
 Last weekend I wandered the trails of [Cougar Mountain Regional Wildland Park][].

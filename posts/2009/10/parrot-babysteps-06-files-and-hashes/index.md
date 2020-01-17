@@ -2,8 +2,6 @@
 aliases:
 - /coolnamehere/2009/10/02_06-files-and-hashes.html
 - /post/2009/06-files-and-hashes/
-categories:
-- coolnamehere
 date: 2009-10-02T00:00:00Z
 tags:
 - parrot
@@ -15,6 +13,7 @@ updated: 2011-04-12T00:00:00Z
 year: '2009'
 series:
 - Parrot Babysteps
+archived_category: coolnamehere
 ---
 
 [Parrot Babysteps]: /post/2009/parrot-babysteps/

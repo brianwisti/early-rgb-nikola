@@ -2,14 +2,13 @@
 aliases:
 - /coolnamehere/2011/06/10_ipython.html
 - /post/2011/ipython/
-categories:
-- coolnamehere
 date: 2011-06-10T00:00:00Z
 tags:
 - python
 title: IPython
 type: post
 year: '2011'
+archived_category: coolnamehere
 ---
 <!--more-->
 [MacPorts]: http://macports.org
