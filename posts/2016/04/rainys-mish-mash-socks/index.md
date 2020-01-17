@@ -1,14 +1,14 @@
 ---
 aliases:
-- "/craft/2016/rainys-mishmash-socks/"
+- /craft/2016/rainys-mishmash-socks/
 categories:
 - craft
 date: 2016-04-14T00:00:00Z
-image: "/img/2016/rainys-mishmash-socks.jpg"
+image: /img/2016/rainys-mishmash-socks.jpg
 tags:
 - knitting
 - socks
-thumbnail: "/img/2016/rainys-mishmash-socks-thumbnail.jpg"
+thumbnail: /img/2016/rainys-mishmash-socks-thumbnail.jpg
 title: Rainy's Mish-Mash Socks
 year: '2016'
 ---

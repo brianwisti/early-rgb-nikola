@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2016/mask-face/"
+- /craft/2016/mask-face/
 categories:
 - craft
 date: 2016-09-16T00:00:00Z

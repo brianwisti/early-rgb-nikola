@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2015/amicable-socks/"
+- /craft/2015/amicable-socks/
 categories:
 - craft
 date: 2015-05-20T00:00:00Z

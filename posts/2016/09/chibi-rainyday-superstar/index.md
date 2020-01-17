@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2016/chibi-rainyday-superstar/"
+- /craft/2016/chibi-rainyday-superstar/
 categories:
 - craft
 date: 2016-09-01T00:00:00Z

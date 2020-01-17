@@ -1,14 +1,14 @@
 ---
 aliases:
-- "/craft/2016/my-twin-rib-socks/"
+- /craft/2016/my-twin-rib-socks/
 categories:
 - craft
 date: 2016-01-30T00:00:00Z
-image: "/img/2016/my-twin-rib-socks-medium.jpg"
+image: /img/2016/my-twin-rib-socks-medium.jpg
 tags:
 - knitting
 - socks
-thumbnail: "/img/2016/my-twin-rib-socks-thumbnail.jpg"
+thumbnail: /img/2016/my-twin-rib-socks-thumbnail.jpg
 title: My Twin Rib Socks
 year: '2016'
 ---

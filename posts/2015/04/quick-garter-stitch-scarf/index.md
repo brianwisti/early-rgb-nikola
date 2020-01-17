@@ -1,17 +1,17 @@
 ---
 aliases:
-- "/craft/2015/quick-garter-scarf/"
+- /craft/2015/quick-garter-scarf/
 categories:
 - craft
 date: 2015-04-04T00:00:00Z
-image: "/img/2015/garter-scarf-wrapped.jpg"
+image: /img/2015/garter-scarf-wrapped.jpg
 posts:
 - title: A Quick Garter Stitch Scarf
-  url: "/marginalia/2015/04/04_quick-garter-scarf.html"
+  url: /marginalia/2015/04/04_quick-garter-scarf.html
 tags:
 - knitting
 - scarf
-thumbnail: "/img/2015/garter-scarf-wrapped-thumbnail.jpg"
+thumbnail: /img/2015/garter-scarf-wrapped-thumbnail.jpg
 title: Quick Garter Stitch Scarf
 year: '2015'
 ---

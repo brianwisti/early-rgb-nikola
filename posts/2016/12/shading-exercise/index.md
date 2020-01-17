@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2016/shading-exercise/"
+- /craft/2016/shading-exercise/
 categories:
 - craft
 date: 2016-12-06T00:00:00Z

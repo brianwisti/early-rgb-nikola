@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2016/wings/"
+- /craft/2016/wings/
 categories:
 - craft
 date: 2016-10-16T00:00:00Z

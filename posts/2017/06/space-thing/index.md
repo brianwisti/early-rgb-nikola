@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2017/space-thing/"
+- /craft/2017/space-thing/
 categories:
 - craft
 date: 2017-06-03T00:00:00Z

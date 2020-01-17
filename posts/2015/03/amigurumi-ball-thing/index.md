@@ -1,17 +1,17 @@
 ---
 aliases:
-- "/craft/2015/amigurumi-ball-thing/"
+- /craft/2015/amigurumi-ball-thing/
 categories:
 - craft
 date: 2015-03-08T00:00:00Z
-image: "/img/2015/amigurumi-ball-thing.jpg"
+image: /img/2015/amigurumi-ball-thing.jpg
 posts:
 - title: Google+ Post
   url: https://plus.google.com/+BrianWisti/posts/59Kp9LWkotH
 tags:
 - crochet
 - amigurumi
-thumbnail: "/img/2015/amigurumi-ball-thing-thumbnail.jpg"
+thumbnail: /img/2015/amigurumi-ball-thing-thumbnail.jpg
 title: Amigurumi Ball Thing
 year: '2015'
 ---

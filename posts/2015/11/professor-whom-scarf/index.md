@@ -1,14 +1,14 @@
 ---
 aliases:
-- "/craft/2015/professor-whom-scarf/"
+- /craft/2015/professor-whom-scarf/
 categories:
 - craft
 date: 2015-11-02T00:00:00Z
-image: "/img/2015/professor-whom-scarf.jpg"
+image: /img/2015/professor-whom-scarf.jpg
 tags:
 - knitting
 - scarf
-thumbnail: "/img/2015/professor-whom-scarf-thumbnail.jpg"
+thumbnail: /img/2015/professor-whom-scarf-thumbnail.jpg
 title: Professor Whom Scarf
 year: '2015'
 ---

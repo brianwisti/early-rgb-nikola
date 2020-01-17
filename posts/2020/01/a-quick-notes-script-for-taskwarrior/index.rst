@@ -1,8 +1,8 @@
 ---
-title: "A Quick Notes Script for Taskwarrior"
+title: A Quick Notes Script for Taskwarrior
 date: 2020-01-12
 updated: 2020-01-13
-year: "2020"
+year: '2020'
 draft: false
 tags:
 - taskwarrior

@@ -1,6 +1,6 @@
 ---
-title: "Quick Zoom Text in Emacs"
-year: "2020"
+title: Quick Zoom Text in Emacs
+year: '2020'
 draft: false
 date: 2020-01-01
 tags:

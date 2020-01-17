@@ -1,6 +1,6 @@
 ---
 title: Building a starter blog with Nikola
-year: "2019"
+year: '2019'
 draft: false
 date: 2020-01-05
 announcement: In which I play with another site builder

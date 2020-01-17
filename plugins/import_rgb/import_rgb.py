@@ -14,6 +14,7 @@ from ruamel.yaml import YAML
 log = get_logger(os.path.basename(__file__))
 yaml = YAML()
 HUGO_CONFIG_SETTING = "IMPORT_RGB_CONFIG"
+DELIMITER = "---\n"
 
 @dataclass
 class HugoContent:
@@ -25,8 +26,7 @@ class HugoContent:
     is_post: bool = field(init=False)
 
     def __post_init__(self):
-        delimiter = "---\n"
-        _, yaml_text, body_text = open(self.hugo_file).read().split(delimiter, maxsplit=2)
+        _, yaml_text, body_text = open(self.hugo_file).read().split(DELIMITER, maxsplit=2)
         self.content = body_text
         yaml_text = re.sub(r"^(date: \d{4}-\d{2}-\d{2})T", r"\1 ", yaml_text)
         self.frontmatter = yaml.load(yaml_text)
@@ -45,6 +45,17 @@ class HugoContent:
         title_path = slugify(self.frontmatter["title"])
         base_path = f"index{ext}"
         return os.path.join(date_path, title_path, base_path)
+
+    def write_to(self, destination: str):
+        """Create a new nikola post using my content and frontmatter."""
+        destination_dir = os.path.dirname(destination)
+        log.info(f"Writing [{self.frontmatter['title']}] to [{destination}]]")
+        makedirs(destination_dir)
+        with open(destination, "w") as f:
+            f.write(DELIMITER)
+            yaml.dump(self.frontmatter, f)
+            f.write(DELIMITER)
+            f.write(self.content)
 
 
 @dataclass
@@ -129,11 +140,11 @@ class CommandImportRgb(Command):
         log.info(f"site_dir: {site_dir}")
         log.info(f"content_dir: {content_dir}")
 
-        for hugo_content_file in content_files:
-            log.info(hugo_content_file.hugo_file)
-            if hugo_content_file.is_post:
-                content_path = hugo_content_file.preferred_path()
+
+        for hugo_content in content_files:
+            content_path = hugo_content.preferred_path()
+            if hugo_content.is_post:
                 # TODO: Use NEW_POST_DATE_PATH_FORMAT, if NEW_POST_DATE_PATH is True
-                nikola_path = os.path.join(posts_dir, content_path)
-                log.info(f"{hugo_content_file.frontmatter['title']} -> {nikola_path}")
-                copy_file(hugo_content_file.hugo_file, nikola_path)
+                date_path = hugo_content.frontmatter["date"].strftime("%Y/%m")
+                nikola_path = os.path.join(posts_dir, date_path, content_path)
+                hugo_content.write_to(nikola_path)

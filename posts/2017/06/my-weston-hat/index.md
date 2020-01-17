@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2017/my-weston-hat/"
+- /craft/2017/my-weston-hat/
 categories:
 - craft
 date: 2017-06-28T00:00:00Z

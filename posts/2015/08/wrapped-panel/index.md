@@ -1,17 +1,17 @@
 ---
 aliases:
-- "/marginalia/2015/08/08_wrapped-panel.html"
-- "/craft/2015/wrapped-panel/"
+- /marginalia/2015/08/08_wrapped-panel.html
+- /craft/2015/wrapped-panel/
 categories:
 - craft
 date: 2015-08-08T00:00:00Z
 description: I like this one. Stretching myself with each picture is starting to look
   interesting.
-image: "/img/2015/wrapped-panel-medium.png"
+image: /img/2015/wrapped-panel-medium.png
 tags:
 - drawing
 - celtic
-thumbnail: "/img/2015/wrapped-panel-medium-thumbnail.png"
+thumbnail: /img/2015/wrapped-panel-medium-thumbnail.png
 title: Wrapped Panel
 year: '2015'
 ---

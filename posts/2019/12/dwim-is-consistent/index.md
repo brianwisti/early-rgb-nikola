@@ -2,7 +2,7 @@
 title: DWIM is consistent
 date: 2019-12-27
 draft: false
-year: "2019"
+year: '2019'
 categories:
 - Programming
 tags:

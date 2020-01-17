@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2016/that-was-fun/"
+- /craft/2016/that-was-fun/
 categories:
 - craft
 date: 2016-12-12T00:00:00Z

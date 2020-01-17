@@ -1,17 +1,17 @@
 ---
 aliases:
-- "/craft/2007/my-garter-stitch-hat/"
+- /craft/2007/my-garter-stitch-hat/
 categories:
 - craft
 date: 2007-10-15T00:00:00Z
-image: "/img/2015/my-garter-stitch-hat.jpg"
+image: /img/2015/my-garter-stitch-hat.jpg
 posts:
 - title: Ravelry Project Page
   url: http://www.ravelry.com/projects/brianwisti/my-garter-stitch-hat
 tags:
 - knitting
 - hat
-thumbnail: "/img/2015/my-garter-stitch-hat-thumbnail.jpg"
+thumbnail: /img/2015/my-garter-stitch-hat-thumbnail.jpg
 title: My Garter Stitch Hat
 year: '2007'
 ---

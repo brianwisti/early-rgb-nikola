@@ -1,7 +1,7 @@
 ---
-title: "Comments One More Time"
+title: Comments One More Time
 date: 2017-09-20T00:00:00Z
-year: "2017"
+year: '2017'
 draft: false
 tags:
 - site

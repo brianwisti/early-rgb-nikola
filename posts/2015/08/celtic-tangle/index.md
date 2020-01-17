@@ -1,18 +1,18 @@
 ---
 aliases:
-- "/marginalia/2015/08/01_celtic-tangle.html"
-- "/craft/2015/celtic-tangle/"
+- /marginalia/2015/08/01_celtic-tangle.html
+- /craft/2015/celtic-tangle/
 categories:
 - craft
 date: 2015-08-01T00:00:00Z
 description: Another Zentangle practice. This time I mixed in a couple of minor Celtic
   design elements.
-image: "/img/2015/celtic-tangle-01-medium.png"
+image: /img/2015/celtic-tangle-01-medium.png
 tags:
 - drawing
 - zentangle
 - celtic
-thumbnail: "/img/2015/celtic-tangle-01-medium-thumbnail.png"
+thumbnail: /img/2015/celtic-tangle-01-medium-thumbnail.png
 title: Celtic Tangle
 year: '2015'
 ---

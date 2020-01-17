@@ -1,11 +1,11 @@
 ---
-title: "Directory Listings With Crystal"
+title: Directory Listings With Crystal
 date: 2019-11-29
 draft: false
-summary: "I swear I'm not reinventing `ls`."
-tags: ["crystal", "files"]
-categories: ["Programming"]
-year: "2019"
+summary: I swear I'm not reinventing `ls`.
+tags: [crystal, files]
+categories: [Programming]
+year: '2019'
 ---
 :source-highlighter: rouge
 

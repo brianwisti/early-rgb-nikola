@@ -1,6 +1,6 @@
 ---
-title: "Now on Dreamhost"
-year: "2019"
+title: Now on Dreamhost
+year: '2019'
 date: 2019-06-16
 tags:
 - site

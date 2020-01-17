@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2017/light-and-shadow/"
+- /craft/2017/light-and-shadow/
 categories:
 - craft
 date: 2017-01-08T00:00:00Z

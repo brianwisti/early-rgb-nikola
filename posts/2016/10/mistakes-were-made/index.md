@@ -1,16 +1,16 @@
 ---
 aliases:
-- "/craft/2016/mistakes-were-made/"
+- /craft/2016/mistakes-were-made/
 categories:
 - craft
 date: 2016-10-28T00:00:00Z
 updated: 2018-06-15T00:00:00Z
-image: "/img/2016/mistakes-were-made-medium.png"
+image: /img/2016/mistakes-were-made-medium.png
 tags:
 - buy me
 - drawing
 - Sketchbook Mobile
-thumbnail: "/img/2016/mistakes-were-made-thumbnail.png"
+thumbnail: /img/2016/mistakes-were-made-thumbnail.png
 title: Mistakes Were Made
 year: '2016'
 store:

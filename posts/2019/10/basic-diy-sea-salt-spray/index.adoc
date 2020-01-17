@@ -1,11 +1,11 @@
 ---
-title: "Basic DIY Sea Salt Spray"
-caption: "Sea salt, argan oil, and a spray bottle. You need water too."
-announcement: "In which I write a hair spray recipe and *then* share the story"
+title: Basic DIY Sea Salt Spray
+caption: Sea salt, argan oil, and a spray bottle. You need water too.
+announcement: In which I write a hair spray recipe and *then* share the story
 announcements:
   mastodon: https://hackers.town/@randomgeek/103004338629886575
   twitter: https://twitter.com/brianwisti/status/1186512051168071680
-year: "2019"
+year: '2019'
 date: 2019-10-21
 tags:
 - diy

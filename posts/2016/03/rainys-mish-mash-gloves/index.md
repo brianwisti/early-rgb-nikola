@@ -1,14 +1,14 @@
 ---
 aliases:
-- "/craft/2016/rainys-mishmash-gloves/"
+- /craft/2016/rainys-mishmash-gloves/
 categories:
 - craft
 date: 2016-03-20T00:00:00Z
-image: "/img/2016/rainys-mishmash-gloves.jpg"
+image: /img/2016/rainys-mishmash-gloves.jpg
 tags:
 - knitting
 - gloves
-thumbnail: "/img/2016/rainys-mishmash-gloves-thumbnail.jpg"
+thumbnail: /img/2016/rainys-mishmash-gloves-thumbnail.jpg
 title: Rainy's Mish-Mash Gloves
 year: '2016'
 ---

@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2017/kalaidoscope-symmetry/"
+- /craft/2017/kalaidoscope-symmetry/
 categories:
 - craft
 date: 2017-04-22T00:00:00Z

@@ -1,17 +1,17 @@
 ---
 aliases:
-- "/craft/2005/my-striped-scarf/"
+- /craft/2005/my-striped-scarf/
 categories:
 - craft
 date: 2005-08-15T00:00:00Z
-image: "/img/2015/my-striped-scarf.jpg"
+image: /img/2015/my-striped-scarf.jpg
 posts:
 - title: Ravelry Project Page
   url: http://www.ravelry.com/projects/brianwisti/joels-scarf
 tags:
 - knitting
 - scarf
-thumbnail: "/img/2015/my-striped-scarf-thumbnail.jpg"
+thumbnail: /img/2015/my-striped-scarf-thumbnail.jpg
 title: My Striped Scarf
 year: '2005'
 ---

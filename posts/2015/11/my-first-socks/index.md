@@ -1,14 +1,14 @@
 ---
 aliases:
-- "/craft/2015/my-first-socks/"
+- /craft/2015/my-first-socks/
 categories:
 - craft
 date: 2015-11-25T00:00:00Z
-image: "/img/2015/my-first-socks.jpg"
+image: /img/2015/my-first-socks.jpg
 tags:
 - knitting
 - socks
-thumbnail: "/img/2015/my-first-socks-thumbnail.jpg"
+thumbnail: /img/2015/my-first-socks-thumbnail.jpg
 title: My First Socks
 year: '2015'
 ---

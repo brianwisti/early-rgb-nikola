@@ -1,5 +1,5 @@
 ---
-'- javascript': ~
+'- javascript':
 aliases:
 - /blogspot/2011/03/16_glance-at-client-side-frameworks.html
 - /post/2011/glance-at-client-side-frameworks/
@@ -7,7 +7,7 @@ categories:
 - Blogspot
 date: 2011-03-16T00:00:00Z
 tags: []
-'tags:': ~
+'tags:':
 title: A Glance at Client-Side Frameworks
 type: post
 year: '2011'

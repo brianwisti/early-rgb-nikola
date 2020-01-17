@@ -1,17 +1,17 @@
 ---
 aliases:
-- "/craft/2008/natalies-hat/"
+- /craft/2008/natalies-hat/
 categories:
 - craft
 date: 2008-10-01T00:00:00Z
-image: "/img/2015/natalies-hat.jpg"
+image: /img/2015/natalies-hat.jpg
 posts:
 - title: Ravelry Project Page
   url: http://www.ravelry.com/projects/brianwisti/simple-hat
 tags:
 - knitting
 - hat
-thumbnail: "/img/2015/natalies-hat-thumbnail.jpg"
+thumbnail: /img/2015/natalies-hat-thumbnail.jpg
 title: Natalie's Hat
 year: '2008'
 ---

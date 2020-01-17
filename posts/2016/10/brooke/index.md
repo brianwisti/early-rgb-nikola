@@ -1,6 +1,6 @@
 ---
 aliases:
-- "/craft/2016/brooke/"
+- /craft/2016/brooke/
 categories:
 - craft
 date: 2016-10-21T00:00:00Z
