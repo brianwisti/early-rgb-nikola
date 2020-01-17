@@ -42,7 +42,14 @@ class HugoContent:
     def preferred_path(self):
         """My location in the nikola site"""
         _, ext = os.path.splitext(self.hugo_file)
-        date_path = self.frontmatter["date"].strftime("%Y/%m")
+        # TODO: differentiate between post path and page path
+
+        try:
+            date_path = self.frontmatter["date"].strftime("%Y/%m")
+        except AttributeError:
+            log.error(f"[{self.hugo_file}]: date looks funky")
+            raise
+
         title_path = slugify(self.frontmatter["title"])
         base_path = f"index{ext}"
         return os.path.join(date_path, title_path, base_path)
@@ -63,6 +70,8 @@ class HugoContent:
                 metadata["category"] = category
 
             del metadata["categories"]
+        elif self.hugo_file.find("/note/") > 0:
+            metadata["category"] = "note"
 
         log.info(f"Writing [{metadata['title']}] to [{destination}]]")
         makedirs(destination_dir)
@@ -157,8 +166,9 @@ class CommandImportRgb(Command):
 
 
         for hugo_content in content_files:
-            content_path = hugo_content.preferred_path()
+            
             if hugo_content.is_post:
+                content_path = hugo_content.preferred_path()
                 # TODO: Use NEW_POST_DATE_PATH_FORMAT, if NEW_POST_DATE_PATH is True
                 date_path = hugo_content.frontmatter["date"].strftime("%Y/%m")
                 nikola_path = os.path.join(posts_dir, date_path, content_path)
