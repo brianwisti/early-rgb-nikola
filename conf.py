@@ -139,6 +139,10 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
+        ('/about/', 'About'),
+        ('/now/', 'Now'),
+        ('/follow/', 'Follow'),
+        ('/contact/', 'Contact'),
         ("/archive.html", "Archive"),
         ("/categories/", "Tags"),
         ("/rss.xml", "RSS feed"),
@@ -224,13 +228,16 @@ POSTS = (
     ("posts/*.adoc", "posts", "post.tmpl"),
     ("posts/*.asc", "posts", "post.tmpl"),
 )
+
+RGB_PAGES_PATH = ""
+
 PAGES = (
-    ("pages/*.rst", "pages", "page.tmpl"),
-    ("pages/*.md", "pages", "page.tmpl"),
-    ("pages/*.txt", "pages", "page.tmpl"),
-    ("pages/*.html", "pages", "page.tmpl"),
-    ("pages/*.adoc", "pages", "page.tmpl"),
-    ("pages/*.asc", "pages", "page.tmpl"),
+    ("pages/*.rst", RGB_PAGES_PATH, "page.tmpl"),
+    ("pages/*.md", RGB_PAGES_PATH, "page.tmpl"),
+    ("pages/*.txt", RGB_PAGES_PATH, "page.tmpl"),
+    ("pages/*.html", RGB_PAGES_PATH, "page.tmpl"),
+    ("pages/*.adoc", RGB_PAGES_PATH, "page.tmpl"),
+    ("pages/*.asc", RGB_PAGES_PATH, "page.tmpl"),
 )
 
 

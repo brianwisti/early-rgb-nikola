@@ -42,21 +42,24 @@ class HugoContent:
     def preferred_path(self):
         """My location in the nikola site"""
         _, ext = os.path.splitext(self.hugo_file)
-        # TODO: differentiate between post path and page path
-
-        try:
-            date_path = self.frontmatter["date"].strftime("%Y/%m")
-        except AttributeError:
-            log.error(f"[{self.hugo_file}]: date looks funky")
-            raise
-
         title_path = slugify(self.frontmatter["title"])
         base_path = f"index{ext}"
-        return os.path.join(date_path, title_path, base_path)
+
+        if self.is_post:
+            try:
+                date_path = self.frontmatter["date"].strftime("%Y/%m")
+            except AttributeError:
+                log.error(f"[{self.hugo_file}]: date looks funky")
+                raise
+            return os.path.join(date_path, title_path, base_path)
+        
+        # pages have no `date`
+        return os.path.join(title_path, base_path)
 
     def write_to(self, destination: str):
         """Create a new nikola post using my content and frontmatter."""
-        destination_dir = os.path.dirname(destination)
+        output_file = os.path.join(destination, self.preferred_path())
+        output_dir = os.path.dirname(output_file)
         metadata = self.frontmatter.copy()
 
         if "categories" in metadata:
@@ -73,9 +76,10 @@ class HugoContent:
         elif self.hugo_file.find("/note/") > 0:
             metadata["category"] = "note"
 
-        log.info(f"Writing [{metadata['title']}] to [{destination}]]")
-        makedirs(destination_dir)
-        with open(destination, "w") as f:
+        log.info(f"Writing [{metadata['title']}] to [{output_file}]]")
+        makedirs(output_dir)
+
+        with open(output_file, "w") as f:
             f.write(DELIMITER)
             yaml.dump(metadata, f)
             f.write(DELIMITER)
@@ -156,7 +160,8 @@ class CommandImportRgb(Command):
         log.info(hugo_site)
         content_files = hugo_site.collect_content_files()
         site_dir = os.path.dirname(hugo_config)
-        content_dir = os.path.join(site_dir, "content/post/")
+        content_dir = os.path.join(site_dir, "content/")
+        pages_dir = "pages"
         posts_dir = "posts"
         log.info(f"Removing {posts_dir}")
         remove_file(posts_dir)
@@ -164,12 +169,10 @@ class CommandImportRgb(Command):
         log.info(f"site_dir: {site_dir}")
         log.info(f"content_dir: {content_dir}")
 
-
         for hugo_content in content_files:
             
             if hugo_content.is_post:
-                content_path = hugo_content.preferred_path()
-                # TODO: Use NEW_POST_DATE_PATH_FORMAT, if NEW_POST_DATE_PATH is True
-                date_path = hugo_content.frontmatter["date"].strftime("%Y/%m")
-                nikola_path = os.path.join(posts_dir, date_path, content_path)
-                hugo_content.write_to(nikola_path)
+                hugo_content.write_to(posts_dir)
+            else:
+                hugo_content.write_to(pages_dir)
+
