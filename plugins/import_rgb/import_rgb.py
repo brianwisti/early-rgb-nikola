@@ -24,11 +24,14 @@ class HugoContent:
     content_dir: str
     frontmatter: Dict[str, Any] = field(init=False)
     content: str = field(init=False)
+    ext: str = field(init=False)
     is_post: bool = field(init=False)
 
     def __post_init__(self):
+        _, self.ext = os.path.splitext(self.hugo_file)
         _, yaml_text, body_text = open(self.hugo_file).read().split(DELIMITER, maxsplit=2)
         self.content = body_text
+        # put this here or it'll confuse date handling later.
         yaml_text = re.sub(r"^(date: \d{4}-\d{2}-\d{2})T", r"\1 ", yaml_text)
         self.frontmatter = yaml.load(yaml_text)
 
@@ -41,9 +44,8 @@ class HugoContent:
     
     def preferred_path(self):
         """My location in the nikola site"""
-        _, ext = os.path.splitext(self.hugo_file)
         title_path = slugify(self.frontmatter["title"])
-        base_path = f"index{ext}"
+        base_path = f"index{self.ext}"
 
         if self.is_post:
             try:
@@ -55,6 +57,13 @@ class HugoContent:
         
         # pages have no `date`
         return os.path.join(title_path, base_path)
+
+    def prep_content(self) -> str:
+        """Perform necessary transformations for import to content body."""
+        teaser_text = ".. TEASER_END" if self.ext == ".rst" else "<!-- TEASER_END -->"
+        content = re.sub(r"^<!--more-->$", teaser_text, self.content, count=1, flags=re.MULTILINE)
+        
+        return content
 
     def write_to(self, destination: str):
         """Create a new nikola post using my content and frontmatter."""
@@ -76,6 +85,7 @@ class HugoContent:
         elif self.hugo_file.find("/note/") > 0:
             metadata["category"] = "note"
 
+        content = self.prep_content()
         log.info(f"Writing [{metadata['title']}] to [{output_file}]]")
         makedirs(output_dir)
 
@@ -83,7 +93,7 @@ class HugoContent:
             f.write(DELIMITER)
             yaml.dump(metadata, f)
             f.write(DELIMITER)
-            f.write(self.content)
+            f.write(content)
 
 
 @dataclass
@@ -163,8 +173,8 @@ class CommandImportRgb(Command):
         content_dir = os.path.join(site_dir, "content/")
         pages_dir = "pages"
         posts_dir = "posts"
-        log.info(f"Removing {posts_dir}")
-        remove_file(posts_dir)
+        # log.info(f"Removing {posts_dir}")
+        # remove_file(posts_dir)
 
         log.info(f"site_dir: {site_dir}")
         log.info(f"content_dir: {content_dir}")
