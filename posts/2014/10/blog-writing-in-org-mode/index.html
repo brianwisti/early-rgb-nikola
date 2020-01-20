@@ -1,0 +1,267 @@
+---
+aliases:
+- /emacs/2014/10/21_blog-writing-in-org-mode.html
+- /post/2014/blog-writing-in-org-mode.html
+date: 2014-10-21
+description: Where I start hooking Org mode to Jekyll
+tags:
+- emacs
+- org
+- jekyll
+title: Blog Writing in Org Mode
+type: post
+year: '2014'
+category: tools
+---
+<p>An experiment with using Org mode to write Jekyll blog posts.</p>
+<!-- TEASER_END -->
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Introduction</a></li>
+<li><a href="#sec-2">2 Organize Directories</a></li>
+<li><a href="#sec-3">3 Front Matter</a></li>
+<li><a href="#sec-4">4 Configure HTML Export</a></li>
+<li><a href="#sec-5">5 Publishing A Post</a></li>
+<li><a href="#sec-6">6 Followup</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Introduction</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  Much of what I've read about <a href="http://orgmode.org">Org mode</a> has focused on its utility
+  as a task management tool. That's great. I wouldn't mind spending
+  some time on that aspect. Mostly I've been focused on its usefulness
+  for note-taking and writing.
+</p>
+<p>
+  Org mode includes features which make it attractive for blogging and
+  journaling. It has a relatively simple set of markup rules for
+  common constructs such as paragraphs, <a href="http://orgmode.org/manual/Plain-lists.html">lists</a>, <a href="http://orgmode.org/manual/Working-With-Source-Code.html">source code</a>, and
+  <a href="http://orgmode.org/manual/Tables.html">tables</a>. The mode itself provides an editing interface which
+  simplifies creating and managing those constructs. Most importantly
+  for the blogger, org files can be exported to a range of formats
+  including Markdown and HTML.
+</p>
+<p>
+  Why not use that functionality for my own site? Random Geekery is
+  built with <a href="http://jekyllrb.com">Jekyll</a>, and there are already <a href="http://orgmode.org/worg/org-tutorials/org-jekyll.html">instructions</a> available for
+  using the two together. I can use those as a starting point.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Organize Directories</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+  When I'm using Org mode to write the blog pages, Jekyll becomes an
+  implementation detail specific to publishing the blog. One folder
+  contains all of the Jekyll project files, and an <code>org</code> folder
+  mirrors the content-specific structure of the <code>jekyll</code> tree.
+</p>
+
+
+
+<pre class="example">+jekyll
++- css
++- _data
++- _drafts
++- img
++- _includes
++- _layouts
++- pages
++- _plugins
++- _posts
++- _sass
++- _scripts
++- _site
++org
+    +- _drafts
+    +- _posts
+    +- pages
+</pre>
+
+
+<p>  
+  I use <code>_drafts</code> because I don't always know when I will be
+  publishing a post, and <code>pages</code> because I have legacy content that
+  will get rewritten in Org format as it gets updated.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Front Matter</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  The <a href="http://jekyllrb.com/docs/frontmatter/">front matter</a> used by Jekyll and other engines to determine
+  content metadata requires some special handling to get exported
+  correctly by Org mode. The most straightforward thing is to use the
+  suggestion from the instructions mentioned earlier. Put your front
+  matter in a HTML block right at the top of the file.
+</p>
+
+
+
+<pre class="src src-org"><span style="color: #ff7f24;">#+BEGIN_HTML</span>
+<span style="color: #b3b3b3;">---</span>
+<span style="color: #b3b3b3;">title: Blog Writing in Org Mode</span>
+<span style="color: #b3b3b3;">layout: post</span>
+<span style="color: #b3b3b3;">category: Emacs</span>
+<span style="color: #b3b3b3;">tags: org jekyll</span>
+<span style="color: #b3b3b3;">---</span>
+<span style="color: #ff7f24;">#+END_HTML</span>
+</pre>
+
+
+<p>  
+  Okay, it's not HTML. But Org mode doesn't really care. It will get
+  passed through untouched when you export.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Configure HTML Export</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+  HTML and other output needs to be placed correctly within the
+  Jekyll layout conventions. A proper <code>org-publish-project-alist</code>
+  will take care of this.
+</p>
+
+
+
+<pre class="src src-emacs-lisp">(setq org-publish-project-alist
+      '(
+        (<span style="color: #ffa07a;">"org-randomgeekery"</span>
+         <span style="color: #ff7f24;">;; </span><span style="color: #ff7f24;">Location of org files</span>
+         <span style="color: #b0c4de;">:base-directory</span> <span style="color: #ffa07a;">"~/Projects/randomgeekery.org/org/"</span>
+         <span style="color: #b0c4de;">:base-extension</span> <span style="color: #ffa07a;">"org"</span>
+
+         <span style="color: #ff7f24;">;; </span><span style="color: #ff7f24;">Location of Jekyll files</span>
+         <span style="color: #b0c4de;">:publishing-directory</span> <span style="color: #ffa07a;">"~/Projects/randomgeekery.org/jekyll/"</span>
+         <span style="color: #b0c4de;">:recursive</span> t
+         <span style="color: #b0c4de;">:publishing-function</span> org-publish-org-to-html
+         <span style="color: #b0c4de;">:headline-levels</span> 4
+         <span style="color: #b0c4de;">:html-extension</span> <span style="color: #ffa07a;">"html"</span>
+
+         <span style="color: #ff7f24;">;; </span><span style="color: #ff7f24;">Only export section between &lt;body&gt;&lt;/body&gt;</span>
+         <span style="color: #b0c4de;">:body-only</span> t)
+
+        (<span style="color: #ffa07a;">"org-static-randomgeekery"</span>
+         <span style="color: #b0c4de;">:base-directory</span> <span style="color: #ffa07a;">"~/Projects/randomgeekery.org/org/"</span>
+         <span style="color: #b0c4de;">:base-extension</span> <span style="color: #ffa07a;">"css</span><span style="color: #ffa07a; font-weight: bold;">\\</span><span style="color: #ffa07a; font-weight: bold;">|</span><span style="color: #ffa07a;">js</span><span style="color: #ffa07a; font-weight: bold;">\\</span><span style="color: #ffa07a; font-weight: bold;">|</span><span style="color: #ffa07a;">png</span><span style="color: #ffa07a; font-weight: bold;">\\</span><span style="color: #ffa07a; font-weight: bold;">|</span><span style="color: #ffa07a;">jpg</span><span style="color: #ffa07a; font-weight: bold;">\\</span><span style="color: #ffa07a; font-weight: bold;">|</span><span style="color: #ffa07a;">gif</span><span style="color: #ffa07a; font-weight: bold;">\\</span><span style="color: #ffa07a; font-weight: bold;">|</span><span style="color: #ffa07a;">pdf</span><span style="color: #ffa07a; font-weight: bold;">\\</span><span style="color: #ffa07a; font-weight: bold;">|</span><span style="color: #ffa07a;">mp3</span><span style="color: #ffa07a; font-weight: bold;">\\</span><span style="color: #ffa07a; font-weight: bold;">|</span><span style="color: #ffa07a;">ogg"</span>
+         <span style="color: #b0c4de;">:publishing-directory</span> <span style="color: #ffa07a;">"~/Projects/randomgeekery.org/"</span>
+         <span style="color: #b0c4de;">:recursive</span> t
+         <span style="color: #b0c4de;">:publishing-function</span> org-publish-attachment)
+
+        (<span style="color: #ffa07a;">"rg"</span> <span style="color: #b0c4de;">:components</span> (<span style="color: #ffa07a;">"org-randomgeekery"</span> <span style="color: #ffa07a;">"org-static-randomgeekery"</span>))
+        ))
+</pre>
+
+
+<p>
+  Now when I export the project with <code>org-mode-export (C-c C-e X) rg</code>, all of my org
+  content for the project gets put in the correct spot. I even get a
+  table of contents, which is not such a bad thing.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Publishing A Post</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+  So when you've been editing a draft long enough and you're ready to
+  make it a real live post, you need to move the file from <code>_drafts</code>
+  to <code>_posts</code>, with the publish date prefixing the filename.
+</p>
+<p>
+  I could do that manually, but it's tedious to do that for every
+  blog post.
+</p>
+<p>
+  I experiment with my rudimentary Emacs Lisp skills to create a new
+  filename that looks about right.
+</p>
+
+
+
+<pre class="src src-emacs-lisp">(<span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">post-it</span> ()
+  <span style="color: #ffa07a;">"Write current draft file as a Jekyll post file"</span>
+  (interactive)
+  (<span style="color: #00ffff;">if</span>
+      (string-match <span style="color: #ffa07a;">"_drafts"</span> buffer-file-name)
+      (<span style="color: #00ffff;">let</span> ((draft-copy buffer-file-name)
+            (post-copy
+             <span style="color: #ff7f24;">;; </span><span style="color: #ff7f24;">_drafts/&lt;stub&gt;.org</span>
+             <span style="color: #ff7f24;">;; </span><span style="color: #ff7f24;">becomes</span>
+             <span style="color: #ff7f24;">;; </span><span style="color: #ff7f24;">_posts/yyyy-mm-dd-&lt;stub&gt;.org</span>
+             (concat
+              (replace-regexp-in-string <span style="color: #ffa07a;">"_drafts"</span> <span style="color: #ffa07a;">"_posts"</span> 
+                                        (file-name-directory buffer-file-name))
+              (format-time-string <span style="color: #ffa07a;">"%Y-%m-%d"</span>)
+              <span style="color: #ffa07a;">"-"</span>
+              (file-name-nondirectory buffer-file-name)
+              )
+             ))
+        (write-file post-copy)
+        )
+    (message <span style="color: #ffa07a;">"%s is not in _drafts!"</span> (file-name-nondirectory buffer-file-name))
+      )
+  )
+</pre>
+
+
+<p>  
+  Awkward, but it works. It worked at least once, anyways. Should
+  manually remove the original <code>_draft</code> file until I know what I'm
+  doing a little more.
+</p>
+<p>  
+  <i>Warning:</i> See that Lisp I wrote? It's probably wrong in some
+  horrible way. It's the most complex Elisp I've ever managed. Look
+  at it for interesting ideas, but please don't just copy and paste.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Followup</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<p>
+  I wonder if maybe this isn't the best approach, since it seems to
+  confuse the heck out of Org mode. My lone org file just would not
+  republish until I found <a href="http://lists.gnu.org/archive/html/emacs-orgmode/2009-05/msg00285.html">this post</a> for a similar situation. If it's
+  just not rebuilding, force it with a numeric argument: <code>C-u 0 C-c e</code>.
+</p>
+<p>
+  This works well enough to get one post published, anyways. I'm sure
+  to revisit this topic as I continue to learn more about Org mode
+  and Emacs.
+</p></div>
+</div>
