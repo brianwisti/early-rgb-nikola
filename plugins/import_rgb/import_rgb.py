@@ -65,6 +65,11 @@ class HugoContent:
         
         return content
 
+    def import_content(self):
+        """Import content and supplemental files"""
+        output_root = "posts" if self.is_post else "pages"
+        self.write_to(output_root)
+
     def write_to(self, destination: str):
         """Create a new nikola post using my content and frontmatter."""
         output_file = os.path.join(destination, self.preferred_path())
@@ -167,22 +172,11 @@ class CommandImportRgb(Command):
         # collect all the filenames
         safe_extensions = (".md", ".rst", ".adoc", ".html")
         hugo_site = HugoSite(config_file=hugo_config, safe_extensions=safe_extensions)
-        log.info(hugo_site)
         content_files = hugo_site.collect_content_files()
-        site_dir = os.path.dirname(hugo_config)
-        content_dir = os.path.join(site_dir, "content/")
-        pages_dir = "pages"
-        posts_dir = "posts"
+        # pages_dir = "pages"
+        # posts_dir = "posts"
         # log.info(f"Removing {posts_dir}")
         # remove_file(posts_dir)
 
-        log.info(f"site_dir: {site_dir}")
-        log.info(f"content_dir: {content_dir}")
-
         for hugo_content in content_files:
-            
-            if hugo_content.is_post:
-                hugo_content.write_to(posts_dir)
-            else:
-                hugo_content.write_to(pages_dir)
-
+            hugo_content.import_content()
