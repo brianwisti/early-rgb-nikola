@@ -10,6 +10,7 @@ tags:
 title: Cougar Mountain
 year: '2018'
 category: marginalia
+previewimage: /images/2018/09/cougar-mountain/cover.jpg
 ---
 
 Last weekend I wandered the trails of [Cougar Mountain Regional Wildland Park][].

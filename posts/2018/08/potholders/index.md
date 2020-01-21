@@ -8,6 +8,7 @@ tags:
 title: Potholders
 year: '2018'
 category: craft
+previewimage: /images/2018/08/potholders/cover.jpg
 ---
 
 Yes, they look like that on purpose.

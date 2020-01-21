@@ -9,6 +9,7 @@ tags:
 title: Stocking Cap
 year: '2018'
 category: craft
+previewimage: /images/2018/04/stocking-cap/cover.jpg
 ---
 
 I knitted myself a slightly silly stocking cap which I quite enjoy.

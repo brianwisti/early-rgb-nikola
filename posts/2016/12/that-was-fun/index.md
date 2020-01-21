@@ -9,5 +9,6 @@ tags:
 title: That Was Fun
 year: '2016'
 category: craft
+previewimage: /images/2016/12/that-was-fun/cover.jpg
 ---
 Made from a friend's suggestion, mixing ideas from a couple of favorite images.

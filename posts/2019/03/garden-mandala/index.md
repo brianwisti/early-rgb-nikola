@@ -15,6 +15,7 @@ tags:
 title: Garden Mandala
 year: '2019'
 category: craft
+previewimage: /images/2019/03/garden-mandala/cover.jpg
 ---
 
 A Samsung Note 9 means my phone drawing has been upgraded.

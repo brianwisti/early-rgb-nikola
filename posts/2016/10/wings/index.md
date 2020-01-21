@@ -8,5 +8,6 @@ tags:
 title: Wings
 year: '2016'
 category: craft
+previewimage: /images/2016/10/wings/cover.jpg
 ---
 Trying to draw people.

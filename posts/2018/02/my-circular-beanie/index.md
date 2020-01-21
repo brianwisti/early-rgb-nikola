@@ -9,6 +9,7 @@ tags:
 title: My Circular Beanie
 year: '2018'
 category: craft
+previewimage: /images/2018/02/my-circular-beanie/cover.jpg
 ---
 
 I made myself a snug beanie hat by knitting in the round.

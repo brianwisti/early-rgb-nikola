@@ -6,6 +6,7 @@ date: 2020-01-01
 tags:
 - emacs
 category: tools
+previewimage: /images/2020/01/quick-zoom-text-in-emacs/cover.png
 ---
 
 **TL;DR**: Use ``C-x C-=``, ``C-x C--``, and ``C-x C-0`` to scale text on the fly in your Emacs buffer.

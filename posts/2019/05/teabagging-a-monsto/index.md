@@ -9,6 +9,7 @@ tags:
 title: Teabagging a Monsto
 year: '2019'
 category: craft
+previewimage: /images/2019/05/teabagging-a-monsto/cover.jpg
 ---
 
 

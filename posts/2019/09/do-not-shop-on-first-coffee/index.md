@@ -13,6 +13,7 @@ tags:
 title: Do not shop on first coffee
 year: '2019'
 category: note
+previewimage: /images/2019/09/do-not-shop-on-first-coffee/cover.jpg
 ---
 
 Got sidetracked while picking up breakfast stuff from [Uwajimaya][]. Should probably have finished my first

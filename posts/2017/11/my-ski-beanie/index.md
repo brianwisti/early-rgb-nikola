@@ -9,6 +9,7 @@ tags:
 title: My Ski Beanie
 year: '2017'
 category: craft
+previewimage: /images/2017/11/my-ski-beanie/cover.jpg
 ---
 Took me less than a week. I like that. On the other hand, I established for certain that when I knit fast my
 gauge loosens up. The hat fits looser than it should. I like that less. On the *other* other hand, I already

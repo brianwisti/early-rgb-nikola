@@ -12,6 +12,7 @@ tags:
 title: Proudly doing it wrong
 year: '2019'
 category: note
+previewimage: /images/2019/08/proudly-doing-it-wrong/cover.png
 ---
 
 1. write a [site weight][] script that prints a report to the console

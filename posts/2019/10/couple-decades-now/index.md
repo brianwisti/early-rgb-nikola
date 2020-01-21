@@ -12,6 +12,7 @@ tags:
 title: Couple decades now
 year: '2019'
 category: note
+previewimage: /images/2019/10/couple-decades-now/cover.jpg
 ---
 
 Twenty years ago -- give or take a couple weeks -- I started working as a backend programmer [in tech][] for a

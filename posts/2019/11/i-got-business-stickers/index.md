@@ -9,6 +9,7 @@ tags:
 title: I got business stickers
 year: '2019'
 category: note
+previewimage: /images/2019/11/i-got-business-stickers/cover.jpg
 ---
 
 Better than my [original plan][] of business cards. Twitter handle  -- which already consists of my name,

@@ -8,5 +8,6 @@ tags:
 title: Mask Face
 year: '2016'
 category: craft
+previewimage: /images/2016/09/mask-face/cover.jpg
 ---
 Getting a feel for how to use Procreate.

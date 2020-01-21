@@ -12,6 +12,7 @@ title: coolnamehere Content Update
 type: post
 year: '2015'
 category: marginalia
+previewimage: /images/2015/03/coolnamehere-content-update/cover.png
 ---
 [Jekyll]: http://jekyllrb.com
 [Ruby]: /tags/ruby/

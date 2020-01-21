@@ -10,6 +10,7 @@ tags:
 title: Fauntleroy Park
 year: '2018'
 category: marginalia
+previewimage: /images/2018/07/fauntleroy-park/cover.jpg
 ---
 
 Today I explored [Fauntleroy Park][], a 28 acre park in West Seattle with some nice trails.

@@ -9,6 +9,7 @@ tags:
 title: My First F Bomb
 year: '2018'
 category: craft
+previewimage: /images/2018/07/my-first-f-bomb/cover.jpg
 ---
 
 Took a break this weekend with a quick yarn project.

@@ -10,6 +10,7 @@ thumbnail: /img/2016/my-twin-rib-socks-thumbnail.jpg
 title: My Twin Rib Socks
 year: '2016'
 category: craft
+previewimage: /images/2016/01/my-twin-rib-socks/cover.jpg
 ---
 Took me a couple months, mainly because I started a pair for my mom while
 in the middle of making this pair.

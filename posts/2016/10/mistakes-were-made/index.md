@@ -16,5 +16,6 @@ store:
   link: https://www.designbyhumans.com/shop/t-shirt/men/mistakes-were-made/935686/
   image: mistakes-were-made-shirt.jpg
 category: craft
+previewimage: /images/2016/10/mistakes-were-made/cover.png
 ---
 Title says it all, I hope.

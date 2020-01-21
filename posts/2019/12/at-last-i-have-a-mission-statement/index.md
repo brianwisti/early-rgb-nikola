@@ -9,6 +9,7 @@ tags:
 - code
 - Christmas
 category: note
+previewimage: /images/2019/12/at-last-i-have-a-mission-statement/cover.jpg
 ---
 
 The stress ball lasted four days under _my_ stress load, but the reader board is a Christmas present that will keep on

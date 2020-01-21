@@ -8,6 +8,7 @@ tags:
 title: Karabiner
 year: '2019'
 category: note
+previewimage: /images/2019/06/karabiner/cover.png
 ---
 
 Grumbled on Twitter about the MBP TouchBar as a Vim user. [genehack][] mentioned

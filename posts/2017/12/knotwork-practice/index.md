@@ -11,6 +11,7 @@ tags:
 title: Knotwork Practice
 year: '2017'
 category: craft
+previewimage: /images/2017/12/knotwork-practice/cover.jpg
 ---
 This started with practicing a knotwork pattern from [Celtic Art: The Methods of Construction][], and ended up
 as an exercise in how long I could add stuff before I got bored. Thirteen hours. Not bad.

@@ -12,6 +12,7 @@ tags:
 title: A Desktop Background
 year: '2017'
 category: craft
+previewimage: /images/2017/09/a-desktop-background/cover.jpg
 ---
 Thought I'd make a picture with the right aspect ratio for my desktop.
 Used Infinite Painter's radial symmetry tool for most of the linework,

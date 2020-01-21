@@ -9,6 +9,7 @@ tags:
 title: Beer Gloves
 year: '2018'
 category: craft
+previewimage: /images/2018/08/beer-gloves/cover.jpg
 ---
 
 

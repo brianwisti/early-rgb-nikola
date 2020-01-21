@@ -10,6 +10,7 @@ tags:
 title: Space Thing
 year: '2017'
 category: craft
+previewimage: /images/2017/06/space-thing/cover.jpg
 ---
 Started with the perspective tools in Procreate, then wandered over to Infinite Painter which has a spattery
 ink brush that I enjoy. To be honest, I don't really see the spatter effect much in this picture. Lesson

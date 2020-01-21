@@ -11,6 +11,7 @@ title: Installing Emacs Documentation on POP!_os
 updated: 2019-12-01T11:30:44-08:00
 year: '2019'
 category: tools
+previewimage: /images/2019/12/installing-emacs-documentation-on-pop_os/cover.png
 ---
 
 On a Linux flavor like [Ubuntu](https://ubuntu.com/) or [Pop!\_os](https://system76.com/pop) which uses [`apt`](https://en.wikipedia.org/wiki/APT%5F(software)) for package management?

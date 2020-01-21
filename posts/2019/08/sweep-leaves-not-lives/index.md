@@ -12,6 +12,7 @@ tags:
 title: Sweep Leaves Not Lives
 year: '2019'
 category: note
+previewimage: /images/2019/08/sweep-leaves-not-lives/cover.jpg
 ---
 
 Seattle's homeless sweeps are contentious to say the least.

@@ -11,6 +11,7 @@ title: My Sloppy Floppy Fingerless Mitten
 updated: 2018-02-17T00:00:00Z
 year: '2018'
 category: craft
+previewimage: /images/2018/02/my-sloppy-floppy-fingerless-mitten/cover.jpg
 ---
 
 I knit a fingerless mitten. Mistakes were made. I also figured out some stuff about Hugo Page Bundles and

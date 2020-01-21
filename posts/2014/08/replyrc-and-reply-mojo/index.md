@@ -16,6 +16,7 @@ title: .replyrc And reply -Mojo
 type: post
 year: '2014'
 category: tools
+previewimage: /images/2014/08/replyrc-and-reply-mojo/cover.png
 ---
 [started playing]: /post/2014/perl-reply-repl/
 [Reply]: https://metacpan.org/pod/Reply

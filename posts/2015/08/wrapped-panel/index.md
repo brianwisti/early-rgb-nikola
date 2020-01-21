@@ -13,6 +13,7 @@ thumbnail: /img/2015/wrapped-panel-medium-thumbnail.png
 title: Wrapped Panel
 year: '2015'
 category: craft
+previewimage: /images/2015/08/wrapped-panel/cover.png
 ---
 I like this one. Stretching myself with each picture is starting to look interesting.
 <!-- TEASER_END -->

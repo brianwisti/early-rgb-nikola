@@ -7,6 +7,7 @@ tags:
 - knitting
 - vest
 category: craft
+previewimage: /images/2018/01/barbaras-ruana-vest/cover.jpg
 ---
 Finished this last month, but the blog fell behind a bit.
 <!-- TEASER_END -->

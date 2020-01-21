@@ -11,6 +11,7 @@ tags:
 title: Red
 year: '2017'
 category: craft
+previewimage: /images/2017/01/red/cover.jpg
 ---
 The lines are a little wobbly for my taste but I got the shape about right. That's a nice feeling.
 

@@ -8,6 +8,7 @@ tags:
 title: On Modesty And Imposter Syndrome
 year: '2018'
 category: marginalia
+previewimage: /images/2018/10/on-modesty-and-imposter-syndrome/cover.jpg
 ---
 
 

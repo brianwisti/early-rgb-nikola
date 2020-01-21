@@ -11,5 +11,6 @@ thumbnail: /img/2016/beholder-thumbnail.jpg
 title: Beholder
 year: '2016'
 category: craft
+previewimage: /images/2016/11/beholder/cover.jpg
 ---
 Fun with symmetry

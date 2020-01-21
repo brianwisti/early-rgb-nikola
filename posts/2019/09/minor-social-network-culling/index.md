@@ -11,6 +11,7 @@ tags:
 title: minor social network culling
 year: '2019'
 category: note
+previewimage: /images/2019/09/minor-social-network-culling/cover.jpg
 ---
 
 [Ello]: https://ello.co

@@ -10,6 +10,7 @@ title: FXRuby MPlayer Idea
 type: post
 year: '2007'
 archived_category: blogspot
+previewimage: /images/2007/01/fxruby-mplayer-idea/cover.png
 ---
 A few weeks back I wrote up a GUI front-end for <a href="http://www.mplayerhq.hu/">mplayer</a>. It works nice enough, but it suffers from a few aesthetic issues:
 <!-- TEASER_END -->

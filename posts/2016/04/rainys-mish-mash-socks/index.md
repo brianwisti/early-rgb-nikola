@@ -10,6 +10,7 @@ thumbnail: /img/2016/rainys-mishmash-socks-thumbnail.jpg
 title: Rainy's Mish-Mash Socks
 year: '2016'
 category: craft
+previewimage: /images/2016/04/rainys-mish-mash-socks/cover.jpg
 ---
 Some socks to go with [the gloves][] I made a few weeks ago.
 [the gloves]: /craft/2016/rainys-mishmash-gloves/

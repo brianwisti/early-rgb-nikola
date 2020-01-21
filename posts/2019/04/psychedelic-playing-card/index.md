@@ -11,6 +11,7 @@ tags:
 title: Psychedelic Playing Card
 year: '2019'
 category: craft
+previewimage: /images/2019/04/psychedelic-playing-card/cover.png
 ---
 
 That cover image is kinda fuzzy. Better click on the original link image to see it properly.

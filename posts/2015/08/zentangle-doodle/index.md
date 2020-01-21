@@ -14,6 +14,7 @@ thumbnail: /img/2015/tangle-01-medium-thumbnail.png
 title: Zentangle Doodle
 year: '2015'
 category: craft
+previewimage: /images/2015/08/zentangle-doodle/cover.png
 ---
 [Zentangle]: https://www.zentangle.com/
 Trying to get back into the habit of drawing regularly. This is a

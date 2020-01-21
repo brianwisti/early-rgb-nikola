@@ -8,6 +8,7 @@ tags:
 - taskwarrior
 - python
 category: programming
+previewimage: /images/2020/01/a-quick-notes-script-for-taskwarrior/cover.png
 ---
 
 I need more than annotations for my `Taskwarrior`_ tasks. Let's write some `Python`_!
@@ -65,7 +66,7 @@ Annotations give additional information, but at the cost of cluttering the repor
 
 The `edit`_ view isn't any better, really.
 
-.. _`edit`: {{< ref "post/2019/taskwarrior-editing-refinements/index.adoc" >}}
+.. _`edit`: {{< ref "post/2019/taskwarrior-editing-refinements/index.rst" >}}
 
 .. code:: shell-session
 

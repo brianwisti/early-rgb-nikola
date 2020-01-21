@@ -9,6 +9,7 @@ tags:
 title: Basic Hat With Picot Edge
 year: '2018'
 category: craft
+previewimage: /images/2018/11/basic-hat-with-picot-edge/cover.jpg
 ---
 
 I continue building my hat knitting knowledge!

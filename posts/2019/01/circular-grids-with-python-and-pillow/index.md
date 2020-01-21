@@ -8,6 +8,7 @@ tags:
 title: Circular Grids With Python and Pillow
 year: '2019'
 category: programming
+previewimage: /images/2019/01/circular-grids-with-python-and-pillow/cover.png
 ---
 
 I want a circular grid for drawing. Let's make one with Python!

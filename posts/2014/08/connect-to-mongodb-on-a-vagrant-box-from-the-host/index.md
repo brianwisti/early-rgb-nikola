@@ -10,6 +10,7 @@ title: Connect To MongoDB on a Vagrant box from the host
 type: post
 year: '2014'
 category: tools
+previewimage: /images/2014/08/connect-to-mongodb-on-a-vagrant-box-from-the-host/cover.png
 ---
 [Yesterday]: /post/2014/trusty-mongo-mojo/
 

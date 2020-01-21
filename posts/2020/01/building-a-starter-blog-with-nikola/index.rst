@@ -9,6 +9,7 @@ tags:
 - site
 - nikola
 category: tools
+previewimage: /images/2020/01/building-a-starter-blog-with-nikola/cover.png
 ---
 
 I messed with Nikola_ a while back, but ended up going with Hugo_.

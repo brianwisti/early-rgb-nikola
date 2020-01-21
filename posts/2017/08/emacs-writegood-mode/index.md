@@ -10,6 +10,7 @@ tags:
 title: Emacs Writegood Mode
 year: '2017'
 category: tools
+previewimage: /images/2017/08/emacs-writegood-mode/cover.png
 ---
 
 

@@ -5,6 +5,7 @@ summary: Information about Random Geekery and Brian Wisti
 updated: 2019-11-30T12:47:57-08:00
 draft: false
 formatter: ox-hugo
+previewimage: /images/about/cover.jpg
 ---
 
 I dump stuff on this site: programming notes, TODO items, crafting projects, random thoughts.

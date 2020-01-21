@@ -9,6 +9,7 @@ tags:
 - good idea
 - bad idea
 category: note
+previewimage: /images/2020/01/go-back-to-bed/cover.png
 ---
 
 Woke up with the terrible idea of rewriting [WebMake][] as a [Gatsby][] plugin but

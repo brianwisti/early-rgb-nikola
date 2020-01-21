@@ -13,5 +13,6 @@ thumbnail: /img/2015/natalies-hat-thumbnail.jpg
 title: Natalie's Hat
 year: '2008'
 category: craft
+previewimage: /images/2008/10/natalies-hat/cover.jpg
 ---
 Now for a hat using the same yarn I used for her sweater.

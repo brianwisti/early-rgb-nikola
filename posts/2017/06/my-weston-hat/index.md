@@ -9,6 +9,7 @@ tags:
 title: My Weston Hat
 year: '2017'
 category: craft
+previewimage: /images/2017/06/my-weston-hat/cover.jpg
 ---
 Ended up knitting this one twice. Tried the large size first, and it ended up way too large for my taste.
 Frogged and restarted the smaller size, making a new set of mistakes. But the hat fits now and I'm not

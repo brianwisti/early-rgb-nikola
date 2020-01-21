@@ -9,6 +9,7 @@ tags:
 title: A Couple Crochet Hats
 year: '2018'
 category: craft
+previewimage: /images/2018/02/a-couple-crochet-hats/cover.jpg
 ---
 
 I crocheted two hats from [Stitch 'N Bitch Crochet][] over the last week or so.

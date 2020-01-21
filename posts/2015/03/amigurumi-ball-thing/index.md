@@ -13,6 +13,7 @@ thumbnail: /img/2015/amigurumi-ball-thing-thumbnail.jpg
 title: Amigurumi Ball Thing
 year: '2015'
 category: craft
+previewimage: /images/2015/03/amigurumi-ball-thing/cover.jpg
 ---
 [this YouTube video]: https://youtu.be/mJ47MLlrLzw
 I *think* I used [this YouTube video][] as my starting point.

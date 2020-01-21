@@ -14,6 +14,7 @@ thumbnail: /img/2015/celtic-tangle-01-medium-thumbnail.png
 title: Celtic Tangle
 year: '2015'
 category: craft
+previewimage: /images/2015/08/celtic-tangle/cover.png
 ---
 [Zentangle]: https://www.zentangle.com/
 Another [Zentangle][] practice. This time I mixed in a couple of minor Celtic

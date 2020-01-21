@@ -12,6 +12,7 @@ tags:
 title: A good day for books
 year: '2019'
 category: note
+previewimage: /images/2019/10/a-good-day-for-books/cover.jpg
 ---
 
 Decided I wanted a copy of "[Learning Perl 6][]" before it becomes "Learning [Raku][]". 

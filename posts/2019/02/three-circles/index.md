@@ -14,6 +14,7 @@ tags:
 title: Three Circles
 year: '2019'
 category: craft
+previewimage: /images/2019/02/three-circles/cover.jpg
 ---
 
 That [circle template][] I mentioned a couple weeks ago? Well, I made it so I could draw stuff like this!

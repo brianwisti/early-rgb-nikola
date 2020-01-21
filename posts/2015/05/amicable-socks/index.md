@@ -9,6 +9,7 @@ title: Amicable Socks
 year: '2015'
 updated: 2018-02-18T00:00:00Z
 category: craft
+previewimage: /images/2015/05/amicable-socks/cover.jpg
 ---
 I just finished my "Amicable Socks" - so named because I made them for my ex, and we split on friendly terms.
 <!-- TEASER_END -->

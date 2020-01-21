@@ -10,6 +10,7 @@ tags:
 title: Colorized my go output with grc
 year: '2019'
 category: tools
+previewimage: /images/2019/09/colorized-my-go-output-with-grc/cover.png
 ---
 
 [Go]: https://golang.org/

@@ -13,5 +13,6 @@ thumbnail: /img/2015/brookes-socks-not-sarahs-thumbnail.jpg
 title: Brooke's Socks - Not Sarah's
 year: '2009'
 category: craft
+previewimage: /images/2009/02/brookes-socks-not-sarahs/cover.jpg
 ---
 Made scads of mistakes, so I gave them to Brooke. She loved them.

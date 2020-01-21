@@ -9,6 +9,7 @@ title: Kitty Terminal
 updated: 2019-05-27T00:00:00Z
 year: '2019'
 category: tools
+previewimage: /images/2019/05/kitty-terminal/cover.png
 ---
 
 

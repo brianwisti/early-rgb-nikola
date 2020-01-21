@@ -10,6 +10,7 @@ tags:
 title: '"Charming Victorian" also means "Creepy As Hell"'
 year: '2019'
 category: note
+previewimage: /images/2019/07/charming-victorian-also-means-creepy-as-hell/cover.jpg
 ---
 
 Thought you might want to know.

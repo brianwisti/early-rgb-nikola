@@ -10,6 +10,7 @@ thumbnail: /img/2015/my-first-socks-thumbnail.jpg
 title: My First Socks
 year: '2015'
 category: craft
+previewimage: /images/2015/11/my-first-socks/cover.jpg
 ---
 Not my first socks ever, of course. But there are many firsts in these socks.
 <!-- TEASER_END -->

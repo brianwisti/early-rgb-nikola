@@ -9,6 +9,7 @@ title: Taskwarrior
 updated: 2017-12-22T00:00:00Z
 year: '2017'
 category: tools
+previewimage: /images/2017/12/taskwarrior/cover.png
 ---
 
 I ended up with a mess after half a year trying to use *every feature* of [Taskwarrior][]. It's time to focus

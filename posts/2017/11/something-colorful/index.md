@@ -9,6 +9,7 @@ tags:
 title: Something Colorful
 year: '2017'
 category: craft
+previewimage: /images/2017/11/something-colorful/cover.jpg
 ---
 The other night I went out, and brought my iPad. Sketching calms me when sitting in a public space. This is
 the final version of a doodle started that night.

@@ -10,6 +10,7 @@ tags:
 title: Mount Si
 year: '2018'
 category: marginalia
+previewimage: /images/2018/09/mount-si/cover.jpg
 ---
 
 I sauntered up the main trail of [Mount Si][] this weekend.

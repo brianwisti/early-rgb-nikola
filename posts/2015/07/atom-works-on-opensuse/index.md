@@ -10,6 +10,7 @@ title: Atom Works on openSUSE
 type: post
 year: '2015'
 category: tools
+previewimage: /images/2015/07/atom-works-on-opensuse/cover.png
 ---
 [Atom Editor]: https://atom.io
 [openSUSE]: http://opensuse.org

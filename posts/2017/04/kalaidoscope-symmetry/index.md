@@ -9,6 +9,7 @@ tags:
 title: Kalaidoscope Symmetry
 year: '2017'
 category: craft
+previewimage: /images/2017/04/kalaidoscope-symmetry/cover.jpg
 ---
 I've been enjoying [Infinite Painter][]'s symmetry tools.
 

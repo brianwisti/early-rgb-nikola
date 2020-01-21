@@ -11,6 +11,7 @@ tags:
 title: Chaotic Symmetry
 year: '2019'
 category: craft
+previewimage: /images/2019/08/chaotic-symmetry/cover.jpg
 ---
 
 

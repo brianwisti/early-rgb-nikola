@@ -10,6 +10,7 @@ title: Weighing Files With Python
 updated: 2019-06-02T00:00:00Z
 year: '2019'
 category: programming
+previewimage: /images/2019/06/weighing-files-with-python/cover.png
 ---
 
 I want to optimize this site's file sizes, but first I should see if I need to.
