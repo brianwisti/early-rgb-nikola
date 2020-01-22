@@ -5,4 +5,3 @@ cache
 .mypy_cache
 output
 .vscode/settings.json
-nikola.code-workspace
