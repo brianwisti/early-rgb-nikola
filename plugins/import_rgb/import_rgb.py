@@ -5,7 +5,7 @@
 from dataclasses import dataclass, field
 import os
 import re
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 from nikola.plugin_categories import Command
 from nikola.utils import copy_file, get_logger, makedirs, remove_file, slugify
@@ -22,7 +22,7 @@ class HugoContent:
     """Knows enough about a Hugo content file to help import itself into Nikola"""
     hugo_file: str
     content_dir: str
-    cover_image: str = None
+    cover_image: Optional[str] = None
     bundle_files: List[str] = field(default_factory=list)
     frontmatter: Dict[str, Any] = field(init=False)
     content: str = field(init=False)
@@ -102,6 +102,7 @@ class HugoContent:
             del metadata["categories"]
         elif self.hugo_file.find("/note/") > 0:
             metadata["category"] = "note"
+            metadata["type"] = "micro"
         
         # set `previewimage` metadata
         if self.cover_image:
