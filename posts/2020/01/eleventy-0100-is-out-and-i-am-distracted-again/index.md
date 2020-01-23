@@ -8,6 +8,7 @@ tags:
 - possum
 - the logo makes the project
 category: note
+type: micro
 ---
 Making note for later:
 

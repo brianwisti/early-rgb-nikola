@@ -13,6 +13,7 @@ tags:
 title: Internet Connected!
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/06/internet-connected/cover.png
 ---
 

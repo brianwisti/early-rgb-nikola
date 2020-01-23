@@ -11,6 +11,7 @@ tags:
 title: 12 days 5 hours 28 minutes to home
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/07/12-days-5-hours-28-minutes-to-home/cover.jpg
 ---
 

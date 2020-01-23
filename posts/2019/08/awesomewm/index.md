@@ -11,6 +11,7 @@ tags:
 title: Awesome(wm)
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/08/awesomewm/cover.jpg
 ---
 

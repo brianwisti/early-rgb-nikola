@@ -13,6 +13,7 @@ tags:
 title: Slow walkers have inferior brains
 year: '2019'
 category: note
+type: micro
 ---
 
 Here's an interesting correlation.

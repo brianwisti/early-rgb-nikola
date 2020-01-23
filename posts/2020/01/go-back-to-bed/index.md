@@ -9,6 +9,7 @@ tags:
 - good idea
 - bad idea
 category: note
+type: micro
 previewimage: /images/2020/01/go-back-to-bed/cover.png
 ---
 

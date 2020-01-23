@@ -3,7 +3,6 @@ title: reStructuredText Basics For Blogging
 announcement: I got carried away taking notes about basic RST usage
 year: '2020'
 date: 2020-01-19
-status: featured
 tags:
 - python
 - rst

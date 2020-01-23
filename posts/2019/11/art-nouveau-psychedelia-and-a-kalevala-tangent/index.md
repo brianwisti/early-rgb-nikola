@@ -10,6 +10,7 @@ tags:
 title: Art Nouveau, Psychedelia, and a Kalevala tangent
 year: '2019'
 category: note
+type: micro
 ---
 
 > No object was too mundane to be beautiful.

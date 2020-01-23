@@ -12,6 +12,7 @@ tags:
 title: Proudly doing it wrong
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/08/proudly-doing-it-wrong/cover.png
 ---
 

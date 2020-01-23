@@ -10,6 +10,7 @@ tags:
 - legal
 - quagmire
 category: note
+type: micro
 ---
 
 > Let me be clear: I'm not arguing with the desire to pay developers in this system, I'm arguing that this is a

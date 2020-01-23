@@ -10,6 +10,7 @@ tags:
 title: I still love when people say nice things about Perl
 year: '2019'
 category: note
+type: micro
 ---
 
 [John Siracusa][], on the [Diving for Perl][] episode of the [Command Line

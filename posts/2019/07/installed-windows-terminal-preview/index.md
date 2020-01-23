@@ -12,6 +12,7 @@ tags:
 title: Installed Windows Terminal Preview
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/07/installed-windows-terminal-preview/cover.png
 ---
 

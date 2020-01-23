@@ -8,6 +8,7 @@ tags:
 title: I FIXED MY .Pages
 year: '2019'
 category: note
+type: micro
 ---
 
 Too tired to make it make sense. My site broke under Hugo .58. No front page listing. I fixed it. Yay!

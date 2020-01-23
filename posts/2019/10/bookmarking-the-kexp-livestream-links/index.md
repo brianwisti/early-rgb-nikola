@@ -11,6 +11,7 @@ tags:
 title: Bookmarking the KEXP livestream links
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/10/bookmarking-the-kexp-livestream-links/cover.jpg
 ---
 

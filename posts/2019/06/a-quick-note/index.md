@@ -8,6 +8,7 @@ tags:
 title: A quick note
 year: '2019'
 category: note
+type: micro
 ---
 
 So hey. Just a quick note to say I'm adding quick notes to the site. Get my

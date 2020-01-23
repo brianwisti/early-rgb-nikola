@@ -10,6 +10,7 @@ tags:
 title: I forgot how nice KDE can be
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/07/i-forgot-how-nice-kde-can-be/cover.png
 ---
 

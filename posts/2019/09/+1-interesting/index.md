@@ -12,6 +12,7 @@ tags:
 title: '[+1 Interesting]'
 year: '2019'
 category: note
+type: micro
 ---
 
 As a fan of [Slashdot](https://slashdot.org) and [Everything2](https://everything2.com/) -- and

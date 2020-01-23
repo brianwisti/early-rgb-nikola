@@ -8,6 +8,7 @@ tags:
 title: RSS fix, I hope
 year: '2019'
 category: note
+type: micro
 ---
 
 Something went wonky in the RSS for this morning's post.

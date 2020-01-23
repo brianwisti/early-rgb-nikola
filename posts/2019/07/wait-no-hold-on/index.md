@@ -12,6 +12,7 @@ tags:
 title: Wait No Hold On
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/07/wait-no-hold-on/cover.png
 ---
 

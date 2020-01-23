@@ -9,6 +9,7 @@ tags:
 - code
 - Christmas
 category: note
+type: micro
 previewimage: /images/2019/12/at-last-i-have-a-mission-statement/cover.jpg
 ---
 

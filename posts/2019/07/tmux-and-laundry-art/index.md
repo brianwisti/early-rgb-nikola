@@ -15,6 +15,7 @@ tags:
 title: tmux and laundry art
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/07/tmux-and-laundry-art/cover.jpg
 ---
 

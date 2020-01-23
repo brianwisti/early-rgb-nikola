@@ -11,6 +11,7 @@ tags:
 title: Be proud of your blog site thing
 year: '2019'
 category: note
+type: micro
 ---
 
 > It‘s tempting to think that The Thing of my career has been NetNewsWire. And that’s kinda true. But the

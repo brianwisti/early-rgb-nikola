@@ -9,6 +9,7 @@ tags:
 - yeah I know
 - oh no the dishes
 category: note
+type: micro
 ---
 
 That thing where you're doing a thing but need to look up something and get an idea and start a thing but need

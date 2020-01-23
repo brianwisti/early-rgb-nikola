@@ -12,6 +12,7 @@ tags:
 title: A good day for books
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/10/a-good-day-for-books/cover.jpg
 ---
 

@@ -7,6 +7,7 @@ tags:
 title: Watched Netflix Explained; remembered Bowie
 year: '2019'
 category: note
+type: micro
 ---
 
 We watched the "Code" episode of Netflix's [explained][].There's only so much that can be covered in 24

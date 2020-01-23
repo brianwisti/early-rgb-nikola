@@ -10,6 +10,7 @@ tags:
 title: Chicken for lunch
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/06/chicken-for-lunch/cover.jpg
 ---
 

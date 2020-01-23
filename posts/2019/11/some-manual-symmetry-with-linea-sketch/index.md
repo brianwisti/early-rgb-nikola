@@ -8,6 +8,7 @@ tags:
 title: Some manual symmetry with Linea Sketch
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/11/some-manual-symmetry-with-linea-sketch/cover.jpg
 ---
 

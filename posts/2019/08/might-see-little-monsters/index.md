@@ -12,6 +12,7 @@ tags:
 title: Might see Little Monsters
 year: '2019'
 category: note
+type: micro
 ---
 
 I'm done with zombie movies.

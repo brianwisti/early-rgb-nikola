@@ -9,6 +9,7 @@ title: Checking in on my idea bucket
 updated: 2019-07-03T09:18:47-07:00
 year: '2019'
 category: note
+type: micro
 ---
 
 

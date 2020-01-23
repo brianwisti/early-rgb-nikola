@@ -15,6 +15,7 @@ tags:
 title: We went to the mall. Later, I bought an app.
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/10/we-went-to-the-mall-later-i-bought-an-app/cover.png
 ---
 

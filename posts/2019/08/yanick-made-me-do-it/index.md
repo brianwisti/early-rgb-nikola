@@ -9,6 +9,7 @@ tags:
 title: Yanick made me do it
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/08/yanick-made-me-do-it/cover.png
 ---
 

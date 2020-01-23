@@ -10,6 +10,7 @@ tags:
 title: Foot hat
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/10/foot-hat/cover.jpg
 ---
 

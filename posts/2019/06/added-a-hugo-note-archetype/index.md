@@ -15,6 +15,7 @@ tags:
 title: Added a Hugo note archetype
 year: '2019'
 category: note
+type: micro
 ---
 
 Moved into a new apartment. Waiting for Internet on Tuesday. It's Sunday.

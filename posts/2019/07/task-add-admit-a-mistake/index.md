@@ -9,6 +9,7 @@ tags:
 title: task add 'admit a mistake'
 year: '2019'
 category: note
+type: micro
 ---
 
 My [glance][] at the Idea Bucket only worked by luck. The `+LATEST` virtual tag

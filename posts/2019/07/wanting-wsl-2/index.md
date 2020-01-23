@@ -15,6 +15,7 @@ tags:
 title: Wanting WSL 2
 year: '2019'
 category: note
+type: micro
 ---
 
 Been impatiently waiting for the general release of WSL 2 -- the [Windows

@@ -13,6 +13,7 @@ tags:
 title: ubuntu-wsl
 year: '2019'
 category: note
+type: micro
 ---
 
 And when I *do* get home and start playing with [WSL 2][], I'll make sure to install

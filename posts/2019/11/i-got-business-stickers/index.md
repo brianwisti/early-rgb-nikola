@@ -9,6 +9,7 @@ tags:
 title: I got business stickers
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/11/i-got-business-stickers/cover.jpg
 ---
 

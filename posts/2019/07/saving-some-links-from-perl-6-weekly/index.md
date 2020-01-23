@@ -14,6 +14,7 @@ tags:
 title: Saving some links from Perl 6 Weekly
 year: '2019'
 category: note
+type: micro
 ---
 
 Haven't done anything interesting related to [Perl 6][] for _years_, but I still

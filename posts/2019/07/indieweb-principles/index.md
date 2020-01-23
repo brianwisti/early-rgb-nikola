@@ -14,6 +14,7 @@ tags:
 title: IndieWeb Principles
 year: '2019'
 category: note
+type: micro
 ---
 
 [IndieWeb][] contains most of the philosophy behind my notes project: Own your

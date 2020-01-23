@@ -13,6 +13,7 @@ tags:
 title: On moving your life forward
 year: '2019'
 category: note
+type: micro
 ---
 
 > When you metaphorically live life “paycheck to paycheck,” you do just enough each week to maintain your

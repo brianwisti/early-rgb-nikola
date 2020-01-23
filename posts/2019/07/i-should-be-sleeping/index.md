@@ -11,6 +11,7 @@ tags:
 title: I should be sleeping
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/07/i-should-be-sleeping/cover.jpg
 ---
 

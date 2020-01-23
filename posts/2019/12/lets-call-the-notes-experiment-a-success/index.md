@@ -8,6 +8,7 @@ tags:
 - assimilation
 - happens all the time
 category: note
+type: micro
 ---
 
 Yep. I love the [Notes][] experiment.

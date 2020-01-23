@@ -11,6 +11,7 @@ tags:
 title: Ugh
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/07/ugh/cover.jpg
 ---
 

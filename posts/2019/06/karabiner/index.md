@@ -8,6 +8,7 @@ tags:
 title: Karabiner
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/06/karabiner/cover.png
 ---
 

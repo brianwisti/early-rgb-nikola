@@ -14,6 +14,7 @@ tags:
 title: 6 Days 21 Hours 30 Minutes To Home
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/07/6-days-21-hours-30-minutes-to-home/cover.jpg
 ---
 

@@ -8,6 +8,7 @@ tags:
 - life
 - with my sweetheart
 category: note
+type: micro
 previewimage: /images/2019/12/i-got-her-a-card-for-her-birthday/cover.jpg
 ---
 

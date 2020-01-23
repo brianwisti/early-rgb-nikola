@@ -12,6 +12,7 @@ tags:
 title: Seattle's Chinatown Gate
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/07/seattles-chinatown-gate/cover.jpg
 ---
 

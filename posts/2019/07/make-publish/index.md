@@ -11,6 +11,7 @@ tags:
 title: make publish
 year: '2019'
 category: note
+type: micro
 ---
 
 The [Notes][] list pages are paginated now, at least until I come up with a

@@ -11,6 +11,7 @@ tags:
 title: Pioneer Square has a view now
 year: '2019'
 category: note
+type: micro
 previewimage: /images/2019/09/pioneer-square-has-a-view-now/cover.jpg
 ---
 

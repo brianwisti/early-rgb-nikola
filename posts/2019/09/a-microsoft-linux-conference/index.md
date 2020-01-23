@@ -16,6 +16,7 @@ tags:
 title: A Microsoft Linux Conference?
 year: '2019'
 category: note
+type: micro
 ---
 
 > The two day event will feature presentations by the Microsoft team behind the Windows Subsystem for Linux
