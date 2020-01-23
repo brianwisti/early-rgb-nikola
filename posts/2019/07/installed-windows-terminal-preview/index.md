@@ -12,6 +12,7 @@ tags:
 title: Installed Windows Terminal Preview
 year: '2019'
 category: note
+previewimage: /images/2019/07/installed-windows-terminal-preview/cover.png
 ---
 
 Windows partition is [Fast Ring][] now, but that took the full night. All

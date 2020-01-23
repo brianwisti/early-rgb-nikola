@@ -13,6 +13,7 @@ tags:
 title: I Stole A Great Idea
 year: '2019'
 category: note
+previewimage: /images/2019/07/i-stole-a-great-idea/cover.jpg
 ---
 
 > Good artists copy; great artists steal.

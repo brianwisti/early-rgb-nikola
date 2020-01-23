@@ -12,6 +12,7 @@ tags:
 title: Hugo Archetype Templates
 year: '2017'
 category: tools
+previewimage: /images/2017/07/hugo-archetype-templates/cover.png
 ---
 I try out archetype templates from the Hugo static site generator, smoothing the whole thing into my
 workflow with a bash script.

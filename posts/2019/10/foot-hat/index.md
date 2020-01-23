@@ -10,6 +10,7 @@ tags:
 title: Foot hat
 year: '2019'
 category: note
+previewimage: /images/2019/10/foot-hat/cover.jpg
 ---
 
 I made a foot hat, because someone's foot is in a cast and their toes are cold.

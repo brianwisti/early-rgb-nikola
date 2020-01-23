@@ -12,6 +12,7 @@ tags:
 title: Eleventy
 year: '2019'
 category: tools
+previewimage: /images/2019/04/eleventy/cover.jpg
 ---
 
 Spring has sprung, and with it comes thoughts of new tools to build a Web site. Okay no the picture has

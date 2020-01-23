@@ -14,6 +14,7 @@ store:
   link: https://www.designbyhumans.com/shop/t-shirt/men/chibi-rainyday-superstar/1046338/
   image: chibi-rainy-shirt.jpg
 category: craft
+previewimage: /images/2016/09/chibi-rainyday-superstar/cover.png
 ---
 I was so unhappy with my attempts to draw realistic pictures of my friend Rainy that I went in the complete
 opposite direction and drew her in sort of a [chibi][] style.

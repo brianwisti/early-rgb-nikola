@@ -9,6 +9,7 @@ tags:
 title: Nicole's Fingerless Gauntlets
 year: '2018'
 category: craft
+previewimage: /images/2018/02/nicoles-fingerless-gauntlets/cover.jpg
 ---
 Still catching up with the backlog of finished knitting. Finished these a couple weeks ago.
 

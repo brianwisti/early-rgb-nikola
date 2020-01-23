@@ -10,6 +10,7 @@ tags:
 title: Taskwarrior Due Dates
 year: '2018'
 category: tools
+previewimage: /images/2018/01/taskwarrior-due-dates/cover.png
 ---
 
 I checked out some library books again. Time to correctly record their due

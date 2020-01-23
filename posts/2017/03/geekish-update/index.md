@@ -11,6 +11,7 @@ tags:
 title: Geekish Update
 year: '2017'
 category: marginalia
+previewimage: /images/2017/03/geekish-update/cover.jpg
 ---
 I set up a space for myself in the basement. This is now where I keep my desktop - running [Ubuntu][] at the
 moment. Easy enough to get at from the laptop upstairs. Maybe keep [Irssi][] running in a [Tmux][] session or

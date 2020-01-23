@@ -8,6 +8,7 @@ tags:
 title: Trying Beorg
 year: '2018'
 category: tools
+previewimage: /images/2018/10/trying-beorg/cover.png
 ---
 
 

@@ -15,6 +15,7 @@ tags:
 title: tmux and laundry art
 year: '2019'
 category: note
+previewimage: /images/2019/07/tmux-and-laundry-art/cover.jpg
 ---
 
 I made a [toot][] and then I realized it's the sort of thing that should be

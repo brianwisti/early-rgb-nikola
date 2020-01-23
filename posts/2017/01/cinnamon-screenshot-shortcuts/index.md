@@ -11,6 +11,7 @@ tags:
 title: Cinnamon Screenshot Shortcuts
 year: '2017'
 category: tools
+previewimage: /images/2017/01/cinnamon-screenshot-shortcuts/cover.png
 ---
 
 *TL;DR:* Cinnamon screenshot and recording shortcuts are in Settings -> Hardware -> Keyboard -> Shortcuts ->

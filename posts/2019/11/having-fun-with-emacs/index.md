@@ -9,6 +9,7 @@ tags:
 title: Having fun with Emacs
 year: '2019'
 category: note
+previewimage: /images/2019/11/having-fun-with-emacs/cover.png
 ---
 
 I kind of understand what folks say about Emacs being their operating system.

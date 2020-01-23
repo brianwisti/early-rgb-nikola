@@ -3,6 +3,7 @@ title: Now
 author: [Random Geek]
 updated: 2020-01-03T22:10:30-0800
 draft: false
+previewimage: /images/now/cover.jpg
 ---
 
 <div class="note">

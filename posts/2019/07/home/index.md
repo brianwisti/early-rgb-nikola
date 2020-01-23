@@ -11,6 +11,7 @@ tags:
 title: home
 year: '2019'
 category: note
+previewimage: /images/2019/07/home/cover.jpg
 ---
 
 Don't you judge us, Winona. Two weeks is a long time to be away.

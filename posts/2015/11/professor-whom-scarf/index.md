@@ -10,6 +10,7 @@ thumbnail: /img/2015/professor-whom-scarf-thumbnail.jpg
 title: Professor Whom Scarf
 year: '2015'
 category: craft
+previewimage: /images/2015/11/professor-whom-scarf/cover.jpg
 ---
 [pattern site]: http://doctorwhoscarf.com
 [Doctor Who]: https://en.wikipedia.org/wiki/Doctor_Who

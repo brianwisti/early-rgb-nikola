@@ -7,6 +7,7 @@ tags:
 title: Crochet Ball Faces
 year: '2018'
 category: craft
+previewimage: /images/2018/02/crochet-ball-faces/cover.jpg
 ---
 
 I still aspire to learn [amigurumi][].

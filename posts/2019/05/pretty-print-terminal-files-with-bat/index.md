@@ -8,6 +8,7 @@ tags:
 title: Pretty Print Terminal Files With Bat
 year: '2019'
 category: tools
+previewimage: /images/2019/05/pretty-print-terminal-files-with-bat/cover.png
 ---
 
 

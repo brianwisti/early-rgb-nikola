@@ -12,6 +12,7 @@ tags:
 title: Theme Change and Pieces Section
 year: '2018'
 category: marginalia
+previewimage: /images/2018/06/theme-change-and-pieces-section/cover.jpg
 ---
 
 Yeah I switched the theme back — with some changes. May take a bit for the CDN to catch up. Also still

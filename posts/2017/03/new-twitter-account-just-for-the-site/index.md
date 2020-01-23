@@ -8,6 +8,7 @@ tags:
 title: New Twitter Account Just For The Site
 year: '2017'
 category: marginalia
+previewimage: /images/2017/03/new-twitter-account-just-for-the-site/cover.png
 ---
 Follow [@randgeekery][] if Twitter is your news feed.
 [@randgeekery]: https://twitter.com/randgeekery/

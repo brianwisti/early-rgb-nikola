@@ -15,6 +15,7 @@ updated: 2018-06-26T00:00:00Z
 url: /2018/06/12/buy-my-stuff
 year: '2018'
 category: craft
+previewimage: /images/2018/06/buy-my-stuff-at-design-by-humans/cover.png
 ---
 
 

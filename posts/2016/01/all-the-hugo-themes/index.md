@@ -14,6 +14,7 @@ title: All The Hugo Themes
 updated: 2016-01-04T00:00:00Z
 year: '2016'
 category: programming
+previewimage: /images/2016/01/all-the-hugo-themes/cover.png
 ---
 [Hugo]: http://gohugo.io/
 [themes repository]: http://themes.gohugo.io/

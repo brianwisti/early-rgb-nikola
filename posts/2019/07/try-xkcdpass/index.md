@@ -12,6 +12,7 @@ tags:
 title: Try xkcdpass
 year: '2019'
 category: tools
+previewimage: /images/2019/07/try-xkcdpass/cover.png
 ---
 
 *tl;dr*: Use [`xkcdpass`][] to generate more secure passwords, like

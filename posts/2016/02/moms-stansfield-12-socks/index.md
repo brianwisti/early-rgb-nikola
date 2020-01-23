@@ -10,6 +10,7 @@ thumbnail: /img/2016/moms-stansfield-socks-wrapped-thumbnail.jpg
 title: Mom's Stansfield 12 Socks
 year: '2016'
 category: craft
+previewimage: /images/2016/02/moms-stansfield-12-socks/cover.jpg
 ---
 After more than ten years knitting, I finally had enough confidence in my ability
 to make something for Mom.

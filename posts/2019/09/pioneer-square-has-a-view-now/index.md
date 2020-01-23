@@ -11,6 +11,7 @@ tags:
 title: Pioneer Square has a view now
 year: '2019'
 category: note
+previewimage: /images/2019/09/pioneer-square-has-a-view-now/cover.jpg
 ---
 
 We went out for dinner the other evening, and once the sun was no longer blasting directly in our eyes -- yay

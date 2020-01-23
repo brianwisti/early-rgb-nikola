@@ -10,6 +10,7 @@ tags:
 title: Turning Taskwarrior Posts Into a Series
 year: '2019'
 category: tools
+previewimage: /images/2019/05/turning-taskwarrior-posts-into-a-series/cover.jpg
 ---
 
 There's a new taxonomy for posts that are written in a particular order!

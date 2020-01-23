@@ -13,6 +13,7 @@ tags:
 title: 2 DAYS 5 HOURS 9 MINUTES TO HOME
 year: '2019'
 category: note
+previewimage: /images/2019/07/2-days-5-hours-9-minutes-to-home/cover.jpg
 ---
 
 I got some good pics out of the deal though.

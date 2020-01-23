@@ -11,6 +11,7 @@ tags:
 title: Fragments Of Dreams
 year: '2017'
 category: craft
+previewimage: /images/2017/01/fragments-of-dreams/cover.jpg
 ---
 A quick lunchtime sketch that I ended up liking quite a bit.
 

@@ -10,6 +10,7 @@ thumbnail: /img/2016/rainys-mishmash-gloves-thumbnail.jpg
 title: Rainy's Mish-Mash Gloves
 year: '2016'
 category: craft
+previewimage: /images/2016/03/rainys-mish-mash-gloves/cover.jpg
 ---
 By special request, some fingerless gloves using a bit of every sock yarn I own.
 <!-- TEASER_END -->

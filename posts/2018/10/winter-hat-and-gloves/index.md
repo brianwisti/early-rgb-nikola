@@ -10,6 +10,7 @@ tags:
 title: Winter Hat and Gloves
 year: '2018'
 category: craft
+previewimage: /images/2018/10/winter-hat-and-gloves/cover.jpg
 ---
 
 I made  myself a hat and gloves in matching colors for winter.

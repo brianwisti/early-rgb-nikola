@@ -13,6 +13,7 @@ tags:
 title: Internet Connected!
 year: '2019'
 category: note
+previewimage: /images/2019/06/internet-connected/cover.png
 ---
 
 We have Internet at the new apartment. That means we're officially moved in.

@@ -8,6 +8,7 @@ tags:
 - life
 - with my sweetheart
 category: note
+previewimage: /images/2019/12/i-got-her-a-card-for-her-birthday/cover.jpg
 ---
 
 A paraphrased conversation:

@@ -8,6 +8,7 @@ tags:
 title: New Theme for a Bit
 year: '2018'
 category: marginalia
+previewimage: /images/2018/05/new-theme-for-a-bit/cover.jpg
 ---
 
 

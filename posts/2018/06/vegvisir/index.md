@@ -14,6 +14,7 @@ tags:
 title: Vegvisir
 year: '2018'
 category: craft
+previewimage: /images/2018/06/vegvisir/cover.jpg
 ---
 
 

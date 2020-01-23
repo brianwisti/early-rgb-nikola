@@ -11,6 +11,7 @@ tags:
 title: My Stripes (And Stripes) Forever Scarf
 year: '2017'
 category: craft
+previewimage: /images/2017/07/my-stripes-and-stripes-forever-scarf/cover.jpg
 ---
 This is my version of the "Stripes (And Stripes) Forever Scarf" from [Stitch 'N Bitch Crochet: The Happy
 Hooker][]. It came together quickly. The only real challenge was getting the first row of single chains in.

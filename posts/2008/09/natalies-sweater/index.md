@@ -13,5 +13,6 @@ thumbnail: /img/2015/natalies-sweater-thumbnail.jpg
 title: Natalie's Sweater
 year: '2008'
 category: craft
+previewimage: /images/2008/09/natalies-sweater/cover.jpg
 ---
 I realized after finishing it up that I didn’t knit the sweater quite right. I was supposed to increase twice every 6th row on the sleeves, and I only increased once per 6 rows. So that’s why the sleeves looked funky.

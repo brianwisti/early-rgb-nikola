@@ -8,6 +8,7 @@ tags:
 title: Some manual symmetry with Linea Sketch
 year: '2019'
 category: note
+previewimage: /images/2019/11/some-manual-symmetry-with-linea-sketch/cover.jpg
 ---
 
 [WelshPixie][] draws amazing mandala images. Inspired me to do something in [Linea Sketch][], a drawing app defined

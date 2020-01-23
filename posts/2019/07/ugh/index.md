@@ -11,6 +11,7 @@ tags:
 title: Ugh
 year: '2019'
 category: note
+previewimage: /images/2019/07/ugh/cover.jpg
 ---
 
 Just getting to the good part of moving — the home office is *almost* all set up — and now I have to prep for a work trip.

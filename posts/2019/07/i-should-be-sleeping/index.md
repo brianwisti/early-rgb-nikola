@@ -11,6 +11,7 @@ tags:
 title: I should be sleeping
 year: '2019'
 category: note
+previewimage: /images/2019/07/i-should-be-sleeping/cover.jpg
 ---
 
 — but I'm real curious to explore. This is my world the next couple of weeks,

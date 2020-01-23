@@ -8,6 +8,7 @@ tags:
 title: Interviewed About Facebook
 year: '2018'
 category: marginalia
+previewimage: /images/2018/03/interviewed-about-facebook/cover.jpeg
 ---
 
 As mentioned [on Twitter](https://twitter.com/brianwisti/status/978439728226738176):

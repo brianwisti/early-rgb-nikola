@@ -11,6 +11,7 @@ tags:
 title: Awesome(wm)
 year: '2019'
 category: note
+previewimage: /images/2019/08/awesomewm/cover.jpg
 ---
 
 There's been way too much "it just works (more or less)" in my desktop life lately, so I started using the

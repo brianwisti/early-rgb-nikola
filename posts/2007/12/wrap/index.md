@@ -13,6 +13,7 @@ thumbnail: /img/2015/wrap-thumbnail.jpg
 title: Wrap
 year: '2007'
 category: craft
+previewimage: /images/2007/12/wrap/cover.jpg
 ---
 Pretty much the only use this got was keeping me warm while typing in the middle
 of winter. It wasn't attractive enough that anybody wanted to wear it in public.

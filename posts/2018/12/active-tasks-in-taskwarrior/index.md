@@ -10,6 +10,7 @@ tags:
 title: Active Tasks in Taskwarrior
 year: '2018'
 category: tools
+previewimage: /images/2018/12/active-tasks-in-taskwarrior/cover.png
 ---
 
 tl;dr: Use the `start`, `stop`, and `active` [Taskwarrior][] commands to manage what you're doing right now.

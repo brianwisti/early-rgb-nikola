@@ -4,3 +4,4 @@ cache
 .lvimrc
 .mypy_cache
 output
+.vscode/settings.json

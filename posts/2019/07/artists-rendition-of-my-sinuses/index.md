@@ -15,6 +15,7 @@ tags:
 title: Artist's rendition of my sinuses
 year: '2019'
 category: note
+previewimage: /images/2019/07/artists-rendition-of-my-sinuses/cover.jpg
 ---
 
 Got my allergy meds at least, so I feel better than an hour ago.

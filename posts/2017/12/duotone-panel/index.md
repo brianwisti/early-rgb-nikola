@@ -11,6 +11,7 @@ tags:
 title: Duotone Panel
 year: '2017'
 category: craft
+previewimage: /images/2017/12/duotone-panel/cover.jpg
 ---
 Last month I read an article about [duotone illustrations][] and decided to try a version of the technique
 myself someday. Today was that day.

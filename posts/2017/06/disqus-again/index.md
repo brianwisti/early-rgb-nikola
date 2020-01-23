@@ -9,6 +9,7 @@ tags:
 title: Disqus Again
 year: '2017'
 category: marginalia
+previewimage: /images/2017/06/disqus-again/cover.png
 ---
 *sigh* [Disqus][] discussions are hooking up to the wrong URLs again. Assigning discussions for posts to URLs
 that don't point anywhere. Working on it, and also looking at alternate discussion tools.

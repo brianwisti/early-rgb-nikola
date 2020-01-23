@@ -11,6 +11,7 @@ tags:
 title: Purple Symmetry
 year: '2018'
 category: craft
+previewimage: /images/2018/05/purple-symmetry/cover.jpg
 ---
 
 Spent over a week on this, which is quite the marathon for me.

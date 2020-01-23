@@ -10,6 +10,7 @@ tags:
 title: Smug mode activated
 year: '2019'
 category: note
+previewimage: /images/2019/11/smug-mode-activated/cover.png
 ---
 
 I checked the site at [Fit on a Floppy][].

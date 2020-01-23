@@ -9,6 +9,7 @@ tags:
 title: Pearl Jam Tag
 year: '2018'
 category: marginalia
+previewimage: /images/2018/08/pearl-jam-tag/cover.jpg
 ---
 
 Dog and I saw a [Pearl Jam][] logo tag while walking near [Easy Street Records][] this morning.

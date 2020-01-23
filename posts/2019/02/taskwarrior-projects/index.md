@@ -10,6 +10,7 @@ tags:
 title: Taskwarrior Projects
 year: '2019'
 category: tools
+previewimage: /images/2019/02/taskwarrior-projects/cover.png
 ---
 
 Use [Taskwarrior][] projects to organize closely related tasks!

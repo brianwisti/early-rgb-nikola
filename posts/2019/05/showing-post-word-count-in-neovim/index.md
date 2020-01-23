@@ -10,6 +10,7 @@ title: Showing Post Word Count in (neo)vim
 updated: 2019-05-06T00:00:00Z
 year: '2019'
 category: programming
+previewimage: /images/2019/05/showing-post-word-count-in-neovim/cover.png
 ---
 
 

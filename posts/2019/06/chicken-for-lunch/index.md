@@ -10,6 +10,7 @@ tags:
 title: Chicken for lunch
 year: '2019'
 category: note
+previewimage: /images/2019/06/chicken-for-lunch/cover.jpg
 ---
 
 Okay mostly I'm testing a new cover image caption thing for posts and notes, but honestly

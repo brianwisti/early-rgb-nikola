@@ -21,6 +21,7 @@ tags:
 title: Satellite
 year: '2018'
 category: craft
+previewimage: /images/2018/08/satellite/cover.jpg
 ---
 
 This one took a while.

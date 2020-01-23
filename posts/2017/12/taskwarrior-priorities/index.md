@@ -10,6 +10,7 @@ tags:
 title: Taskwarrior Priorities
 year: '2017'
 category: tools
+previewimage: /images/2017/12/taskwarrior-priorities/cover.png
 ---
 
 Merry Christmas! Time to organize my [Taskwarrior](/tags/taskwarrior) tasks.

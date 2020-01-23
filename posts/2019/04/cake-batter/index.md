@@ -10,6 +10,7 @@ tags:
 title: Cake Batter
 year: '2019'
 category: craft
+previewimage: /images/2019/04/cake-batter/cover.jpg
 ---
 
 Getting the doodle time in.

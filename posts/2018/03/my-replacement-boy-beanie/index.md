@@ -9,6 +9,7 @@ tags:
 title: My Replacement Boy Beanie
 year: '2018'
 category: craft
+previewimage: /images/2018/03/my-replacement-boy-beanie/cover.jpg
 ---
 
 I crocheted another "Boy Beanie" from [Stitch 'n Bitch Crochet][]. This time I followed the pattern!

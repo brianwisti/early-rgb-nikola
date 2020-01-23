@@ -13,6 +13,7 @@ thumbnail: /img/2015/my-garter-stitch-hat-thumbnail.jpg
 title: My Garter Stitch Hat
 year: '2007'
 category: craft
+previewimage: /images/2007/10/my-garter-stitch-hat/cover.jpg
 ---
 It's not the best hat I've made. It wasn't even the best hat I'd made when I made it.
 <!-- TEASER_END -->

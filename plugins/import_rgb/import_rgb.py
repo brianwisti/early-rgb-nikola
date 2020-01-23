@@ -22,6 +22,8 @@ class HugoContent:
     """Knows enough about a Hugo content file to help import itself into Nikola"""
     hugo_file: str
     content_dir: str
+    cover_image: str = None
+    bundle_files: List[str] = field(default_factory=list)
     frontmatter: Dict[str, Any] = field(init=False)
     content: str = field(init=False)
     ext: str = field(init=False)
@@ -34,28 +36,32 @@ class HugoContent:
         # put this here or it'll confuse date handling later.
         yaml_text = re.sub(r"^(date: \d{4}-\d{2}-\d{2})T", r"\1 ", yaml_text)
         self.frontmatter = yaml.load(yaml_text)
-
         date = self.frontmatter.get("date", None)
 
+        # TODO: correctly identify draft posts
         if date:
             self.is_post = True
         else:
             self.is_post = False
+        
+        bundle_dir = os.path.dirname(self.hugo_file)
+
+        with os.scandir(bundle_dir) as scanned:
+
+            for item in scanned:
+
+                # Lazy check if this is a cover image
+                if item.name.startswith("cover"):
+                    self.cover_image = item.name
+                    self.bundle_files.append(item.path)
+                    log.info(f"{bundle_dir} -> {item}")
+       
     
     def preferred_path(self):
         """My location in the nikola site"""
-        title_path = slugify(self.frontmatter["title"])
+        title_path = self.nikola_stub_folder()
         base_path = f"index{self.ext}"
 
-        if self.is_post:
-            try:
-                date_path = self.frontmatter["date"].strftime("%Y/%m")
-            except AttributeError:
-                log.error(f"[{self.hugo_file}]: date looks funky")
-                raise
-            return os.path.join(date_path, title_path, base_path)
-        
-        # pages have no `date`
         return os.path.join(title_path, base_path)
 
     def prep_content(self) -> str:
@@ -64,11 +70,23 @@ class HugoContent:
         content = re.sub(r"^<!--more-->$", teaser_text, self.content, count=1, flags=re.MULTILINE)
         
         return content
+    
+    def nikola_stub_folder(self):
+        "Return the stub folder path for this content in Nikola"
+        title_path = slugify(self.frontmatter["title"])
+        
+        if self.is_post:
+            try:
+                date_path = self.frontmatter["date"].strftime("%Y/%m")
+            except AttributeError:
+                log.error(f"[{self.hugo_file}]: date looks funky")
+                raise
+            return os.path.join(date_path, title_path)
+        
+        return title_path
 
-    def write_to(self, destination: str):
-        """Create a new nikola post using my content and frontmatter."""
-        output_file = os.path.join(destination, self.preferred_path())
-        output_dir = os.path.dirname(output_file)
+    def generate_metadata(self) -> Dict[str, Any]:
+        """convert Hugo frontmatter to key/values better suited to Nikola"""
         metadata = self.frontmatter.copy()
 
         if "categories" in metadata:
@@ -84,10 +102,38 @@ class HugoContent:
             del metadata["categories"]
         elif self.hugo_file.find("/note/") > 0:
             metadata["category"] = "note"
+        
+        # set `previewimage` metadata
+        if self.cover_image:
+            image_path = os.path.join("/images/", self.nikola_stub_folder(), self.cover_image)
+            log.info(image_path)
+            metadata["previewimage"] = image_path
 
+        return metadata
+
+    def import_content(self):
+        """Import content and supplemental files"""
+    
+        output_root = "posts" if self.is_post else "pages"
+        self.write_to(output_root)
+        # TODO: write cover image to `images/{dirname(preferred_path)}`
+        if self.bundle_files:
+            image_folder = os.path.join("images/", self.nikola_stub_folder())
+            makedirs(image_folder)
+
+            for bundle_file in self.bundle_files:
+                copy_file(bundle_file, image_folder)
+                log.info(f"Copied {bundle_file}")
+
+    def write_to(self, destination: str):
+        """Create a new nikola post using my content and frontmatter."""
+        output_file = os.path.join(destination, self.preferred_path())
+        output_dir = os.path.dirname(output_file)
+        metadata = self.generate_metadata()
         content = self.prep_content()
         log.info(f"Writing [{metadata['title']}] to [{output_file}]]")
         makedirs(output_dir)
+
 
         with open(output_file, "w") as f:
             f.write(DELIMITER)
@@ -167,22 +213,11 @@ class CommandImportRgb(Command):
         # collect all the filenames
         safe_extensions = (".md", ".rst", ".adoc", ".html")
         hugo_site = HugoSite(config_file=hugo_config, safe_extensions=safe_extensions)
-        log.info(hugo_site)
         content_files = hugo_site.collect_content_files()
-        site_dir = os.path.dirname(hugo_config)
-        content_dir = os.path.join(site_dir, "content/")
-        pages_dir = "pages"
-        posts_dir = "posts"
+        # pages_dir = "pages"
+        # posts_dir = "posts"
         # log.info(f"Removing {posts_dir}")
         # remove_file(posts_dir)
 
-        log.info(f"site_dir: {site_dir}")
-        log.info(f"content_dir: {content_dir}")
-
         for hugo_content in content_files:
-            
-            if hugo_content.is_post:
-                hugo_content.write_to(posts_dir)
-            else:
-                hugo_content.write_to(pages_dir)
-
+            hugo_content.import_content()

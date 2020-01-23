@@ -12,6 +12,7 @@ title: Fantastic Foods' Sloppy Joe French Bread Pizza Recipe
 type: post
 year: '2014'
 category: marginalia
+previewimage: /images/2014/04/fantastic-foods-sloppy-joe-french-bread-pizza-recipe/cover.jpg
 ---
 [Fantastic Foods]: http://www.fantasticfoods.com/
 [few tasty boxes]: http://www.fantasticfoods.com/content/products

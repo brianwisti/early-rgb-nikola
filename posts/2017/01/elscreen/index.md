@@ -9,6 +9,7 @@ tags:
 title: elscreen
 year: '2017'
 category: tools
+previewimage: /images/2017/01/elscreen/cover.png
 ---
 I use [ElScreen] every time I open Emacs. May as well make a quick note about it.
 

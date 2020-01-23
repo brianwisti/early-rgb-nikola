@@ -11,6 +11,7 @@ tags:
 title: roar
 year: '2019'
 category: note
+previewimage: /images/2019/07/roar/cover.jpg
 ---
 
 Bit tired to roar right now, though. I left my hostel early and got back late.

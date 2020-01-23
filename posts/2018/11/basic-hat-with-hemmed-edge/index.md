@@ -7,6 +7,7 @@ tags:
 title: Basic Hat With Hemmed Edge
 year: '2018'
 category: craft
+previewimage: /images/2018/11/basic-hat-with-hemmed-edge/cover.jpg
 ---
 
 I made another hat! This time I learned how to make a hemmed edge.

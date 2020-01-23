@@ -9,6 +9,7 @@ title: Hopepunk for 2019
 updated: 2019-02-16T00:00:00Z
 year: '2018'
 category: marginalia
+previewimage: /images/2018/12/hopepunk-for-2019/cover.jpg
 ---
 
 Writing these late night thoughts is as close as I get to making resolutions.

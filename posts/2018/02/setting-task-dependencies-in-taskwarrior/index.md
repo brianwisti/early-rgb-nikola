@@ -10,6 +10,7 @@ tags:
 title: Setting Task Dependencies in Taskwarrior
 year: '2018'
 category: tools
+previewimage: /images/2018/02/setting-task-dependencies-in-taskwarrior/cover.png
 ---
 
 

@@ -10,6 +10,7 @@ tags:
 title: Island Center Forest
 year: '2018'
 category: marginalia
+previewimage: /images/2018/08/island-center-forest/cover.jpg
 ---
 
 [Island Center Forest][] contains roughly ten miles of trails. I walked about six of them yesterday. Today my

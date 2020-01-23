@@ -16,6 +16,7 @@ type: post
 updated: 2017-04-10T00:00:00Z
 year: '2014'
 category: tools
+previewimage: /images/2014/08/repl-in-perl-with-reply/cover.png
 ---
 
 [Reply]: https://metacpan.org/release/Reply

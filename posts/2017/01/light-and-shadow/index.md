@@ -8,6 +8,7 @@ tags:
 title: Light And Shadow
 year: '2017'
 category: craft
+previewimage: /images/2017/01/light-and-shadow/cover.jpg
 ---
 Mostly an exerise in light, shadow, and patience. I noticed recently that I run out of attention for a sketch
 after 45 minutes or so unless I'm particularly focused. For this I specifically worked in 45 minute blocks

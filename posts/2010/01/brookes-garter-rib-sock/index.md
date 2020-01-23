@@ -13,6 +13,7 @@ thumbnail: /img/2015/brookes-garter-rib-sock-thumbnail.jpg
 title: Brooke's Garter Rib Sock
 year: '2010'
 category: craft
+previewimage: /images/2010/01/brookes-garter-rib-sock/cover.jpg
 ---
 
 Accidentally made one foot a little pointy. Rather than frog and fix, I just matched the error on the other side. Now instead of making a mistake, I added character.
