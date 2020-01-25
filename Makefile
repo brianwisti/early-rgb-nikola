@@ -2,4 +2,4 @@ import:
 	nikola import_rgb
 
 serve:
-	nikola auto
+	nikola auto --port 3000
