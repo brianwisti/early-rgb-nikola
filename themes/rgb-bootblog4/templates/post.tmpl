@@ -27,11 +27,19 @@
     ${math.math_styles_ifpost(post)}
 </%block>
 
+<%block name="extra_header">
+    % if post.previewimage:
+        <div class="figure jumbotron">
+            <img src="${post.previewimage}" alt="${post.title}" width=1000>
+            <p class="caption">${post.title}</p>
+        </div>
+    % endif
+</%block>
+
 <%block name="content">
 <article class="post-${post.meta('type')} h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
     ${pheader.html_post_header()}
     <div class="e-content entry-content" itemprop="articleBody text">
-        ${ui.cover_image(post)}
         ${post.text()}
     </div>
     <aside class="postpromonav">
