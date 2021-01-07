@@ -36,7 +36,7 @@ jupyter-core==4.6.1
 lazy-object-proxy==1.4.3
 livereload==2.6.1
 Logbook==1.5.3
-lxml==4.4.2
+lxml==4.6.2
 Mako==1.1.0
 Markdown==3.1.1
 MarkupSafe==1.1.1
