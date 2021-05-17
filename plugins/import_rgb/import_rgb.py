@@ -5,8 +5,11 @@
 from dataclasses import dataclass, field
 import os
 import re
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+import arrow
+import frontmatter
 from nikola.plugin_categories import Command
 from nikola.utils import copy_file, get_logger, makedirs, remove_file, slugify
 from ruamel.yaml import YAML
@@ -15,106 +18,142 @@ log = get_logger(os.path.basename(__file__))
 yaml = YAML()
 ARCHIVED_CATEGORIES = ("blogspot", "coolnamehere")
 HUGO_CONFIG_SETTING = "IMPORT_RGB_CONFIG"
-DELIMITER = "---\n"
+
 
 @dataclass
 class HugoContent:
     """Knows enough about a Hugo content file to help import itself into Nikola"""
-    hugo_file: str
-    content_dir: str
+
+    hugo_file: Path
+    content_dir: Path
     cover_image: Optional[str] = None
     bundle_files: List[str] = field(default_factory=list)
     frontmatter: Dict[str, Any] = field(init=False)
     content: str = field(init=False)
-    ext: str = field(init=False)
     is_post: bool = field(init=False)
+    is_draft: bool = field(init=False)
+
+    @property
+    def content_format(self):
+        if "format" in self.frontmatter:
+            return self.frontmatter["format"]
+
+        log.debug("No explicit format for %s", self.hugo_file)
+        return self.hugo_file.suffix.replace(".", "")
 
     def __post_init__(self):
-        _, self.ext = os.path.splitext(self.hugo_file)
-        _, yaml_text, body_text = open(self.hugo_file).read().split(DELIMITER, maxsplit=2)
-        self.content = body_text
+        log.info("post_init: %s", self.hugo_file)
+        post = frontmatter.load(self.hugo_file)
+        self.frontmatter = post.metadata
+        self.content = post.content
         # put this here or it'll confuse date handling later.
-        yaml_text = re.sub(r"^(date: \d{4}-\d{2}-\d{2})T", r"\1 ", yaml_text)
-        self.frontmatter = yaml.load(yaml_text)
+        # yaml_text = re.sub(r"^(date: \d{4}-\d{2}-\d{2})T", r"\1 ", yaml_text)
         date = self.frontmatter.get("date", None)
+        self.is_draft = self.frontmatter.get("draft", False)
 
-        # TODO: correctly identify draft posts
-        if date:
+        if date or self.is_draft:
             self.is_post = True
         else:
             self.is_post = False
-        
-        bundle_dir = os.path.dirname(self.hugo_file)
 
-        with os.scandir(bundle_dir) as scanned:
+        if self.is_draft and not date:
+            self.set_date(arrow.get().date())
 
-            for item in scanned:
+        bundle_dir = self.hugo_file.parent
 
-                # Lazy check if this is a cover image
-                if item.name.startswith("cover"):
-                    self.cover_image = item.name
-                    self.bundle_files.append(item.path)
-                    log.info(f"{bundle_dir} -> {item}")
-       
-    
+        for item in bundle_dir.iterdir():
+            # Lazy check if this is a cover image
+            if item.name.startswith("cover"):
+                self.cover_image = item.name
+                self.bundle_files.append(item)
+                log.info(f"{bundle_dir} -> {item}")
+
+    def add_tag(self, tag):
+        if self.has_tag(tag):
+            return
+
+        if "tags" not in self.frontmatter:
+            self.frontmatter["tags"] = []
+
+        self.frontmatter["tags"].append(tag)
+
     def preferred_path(self):
         """My location in the nikola site"""
         title_path = self.nikola_stub_folder()
-        base_path = f"index{self.ext}"
+        base_path = f"index.{self.content_format}"
 
         return os.path.join(title_path, base_path)
 
     def prep_content(self) -> str:
         """Perform necessary transformations for import to content body."""
-        teaser_text = ".. TEASER_END" if self.ext == ".rst" else "<!-- TEASER_END -->"
-        content = re.sub(r"^<!--more-->$", teaser_text, self.content, count=1, flags=re.MULTILINE)
-        
+        teaser_text = (
+            ".. TEASER_END" if self.content_format == "rst" else "<!-- TEASER_END -->"
+        )
+        content = re.sub(
+            r"^<!--more-->$", teaser_text, self.content, count=1, flags=re.MULTILINE
+        )
+
         return content
-    
+
     def nikola_stub_folder(self):
         "Return the stub folder path for this content in Nikola"
         title_path = slugify(self.frontmatter["title"])
-        
+
         if self.is_post:
-            try:
-                date_path = self.frontmatter["date"].strftime("%Y/%m")
-            except AttributeError:
-                log.error(f"[{self.hugo_file}]: date looks funky")
-                raise
+            date = self.frontmatter["date"]
+            date_path = self.get_date().strftime("%Y/%m")
+
             return os.path.join(date_path, title_path)
-        
+
         return title_path
 
     def generate_metadata(self) -> Dict[str, Any]:
         """convert Hugo frontmatter to key/values better suited to Nikola"""
-        metadata = self.frontmatter.copy()
+        metadata = self.frontmatter
 
-        if "categories" in metadata:
-            log.info("categories -> category")
-            category = metadata["categories"][0].lower()
+        if "category" in metadata:
+            category = metadata.pop("category").lower()
+            self.add_tag(category)
 
-            # Can't figure out how to hide archived categories in the theme or taxonomy plugin
-            if category in ARCHIVED_CATEGORIES:
-                metadata["archived_category"] = category
-            else:
-                metadata["category"] = category
-
-            del metadata["categories"]
-        elif self.hugo_file.find("/note/") > 0:
+        if str(self.hugo_file).find("/note/") > 0:
             metadata["category"] = "note"
             metadata["type"] = "micro"
-        
+        elif str(self.hugo_file).find("/bookmark/") > 0:
+            metadata["category"] = "bookmark"
+            metadata["type"] = "micro"
+        elif (
+            str(self.hugo_file).find("/art/") > 0
+            or self.has_tag("drawing")
+            or self.has_tag("craft")
+        ):
+            metadata["category"] = "craft"
+            metadata["type"] = "micro"
+
         # set `previewimage` metadata
         if self.cover_image:
-            image_path = os.path.join("/images/", self.nikola_stub_folder(), self.cover_image)
+            image_path = os.path.join(
+                "/images/", self.nikola_stub_folder(), self.cover_image
+            )
             log.info(image_path)
             metadata["previewimage"] = image_path
 
         return metadata
 
+    def get_date(self):
+        return self.frontmatter["date"]
+
+    def has_tag(self, tag) -> bool:
+        if "tags" not in self.frontmatter:
+            return False
+
+        return tag in self.frontmatter["tags"]
+
+    def set_date(self, date):
+        self.frontmatter["date"] = date
+
     def import_content(self):
         """Import content and supplemental files"""
-    
+
         output_root = "posts" if self.is_post else "pages"
         self.write_to(output_root)
         # TODO: write cover image to `images/{dirname(preferred_path)}`
@@ -128,13 +167,34 @@ class HugoContent:
 
     def write_to(self, destination: str):
         """Create a new nikola post using my content and frontmatter."""
-        output_file = os.path.join(destination, self.preferred_path())
-        output_dir = os.path.dirname(output_file)
+        output_file = Path(destination) / self.preferred_path()
+        output_dir = output_file.parent
+
+        if output_dir.is_dir():
+            better_indexes = [
+                child.name
+                for child in output_dir.iterdir()
+                if child.suffix in [".adoc", ".rst"]
+            ]
+
+            if better_indexes:
+                log.warn("I see %s; Skipping %s for now", better_indexes, output_dir)
+                return
+
+            lesser_indexes = [
+                child for child in output_dir.iterdir() if child.suffix in [".md"]
+            ]
+
+            for old_file in lesser_indexes:
+                log.warn("Deleting old imported content %s", old_file)
+                old_file.unlink()
+
         metadata = self.generate_metadata()
         content = self.prep_content()
-        log.info(f"Writing [{metadata['title']}] to [{output_file}]]")
-        makedirs(output_dir)
+        log.debug(f"Writing [{metadata['title']}] to [{output_file}]]")
 
+        makedirs(output_dir)
+        DELIMITER = "---\n"
 
         with open(output_file, "w") as f:
             f.write(DELIMITER)
@@ -146,17 +206,20 @@ class HugoContent:
 @dataclass
 class HugoSite:
     """Knows enough about a Hugo site to help import its content into Nikola"""
-    config_file: str
+
+    config_file: Path
     safe_extensions: Tuple[str]
-    
+
     def collect_content_files(self) -> List[HugoContent]:
         """Return a list of files in the Hugo site that are safe for import"""
-        site_dir = os.path.dirname(self.config_file)
-        content_dir = os.path.join(site_dir, "content")
+        site_dir = self.config_file.parent
+        content_dir = site_dir / "content"
         content_files = []
         extensions: Dict[str, int] = {}
 
         for root, dirs, files in os.walk(content_dir):
+            root_path = Path(root)
+
             for filename in files:
                 if filename.startswith("_"):
                     # leading underscores are for section summaries.
@@ -166,19 +229,23 @@ class HugoSite:
                     # A backup file got in there somehow.
                     continue
 
-                full_path = os.path.join(root, filename)
-                _, ext = os.path.splitext(filename)
-
+                full_path = root_path / filename
+                ext = full_path.suffix
                 extensions[ext] = extensions.get(ext, 0) + 1
 
                 if ext not in self.safe_extensions:
-                    # Dunno how to handle these
+                    log.debug("Ignoring file with extension %s", ext)
                     continue
 
-                content_files.append(HugoContent(hugo_file=full_path, content_dir=content_dir))
+                log.info("Full path: %s", full_path)
+                log.info("Content dir: %s", content_dir)
+
+                content_file = HugoContent(full_path, content_dir)
+                content_files.append(content_file)
 
         log.info(extensions)
         return content_files
+
 
 class CommandImportRgb(Command):
     """Import Hugo content from my site
@@ -196,23 +263,22 @@ class CommandImportRgb(Command):
         import_rgb_config_setting = self.site.config.get(HUGO_CONFIG_SETTING, None)
 
         if not import_rgb_config_setting:
-            log.error(f"I need a setting for {HUGO_CONFIG_SETTING}!")
+            log.error("I need a setting for %s!", HUGO_CONFIG_SETTING)
             return 0
-        
-        rgb_config_path = os.path.expanduser(import_rgb_config_setting)
 
-        if not os.path.exists(rgb_config_path):
+        rgb_config_path = Path(import_rgb_config_setting).expanduser()
+
+        if not rgb_config_path.is_file():
             log.error(f"I can't find f{rgb_config_path}!")
 
         return self.import_using_config(rgb_config_path)
-
 
     def import_using_config(self, hugo_config):
         """The actual import process"""
         log.info(f"Using {hugo_config}")
 
         # collect all the filenames
-        safe_extensions = (".md", ".rst", ".adoc", ".html")
+        safe_extensions = (".md", ".rst", ".html")
         hugo_site = HugoSite(config_file=hugo_config, safe_extensions=safe_extensions)
         content_files = hugo_site.collect_content_files()
         # pages_dir = "pages"
