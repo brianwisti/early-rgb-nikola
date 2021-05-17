@@ -1,16 +1,17 @@
 ---
+slug: the-emacs-tutorial-as-elisp-tour
 aliases:
 - /emacs/2014/05/24_the-emacs-tutorial-as-elisp-tour.html
 - /post/2014/the-emacs-tutorial-as-elisp-tour/
-date: 2014-05-24T00:00:00Z
+- /2014/05/24/the-emacs-tutorial-as-elisp-tour/
+date: 2014-05-24 00:00:00+00:00
 tags:
 - emacs
 - elisp
 - tutorial
+- tools
 title: The Emacs Tutorial as ELisp Tour
-type: post
-year: '2014'
-category: tools
+uuid: 25d50ea9-bef9-454a-9574-aa78f18303ce
 ---
 [GNU Emacs]: https://www.gnu.org/software/emacs
 I am trying to *really* learn how to use [GNU Emacs][]. One thing that
@@ -23,7 +24,7 @@ invoke them.
 
 The first function is obviously the one to get the tutorial started.
 
- Function             | Keybinding | Description                              
+ Function             | Keybinding | Description
 ----------------------|------------|-----------------------------------------
  `help-with-tutorial` | `C-h t`    | Launch the Emacs learn-by-doing tutorial 
 
@@ -32,6 +33,6 @@ Then I spent a couple days with liberal usage of ~describe-key~ and
 describing. It was helpful. Now I just want to organize those notes
 and post them on the blog.
 
-[dump the list]: /post/2014/elisp-functions-described-in-the-emacs-tutorial/
+[dump the list]: {{< ref "post/2014-05-elisp-functions-described-in-the-emacs-tutorial/index.md" >}}
 
 Or I could [dump the list][] onto a blog post.

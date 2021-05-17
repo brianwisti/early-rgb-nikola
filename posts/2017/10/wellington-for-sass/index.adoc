@@ -1,0 +1,43 @@
+---
+date: 2017-10-31
+draft: false
+tags:
+- site
+- css
+- tools
+title: Wellington for Sass
+slug: wellington-for-sass
+format: adoc
+uuid: 458a7b5c-c67a-49e7-be3d-5a3a987bb961
+aliases:
+- /2017/10/31/wellington-for-sass/
+---
+<div class="paragraph">
+<p>I found <a href="https://getwt.io/">Wellington</a>, a <a href="http://sass-lang.com/">Sass</a> compiler written in <a href="https://golang.org/">Go</a>.</p>
+</div>
+<div class="paragraph">
+<p>I installed Wellington with <a href="https://brew.sh/">Homebrew</a> -
+actually <a href="http://linuxbrew.sh/">Linuxbrew</a> but that’s a post for another day maybe, once I’m sure this Linuxbrew experiment worked for me.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>brew install wellington</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is not the night to redesign the whole site, though.
+Make sure everything works.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>wt compile assets/scss/main.scss -b static/css
+<span class="tok-go">2017/10/31 21:09:54 Compilation took: 28.333622ms</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Seems to produce the same style output.
+I had no complaint about the speed of Ruby’s Sass compiler, but Wellington is certainly quicker.</p>
+</div>
+<div class="paragraph">
+<p>I guess now I can start thinking about redesigning the site layout.</p>
+</div>

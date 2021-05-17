@@ -1,27 +1,28 @@
 ---
+slug: parrot-babysteps-09-simple-projects
 aliases:
 - /coolnamehere/2010/04/29_09-simple-projects.html
 - /post/2010/09-simple-projects/
-date: 2010-04-29T00:00:00Z
+- /2010/04/29/parrot-babysteps-09-simple-projects/
+date: 2010-04-29 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 09 - Simple Projects
-type: post
-updated: 2011-04-12T00:00:00Z
-year: '2010'
+updated: 2011-04-12 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 807256b6-fd7d-48d9-807e-32aa2f343f9e
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 9 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
 [Test::More]: https://github.com/parrot/parrot/blob/RELEASE_3_0_0/runtime/parrot/library/Test/More.pir
 [distutils]: https://github.com/parrot/parrot/blob/RELEASE_3_0_0/runtime/parrot/library/distutils.pir
-[last step]: /post/2009/08-testing-with-test-more/
+[last step]: {{< ref "post/2009-12-parrot-babysteps-08-testing-with-testmore/index.md" >}}
 
 ## Introduction
 
@@ -139,7 +140,8 @@ can find details about the many options by checking the documentation.
     $ perldoc /usr/local/lib/parrot/3.0.0/library/distutils.pir
 
 [Rakudo]: /tags/rakudo/
-[Babysteps]: /post/2009/parrot-babysteps/
+[Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
+
 
 I only care about a single option: `prove_exec`, which tells `setup` what program 
 will be used to run the tests. Why does `setup` care? Well, Parrot is a VM. Your 
@@ -205,7 +207,7 @@ the missing subroutine.
         .return(area)
     .end
 
-[step 2]: /post/2009/02-variables-and-types/
+[step 2]: {{< ref "post/2009-07-parrot-babysteps-02-variables-and-types/index.md" >}}
 
 This is code borrowed from [step 2][] and dropped into a subroutine.
 
@@ -258,4 +260,3 @@ true that all we know how to do with `setup.pir` at this point is ask it to run
 tests for us, but even that can save a lot of work.
 
 I don't know about you, but I'm ready to take another look at that star catalog.
-

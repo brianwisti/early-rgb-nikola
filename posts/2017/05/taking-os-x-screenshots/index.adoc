@@ -1,0 +1,80 @@
+---
+aliases:
+- /post/2017/taking-os-x-screenshots/
+- /2017/05/26/taking-os-x-screenshots/
+date: 2017-05-26
+draft: false
+tags:
+- os x
+- tools
+title: Taking OS X Screenshots
+slug: taking-os-x-screenshots
+uuid: b9ec65a1-605c-4f03-8b86-df57a012750c
+format: adoc
+---
+<div class="paragraph">
+<p>Notes on saving screenshots in OS X, so I don’t have to look it up again.</p>
+</div>
+<div class="paragraph">
+<p>This started as a search to find how I can set the OS screenshot save location.
+<a href="http://osxdaily.com/">OS X Daily</a> provided that information and much more.
+I suggest you check it out for your OS X tips.</p>
+</div>
+<div class="sect1">
+<h2 id="_the_shortcuts_i_use">The Shortcuts I Use</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My fingers pretty much have these memorized, but it would be nice if my brain knew them too.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Keys</th>
+<th class="tableblock halign-left valign-top">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>3</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Save full screen to file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>4</kbd></span> + select area</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Save selected area to file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>4</kbd></span> + spacebar + click</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Save selected window to file</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>There are <a href="http://osxdaily.com/2010/06/09/screen-capture-in-mac-os-x/">several more</a> that I do not use.
+I&#8217;m already trying to learn <a href="/tags/emacs/">Emacs</a> shortcuts.
+I don&#8217;t feel like cluttering my brain with additional OS X shortcuts I won&#8217;t use.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_the_save_location">Setting The Save Location</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OS X saves these files to <code>~/Desktop</code> by default, which results in much visual clutter on my screen desktop.
+Eventually I tired of the periodic cleanups and learned how to save in a different folder.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>mkdir ~/Pictures/Screenshots
+<span class="tok-gp">$ </span>defaults write com.apple.screencapture location ~/Pictures/Screenshots/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>OS X Daily <a href="http://osxdaily.com/2011/01/26/change-the-screenshot-save-file-location-in-mac-os-x/">suggests</a> changing the setting and running <code>killall SystemUIServer</code>.
+Somewhere in the years since that post was published, restarting SystemUIServer became unnecessary.</p>
+</div>
+</div>
+</div>

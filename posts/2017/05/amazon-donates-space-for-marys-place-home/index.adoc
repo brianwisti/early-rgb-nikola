@@ -1,0 +1,42 @@
+---
+aliases:
+- /post/2017/amazon-donates-space-for-marys-place-home/
+- /2017/05/11/amazon-donates-space-for-marys-place-home/
+date: 2017-05-11
+draft: false
+title: Amazon Donates Space For Mary's Place Home
+slug: amazon-donates-space-for-marys-place-home
+uuid: 6cffb5cd-8635-4d5f-bf57-31b01c71a9f2
+format: adoc
+tags:
+- marginalia
+---
+<div class="paragraph">
+<p>My <a href="https://github.com/brianwisti/marysplace-rails">main code hobby project</a> is for <a href="http://www.marysplaceseattle.org">Mary’s Place</a>, a local homeless shelter network in Seattle. It was immensely satisfying to see their director’s face when I visited Amazon this morning.</p>
+</div>
+<div class="paragraph">
+<p>Way back when I contracted at Amazon, and their apparent lack of community engagement at the time annoyed me endlessly.
+Not only have they improved in that domain recently, but I approve of at least one organization they focus on :thumbsup:</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe src="https://www.youtube.com/embed/5STSnKX2Tfg?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>From the <a href="https://www.amazon.com/p/feature/z4sbqvckkdgq4w9">Amazon feature</a>:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Mary’s Place announced today that Amazon will donate more than 47,000 sq. ft. of space within Amazon’s newest headquarters building as a permanent location for a Mary’s Place Family Shelter.
+This first-of-its-kind partnership will include 65 rooms, which will shelter more than 200 homeless women, children, and families each night.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Very happy for Mary’s Place. Of course, this just reminds me of all the stuff I still had on my TODO for that hobby project!</p>
+</div>
+<div class="paragraph">
+<p>More details in a <a href="http://www.marysplaceseattle.org/blog/amazon-marys-place-announcement/">blog post</a> on the Mary’s Place site.</p>
+</div>

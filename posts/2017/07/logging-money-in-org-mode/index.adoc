@@ -1,0 +1,238 @@
+---
+aliases:
+- /post/2017/logging-money-in-org-mode/
+- /2017/07/31/logging-money-in-org-mode/
+date: 2017-07-31
+draft: false
+tags:
+- emacs
+- OrgMode
+- budgeting
+- tools
+title: Logging Money In Org Mode
+slug: logging-money-in-org-mode
+updated: 2020-03-01
+uuid: cf7820f5-ed9b-4840-8599-9e79c1625574
+format: adoc
+previewimage: /images/2017/07/logging-money-in-org-mode/cover.png
+---
+<div class="paragraph">
+<p>I am setting up Emacs <a href="https://orgmode.org">Org mode</a> to track how I use my money.
+This is a healthy habit, which I applied in the past with a little paper notebook.
+This needs to be as easy as that little notebook, or I will never use it.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Update</div>
+<div class="paragraph">
+<p><strong>2020-03-01</strong></p>
+</div>
+<div class="paragraph">
+<p>It wasn’t.
+I didn’t.
+But I’ve built on this for a new approach.
+If it sticks for a whole week I’ll post about it.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>I only want to see how I use my money.
+This can eventually become part of a budget, but all I want today is the ability to make quick money notes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>My friend paid me back some money they borrowed</p>
+</li>
+<li>
+<p>One of the housemates chipped in for groceries</p>
+</li>
+<li>
+<p>I treated myself to coffee.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Stuff like that.
+Let’s see what I come up with.</p>
+</div>
+<div class="paragraph">
+<p>What about my phone?</p>
+</div>
+<div class="paragraph">
+<p>I know there are budgeting phone apps.
+Those apps just haven’t served my needs.
+I spend more time in front of a computer than using my phone.
+I type at a keyboard quicker than on a phone.</p>
+</div>
+<div class="sect1">
+<h2 id="_the_setup">The Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I already use <a href="http://www.howardism.org/Technical/Emacs/journaling-org.html">journaling features</a> of Emacs org mode to record tasks that I accomplish through the day.
+That journal could also record income and expenses.
+I need a new org <a href="http://orgmode.org/manual/Capture-templates.html#Capture-templates">capture template</a> and menu item for money, though.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adding_a_menu_entry_and_template">Adding a menu entry and template</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>org-capture-templates</code> holds templates for creating new org entries.
+I manually edit mine, although the recommended approach to managing those is through the Emacs Customize interface.
+Old habits die hard.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="elisp"><span></span><span class="tok-c1">;; Probably easier for most folks to manage this with Customize (C-c c C),</span>
+<span class="tok-c1">;; but setting this stuff directly helps me understand the structure better.</span>
+
+<span class="tok-p">(</span><span class="tok-k">setq</span> <span class="tok-nv">org-capture-templates</span>
+      <span class="tok-p">(</span><span class="tok-k">quote</span>
+       <span class="tok-p">((</span><span class="tok-s">&quot;p&quot;</span> <span class="tok-s">&quot;Personal&quot;</span><span class="tok-p">)</span>
+        <span class="tok-c1">; ... other entries removed for clarity</span>
+        <span class="tok-p">(</span><span class="tok-s">&quot;pm&quot;</span> <span class="tok-s">&quot;Money entry&quot;</span> <span class="tok-nv">entry</span>
+         <span class="tok-p">(</span><span class="tok-nv">file+datetree</span> <span class="tok-s">&quot;~/Sync/org/agendas/journal.org&quot;</span><span class="tok-p">)</span>
+         <span class="tok-s">&quot;** %U - %^{Amount} %^{Summary} :money:%^g&quot;</span><span class="tok-p">))))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I start with fields needed for the template selection menu in <code>org-capture</code>.
+I also tell org mode to save money entries will in the <code>journal.org</code> file under a <em>date tree</em>, which presents a year / month / date heirarchy for entries.
+Finally, I describe the capture template.</p>
+</div>
+<div class="paragraph">
+<p>A capture template can be a string or file containing text and template directives.
+A short string describes money entries.
+The table below explains the <a href="http://orgmode.org/manual/Template-expansion.html#Template-expansion">template expansion</a> rules I used.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Code</th>
+<th class="tableblock halign-left valign-top">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%U</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Creates an <em>inactive</em> timestamp, which will not appear in my regular agenda</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%^{Amount}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prompts me for the dollar amount of this transaction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%^{Summary}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prompts me for a summary of this transaction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>%^g</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prompts me for additional tags for this transaction</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This template does not validate input.
+I don’t know how to do that yet.
+I must remember to use money values for "Amount" and to tag every transaction as <code>:income</code> or <code>:expense:</code>.
+Later I can learn how to enforce these rules with code.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_triggering_a_capture">Triggering a Capture</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><kbd>C-c c</kbd> is a global binding which starts <code>org-capture</code> from whatever I’m doing.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="org-capture-menu-1.png" alt="menu 1 for money capture">
+</div>
+<div class="title">Figure 1. <code>C-c c</code> to enter org capture menu</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="org-capture-menu-2.png" alt="menu 2 for money capture">
+</div>
+<div class="title">Figure 2. <code>p</code> then <code>m</code> for a Personal Money entry</div>
+</div>
+<div class="paragraph">
+<p>I get prompted for Amount, Summary, and tags.
+Once I answer those prompts, I am shown the Capture buffer.
+I don’t need to change anything, so I finalize the entry with <kbd>C-c C-c</kbd>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="org-money-capture-buffer.png" alt="Finalize capture buffer">
+</div>
+<div class="title">Figure 3. <code>C-c C-c</code> to finalize</div>
+</div>
+<div class="paragraph">
+<p>After I finalize the entry, Emacs closes the Capture buffer and returns me to whatever I was doing before.
+I can complete the whole process in about five seconds, which makes it even more convenient for me than the old paper notebook.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_filtering_my_agenda">Filtering my agenda</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Even though Org knows <code>journal.org</code> is an agenda file, inactive timestamps aren’t shown in the default agenda view.
+I’m okay with this for now.
+Things can get a little cluttered if I start showing every logged item.</p>
+</div>
+<div class="sect2">
+<h3 id="_show_me_all_the_money_entries">Show me all the :money: entries</h3>
+<div class="paragraph">
+<p><kbd>C-c a</kbd> opens the menu of Agenda commands.
+m lets me search for tag matches.
+Let’s start with all <code>:money:</code> entries.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="agenda-filter-money.png" alt="Filtered on money">
+</div>
+<div class="title">Figure 4. C-c a m <code>money</code> to filter on the <code>:money:</code> tag</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_show_me_income">Show me income</h3>
+<div class="paragraph">
+<p>I already have the agenda match view open, so I use <kbd>C-u r</kbd> to refresh with a new search string, "income".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="agenda-filter-income.png" alt="Filtered on income">
+</div>
+<div class="title">Figure 5. <code>C-u r income</code> to filter on the <code>:income:</code> tag</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_show_me_expenses">Show me expenses</h3>
+<div class="paragraph">
+<p>Again, I use <kbd>C-u r</kbd> to refresh, this time looking for entries that match "expense".</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="agenda-filter-expense.png" alt="Filtered on expense">
+</div>
+<div class="title">Figure 6. <code>C-u r expense</code> to filter on the <code>:expense:</code> tag</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stop_here">STOP HERE</h3>
+<div class="paragraph">
+<p>Oh I want to get fancy so bad.
+Honestly though, I need to set the basic habit of logging all the little things I do with my money.
+Besides, this gives me something to learn and write future blog posts about!</p>
+</div>
+</div>
+</div>
+</div>

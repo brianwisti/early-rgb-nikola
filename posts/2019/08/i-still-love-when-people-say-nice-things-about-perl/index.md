@@ -1,18 +1,17 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102573035151001666
-  twitter: https://twitter.com/brianwisti/status/1158909003784699905
-date: 2019-08-06T17:46:19-07:00
+date: 2019-08-06 17:46:19-07:00
 tags:
 - perl
 - podcast
 - glue languages stick with you
 title: I still love when people say nice things about Perl
-year: '2019'
+slug: i-still-love-when-people-say-nice-things-about-perl
+uuid: 4458b43c-d905-4585-ae97-993a05ece58f
+aliases:
+- /note/2019/218/i-still-love-when-people-say-nice-things-about-perl/
 category: note
 type: micro
 ---
-
 [John Siracusa][], on the [Diving for Perl][] episode of the [Command Line
 Heroes][] podcast:
 

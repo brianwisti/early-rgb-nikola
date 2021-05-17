@@ -1,0 +1,343 @@
+---
+aliases:
+- /coolnamehere/2005/02/27_03-making-decisions.html
+- /post/2005/03-making-decisions/
+- /2005/02/27/rebol-babysteps-03-making-decisions/
+date: 2005-02-27
+tags:
+- rebol
+- learn
+- coolnamehere
+title: REBOL Babysteps - 03 Making Decisions
+slug: rebol-babysteps-03-making-decisions
+updated: 2009-07-11 00:00:00+00:00
+series:
+- REBOL Babysteps
+uuid: 82c23b5e-444d-482f-8f8d-280cefab908d
+format: adoc
+---
+<div class="paragraph">
+<p>In :part-1: I gave you a first cautious glance at the :rebol: programming language.
+In :part-2: I extended that glance to a peek at the excellent REBOL/View GUI library.
+Let’s continue learning how to program with Rebol.
+Today I want to get you started with some structured programming by introducing you to selection structures.
+Selection structures make it possible to decide whether or not to do something based on a test.
+Here are a few uses for a simple selection structure.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Tell me if a file exists.</p>
+</li>
+<li>
+<p>Stop me from continuing the program if I give the wrong password.</p>
+</li>
+<li>
+<p>Tell me if a new item on <a href="http://www.rebol.com/cgi-bin/blog.r">Carl’s blog</a> has been posted.</p>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_simple_tests">Simple Tests</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_if"><code>if</code></h3>
+<div class="paragraph">
+<p>The simplest selection structure is <code>if</code>.
+You give it a <em>test expression</em> and a <em>block</em>.
+If the test expression turns out to be true, then REBOL runs the block.
+Otherwise, it ignores the block and moves on to the next statement.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-gs">REBOL []</span>
+<span class="tok-nb">if</span> <span class="tok-k">equal?</span> <span class="tok-nv">name</span> <span class="tok-s">&quot;Zim&quot;</span> <span class="tok-gs">[</span> <span class="tok-nb">print</span> <span class="tok-s">&quot;Reporting for duty sir!&quot;</span> <span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">if</th>
+<th class="tableblock halign-left valign-top">Test Expression</th>
+<th class="tableblock halign-left valign-top">Block</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>if</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">`equal? name "Zim" `</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[ print "Reporting for duty sir!" ]</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>You can choose between using the <code>equal?</code> function or the <strong>equality</strong> operator.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-gs">REBOL []</span>
+<span class="tok-nb">if</span> <span class="tok-nv">name</span> <span class="tok-o">==</span> <span class="tok-s">&quot;Zim&quot;</span> <span class="tok-gs">[</span> <span class="tok-nb">print</span> <span class="tok-s">&quot;Reporting for duty sir!&quot;</span> <span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Those two equal signs in there combine to make a special <strong>operator</strong> that REBOL uses to test for strict equality&#8201;&#8212;&#8201;making sure that the thing on the left has exactly the same value as the thing on the right.
+There are a number of comparison functions and operators in REBOL.
+It&#8217;s up to you whether you prefer to use the function approach or the operator approach.
+My own preference varies according to my mood and the things being compared.
+Numbers and strings often get the operator treatment, while I lean towards using the functions for more complex things.
+I&#8217;ll stick to using the functions today, because that&#8217;s the sort of mood I&#8217;m in.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Operator</th>
+<th class="tableblock halign-left valign-top">Checks For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>equal?</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>=</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equality</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>strict-equal?</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>==</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Strict Equality</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>not-equal?</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inequality</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>strict-not-equal?</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>none</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Strict Inequality</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>greater?</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater Than</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lesser?</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less Than</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>greater-or-equal?</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&gt;=</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equality or Greater Than</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lesser-or-equal?</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&#8656;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equality or Lesser Than</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><code>equal?</code> doesn&#8217;t care about case.
+"abc" and "ABC" are the same, according to these tests.
+So are <code>1</code> and <code>1.0</code>.
+This is the way most of us think about comparisons, but programs sometimes need more careful comparisons in situations where case matters.
+One example that immediately comes to mind is login and password entry.
+You need to use <code>strict-equal?</code> or <code>strict-not-equal?</code> if you need an exact test.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_either"><code>either</code></h3>
+<div class="paragraph">
+<p>What happens if you want to do one thing if a test is true, but a <strong>different</strong> thing if the test is false?
+Let&#8217;s say, for example, we want to print out one message if we recognize the user as a master,
+and print out another message if the user is not a master.
+Well, I suppose you could have two <code>if</code> statements, like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-gs">REBOL []</span>
+<span class="tok-nb">if</span> <span class="tok-k">equal?</span> <span class="tok-nv">name</span> <span class="tok-s">&quot;Zim&quot;</span> <span class="tok-gs">[</span> <span class="tok-nb">print</span> <span class="tok-s">&quot;Reporting for duty sir!&quot;</span> <span class="tok-gs">]</span>
+<span class="tok-nb">if</span> <span class="tok-k">not-equal?</span> <span class="tok-nv">name</span> <span class="tok-s">&quot;Zim&quot;</span> <span class="tok-gs">[</span> <span class="tok-nb">print</span> <span class="tok-s">&quot;Meow!&quot;</span> <span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This can obviously get ugly very quickly.
+REBOL gives us the <code>either</code> statement to simplify situations like this.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-gs">REBOL []</span>
+<span class="tok-nb">either</span> <span class="tok-k">equal?</span> <span class="tok-nv">name</span> <span class="tok-s">&quot;Zim&quot;</span> <span class="tok-gs">[</span> <span class="tok-nb">print</span> <span class="tok-s">&quot;Reporting for duty sir!&quot;</span> <span class="tok-gs">]</span> <span class="tok-gs">[</span> <span class="tok-nb">print</span> <span class="tok-s">&quot;Meow!&quot;</span> <span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>either</code> command requires a test expressions and two blocks.
+Either the test is true and the first block is executed, or the test is false and the second block is executed.
+That makes sense, doesn&#8217;t it?
+Here&#8217;s how that example breaks down.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><code>either</code></th>
+<th class="tableblock halign-left valign-top">Test</th>
+<th class="tableblock halign-left valign-top">Do this if True</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Or do this if False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>either</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>equal? name "Zim"</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Now is a good time to point out how flexible REBOL can be.
+Let&#8217;s reexamine our code and see what we are trying to do.
+We are printing a message, right?
+The only thing that is different is <strong>which</strong> message we are printing.
+We could hand the entire <code>if</code> statement directly to the print command like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-gs">REBOL []</span>
+<span class="tok-nb">print</span> <span class="tok-nb">either</span> <span class="tok-k">equal?</span> <span class="tok-nv">name</span> <span class="tok-s">&quot;Zim&quot;</span> <span class="tok-gs">[</span> <span class="tok-s">&quot;Reporting for duty sir!&quot;</span> <span class="tok-gs">]</span> <span class="tok-gs">[</span> <span class="tok-s">&quot;Meow!&quot;</span> <span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It accomplishes the exact same thing as we did with the original <code>either</code> statement, but removes a little bit of repetition.
+Some folks think that steps like this do a lot to make program code more readable.
+Another approach might be to assign the result of the <code>either</code> statement to a variable and then print the variable.
+I like this approach, because my program might grow later on.
+I might decide that I want the program to <strong>speak</strong> the response rather than print it out to the screen.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-gs">REBOL []</span>
+<span class="tok-gu">response:</span> <span class="tok-nb">either</span> <span class="tok-k">equal?</span> <span class="tok-nv">name</span> <span class="tok-s">&quot;Zim&quot;</span> <span class="tok-gs">[</span> <span class="tok-s">&quot;Yes master I obey!&quot;</span> <span class="tok-gs">]</span> <span class="tok-gs">[</span> <span class="tok-s">&quot;Meow!&quot;</span> <span class="tok-gs">]</span>
+<span class="tok-nb">print</span> <span class="tok-nv">response</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I don&#8217;t want to overwhelm anybody right now, and you can ignore options like these until you are much more comfortable with REBOL.
+I just wanted you to see how REBOL will let you describe your program in the style that you like best.</p>
+</div>
+<div class="paragraph">
+<p>Yes, <code>either</code> is a variation of the <code>if/else</code> construct that you find in many other languages.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_having_multiple_tests">Having Multiple Tests</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_any"><code>any</code></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-gs">REBOL []</span>
+<span class="tok-gu">response:</span> <span class="tok-ne">ask</span> <span class="tok-s">&quot;What&#39;s your favorite snack? &quot;</span>
+<span class="tok-nb">if</span> <span class="tok-nb">any</span> <span class="tok-gs">[</span>
+	<span class="tok-k">equal?</span> <span class="tok-nv">response</span> <span class="tok-s">&quot;tacos&quot;</span>
+	<span class="tok-k">equal?</span> <span class="tok-nv">response</span> <span class="tok-s">&quot;waffles&quot;</span>
+<span class="tok-gs">]</span> <span class="tok-gs">[</span>
+	<span class="tok-nb">print</span> <span class="tok-s">&quot;Me too!&quot;</span>
+<span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There will be times that you want to check several things, and execute if any of them are true.
+Fortunately REBOL is there to help us with the <code>any</code> function.
+<code>any</code> takes a block of tests and returns true if any of those tests are true.
+This is another one of those definitions that just repeats the obvious, isn&#8217;t it?
+Well, a lot of predefined words in REBOL work like that.</p>
+</div>
+<div class="paragraph">
+<p>Yes, this does sound like the <code>or</code> logical operator from other languages.
+Also known as <code>||</code> in C-derived languages.
+I don&#8217;t know about you, but I like <code>any</code> better than <code>||</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_all"><code>all</code></h3>
+<div class="paragraph">
+<p>What if you only want to execute the block if <strong>all</strong> tests are true?
+It shouldn&#8217;t surprise you by this point to find out that REBOL is right there waiting for us with the <code>all</code> statement.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-gs">REBOL []</span>
+<span class="tok-gu">name:</span> <span class="tok-ne">ask</span> <span class="tok-s">&quot;Name: &quot;</span>
+<span class="tok-gu">password:</span> <span class="tok-ne">ask</span> <span class="tok-s">&quot;Password: &quot;</span>
+<span class="tok-nb">if</span> <span class="tok-nb">all</span> <span class="tok-gs">[</span>
+	<span class="tok-k">strict-equal?</span> <span class="tok-nv">name</span> <span class="tok-s">&quot;Brian&quot;</span>
+	<span class="tok-k">strict-equal?</span> <span class="tok-nv">password</span> <span class="tok-s">&quot;Pretty Please?&quot;</span>
+<span class="tok-gs">]</span> <span class="tok-gs">[</span>
+	<span class="tok-nb">print</span> <span class="tok-s">&quot;Login accepted!&quot;</span>
+<span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yes, this does sound like the <code>and</code> logical operator from other languages.
+Also known as <code>&amp;&amp;</code> in C-derived languages.
+I don&#8217;t know about you, but I like <code>all</code> better than <code>&amp;&amp;</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that you have worked with selection structures, you have a major building block for writing useful programs.
+Next time around we will take a look at a few of REBOL&#8217;s many repetition and iteration structures.
+Then maybe we can sit down and write a <strong>real</strong> program!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_changes">Changes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_24_feb_2009">24 Feb 2009</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>General cleanup</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_27_feb_2005">27 Feb 2005</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Initial release into the wild.</p>
+</li>
+<li>
+<p>Corrected some inaccuracies about <code>equal?</code> and <code>=</code> and <code>==`</code>, pointed out by <a href="http://www.compkarori.com/vanilla">Graham Chiu</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>

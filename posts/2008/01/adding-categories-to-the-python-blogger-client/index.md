@@ -1,19 +1,20 @@
 ---
+slug: adding-categories-to-the-python-blogger-client
 aliases:
 - /blogspot/2008/01/02_adding-categories-to-python-blogger.html
 - /post/2008/adding-categories-to-python-blogger/
-date: 2008-01-02T00:00:00Z
+- /2008/01/02/adding-categories-to-the-python-blogger-client/
+date: 2008-01-02 00:00:00+00:00
 tags:
 - blogger
 - gdata
 - python
+- blogspot
 title: Adding Categories to the Python Blogger Client
-type: post
-update: 2009-06-09
-year: '2008'
-archived_category: blogspot
+updated: 2009-06-09
+uuid: 1638f948-df3f-4a4d-bd5d-e826664876d4
 ---
-[Python Blogger refresh]: /post/2009/python-blogger-refresh-part-1/
+[Python Blogger refresh]: /post/2009/06/python-blogger-refresh-part-1/
 
 ## Update 2009-06-09
 
@@ -22,7 +23,7 @@ I've revisited the code for Blogger posting with Python. Start with the [Python 
 
 <h2>The Original Tale</h2>
 
-[Python Blogger client]: /post/2007/python-loves-blogger/
+[Python Blogger client]: /post/2007/12/python-loves-blogger-part-1/
 
 I've already used my [Python Blogger client][] for a couple
 of postings, and I've been pretty happy with it so far. It still desperately needs

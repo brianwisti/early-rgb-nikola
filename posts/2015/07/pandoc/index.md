@@ -2,21 +2,21 @@
 aliases:
 - /tools/2015/07/23_pandoc.html
 - /post/2015/pandoc/
-date: 2015-07-23T00:00:00Z
+- /2015/07/23/pandoc/
+date: 2015-07-23 00:00:00+00:00
+slug: pandoc
 tags:
 - pandoc
+- tools
 title: Pandoc
-type: post
-year: '2015'
-category: tools
+uuid: f83f7cc5-f5c9-45a1-b7d8-14f943b4e723
 ---
-[Pandoc]: http://pandoc.org/
-I could use [Pandoc][] to build HTML from my site sources.
-<!-- TEASER_END -->
+I could use [Pandoc](http://pandoc.org/) to build HTML from my site
+sources.
 
 I could use it to convert them to different sources.
 
-I'm not saying I *would*. But I *could*.
+I’m not saying I *would*. But I *could*.
 
 Okay I might.
 
@@ -24,6 +24,6 @@ Okay I might.
     $ pandoc --to asciidoc _posts/programming/2014-12-13-duplicate-files.markdown -o 2014-12-13-duplicate-files.adoc
     $ pandoc _posts/programming/2014-12-13-duplicate-files.markdown -o 2014-12-13-duplicate-files.html
 
-{{< show-figure image="emacs-pandoc.png" description="Pandoc output in Emacs" >}}
+![Pandoc output in Emacs](emacs-pandoc.png)
 
-Honestly at this point I'd say it's pretty likely.
+Honestly at this point I’d say it’s pretty likely.

@@ -1,16 +1,17 @@
 ---
+slug: welcome-to-jekyll
 aliases:
 - /programming/2014/07/20_welcome-to-jekyll.html
 - /post/2014/welcome-to-jekyll/
-date: 2014-07-26T00:00:00Z
+- /2014/07/26/welcome-to-jekyll/
+date: 2014-07-26 00:00:00+00:00
 tags:
 - site
 - jekyll
 - ruby
+- programming
 title: Welcome to Jekyll!
-type: post
-year: '2014'
-category: programming
+uuid: 75769a4c-2e16-4369-8458-87030d598dc5
 ---
 Just don't even ask. I am in a highly fickle phase with the Web site.
 <!-- TEASER_END -->

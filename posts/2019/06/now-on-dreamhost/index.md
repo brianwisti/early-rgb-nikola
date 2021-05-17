@@ -1,12 +1,14 @@
 ---
+slug: now-on-dreamhost
 title: Now on Dreamhost
-year: '2019'
 date: 2019-06-16
 tags:
 - site
-category: marginalia
+- marginalia
+uuid: b9e4c502-9cdf-411b-b9fe-28ea08da4373
+aliases:
+- /2019/06/16/now-on-dreamhost/
 ---
-
 The site's moved from [AWS][] to [Dreamhost][]!
 
 [AWS]: https://aws.amazon.com

@@ -1,17 +1,19 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/961804226476167169
-date: 2018-02-08T00:00:00Z
+slug: a-couple-crochet-hats
+date: 2018-02-08 00:00:00+00:00
 draft: false
 tags:
 - crochet
 - hat
+- craft
 title: A Couple Crochet Hats
-year: '2018'
+uuid: 37ebfd6b-7cb8-4133-9a73-5cda45b27f57
+aliases:
+- /2018/02/08/a-couple-crochet-hats/
 category: craft
+type: micro
 previewimage: /images/2018/02/a-couple-crochet-hats/cover.jpg
 ---
-
 I crocheted two hats from [Stitch 'N Bitch Crochet][] over the last week or so.
 
 [Stitch 'N Bitch Crochet]: https://www.goodreads.com/book/show/57512.Stitch_n_Bitch_Crochet
@@ -25,4 +27,3 @@ variations from the book. I doubt I could follow a pattern to the letter even if
 
 I think that's it! I'm all caught up on finished yarn projects. Time to write about other stuff. And knit, of
 course.
-

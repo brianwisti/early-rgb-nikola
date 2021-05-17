@@ -1,27 +1,28 @@
 ---
+slug: parrot-babysteps-0x-the-stellar-app
 aliases:
 - /coolnamehere/2010/07/15_0c-the-stellar-app.html
 - /post/2010/0c-the-stellar-app/
-date: 2010-07-15T00:00:00Z
+- /2010/07/15/parrot-babysteps-0c-the-stellar-app/
+date: 2010-07-15 00:00:00+00:00
 tags:
 - parrot
 - learn
 - space
+- coolnamehere
 title: Parrot Babysteps 0c - The Stellar App
-type: post
-updated: 2010-07-15T00:00:00Z
-year: '2010'
+updated: 2010-07-15 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: cf10771e-0bb2-47e6-9d16-7ed18405945d
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 12 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
-[step 07]: /post/2009/07-writing-subroutines/
-[checking a single star]: /post/2010/0b-subroutine-params/
+[step 07]: {{< ref "post/2009-10-parrot-babysteps-07-writing-subroutines/index.md" >}}
+[checking a single star]: {{< ref "post/2010-06-parrot-babysteps-0b-subroutine-params/index.md" >}}
 [HYG Catalog]: http://www.astronexus.com
 
 Our search journey continues. We have accomplished the hard 
@@ -259,5 +260,3 @@ We have been having all of this fun because he took the time to put that
 catalog together.
 
 Enjoy yourself!
-
-

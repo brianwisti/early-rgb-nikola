@@ -1,0 +1,192 @@
+---
+aliases:
+- /post/2017/cinnamon-screenshot-shortcuts/
+- /2017/01/01/cinnamon-screenshot-shortcuts/
+date: 2017-01-01
+draft: false
+format: adoc
+tags:
+- linux
+- cinnamon
+- tools
+title: Cinnamon Screenshot Shortcuts
+slug: cinnamon-screenshot-shortcuts
+uuid: 9e864a26-1731-4fbb-9582-838c375d7e3c
+previewimage: /images/2017/01/cinnamon-screenshot-shortcuts/cover.png
+---
+<div class="paragraph">
+<p>I take many screenshots during my day, for work and for fun.
+I use the Cinnamon desktop environment in <a href="https://linuxmint.com/">Linux Mint</a>.
+I kept forgetting the keyboard shortcuts to do screenshots directly rather than opening up <a href="https://help.gnome.org/users/gnome-help/stable/screen-shot-record.html.en">GNOME Screenshot</a>.</p>
+</div>
+<div class="paragraph">
+<p>Here are the default shortcuts.
+You can customize them in Keyboard Settings, as shown in the image that started this post.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Keyboard shortcuts for taking screenshots</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Take a screenshot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Print</kbd></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Take a screenshot of a window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Alt</kbd>+<kbd>Print</kbd></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Take a screenshot of an area</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Shift</kbd>+<kbd>Print</kbd></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copy area to clipboard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>Print</kbd></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copy screen to clipboard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Control</kbd>+<kbd>Print</kbd></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copy window to clipboard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>Print</kbd></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Toggle recording desktop</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd></span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><kbd>Print</kbd> may have its own special label on your keyboard.
+On mine the Print key is labeled <kbd>PrtSc</kbd>.</p>
+</div>
+<div class="paragraph">
+<p>Next, with pictures!</p>
+</div>
+<div class="sect1">
+<h2 id="_take_a_screenshot">Take A Screenshot</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <kbd>Print</kbd> key alone will save your entire screen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="cinnamon-fullscreen-screenshot.png" alt="fullscreen screenshot">
+</div>
+<div class="title">Figure 1. Fullscreen screenshot, scaled down</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_take_a_screenshot_of_a_window">Take A Screenshot Of A Window</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="keyseq"><kbd>Alt</kbd>+<kbd>Print</kbd></span> together to save a single window.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="cinnamon-window-screenshot.png" alt="window screenshot">
+</div>
+<div class="title">Figure 2. Window screenshot, scaled down</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_take_a_screenshot_of_an_area">Take A Screenshot Of An Area</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="keyseq"><kbd>Shift</kbd>+<kbd>Print</kbd></span> for an area screenshot.
+Your mouse point will change to a crosshair. Click and drag to select the area you want to save.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="cinnamon-area-screenshot.png" alt="area screenshot">
+</div>
+<div class="title">Figure 3. An area on the Linux Mint home page</div>
+</div>
+<div class="paragraph">
+<p>Sometimes I had to hit this combo a few times to get it work.
+That could be a software bug somewhere or it could just be grit in my keyboard.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_record_desktop">Record Desktop</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Okay I’ve never done this part before.
+I probably missed something important.
+Be warned if you try it yourself.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="keyseq"><kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd></span> will start recording your desktop.
+The same combo will end the recording session.
+No sound is recorded.
+Recordings are saved as <a href="http://www.webmproject.org/">WebM</a> files in your home directory.
+<a href="http://caniuse.com/#feat=webm">WebM support</a> is widespread, although some browsers require codecs to be installed.</p>
+</div>
+<div class="paragraph">
+<p>For more advanced screen recording functionality, <a href="http://recordmydesktop.sourceforge.net/about.php">recordMyDesktop</a> looks like a good bet.</p>
+</div>
+<div class="paragraph">
+<p>I tried several times before I noticed a little red light in the lower right corner when recording is active.</p>
+</div>
+<div class="paragraph">
+<p>Wanted to show you a video of the area screenshot functionality.
+The keyboard shortcut for that doesn’t seem to work when recording.
+Instead I made a video of using the screenshot application.</p>
+</div>
+<div class="paragraph">
+<p>Since this is more to show about recording videos than anything else, I decided the full resolution video was not needed.
+I installed <a href="http://ffmpeg.org/">FFmpeg</a> and used it to resize the video, following this <a href="https://trac.ffmpeg.org/wiki/Scaling%20(resizing)%20with%20ffmpeg">FFmpeg resizing tutorial</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>sudo apt-get install ffmpeg
+<span class="tok-gp">$ </span>ffmpeg -i ~/cinnamon-20161231-9.webm -vf <span class="tok-nv">scale</span><span class="tok-o">=</span><span class="tok-m">720</span>:-1 <span class="tok-se">\</span>
+<span class="tok-go">  static/video/2017/cinnamon-desktop-recording.webm</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ta-da!</p>
+</div>
+<div class="paragraph">
+<p>
+<figure>
+  <video controls width="75%">
+    <source src="/video/2017/cinnamon-desktop-recording.webm" type="video/webm">
+    Unfortunately, your browser does not support webm
+  </video>
+  <figcaption>Using Mint Desktop screenshot tools</figcaption>
+</figure>
+</p>
+</div>
+<div class="paragraph">
+<p>Using Mint Desktop screenshot tools</p>
+</div>
+<div class="paragraph">
+<p>Well — "ta-da" assuming your browser supports WebM.</p>
+</div>
+</div>
+</div>

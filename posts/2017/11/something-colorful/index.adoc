@@ -1,0 +1,26 @@
+---
+date: 2017-11-07
+draft: false
+tags:
+- drawing
+- Infinite Painter
+- craft
+title: Something Colorful
+slug: something-colorful
+uuid: 938e1061-14bd-4a09-ad94-4c24d32cbd66
+aliases:
+- /2017/11/07/something-colorful/
+format: adoc
+category: craft
+type: micro
+previewimage: /images/2017/11/something-colorful/cover.jpg
+---
+<div class="paragraph">
+<p>The other night I went out, and brought my iPad.
+Sketching calms me when sitting in a public space.
+This is the final version of a doodle started that night.</p>
+</div>
+<div class="paragraph">
+<p>I get nervous about color, but decided this time to relax a bit and enjoy myself.
+The result pleases me.</p>
+</div>

@@ -1,0 +1,21 @@
+---
+title: yay fresh webmentions again
+slug: yay-fresh-webmentions-again
+format: adoc
+tags:
+- IndieWeb
+- site
+- i fixed it!
+date: 2021-02-23 21:39:41.390758-08:00
+category: note
+type: micro
+---
+<div class="paragraph">
+<p>Finally reconnected the site flow bits that grab and file fresh <a href="https://webmention.io">Webmentions</a>.
+Probably going to tweak rendering of the <a href="https://brid.gy/">Bridgy</a> bits that feed reactions from bigger social networks.
+It&#8217;s that or add threading <em>here</em> for conversation that happens <em>there</em>.
+No thank you.</p>
+</div>
+<div class="paragraph">
+<p>Anyways yay!</p>
+</div>

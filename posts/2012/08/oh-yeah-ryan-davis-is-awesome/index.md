@@ -1,17 +1,16 @@
 ---
+slug: oh-yeah-ryan-davis-is-awesome
 aliases:
 - /blogspot/2012/08/20_oh-yeah-ryan-davis-is-awesome.html
 - /post/2012/oh-yeah-ryan-davis-is-awesome/
-date: 2012-08-20T00:00:00Z
-draft: 'false'
-tags:
-- community
+- /2012/08/20/oh-yeah-ryan-davis-is-awesome/
+date: 2012-08-20 00:00:00+00:00
+draft: false
 title: Oh yeah, Ryan Davis is awesome
-type: post
-year: '2012'
-archived_category: blogspot
+uuid: c3ae8e1b-3e26-4838-b420-e7a13df4c8a5
+tags:
+- blogspot
 ---
-
 [this talk from Ryan Davis at Cascadia RubyConf]: http://confreaks.com/videos/1085-cascadiaruby2012-occupy-ruby-why-we-need-to-moderate-the-1
 [incensed reaction]: http://gilesbowkett.blogspot.com/2012/08/ryan-davis-you-are-idiot-liar-or-fool.html
 

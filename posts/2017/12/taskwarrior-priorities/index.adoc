@@ -1,0 +1,245 @@
+---
+date: 2017-12-25
+caption: '`task` report with a column showing priority levels'
+draft: false
+series:
+- Taskwarrior Babysteps
+tags:
+- taskwarrior
+- tools
+title: Taskwarrior Priorities
+slug: taskwarrior-priorities
+uuid: 7e0321e9-f2c7-410a-a477-25990378b00f
+aliases:
+- /2017/12/25/taskwarrior-priorities/
+format: adoc
+previewimage: /images/2017/12/taskwarrior-priorities/cover.png
+---
+<div class="paragraph">
+<p>Merry Christmas!
+Time to organize <a href="/tags/taskwarrior">my Taskwarrior tasks</a>.</p>
+</div>
+<div class="paragraph">
+<p>My more focused approach to <a href="https://taskwarrior.org">Taskwarrior</a> is working well.
+I add a task when I get an idea, and mark it <code>done</code> sometime after I finish.
+Annotations let me add noteworthy details.
+Tags and projects help both for organizing tasks and describing them.
+A task bubbles up to the top of <code>task next</code> as I add more information to it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task -work
+<span class="tok-go">[task next ( -work )]</span>
+
+<span class="tok-go">ID Age  Project Tag              Description                                   Urg</span>
+<span class="tok-go">26 9min fitbit  health           get fitbit data                               2.7</span>
+<span class="tok-go">                                   2017-12-24 can only grab 31 days at a time</span>
+<span class="tok-go">                                   2017-12-24 want all data back to 2016-01</span>
+<span class="tok-go"> 2 3w   ruana   blog knitting    blog about vest                              2.02</span>
+<span class="tok-go">27 8min fitbit  health           see activity when closest to weight goal      1.8</span>
+<span class="tok-go">28 7min fitbit  health           make 2018 exercise plan                       1.8</span>
+<span class="tok-go">24 3d           home             living room curtains                         1.62</span>
+<span class="tok-go">                                   2017-12-20 dimensions 94.25 wide 56.5 high</span>
+<span class="tok-go"> 3 3w           blog taskwarrior due dates, recurrences                       1.02</span>
+<span class="tok-go">12 9d           crochet home     door panel                                   0.95</span>
+<span class="tok-go">15 7d           learn music      submit to acousticbrainz                     0.94</span>
+<span class="tok-go">18 6d           blog taskwarrior Priorities                                   0.93</span>
+<span class="tok-go"> 1 3w           crochet          fingerless gloves                            0.92</span>
+<span class="tok-go"> 8 2w           home             move my stuff upstairs                       0.88</span>
+<span class="tok-go">10 10d          music            experiment with setting itunes play stats    0.85</span>
+<span class="tok-go">11 10d          blog             create links section                         0.85</span>
+<span class="tok-go">16 6d           music            music server                                 0.83</span>
+<span class="tok-go">17 6d           learn            try timewarrior                              0.83</span>
+<span class="tok-go">19 6d           home             make flylady daily and weekly list           0.83</span>
+<span class="tok-go">20 4d           music            merge rating files                           0.82</span>
+<span class="tok-go">21 4d           music            filter duplicate tracks                      0.82</span>
+<span class="tok-go">22 4d           knitting         circular hat variant                         0.82</span>
+<span class="tok-go">25 3d           music            restore backup                               0.82</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That bubbling behavior gets in the way sometimes.</p>
+</div>
+<div class="paragraph">
+<p>I created some tasks for playing with my Fitbit data and added relevant annotations.
+Taskwarrior follows a rule of "it must be important if you’re talking so much about it,"" and dutifully puts those tasks high on the list.</p>
+</div>
+<div class="paragraph">
+<p>Thing is, right now I care more about fixing my music library.
+Long story, but the moral of <em>that</em> tale is be careful with Beets and the <a href="http://beets.readthedocs.io/en/v1.4.6/plugins/duplicates.html">Duplicates plugin</a>.
+I have slightly different versions of the library on each of my machines, and a backup with all of the music but none of the Beets import information.
+I could make a project out of it, but it’s more of a thing I poke at when I can.</p>
+</div>
+<div class="paragraph">
+<p>Anyways — I want my <code>next</code> report to more closely resemble my current priorities.
+I can do that by manually setting <a href="https://taskwarrior.org/docs/priority.html">Priority</a> for each of my tasks.</p>
+</div>
+<div class="sect1">
+<h2 id="_task_priority">Task priority</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://taskwarrior.org/docs/priority.html">Priority</a> can be added to any task as an attribute, using <code>priority:</code> followed by the Priority you wish to assign.
+Priority also works as a filter for your reports.
+The default choices are <code>H</code>, <code>M</code>, <code>L</code>, and none at all — to remove a Priority.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task add <span class="tok-k">return</span> library books priority:M
+<span class="tok-go">Created task 29.</span>
+<span class="tok-gp">$ </span>task modify <span class="tok-m">18</span> priority:H
+<span class="tok-go">Modifying task 18 &#39;Priorities&#39;.</span>
+<span class="tok-go">Modified 1 task.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Looking at the first few entries of <code>next</code> shows me the effect of setting Priority.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task -work
+<span class="tok-go">[task next ( -work )]</span>
+
+<span class="tok-go">ID Age  P Project Tag              Description                                   Urg</span>
+<span class="tok-go">18 6d   H         blog taskwarrior Priorities                                   6.93</span>
+<span class="tok-go">29 3min M                          return library books                          3.9</span>
+<span class="tok-go">26 1h     fitbit  health           get fitbit data                               2.7</span>
+<span class="tok-go">                                     2017-12-24 can only grab 31 days at a time</span>
+<span class="tok-go">                                     2017-12-24 want all data back to 2016-01</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I see a new column reflecting that I now describe some tasks with Priority.
+Over on the end, <a href="https://taskwarrior.org/docs/urgency.html">Urgency</a> jumps for tasks with any Priority at all.
+<code>H</code> Priority tasks get a large boost.
+But what do these Priority values <em>mean</em>?</p>
+</div>
+<div class="paragraph">
+<p>Priority means something different for everyone.
+The basic idea is the higher a task’s Priority is, the more important it is to me.</p>
+</div>
+<div class="paragraph">
+<p>Here’s how I use Priority values for now.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">Represents</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>H</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I am — or want to be — working on it right now.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>M</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to work on this soon.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>L</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want to work on this eventually.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>empty</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I haven’t thought about it.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>My usage will change as I learn more about Taskwarrior but this works.</p>
+</div>
+<div class="paragraph">
+<p>I don’t need to think too much about priority when I’m just adding to the idea bucket.
+Probably a good idea to periodically review unprioritized tasks and assign a Priority or delete them if they won’t ever be worth my time.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task -work priority:
+<span class="tok-go">[task next ( -work priority: )]</span>
+
+<span class="tok-go">ID Age Project Tag              Description                                   Urg</span>
+<span class="tok-go">26 1h  fitbit  health           get fitbit data                               2.7</span>
+<span class="tok-go">                                  2017-12-24 can only grab 31 days at a time</span>
+<span class="tok-go">                                  2017-12-24 want all data back to 2016-01</span>
+<span class="tok-go"> 2 3w  ruana   blog knitting    blog about vest                              2.02</span>
+<span class="tok-go">27 1h  fitbit  health           see activity when closest to weight goal      1.8</span>
+<span class="tok-go">28 1h  fitbit  health           make 2018 exercise plan                       1.8</span>
+<span class="tok-go">24 3d          home             living room curtains                         1.62</span>
+<span class="tok-go">                                  2017-12-20 dimensions 94.25 wide 56.5 high</span>
+<span class="tok-go"> 3 3w          blog taskwarrior due dates, recurrences                       1.02</span>
+<span class="tok-go">12 9d          crochet home     door panel                                   0.95</span>
+<span class="tok-go">15 7d          learn music      submit to acousticbrainz                     0.94</span>
+<span class="tok-go"> 1 3w          crochet          fingerless gloves                            0.92</span>
+<span class="tok-go"> 8 2w          home             move my stuff upstairs                       0.88</span>
+<span class="tok-go">10 10d         music            experiment with setting itunes play stats    0.85</span>
+<span class="tok-go">11 10d         blog             create links section                         0.85</span>
+<span class="tok-go">16 6d          music            music server                                 0.83</span>
+<span class="tok-go">17 6d          learn            try timewarrior                              0.83</span>
+<span class="tok-go">19 6d          home             make flylady daily and weekly list           0.83</span>
+<span class="tok-go">20 5d          music            merge rating files                           0.83</span>
+<span class="tok-go">21 5d          music            filter duplicate tracks                      0.83</span>
+<span class="tok-go">22 5d          knitting         circular hat variant                         0.83</span>
+<span class="tok-go">25 3d          music            restore backup                               0.82</span>
+
+<span class="tok-go">19 tasks</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Give me a minute while I assign priorities.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task -work
+<span class="tok-go">[task next ( -work )]</span>
+
+<span class="tok-go">ID Age P Project Tag              Description                                      Urg</span>
+<span class="tok-go">18 7d  H         blog taskwarrior Priorities                                      6.94</span>
+<span class="tok-go">25 4d  H         music            restore backup                                  6.82</span>
+<span class="tok-go">26 1d  M fitbit  health           get fitbit data                                 6.61</span>
+<span class="tok-go">                                    2017-12-24 can only grab 31 days at a time</span>
+<span class="tok-go">                                    2017-12-24 want all data back to 2016-01</span>
+<span class="tok-go"> 2 3w  M ruana   blog knitting    blog about vest                                 5.92</span>
+<span class="tok-go"> 1 3w  M         crochet          fingerless gloves                               4.83</span>
+<span class="tok-go"> 8 2w  M         home             move my stuff upstairs                          4.79</span>
+<span class="tok-go">19 7d  M         home             make flylady daily and weekly list              4.74</span>
+<span class="tok-go">29 23h M                          return library books                             4.7</span>
+<span class="tok-go">                                    2017-12-25 due 2017-12-30</span>
+<span class="tok-go">28 1d  L fitbit  health           make 2018 exercise plan                         4.41</span>
+<span class="tok-go">                                    2017-12-24 keep on what I do now is an option</span>
+<span class="tok-go">27 1d  L fitbit  health           see activity when closest to weight goal        3.61</span>
+<span class="tok-go">24 4d  L         home             living room curtains                            3.42</span>
+<span class="tok-go">                                    2017-12-20 dimensions 94.25 wide 56.5 high</span>
+<span class="tok-go"> 3 3w  L         blog taskwarrior due dates, recurrences                          2.82</span>
+<span class="tok-go">12 10d L         crochet home     door panel                                      2.75</span>
+<span class="tok-go">15 8d  L         learn music      submit to acousticbrainz                        2.74</span>
+<span class="tok-go">10 11d L         music            experiment with setting itunes play stats       2.66</span>
+<span class="tok-go">11 11d L         blog             create links section                            2.66</span>
+<span class="tok-go">16 7d  L         music            music server                                    2.64</span>
+<span class="tok-go">17 7d  L         learn            try timewarrior                                 2.64</span>
+<span class="tok-go">20 5d  L         music            merge rating files                              2.63</span>
+<span class="tok-go">21 5d  L         music            filter duplicate tracks                         2.63</span>
+<span class="tok-go">22 5d  L         knitting         circular hat variant                            2.63</span>
+
+<span class="tok-go">21 tasks</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I could have added due date information to the library task rather than an annotation, but I’m sticking with this approach of a few features at a time.
+Otherwise I’ll try to learn everything at one sitting, get overwhelmed and distracted, then abandon the whole thing.</p>
+</div>
+<div class="paragraph">
+<p>That said, it looks like next I should learn <a href="https://taskwarrior.org/docs/dates.html">dates</a> in Taskwarrior.</p>
+</div>
+</div>
+</div>

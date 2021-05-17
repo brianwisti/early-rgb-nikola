@@ -1,15 +1,15 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/1005882408233603072
-date: 2018-06-10T00:00:00Z
+slug: two-weeks-without-cigarettes
+date: 2018-06-10 00:00:00+00:00
 draft: false
 tags:
 - personal
+- marginalia
 title: Two Weeks Without Cigarettes
-year: '2018'
-category: marginalia
+uuid: 76093865-4f11-4945-8020-2eb9f953d1ed
+aliases:
+- /2018/06/10/two-weeks-without-cigarettes/
 ---
-
 I stopped smoking cigarettes two weeks ago. For now I [vape][] instead. Time to put down some notes about what
 other habits I had to adjust.
 
@@ -104,4 +104,3 @@ you keep a [nicotine withdrawal infographic][] in easy reach.
 [nicotine withdrawal infographic]: https://vapingdaily.com/quitting-effects/nicotine-withdrawal-symptoms-timeline/
 
 I'll take the words of Vaping Master zapped to heart and hang in there. A little better informed now, though.
-

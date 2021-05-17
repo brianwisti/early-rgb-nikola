@@ -1,18 +1,20 @@
 ---
+slug: python-loves-blogger-part-1
 aliases:
 - /blogspot/2007/12/28_python-loves-blogger.html
 - /post/2007/python-loves-blogger/
-date: 2007-12-28T00:00:00Z
+- /2007/12/28/python-loves-blogger-part-1/
+date: 2007-12-28 00:00:00+00:00
 tags:
 - blogger
 - python
+- blogspot
 title: Python Loves Blogger (Part 1)
-type: post
-updated: 2015-03-28T00:00:00Z
-year: '2007'
-archived_category: blogspot
+updated: 2015-03-28 00:00:00+00:00
+uuid: a17f7ee9-4274-4000-be86-65985560479b
 ---
-[here]: /post/2009/python-blogger-refresh-part-1/
+[here]: /post/2009/06/python-blogger-refresh-part-1/
+
 I've revisited the code for Blogger posting with Python. Start [here][] to see the new starting point.
 <!-- TEASER_END -->
 

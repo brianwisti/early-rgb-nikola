@@ -1,10 +1,6 @@
 ---
-announcements:
-  facebook: https://www.facebook.com/brianwisti/posts/10157788711169665
-  mastodon: https://hackers.town/@randomgeek/102385377642417786
-  twitter: https://twitter.com/brianwisti/status/1146899330973855744
 caption: Seriously. Chunky. Bacon.
-date: 2019-07-04T13:41:24-07:00
+date: 2019-07-04 13:41:24-07:00
 tags:
 - why the lucky stiff
 - internet history
@@ -12,12 +8,14 @@ tags:
 - drawing
 - chunky bacon
 title: Chunky Bacon
-year: '2019'
+slug: chunky-bacon
+uuid: a2afda24-6e2e-4688-a8d6-a5b2dd39ffdc
+aliases:
+- /note/2019/185/chunky-bacon/
 category: note
 type: micro
 previewimage: /images/2019/07/chunky-bacon/cover.png
 ---
-
 Outlining a post about my [notes][]. Learned that [_why][] coined [tumblelog][],
 which is sort of what the notes are. And then I wanted to make this note.
 With the foxes. But I couldn't find a nice big version. So I made a nice big

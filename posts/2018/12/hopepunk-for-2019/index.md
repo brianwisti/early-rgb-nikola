@@ -1,17 +1,17 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/1079806993223675904
-date: 2018-12-31T00:00:00Z
+slug: hopepunk-for-2019
+date: 2018-12-31 00:00:00+00:00
 draft: false
 tags:
 - personal
+- marginalia
 title: Hopepunk for 2019
-updated: 2019-02-16T00:00:00Z
-year: '2018'
-category: marginalia
+updated: 2019-02-16 00:00:00+00:00
+uuid: dd9f0bad-0d4a-4bd9-91d2-6d4a62ea6fe7
+aliases:
+- /2018/12/31/hopepunk-for-2019/
 previewimage: /images/2018/12/hopepunk-for-2019/cover.jpg
 ---
-
 Writing these late night thoughts is as close as I get to making resolutions.
 <!-- TEASER_END -->
 
@@ -79,4 +79,3 @@ more easily with ourselves at night.
 So I intend to be more explicitly this in 2019.
 
 And — you know. If you don't like it, fuck off. I love you anyways.
-

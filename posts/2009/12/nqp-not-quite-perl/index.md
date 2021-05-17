@@ -1,17 +1,17 @@
 ---
+slug: nqp-not-quite-perl
 aliases:
 - /coolnamehere/2009/12/09_nqp-not-quite-perl.html
 - /post/2009/nqp-not-quite-perl/
-date: 2009-12-09T00:00:00Z
+- /2009/12/09/nqp-not-quite-perl/
+date: 2009-12-09 00:00:00+00:00
 tags:
 - parrot
 - perl
+- coolnamehere
 title: NQP - Not Quite Perl
-type: post
-year: '2009'
-archived_category: coolnamehere
+uuid: d1b60fc6-bd57-460d-9469-aede4bc366ad
 ---
-
 [Parrot]: http://parrot.org
 [Rakudo]: http://rakudo.org
 [NQP]: http://docs.parrot.org/parrot/latest/html/docs/book/pct/ch05_nqp.pod.html
@@ -30,7 +30,8 @@ in defining the grammars for your Parrot languages.
 
 ## Getting NQP
 
-[here]: /post/2009/01-getting-started/
+[here]: {{< ref "post/2009-07-parrot-babysteps-01-getting-started/index.md" >}}
+
 
 You already have NQP if you have a fresh installation of [Parrot][]. You can
 find directions for installing [here][] if
@@ -67,7 +68,7 @@ Let's just do a brutally fast NQP example.
             stdin = getstdin
             %r = stdin.'readline_interactive'()
         };
-        
+
         return $name
     }
 
@@ -94,6 +95,5 @@ you?
 
 ## Learning NQP
 
-There is a good overview of NQP available at 
+There is a good overview of NQP available at
 [wikibooks](http://en.wikibooks.org/wiki/Parrot_Virtual_Machine/Not_Quite_Perl).
-

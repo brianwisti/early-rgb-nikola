@@ -1,21 +1,20 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102601881134003629
-  twitter: https://twitter.com/brianwisti/status/1160754746397011968
 caption: Yeah that's Visual Studio Code. I'm trying new things.
-date: 2019-08-11T20:04:00-07:00
+date: 2019-08-11 20:04:00-07:00
 tags:
 - screenshot
 - javascript
 - no i know
 - i'll fix it
 title: Proudly doing it wrong
-year: '2019'
+slug: proudly-doing-it-wrong
+uuid: f880fe51-3798-441f-b231-0cc64aa751f1
+aliases:
+- /note/2019/223/proudly-doing-it-wrong/
 category: note
 type: micro
 previewimage: /images/2019/08/proudly-doing-it-wrong/cover.png
 ---
-
 1. write a [site weight][] script that prints a report to the console
 2. make the script write the report to a file, and include the file in [/now][]. Now site building looks like:
     1. build the site
@@ -29,6 +28,6 @@ previewimage: /images/2019/08/proudly-doing-it-wrong/cover.png
 But hey at least I don't need to rebuild the site after weighing it. And when free time next allows I'll learn
 a little more Vue.js and make the report prettier.
 
-[site weight]: {{< ref "/post/2019/weighing-files-with-python/index.md" >}}
+[site weight]: /post/2019/06/weighing-files-with-python/
 [/now]: /now
 [vue.js]: https://vuejs.org/

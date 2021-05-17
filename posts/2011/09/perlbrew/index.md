@@ -1,15 +1,16 @@
 ---
+slug: perlbrew
 aliases:
 - /coolnamehere/2011/09/05_perlbrew.html
 - /post/2011/perlbrew/
-date: 2011-09-05T00:00:00Z
+- /2011/09/05/perlbrew/
+date: 2011-09-05 00:00:00+00:00
 tags:
 - perl
+- coolnamehere
 title: perlbrew
-type: post
-updated: 2011-09-06T00:00:00Z
-year: '2011'
-archived_category: coolnamehere
+updated: 2011-09-06 00:00:00+00:00
+uuid: b49c0764-b7db-4494-a121-15c827542acb
 ---
 <!-- TEASER_END -->
 ## Introduction
@@ -193,4 +194,3 @@ As far as I can tell, there is no official way to carry installed Perl
 modules over to a new Perl installed via [perlbrew][]. You can set the
 `$PERL5LIB` environment variable or rely on `use lib` if it's important
 to use specific installed libraries.
-

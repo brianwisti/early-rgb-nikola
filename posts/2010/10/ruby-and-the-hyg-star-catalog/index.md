@@ -1,18 +1,19 @@
 ---
+slug: ruby-and-the-hyg-star-catalog
 aliases:
 - /coolnamehere/2010/10/05_ruby-and-the-hyg-star-catalog.html
 - /post/2010/ruby-and-the-hyg-star-catalog/
-date: 2010-10-05T00:00:00Z
+- /2010/10/05/ruby-and-the-hyg-star-catalog/
+date: 2010-10-05 00:00:00+00:00
 tags:
 - ruby
+- coolnamehere
 title: Ruby and the HYG Star Catalog
-type: post
-year: '2010'
-archived_category: coolnamehere
+uuid: 57815f1d-2eb8-4cfd-a857-6afccf9f4417
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
-[reading a CSV file in Parrot]: /post/2009/06-files-and-hashes/
+[reading a CSV file in Parrot]: {{< ref "post/2009-10-parrot-babysteps-06-files-and-hashes/index.md" >}}
 [HYG Star Catalog]: http://www.astronexus.com/node/34
 [Parrot]: /tags/parrot/
 [Ruby]: /tags/ruby/
@@ -365,4 +366,3 @@ of something interesting to do with them. I just wanted to see how much easier i
 high level language. Turns out, it's pretty easy. Explore the Ruby standard library and the *many* Rubygems
 that are available out in the big world. You'll probably have fun, and you'll almost definitely learn
 something.
-

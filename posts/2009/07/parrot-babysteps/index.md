@@ -1,18 +1,19 @@
 ---
+slug: parrot-babysteps
 aliases:
 - /coolnamehere/2009/07/11_parrot-babysteps.html
 - /post/2009/parrot-babysteps/
-date: 2009-07-10T00:00:00Z
+- /2009/07/10/parrot-babysteps/
+date: 2009-07-10 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps
-type: post
-updated: 2019-05-13T00:00:00Z
-year: '2009'
+updated: 2019-05-13 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 2ac57fc2-700e-4149-ab7e-cae095b6551e
 ---
 This is the introduction to Parrot Babysteps, my archived Parrot PIR tutorial.
 <!-- TEASER_END -->
@@ -87,4 +88,3 @@ I have lumped the sample code into a [Github repository][], which you can check
 out if you prefer reading along to writing the code yourself. The repository's
 main purpose is so that I can automatically test the examples when I upgrade
 Parrot, but it seemed like a nice idea to share it.
-

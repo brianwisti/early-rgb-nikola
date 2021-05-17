@@ -1,21 +1,22 @@
 ---
+slug: parrot-babysteps-04-adding-command-line-arguments
 aliases:
 - /coolnamehere/2009/09/17_04-adding-command-line-arguments.html
 - /post/2009/04-adding-command-line-arguments/
-date: 2009-09-17T00:00:00Z
+- /2009/09/17/parrot-babysteps-04-adding-command-line-arguments/
+date: 2009-09-17 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 04 - Adding Command Line Arguments
-type: post
-updated: 2010-07-21T00:00:00Z
-year: '2009'
+updated: 2010-07-21 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: e154e91e-f0ec-44cc-adbe-a535542cfa15
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 4 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
@@ -31,7 +32,7 @@ It would be nice to write more ambitious programs, though. It would be
 painful - maybe even impossible - to create a modern program using only
 the tools and opcodes we have learned so far.
 
-[a few steps ago]: /post/2009/02-variables-and-types/
+[a few steps ago]: {{< ref "post/2009-07-parrot-babysteps-02-variables-and-types/index.md" >}}
 
 We can start examining PMCs by writing a version of our hypotenuse calculator
 from [a few steps ago][] that has command line
@@ -205,5 +206,3 @@ is a particular PMC - something called a ResizableStringArray. The `shift` opcod
 removes the first item in a ResizableStringArray and lets us use it in a variable.
 We also saw that we can use the `members` opcode to get the number of members in
 an array.
-
-

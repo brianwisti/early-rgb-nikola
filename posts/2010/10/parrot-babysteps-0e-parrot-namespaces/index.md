@@ -1,22 +1,25 @@
 ---
+slug: parrot-babysteps-0e-parrot-namespaces
 aliases:
 - /coolnamehere/2010/10/11_0e-parrot-namespaces.html
 - /post/2010/0e-parrot-namespaces/
-date: 2010-10-11T00:00:00Z
+- /2010/10/11/parrot-babysteps-0e-parrot-namespaces/
+date: 2010-10-11 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 0e - Parrot Namespaces
-type: post
-year: '2010'
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: bcd11d37-0f8e-440c-ad05-673cbaf32115
 ---
-This is part 14 of [Parrot Babysteps](/post/2009/parrot-babysteps/), my ongoing Parrot PIR tutorial.
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
+
+This is part 14 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
-[previous Babystep]: /post/2010/0d-the-spacetrade-project/
+[previous Babystep]: {{< ref "post/2010-08-parrot-babysteps-0d-the-spacetrade-project/index.md" >}}
 [Star Trader]: https://en.wikipedia.org/wiki/Star_Trader
 
 Where was I? In the [previous Babystep][], I started working out some rough ideas for a version of the old
@@ -180,7 +183,7 @@ This is the error I was expecting to see initially, so I am happy. I suppose I c
 namespace and start another - but I feel like that would have broken the way `.include` behaves. I will
 probably learn a better way to handle these little namespace issues eventually.
 
-[Step 07]: /post/2009/07-writing-subroutines/
+[Step 07]: {{< ref "post/2009-10-parrot-babysteps-07-writing-subroutines/index.md" >}}
 
 Now I have library code tucked into a namespace and test code that doesn't know about the shell subroutines.
 A quick look at [Step 07][] shows how to get those shell subroutines into our current namespace. The
@@ -351,5 +354,3 @@ Every piece of code that uses a global variable must be updated.
 The same problem exists with package globals, even though it may be on a smaller scale. There's a solution -
 or at least a way to make the problem even smaller. Whenever I see data and several subroutines that need to
 work on that data, I start to see objects.
-
-

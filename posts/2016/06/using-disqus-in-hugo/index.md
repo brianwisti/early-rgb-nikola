@@ -1,14 +1,16 @@
 ---
+slug: using-disqus-in-hugo
 aliases:
 - /post/2016/disqus-in-hugo/
-date: 2016-06-23T00:00:00Z
+- /2016/06/23/using-disqus-in-hugo/
+date: 2016-06-23 00:00:00+00:00
 tags:
 - hugo
 - site
 - disqus
+- tools
 title: Using Disqus in Hugo
-year: '2016'
-category: tools
+uuid: d4d8caee-5d75-4b88-8e60-396a8cd2dc14
 ---
 All right fine. Some visitor may want to leave a comment about one or another
 of my posts. I can do that with Hugo.

@@ -1,15 +1,17 @@
 ---
-date: 2018-05-26T00:00:00Z
+slug: crafts-are-now-posts
+date: 2018-05-26 00:00:00+00:00
 draft: false
 tags:
 - site
 - ruby
 - hugo
+- programming
 title: Crafts Are Now Posts
-year: '2018'
-category: programming
+uuid: 781fcded-58e0-4813-988a-c5f7a77d70ba
+aliases:
+- /2018/05/26/crafts-are-now-posts/
 ---
-
 **TL;DR**: I turned the craft section into a [Craft][] category. [Drawing][], [Knitting][], and [Crochet][]
 became tags. The rest of this post is just notes about that.
 
@@ -35,19 +37,17 @@ During my attempts to get [Disqus][] working here, I changed the [permalink][] c
 blog-like — `/:year/:month/:day/:title` — scrubbing section out of the permalink as I slowly admitted to
 myself there was little to distinguish crafts and posts.
 
-****
-
-I finally abandoned Disqus — and Google Analytics — to prevent anyone tracking my site visitors. I
-was GDPR compliant before it was cool!
-
-****
+{{< aside >}}
+I finally abandoned Disqus — and Google Analytics — to prevent anyone tracking my site visitors.
+I was GDPR compliant before it was cool!
+{{< /aside >}}
 
 I complete the last step of this process today: transforming craft content into post content, and updating
 site configuration to handle this change.
 
 [Craft]: /categories/craft
-[Jekyll collection]: {{< ref "/post/2015/making-a-jekyll-collection.md" >}}
-[Switching to Hugo]: {{< ref "/post/2015/hugo.md" >}}
+[Jekyll collection]: {{< relref "/post/2015-07-making-a-jekyll-collection/index.rst" >}}
+[Switching to Hugo]: {{< ref "/post/2015-09-next-hugo/index.md" >}}
 [Disqus]: /tags/disqus
 [permalink]: http://gohugo.io/content-management/urls/#permalinks
 
@@ -147,11 +147,9 @@ on the main navigation menu.
 
 #### `config.json`
 
-****
-
+{{< aside >}}
 Well, the important bit anyways.
-
-****
+{{< /aside >}}
 
 ~~~ json
   "Params": {
@@ -200,4 +198,4 @@ bundles][] to corresponding tag folders.
 
 ## Done?
 
-I probably forgot something, but everything seems to work correctly. 
+I probably forgot something, but everything seems to work correctly.

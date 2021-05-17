@@ -1,14 +1,15 @@
 ---
+slug: i-learned-github-has-interesting-links
 aliases:
 - /tools/2014/05/30_i-learned-github-has-interesting-links.html
 - /post/2014/i-learned-github-has-interesting-links/
-date: 2014-05-30T00:00:00Z
+- /2014/05/30/i-learned-github-has-interesting-links/
+date: 2014-05-30 00:00:00+00:00
 tags:
 - github
+- tools
 title: I Learned GitHub Has Interesting Links
-type: post
-year: '2014'
-category: tools
+uuid: fa371d21-c618-4690-bad1-18fcc0664881
 ---
 Today I got to take part in a User Experience Research interview
 with some fine folks from GitHub. It was straightforward. We chatted

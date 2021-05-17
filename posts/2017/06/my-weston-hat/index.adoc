@@ -1,0 +1,58 @@
+---
+aliases:
+- /craft/2017/my-weston-hat/
+- /2017/06/28/my-weston-hat/
+date: 2017-06-28
+draft: false
+tags:
+- knitting
+- hat
+- craft
+title: My Weston Hat
+slug: my-weston-hat
+uuid: 41126598-a613-49c4-a729-ae5df68fc0b7
+format: adoc
+category: craft
+type: micro
+previewimage: /images/2017/06/my-weston-hat/cover.jpg
+---
+<div class="paragraph">
+<p>Ended up knitting this one twice.
+Tried the large size first, and it ended up way too large for my taste.
+Frogged and restarted the smaller size, making a new set of mistakes.
+But the hat fits now and I’m not starting again!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="me-wearing-weston-medium.jpg" alt="Me wearing the Weston">
+</div>
+</div>
+<div class="paragraph">
+<p>I went with the free <a href="https://www.garnstudio.com/pattern.php?id=7779&amp;cid=17">Weston pattern</a> by DROPS Design, using <a href="http://www.michaels.com/caron-cakes-yarn/M10481921.html">Caron Cakes Lemon Lime</a> yarn.
+Mine doesn’t look much like theirs.
+Different yarn causes some of that.
+Mistakes in my cabling caused a little of it.
+Not sure about that ribbing, though.
+Mine measures correctly for the pattern, but looks <em>huge</em> compared to the sample image.</p>
+</div>
+<div class="sect1">
+<h2 id="_extra_notes">Extra Notes</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>I had to do some math for placing decreases from brim to body, as the pattern didn’t specify placement.</p>
+</li>
+<li>
+<p>Switched from circular to DPNs for the decrease at the top.
+The pattern has three repeats, so you either need to be smart about placing your dpns —
+which I did with the first version — or you need to use 3 dpns and be careful about ladders —
+which I did with the second version.</p>
+</li>
+<li>
+<p>You will probably want a shorter ribbed section than the pattern describes if you want to knit their hat and show off the cabling.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>

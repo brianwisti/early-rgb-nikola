@@ -1,16 +1,17 @@
 ---
+slug: rakudo
 aliases:
 - /coolnamehere/2010/09/08_rakudo.html
 - /post/2010/rakudo/
-date: 2010-09-08T00:00:00Z
+- /2010/09/08/rakudo/
+date: 2010-09-08 00:00:00+00:00
 tags:
 - rakudo
+- rakulang
+- coolnamehere
 title: Rakudo
-type: post
-year: '2010'
-archived_category: coolnamehere
+uuid: 935bb0d7-82a3-44c7-98ff-bc4d8bf5c5a5
 ---
-
 [Perl]: /tags/perl/
 [CPAN]: http://cpan.org
 
@@ -51,4 +52,3 @@ There is a lot of material to get you started with Rakudo. The [Perl 6 Book][] i
 
 I may start writing some Perl 6 Babysteps eventually, but it looks like that ground is pretty well covered for
 now.
-

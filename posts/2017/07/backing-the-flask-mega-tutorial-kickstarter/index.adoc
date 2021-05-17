@@ -1,0 +1,27 @@
+---
+aliases:
+- /post/2017/backing-the-flask-mega-tutorial-kickstarter/
+- /2017/07/09/backing-the-flask-mega-tutorial-kickstarter/
+date: 2017-07-09
+draft: false
+tags:
+- python
+- marginalia
+title: Backing The Flask Mega Tutorial Kickstarter
+slug: backing-the-flask-mega-tutorial
+uuid: 49d02753-a3ab-4e0f-8813-eafa66aaad96
+format: adoc
+---
+<div class="paragraph">
+<p>Miguel Grenbergs’ <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">Flask Mega-Tutorial</a> and <a href="https://flaskbook.com/">book</a> helped me understand using Python’s <a href="http://flask.pocoo.org/">Flask microframework</a>.
+Well, somewhat.
+My understanding would improve if I used it more.
+Haven’t taken advantage of the opportunity yet.
+Anyways - of course I decided to back his <a href="https://www.kickstarter.com/projects/1124925856/the-new-and-improved-flask-mega-tutorial/">Kickstarter</a> for updating the Flask Mega-Tutorial.</p>
+</div>
+<div class="paragraph">
+<p>His <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-kickstarter">blog post about the Kickstarter</a> reminded me that he was doing this.
+I’m pushing it here because I know he creates great learning material.
+Oh and because I still feel a little bad about sending him so many questions during the "rough cuts" phase of the Flask book.
+Further endorsement: he was unfailingly polite and helpful responding to those questions.</p>
+</div>

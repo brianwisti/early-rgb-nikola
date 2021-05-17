@@ -1,20 +1,19 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102825645202833283
-  twitter: https://twitter.com/brianwisti/status/1175075990055391232
 caption: Sunset view of Puget Sound from Main Street in Seattle
-date: 2019-09-20T07:56:53-07:00
+date: 2019-09-20 07:56:53-07:00
 tags:
 - Seattle
 - spent too long posting this
 - got lost in history links
 title: Pioneer Square has a view now
-year: '2019'
+slug: pioneer-square-has-a-view-now
+uuid: 3f02583e-2c41-4c7d-bc66-f9e12ad448fc
+aliases:
+- /note/2019/263/pioneer-square-has-a-view-now/
 category: note
 type: micro
 previewimage: /images/2019/09/pioneer-square-has-a-view-now/cover.jpg
 ---
-
 We went out for dinner the other evening, and once the sun was no longer blasting directly in our eyes -- yay
 for [precession of the equinoxes][] -- we were treated to a hell of a sight.
 

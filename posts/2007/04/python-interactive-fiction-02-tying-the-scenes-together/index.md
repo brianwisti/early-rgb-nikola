@@ -1,24 +1,24 @@
 ---
+slug: python-interactive-fiction-02-tying-the-scenes-together
 aliases:
 - /coolnamehere/2007/04/19_02-tying-the-scenes-together.html
 - /post/2007/02-tying-the-scenes-together/
-date: 2007-04-20T00:00:00Z
+- /2007/04/20/python-interactive-fiction-02-tying-the-scenes-together/
+date: 2007-04-20 00:00:00+00:00
 tags:
 - python
 - ifiction
 - learn
+- coolnamehere
 title: Python Interactive Fiction - 02 Tying the Scenes Together
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2007'
+updated: 2009-07-11 00:00:00+00:00
 series:
 - Python Interactive Fiction
-archived_category: coolnamehere
+uuid: 878d0f7e-1ee4-4989-975b-2f14f19151b6
 ---
-
-[ongoing series]: /post/2007/interactive-fiction-with-python/
-[started]: /post/2007/interactive-fiction-with-python/
-[Next]: /post/2007/01-handling-a-single-round/
+[ongoing series]: /post/2007/04/interactive-fiction-with-python/
+[started]: /post/2007/04/interactive-fiction-with-python/
+[Next]: /post/2007/04/python-interactive-fiction-01-handling-a-single-round/
 
 This is the second part of an [ongoing series][] about using 
 Python to create interactive fiction.  I hope to show you one fun use of 
@@ -602,5 +602,3 @@ and there is a lot more to cover. Let's move on.
 Guess what? It's time to create the game loop, which means that we are about to have a playable version
 of our interactive fiction game! Take another break. Shake your fingers out. Have a taste of coffee,
 juice, or whatever your beverage of choice is. We'll pick this up again soon.
-
-

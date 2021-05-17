@@ -1,0 +1,490 @@
+---
+date: 2017-11-24
+slug: drawing-grids-with-python-and-pillow
+draft: false
+tags:
+- python
+- programming
+title: Drawing Grids With Python and Pillow
+uuid: 038d9362-fa5e-477d-ac2b-7cb56576eae7
+aliases:
+- /2017/11/24/drawing-grids-with-python-and-pillow/
+format: adoc
+previewimage: /images/2017/11/drawing-grids-with-python-and-pillow/cover.png
+---
+<div class="paragraph">
+<p>Hey I used <a href="https://www.python.org/">Python</a> and <a href="https://python-pillow.org/">Pillow</a> to make grids for my drawing.
+Read on to watch my brain while I figured it out.
+Apologies for the minimal editing and the ridiculous number of images.</p>
+</div>
+<div class="paragraph">
+<p>I draw.
+<a href="/tags/drawing/">See</a>?
+Many of my sketches have repeated elements, like <a href="/tags/zentangle/">zentangle</a> or <a href="/tags/celtic/">celtic</a> inspired patterns.
+Okay, I don’t have many examples on the site.
+Sure there’s plenty of repetition based on symmetry tools in the drawing apps I use, and a little bit taking advantage of perspective grids.
+Not much in the way of simple grid-based repetition though.</p>
+</div>
+<div class="paragraph">
+<p>Templates exist, but I want custom templates to fit the size of my workspace.
+I started exploring the Pillow library recently, so let’s use that to make custom grids for my drawings.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">PIL</span> <span class="tok-kn">import</span> <span class="tok-n">Image</span>
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I use a modest 600 by 600 pixel grayscale image while working out the details.
+No point saving anything until I know what’s going on, so just <code>show()</code> the image.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="grid-blank.png" alt="A blank image">
+</div>
+<div class="title">Figure 1. A blank image</div>
+</div>
+<div class="paragraph">
+<p>Most of what I want is in the <a href="http://pillow.readthedocs.io/en/4.3.x/reference/ImageDraw.html">ImageDraw</a> module.</p>
+</div>
+<div class="sect1">
+<h2 id="_simple_grid">Simple Grid</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">PIL</span> <span class="tok-kn">import</span> <span class="tok-n">Image</span><span class="tok-p">,</span> <span class="tok-n">ImageDraw</span>
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-c1"># Draw a line</span>
+    <span class="tok-n">draw</span> <span class="tok-o">=</span> <span class="tok-n">ImageDraw</span><span class="tok-o">.</span><span class="tok-n">Draw</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">)</span>
+    <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span> <span class="tok-o">/</span> <span class="tok-mi">2</span>
+    <span class="tok-n">y_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">y_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_start</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_end</span><span class="tok-p">))</span>
+    <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+    <span class="tok-k">del</span> <span class="tok-n">draw</span>
+
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="grid-single-line.png" alt="Drawing one line">
+</div>
+<div class="title">Figure 2. Drawing one line</div>
+</div>
+<div class="paragraph">
+<p>Nice. Okay, how about repeating some lines across?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">PIL</span> <span class="tok-kn">import</span> <span class="tok-n">Image</span><span class="tok-p">,</span> <span class="tok-n">ImageDraw</span>
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-c1"># Draw some lines</span>
+    <span class="tok-n">draw</span> <span class="tok-o">=</span> <span class="tok-n">ImageDraw</span><span class="tok-o">.</span><span class="tok-n">Draw</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">)</span>
+    <span class="tok-n">y_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">y_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">step_size</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span> <span class="tok-o">/</span> <span class="tok-mi">10</span><span class="tok-p">)</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_start</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_end</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-k">del</span> <span class="tok-n">draw</span>
+
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="grid-columns.png" alt="Drawing some columns">
+</div>
+<div class="title">Figure 3. Drawing some columns</div>
+</div>
+<div class="paragraph">
+<p>Lovely. How about an actual grid?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">PIL</span> <span class="tok-kn">import</span> <span class="tok-n">Image</span><span class="tok-p">,</span> <span class="tok-n">ImageDraw</span>
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-c1"># Draw some lines</span>
+    <span class="tok-n">draw</span> <span class="tok-o">=</span> <span class="tok-n">ImageDraw</span><span class="tok-o">.</span><span class="tok-n">Draw</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">)</span>
+    <span class="tok-n">y_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">y_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">step_size</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span> <span class="tok-o">/</span> <span class="tok-mi">10</span><span class="tok-p">)</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_start</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_end</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-n">x_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">x_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">y</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x_start</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x_end</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-k">del</span> <span class="tok-n">draw</span>
+
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="grid-simple-grid.png" alt="Drawing a simple grid">
+</div>
+<div class="title">Figure 4. Drawing a simple grid</div>
+</div>
+<div class="paragraph">
+<p>Okay cool but I often need a specific number of squares in my grid.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">PIL</span> <span class="tok-kn">import</span> <span class="tok-n">Image</span><span class="tok-p">,</span> <span class="tok-n">ImageDraw</span>
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-n">step_count</span> <span class="tok-o">=</span> <span class="tok-mi">25</span>
+    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-c1"># Draw some lines</span>
+    <span class="tok-n">draw</span> <span class="tok-o">=</span> <span class="tok-n">ImageDraw</span><span class="tok-o">.</span><span class="tok-n">Draw</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">)</span>
+    <span class="tok-n">y_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">y_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">step_size</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span> <span class="tok-o">/</span> <span class="tok-n">step_count</span><span class="tok-p">)</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_start</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_end</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-n">x_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">x_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">y</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x_start</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x_end</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-k">del</span> <span class="tok-n">draw</span>
+
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="grid-step-count.png" alt="Specifying a step count">
+</div>
+<div class="title">Figure 5. Specifying a step count</div>
+</div>
+<div class="paragraph">
+<p>Right but I don’t want to edit the code every time.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">sys</span>
+
+<span class="tok-kn">from</span> <span class="tok-nn">PIL</span> <span class="tok-kn">import</span> <span class="tok-n">Image</span><span class="tok-p">,</span> <span class="tok-n">ImageDraw</span>
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-n">step_count</span> <span class="tok-o">=</span> <span class="tok-mi">10</span>
+
+    <span class="tok-k">if</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-mi">2</span><span class="tok-p">:</span>
+        <span class="tok-n">step_count</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
+
+    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-c1"># Draw some lines</span>
+    <span class="tok-n">draw</span> <span class="tok-o">=</span> <span class="tok-n">ImageDraw</span><span class="tok-o">.</span><span class="tok-n">Draw</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">)</span>
+    <span class="tok-n">y_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">y_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">step_size</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span> <span class="tok-o">/</span> <span class="tok-n">step_count</span><span class="tok-p">)</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_start</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_end</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-n">x_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">x_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">y</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x_start</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x_end</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-k">del</span> <span class="tok-n">draw</span>
+
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>python grid.py <span class="tok-m">12</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="grid-specify-step-count.png" alt="Grabbing a step count from the command line">
+</div>
+<div class="title">Figure 6. Grabbing a step count from the command line</div>
+</div>
+<div class="paragraph">
+<p>I can specify step count from the command line.
+Cool.
+Uh hey about height and width?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">sys</span>
+
+<span class="tok-kn">from</span> <span class="tok-nn">PIL</span> <span class="tok-kn">import</span> <span class="tok-n">Image</span><span class="tok-p">,</span> <span class="tok-n">ImageDraw</span>
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-n">step_count</span> <span class="tok-o">=</span> <span class="tok-mi">10</span>
+    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+    <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-mi">600</span>
+
+    <span class="tok-k">if</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-mi">2</span><span class="tok-p">:</span>
+        <span class="tok-n">step_count</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
+    <span class="tok-k">elif</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-mi">3</span><span class="tok-p">:</span>
+        <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
+        <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">])</span>
+    <span class="tok-k">elif</span> <span class="tok-nb">len</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">)</span> <span class="tok-o">==</span> <span class="tok-mi">4</span><span class="tok-p">:</span>
+        <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">1</span><span class="tok-p">])</span>
+        <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">2</span><span class="tok-p">])</span>
+        <span class="tok-n">step_count</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">sys</span><span class="tok-o">.</span><span class="tok-n">argv</span><span class="tok-p">[</span><span class="tok-mi">3</span><span class="tok-p">])</span>
+
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-c1"># Draw some lines</span>
+    <span class="tok-n">draw</span> <span class="tok-o">=</span> <span class="tok-n">ImageDraw</span><span class="tok-o">.</span><span class="tok-n">Draw</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">)</span>
+    <span class="tok-n">y_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">y_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">step_size</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span> <span class="tok-o">/</span> <span class="tok-n">step_count</span><span class="tok-p">)</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_start</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_end</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-n">x_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">x_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">y</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x_start</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x_end</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-k">del</span> <span class="tok-n">draw</span>
+
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Oh come on.
+Stop it with <code>sys.argv</code>.
+Get some real command line handling in there.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">argparse</span>
+
+<span class="tok-kn">from</span> <span class="tok-nn">PIL</span> <span class="tok-kn">import</span> <span class="tok-n">Image</span><span class="tok-p">,</span> <span class="tok-n">ImageDraw</span>
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-n">parser</span> <span class="tok-o">=</span> <span class="tok-n">argparse</span><span class="tok-o">.</span><span class="tok-n">ArgumentParser</span><span class="tok-p">()</span>
+    <span class="tok-n">parser</span><span class="tok-o">.</span><span class="tok-n">add_argument</span><span class="tok-p">(</span><span class="tok-s2">&quot;width&quot;</span><span class="tok-p">,</span> <span class="tok-n">help</span><span class="tok-o">=</span><span class="tok-s2">&quot;width of image in pixels&quot;</span><span class="tok-p">,</span>
+                        <span class="tok-nb">type</span><span class="tok-o">=</span><span class="tok-nb">int</span><span class="tok-p">)</span>
+    <span class="tok-n">parser</span><span class="tok-o">.</span><span class="tok-n">add_argument</span><span class="tok-p">(</span><span class="tok-s2">&quot;height&quot;</span><span class="tok-p">,</span> <span class="tok-n">help</span><span class="tok-o">=</span><span class="tok-s2">&quot;height of image in pixels&quot;</span><span class="tok-p">,</span>
+                        <span class="tok-nb">type</span><span class="tok-o">=</span><span class="tok-nb">int</span><span class="tok-p">)</span>
+    <span class="tok-n">parser</span><span class="tok-o">.</span><span class="tok-n">add_argument</span><span class="tok-p">(</span><span class="tok-s2">&quot;step_count&quot;</span><span class="tok-p">,</span> <span class="tok-n">help</span><span class="tok-o">=</span><span class="tok-s2">&quot;how many steps across the grid&quot;</span><span class="tok-p">,</span>
+                        <span class="tok-nb">type</span><span class="tok-o">=</span><span class="tok-nb">int</span><span class="tok-p">)</span>
+    <span class="tok-n">args</span> <span class="tok-o">=</span> <span class="tok-n">parser</span><span class="tok-o">.</span><span class="tok-n">parse_args</span><span class="tok-p">()</span>
+
+    <span class="tok-n">step_count</span> <span class="tok-o">=</span> <span class="tok-n">args</span><span class="tok-o">.</span><span class="tok-n">step_count</span>
+    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-n">args</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-n">args</span><span class="tok-o">.</span><span class="tok-n">width</span>
+
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">width</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-c1"># Draw some lines</span>
+    <span class="tok-n">draw</span> <span class="tok-o">=</span> <span class="tok-n">ImageDraw</span><span class="tok-o">.</span><span class="tok-n">Draw</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">)</span>
+    <span class="tok-n">y_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">y_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">step_size</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span> <span class="tok-o">/</span> <span class="tok-n">step_count</span><span class="tok-p">)</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_start</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_end</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-n">x_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">x_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">y</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x_start</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x_end</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-k">del</span> <span class="tok-n">draw</span>
+
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">show</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Much better. Run it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>python grid.py
+<span class="tok-go">usage: grid.py [-h] width height step_count</span>
+
+<span class="tok-go">positional arguments:</span>
+<span class="tok-go">  width       width of image in pixels</span>
+<span class="tok-go">  height      height of image in pixels</span>
+<span class="tok-go">  step_count  how many steps across the grid</span>
+
+<span class="tok-go">optional arguments:</span>
+<span class="tok-go">  -h, --help  show this help message and exit</span>
+
+<span class="tok-gp">$ </span>python grid.py <span class="tok-m">500</span> <span class="tok-m">500</span> <span class="tok-m">20</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I like <a href="https://docs.python.org/3/library/argparse.html">Argparse</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="grid-specify-size-steps.png" alt="Constructing grid with Argparse">
+</div>
+<div class="title">Figure 7. Constructing grid with Argparse</div>
+</div>
+<div class="paragraph">
+<p>Anyways - what if I ask for a rectangle instead of a square?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>python grid.py <span class="tok-m">400</span> <span class="tok-m">600</span> <span class="tok-m">24</span> <span class="tok-se">\{\{</span>&lt; /console &gt;<span class="tok-o">}}</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="grid-rectangular.png" alt="Rectangular grid">
+</div>
+<div class="title">Figure 8. Rectangular grid</div>
+</div>
+<div class="paragraph">
+<p>Hold on.
+I was handing <code>height</code> and <code>width</code> to <a href="http://pillow.readthedocs.io/en/4.3.x/reference/Image.html#the-image-class">Image</a> in the wrong order this whole time.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-c1"># ...</span>
+
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">height</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-c1"># ...</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>python grid.py <span class="tok-m">400</span> <span class="tok-m">600</span> <span class="tok-m">24</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="grid-correct-image-init.png" alt="Correct Image initialization">
+</div>
+<div class="title">Figure 9. Correct Image initialization</div>
+</div>
+<div class="paragraph">
+<p>This works. I have half a dozen ideas left, but I want to use it for a sketch <em>now</em>.</p>
+</div>
+<div class="listingblock">
+<div class="title">grid.py</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">import</span> <span class="tok-nn">argparse</span>
+
+<span class="tok-kn">from</span> <span class="tok-nn">PIL</span> <span class="tok-kn">import</span> <span class="tok-n">Image</span><span class="tok-p">,</span> <span class="tok-n">ImageDraw</span>
+
+<span class="tok-k">if</span> <span class="tok-vm">__name__</span> <span class="tok-o">==</span> <span class="tok-s1">&#39;__main__&#39;</span><span class="tok-p">:</span>
+    <span class="tok-n">parser</span> <span class="tok-o">=</span> <span class="tok-n">argparse</span><span class="tok-o">.</span><span class="tok-n">ArgumentParser</span><span class="tok-p">()</span>
+    <span class="tok-n">parser</span><span class="tok-o">.</span><span class="tok-n">add_argument</span><span class="tok-p">(</span><span class="tok-s2">&quot;width&quot;</span><span class="tok-p">,</span> <span class="tok-n">help</span><span class="tok-o">=</span><span class="tok-s2">&quot;width of image in pixels&quot;</span><span class="tok-p">,</span>
+                        <span class="tok-nb">type</span><span class="tok-o">=</span><span class="tok-nb">int</span><span class="tok-p">)</span>
+    <span class="tok-n">parser</span><span class="tok-o">.</span><span class="tok-n">add_argument</span><span class="tok-p">(</span><span class="tok-s2">&quot;height&quot;</span><span class="tok-p">,</span> <span class="tok-n">help</span><span class="tok-o">=</span><span class="tok-s2">&quot;height of image in pixels&quot;</span><span class="tok-p">,</span>
+                        <span class="tok-nb">type</span><span class="tok-o">=</span><span class="tok-nb">int</span><span class="tok-p">)</span>
+    <span class="tok-n">parser</span><span class="tok-o">.</span><span class="tok-n">add_argument</span><span class="tok-p">(</span><span class="tok-s2">&quot;step_count&quot;</span><span class="tok-p">,</span> <span class="tok-n">help</span><span class="tok-o">=</span><span class="tok-s2">&quot;how many steps across the grid&quot;</span><span class="tok-p">,</span>
+                        <span class="tok-nb">type</span><span class="tok-o">=</span><span class="tok-nb">int</span><span class="tok-p">)</span>
+    <span class="tok-n">args</span> <span class="tok-o">=</span> <span class="tok-n">parser</span><span class="tok-o">.</span><span class="tok-n">parse_args</span><span class="tok-p">()</span>
+
+    <span class="tok-n">step_count</span> <span class="tok-o">=</span> <span class="tok-n">args</span><span class="tok-o">.</span><span class="tok-n">step_count</span>
+    <span class="tok-n">height</span> <span class="tok-o">=</span> <span class="tok-n">args</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">width</span> <span class="tok-o">=</span> <span class="tok-n">args</span><span class="tok-o">.</span><span class="tok-n">width</span>
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-n">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">mode</span><span class="tok-o">=</span><span class="tok-s1">&#39;L&#39;</span><span class="tok-p">,</span> <span class="tok-n">size</span><span class="tok-o">=</span><span class="tok-p">(</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">height</span><span class="tok-p">),</span> <span class="tok-n">color</span><span class="tok-o">=</span><span class="tok-mi">255</span><span class="tok-p">)</span>
+
+    <span class="tok-c1"># Draw a grid</span>
+    <span class="tok-n">draw</span> <span class="tok-o">=</span> <span class="tok-n">ImageDraw</span><span class="tok-o">.</span><span class="tok-n">Draw</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-p">)</span>
+    <span class="tok-n">y_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">y_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span>
+    <span class="tok-n">step_size</span> <span class="tok-o">=</span> <span class="tok-nb">int</span><span class="tok-p">(</span><span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span> <span class="tok-o">/</span> <span class="tok-n">step_count</span><span class="tok-p">)</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">x</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_start</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y_end</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-n">x_start</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+    <span class="tok-n">x_end</span> <span class="tok-o">=</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">width</span>
+
+    <span class="tok-k">for</span> <span class="tok-n">y</span> <span class="tok-ow">in</span> <span class="tok-nb">range</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">step_size</span><span class="tok-p">):</span>
+        <span class="tok-n">line</span> <span class="tok-o">=</span> <span class="tok-p">((</span><span class="tok-n">x_start</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">),</span> <span class="tok-p">(</span><span class="tok-n">x_end</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">))</span>
+        <span class="tok-n">draw</span><span class="tok-o">.</span><span class="tok-n">line</span><span class="tok-p">(</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">fill</span><span class="tok-o">=</span><span class="tok-mi">128</span><span class="tok-p">)</span>
+
+    <span class="tok-k">del</span> <span class="tok-n">draw</span>
+
+    <span class="tok-n">filename</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;grid-</span><span class="tok-si">{}</span><span class="tok-s2">-</span><span class="tok-si">{}</span><span class="tok-s2">-</span><span class="tok-si">{}</span><span class="tok-s2">.png&quot;</span><span class="tok-o">.</span><span class="tok-n">format</span><span class="tok-p">(</span><span class="tok-n">width</span><span class="tok-p">,</span> <span class="tok-n">height</span><span class="tok-p">,</span> <span class="tok-n">step_count</span><span class="tok-p">)</span>
+    <span class="tok-nb">print</span><span class="tok-p">(</span><span class="tok-s2">&quot;Saving </span><span class="tok-si">{}</span><span class="tok-s2">&quot;</span><span class="tok-o">.</span><span class="tok-n">format</span><span class="tok-p">(</span><span class="tok-n">filename</span><span class="tok-p">))</span>
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">save</span><span class="tok-p">(</span><span class="tok-n">filename</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>python grid.py <span class="tok-m">1800</span> <span class="tok-m">2400</span> <span class="tok-m">50</span>
+<span class="tok-go">Saving grid-1800-2400-50.png</span>
+<span class="tok-gp">$ </span>ls
+<span class="tok-go">grid-1800-2400-50.png   grid.py*</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let’s skim over the part where I get the grid onto the iPad and import it as a new layer in my current sketch.
+That part includes no code — for now.</p>
+</div>
+<div class="paragraph">
+<p>Anyways, back to the sketch.</p>
+</div>
+</div>
+</div>

@@ -1,0 +1,85 @@
+---
+aliases:
+- /coolnamehere/2005/01/04_perl-babysteps.html
+- /post/2005/perl-babysteps/
+- /2005/01/04/perl-babysteps/
+date: 2005-01-04
+tags:
+- perl
+- learn
+- coolnamehere
+title: Perl Babysteps
+slug: perl-babysteps
+updated: 2011-08-25 00:00:00+00:00
+uuid: 86ea8607-8930-46c2-823b-c7a25f57ca94
+format: adoc
+---
+<div class="paragraph">
+<p>Let’s admit it.
+Perl is <em>everywhere</em>.
+It powers most of the Internet, in one form or another.
+What?
+Your site doesn’t use Perl and CGI?
+Well, what about the administrative scripts that keep it running smoothly when everyone is snug in their beds?
+Even a fair chunk of Microsoft IIS servers rely on Perl for administrative tasks.
+I’m not saying that Perl is being used on every site on the Internet, including yours.
+I’m saying that Perl is probably being used on any random site you happen to look at on the Internet, including yours.</p>
+</div>
+<div class="paragraph">
+<p>Why not learn how to use it?</p>
+</div>
+<div class="paragraph">
+<p>This series is intended to provide the non-programmer with a gentle introduction to the Perl programing language.
+When you are done with it, you should feel ready to learn more.
+You will not be an expert, but you will be able to find the information you need to go farther.
+Beginners and experts alike should feel free to send me suggestions for improving this tutorial.</p>
+</div>
+<div class="paragraph">
+<p>Perl is a rich language.
+There are many ways to use it, and many ways to learn it.
+My focus is on how a beginner can use the features of Perl 5.14 to create programs.</p>
+</div>
+<div class="paragraph">
+<p>Even more specifically, how a beginner can use the features of Perl 5.14 to write the sort of code I would prefer to see people write. Hey. At least I’m honest.</p>
+</div>
+<div class="paragraph">
+<p>It is explicitly <em>not</em> a tutorial for people who need to maintain a big pile of legacy code that hides dragons and dark secrets —
+or for somebody who wants to whip out quick one-liners and scripts to accomplish amazing administrative tasks.
+See below for some of my favorite books for different approaches to learning Perl.</p>
+</div>
+<div class="sect1">
+<h2 id="_the_series">The Series</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="/post/2005/01/perl-5-babysteps-01-getting-started/">Getting Started</a>: Installing Perl and writing your first script</p>
+</li>
+<li>
+<p><a href="/post/2009/05/perl-5-babysteps-02-user-input/">User Input</a>: Getting user input from the command line</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_resources">Other Resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://oreilly.com/catalog/9781449303587/">Learning Perl</a> - now in its sixth edition - is the standard for learning how to get stuff done in Perl.
+It is very easy to understand and gives you a broad understanding of how to speak native Perl.</p>
+</li>
+<li>
+<p><a href="http://manning.com/maher/">Minimal Perl</a> keeps a strong focus on the sort of Perl you would want for shell scripting and administrative tasks.
+Its greatest strength is that it shows you how little code you must write to accomplish big jobs.</p>
+</li>
+<li>
+<p><a href="http://onyxneon.com/books/modern_perl/">Modern Perl</a> emphasizes language features, libraries, and idioms that have evolved over Perl 5’s long history.
+It may be a little dense for a person’s first exposure to the language, but it is a great second book regardless of which one you read first.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>

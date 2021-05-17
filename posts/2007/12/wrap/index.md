@@ -1,18 +1,17 @@
 ---
+slug: wrap
 aliases:
 - /craft/2007/wrap/
-date: 2007-12-15T00:00:00Z
-image: /img/2015/wrap.jpg
-posts:
-- title: Ravelry Project Page
-  url: http://www.ravelry.com/projects/brianwisti/wrap
+- /2007/12/15/wrap/
+date: 2007-12-15 00:00:00+00:00
 tags:
 - knitting
 - scarf
-thumbnail: /img/2015/wrap-thumbnail.jpg
+- craft
 title: Wrap
-year: '2007'
+uuid: 3b35e16f-862c-4fb5-9352-014ccdb10723
 category: craft
+type: micro
 previewimage: /images/2007/12/wrap/cover.jpg
 ---
 Pretty much the only use this got was keeping me warm while typing in the middle

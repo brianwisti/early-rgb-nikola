@@ -1,0 +1,30 @@
+---
+title: If RMS is your hero then you need better heroes
+slug: if-rms-is-your-hero-then-you-need-better-heroes
+format: adoc
+tags:
+- mood
+- chunky bacon
+- serious pony
+date: 2021-03-22 11:11:44.217140-07:00
+category: note
+type: micro
+---
+<div class="paragraph">
+<p>Yeah this is about Stallman being back on the board of the FSF.
+Kev Quirk has good <a href="https://kevq.uk/my-thoughts-on-richard-stallmans-return-to-the-fsf-board/">thoughts</a> about how it was communicated.
+Me, I&#8217;m tired.
+I had <strong>just</strong> been thinking how some of my favorite people have been driven off the public Internet via doxxing and harrassment.</p>
+</div>
+<div class="paragraph">
+<p>{{< tweet 1373506446768283652 >}}</p>
+</div>
+<div class="paragraph">
+<p>And now Free Software&#8217;s problematic fave&#8201;&#8212;&#8201;one of many, to be honest&#8201;&#8212;&#8201;is back, without so much as a hint of personal responsibility.
+Bah.</p>
+</div>
+<div class="paragraph">
+<p>I&#8217;m not purging my system or anything, but I&#8217;m sure as hell done making a point of using GNU tools.
+This affects the FSF not one bit.
+It&#8217;s only me conserving my energy for things I can care about.</p>
+</div>

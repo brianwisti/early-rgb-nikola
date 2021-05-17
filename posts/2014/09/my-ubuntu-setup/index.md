@@ -1,14 +1,15 @@
 ---
+slug: my-ubuntu-setup
 aliases:
 - /tools/2014/09/17_my-ubuntu-setup.html
 - /post/2014/my-ubuntu-setup/
-date: 2014-09-17T00:00:00Z
+- /2014/09/17/my-ubuntu-setup/
+date: 2014-09-17 00:00:00+00:00
 tags:
 - linux
+- tools
 title: My Ubuntu Setup
-type: post
-year: '2014'
-category: tools
+uuid: 9c2228c2-e842-4ee2-b51a-a541fe69cd6c
 ---
 I installed [Ubuntu](http://ubuntu.com) 14.04 on a partition of my laptop today. This is not a
 novelty. What *is* unusual is the fact that today I decided to track

@@ -1,19 +1,20 @@
 ---
+slug: python-interactive-fiction-01-handling-a-single-round
 aliases:
 - /coolnamehere/2007/04/19_01-handling-a-single-round.html
 - /post/2007/01-handling-a-single-round/
-date: 2007-04-19T00:00:00Z
+- /2007/04/19/python-interactive-fiction-01-handling-a-single-round/
+date: 2007-04-19 00:00:00+00:00
 tags:
 - python
 - ifiction
 - learn
+- coolnamehere
 title: Python Interactive Fiction - 01 Handling a Single Round
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2007'
+updated: 2009-07-11 00:00:00+00:00
 series:
 - Python Interactive Fiction
-archived_category: coolnamehere
+uuid: 7218a5a7-3d1e-47f8-b959-1e1c9fc12b32
 ---
 I think the next step is to write the code for a single round of the game. We'll 
 limit ourselves to Scene 1 to stay focussed.
@@ -161,7 +162,7 @@ very important as your program grows.
 Okay, I need to take the next few ideas slowly, because I have put a lot of important
 new concepts in two lines of code.
 
-[control structures]: /post/2004/control-structures/
+[control structures]: /post/2004/07/control-structures/
 
 `for` is one of Python's looping [control structures][]. `for path in paths:` 
 is going step to through each item in the list `paths`. That part is straightforward.  
@@ -334,7 +335,8 @@ fingers loose. It's good for you.
 
 ### Getting the user's selection
 
-[Python Babysteps tutorial]: /post/2011/python-2.x-babysteps/
+[Python Babysteps tutorial]: /post/2011/06/python-2.x-babysteps/
+
 I am pleased that we have the scene description code working, but user input is still missing. 
 All we need is `raw_input`, which we encountered in the initial [Python Babysteps tutorial][].
 Add a line to get user input and another line to show the result.
@@ -382,7 +384,8 @@ Running this code is very exciting indeed:
 
 #### Quitting the game
 
-[control structure]: /post/2004/control-structures/
+[control structure]: /post/2004/07/control-structures/
+
 Our specification mentioned that users may quit the game at any point, so we should add the code to make that possible. 
 Normal choices are numbers and they start at one, so let's take the easy way out and say that zero quits the game. The
 `if` selection [control structure][] can be used to recognize the quit command.
@@ -426,7 +429,8 @@ choice I entered. Turns out that I had cut and pasted some debugging code from e
 so that's what Python kept printing for me. It can be very easy to get distracted while writing code, and although Python can catch a lot of
 errors, you must keep an eye out for little mistakes like that. Once I replace `i` with `choice` in the last line, everything was happy.
 
-[type]: /post/2002/simple-types-in-python/
+[type]: /post/2002/06/simple-types-in-python/
+
 Now, why did I use the `int` function on the user input? Keyboard input comes to you in the form of a String, which is a different
 [type][] than numbers. If we want to be able to use the input as an index for the `paths` list, we need a way to
 turn that String into an integer, or whole number. This is exactly what `int` does. What happens when the user entry can't be turned
@@ -866,5 +870,3 @@ print "You decided to:", next_step
 Now go take a break. I really mean it this time. We have covered a lot, and 
 you need time to process. Listen to some music, have a sandwich, and come 
 back when you're ready.
-
-

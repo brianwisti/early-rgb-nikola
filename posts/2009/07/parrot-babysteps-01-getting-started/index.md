@@ -1,21 +1,22 @@
 ---
+slug: parrot-babysteps-01-getting-started
 aliases:
 - /coolnamehere/2009/07/11_01-getting-started.html
 - /post/2009/01-getting-started/
-date: 2009-07-12T00:00:00Z
+- /2009/07/12/parrot-babysteps-01-getting-started/
+date: 2009-07-12 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 01 - Getting Started
-type: post
-updated: 2011-04-11T00:00:00Z
-year: '2009'
+updated: 2011-04-11 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 22715718-e39d-492c-a45d-9cb8fafa0131
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 1 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
@@ -480,4 +481,3 @@ work and life demand more of my time, or I get distracted by bright shiny things
 my version numbers are correct. Double-check them for yourself.
 
 Most of all, have fun!
-

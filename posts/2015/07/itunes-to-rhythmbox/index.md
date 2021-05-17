@@ -1,51 +1,53 @@
 ---
+slug: itunes-to-rhythmbox
 aliases:
 - /tools/2015/07/27_itunes-to-rhythmbox.html
 - /post/2015/itunes-to-rhythmbox/
-date: 2015-07-27T00:00:00Z
-description: I nearly wrote a script that transfers my iTunes ratings to Rhythmbox.
-  Instead I used Edgar Salgado's version of iTunesToRhythm.
+- /2015/07/27/itunes-to-rhythmbox/
+date: 2015-07-27 00:00:00+00:00
+description: "I nearly wrote a script that transfers my iTunes ratings to Rhythmbox.\
+  \ Instead I used Edgar Salgado's version of iTunesToRhythm.\n"
 tags:
 - itunes
 - ruby
 - music
+- tools
 title: iTunes to Rhythmbox
-type: post
-year: '2015'
-category: tools
+uuid: 1bb166ae-fdbc-4694-b683-d2e6d844edb3
 ---
-[iTunes ratings]: /post/2015/ruby-itunes-ratings-fun/
-[Rhythmbox]: https://wiki.gnome.org/Apps/Rhythmbox
-[iTunesToRhythm]: https://github.com/esalgado/iTunesToRhythm
-I nearly wrote a script that transfers my [iTunes ratings][] to [Rhythmbox][]. Instead I used Edgar Salgado's
-version of [iTunesToRhythm][].
-<!-- TEASER_END -->
+I nearly wrote a script that transfers my [iTunes
+ratings](/post/2015/03/ruby-itunes-ratings-fun) to
+[Rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox). Instead I used Edgar
+Salgado’s version of
+[iTunesToRhythm](https://github.com/esalgado/iTunesToRhythm).
 
-[GNOME 3]: https://www.gnome.org/gnome-3/
-[openSUSE]: https://www.opensuse.org
-See, I have been spending most of my time lately in [GNOME 3][] on [openSUSE][] Linux. All of my music is
-copied over and loaded into [Rhythmbox][], but I wanted to continue my quest to rate all of my music. I spent
-roughly an hour starting my own solution before realizing that this was probably a solved problem.
+See, I have been spending most of my time lately in [GNOME
+3](https://www.gnome.org/gnome-3/) on
+[openSUSE](https://www.opensuse.org) Linux. All of my music is copied
+over and loaded into [Rhythmbox](https://wiki.gnome.org/Apps/Rhythmbox),
+but I wanted to continue my quest to rate all of my music. I spent
+roughly an hour starting my own solution before realizing that this was
+probably a solved problem.
 
-[another project]: https://github.com/esanbock/ITunesToRhythm
-Salgado's code is a fork of [another project][], but he won my heart because he wrote how to use his version.
+Salgado’s code is a fork of [another
+project](https://github.com/esanbock/ITunesToRhythm), but he won my
+heart because he wrote how to use his version.
 
     $ git clone git@github.com:esalgado/iTunesToRhythm.git
     $ cd iTunesToRhythm
     $ python iTunesToRhythm.py -w ~/Sync/iTunes\ Music\ Library.xml ~/.local/share/rhythmbox/rhythmdb.xml
 
-Some things about the process annoyed me. For some strange reason, not every iTunes entry included a file
-location. I manually fixed those. More annoying: the iTunes XML showed roughly 7,000 tracks as rated even
-though the iTunes application showed over 10,000 as rated. I chose to live with that. It's only 3,000 tracks
-that I need to rate again.
+Some things about the process annoyed me. For some strange reason, not
+every iTunes entry included a file location. I manually fixed those.
+More annoying: the iTunes XML showed roughly 7,000 tracks as rated even
+though the iTunes application showed over 10,000 as rated. I chose to
+live with that. It’s only 3,000 tracks that I need to rate again.
 
 *sigh*
 
-Hey, let's make a pretty picture.
+Hey, let’s make a pretty picture.
 
-``` ruby
-#!/usr/bin/env ruby
-
+{{< code file="graph-ratings.rb" >}}
 require 'nokogiri'
 require 'gruff'
 
@@ -89,27 +91,25 @@ graph.title = "Songs Grouped By Rating"
 ratings.keys.sort.each { |rating| graph.data rating, ratings[rating][:songs] }
 
 graph.write "song-pie.png"
-```
+{{< /code >}}
 
-[Nokogiri]: http://www.nokogiri.org/
-[plist]: https://github.com/bleything/plist
-[XPath]: http://www.nokogiri.org/tutorials/searching_a_xml_html_document.html
-This calls for [Nokogiri][] instead of [plist][], which gives me the opportunity to flex my amazing [XPath][]
+This calls for Nokogiri instead of
+[plist](https://github.com/bleything/plist), which gives me the
+opportunity to flex my amazing
+[XPath](http://www.nokogiri.org/tutorials/searching_a_xml_html_document.html)
 skills. Nothing too complex. Thank goodness.
 
-```
-$ ruby graph-ratings.rb
-Rating Songs Percent Duration
-     0  8926   55.2% 24:13:00:24
-     1   254    1.6% 00:19:49:30
-     2   984    6.1% 02:21:42:54
-     3  3932   24.3% 10:08:49:09
-     4  1716   10.6% 04:10:50:01
-     5   370    2.3% 00:23:16:01
-```
+    $ ruby graph-ratings.rb
+    Rating Songs Percent Duration
+         0  8926   55.2% 24:13:00:24
+         1   254    1.6% 00:19:49:30
+         2   984    6.1% 02:21:42:54
+         3  3932   24.3% 10:08:49:09
+         4  1716   10.6% 04:10:50:01
+         5   370    2.3% 00:23:16:01
 
 How about that pretty picture?
 
-{{< show-figure image="july-rhythmbox-song-pie.png" description="The song pie for July" >}}
+![The song pie for July](july-rhythmbox-song-pie.png)
 
-I've made progress since graphing my [iTunes ratings][] in July. It looks less like Pac Man now.
+I’ve made progress since March. It looks less like Pac Man now.

@@ -1,17 +1,17 @@
 ---
+slug: xml
 aliases:
 - /coolnamehere/2006/03/17_xml.html
 - /post/2006/xml/
-date: 2006-03-17T00:00:00Z
+- /2006/03/17/xml/
+date: 2006-03-17
 tags:
 - xml
+- coolnamehere
 title: XML
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2006'
-archived_category: coolnamehere
+updated: 2009-07-11 00:00:00+00:00
+uuid: 96e2659a-477d-4281-b643-e36aef0eb4af
 ---
-
 XML is the core language of the Web. It forms the foundation for nearly 
 everything you read with your browser. You might not know this, though, 
 because of the great number of languages and acronyms you find. Web pages are 
@@ -39,5 +39,3 @@ considered well-formed.
 
 Since XML is essentially the language of the Web, you will have no trouble 
 finding helpful resources in getting familiar with XML.
-
-

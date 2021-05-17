@@ -1,0 +1,21 @@
+---
+aliases:
+- /craft/2017/red/
+- /2017/01/22/red/
+date: 2017-01-22
+draft: false
+tags:
+- drawing
+- Procreate
+- craft
+title: Red
+slug: red
+uuid: edffcefd-baad-444d-a9f5-8f2fd59347d8
+format: adoc
+category: craft
+type: micro
+previewimage: /images/2017/01/red/cover.jpg
+---
+<div class="paragraph">
+<p>The lines are a little wobbly for my taste but I got the shape about right. That’s a nice feeling.</p>
+</div>

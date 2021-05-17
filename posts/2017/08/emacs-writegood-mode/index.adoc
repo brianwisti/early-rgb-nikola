@@ -1,0 +1,197 @@
+---
+aliases:
+- /post/2017/emacs-writegood-mode/
+- /2017/08/06/emacs-writegood-mode/
+date: 2017-08-06
+draft: false
+tags:
+- emacs
+- tools
+title: Emacs Writegood Mode
+slug: emacs-writegood-mode
+uuid: db85732d-4437-4153-896f-9fa80843ae1d
+format: adoc
+previewimage: /images/2017/08/emacs-writegood-mode/cover.png
+---
+<div class="paragraph">
+<p>I rushed through that post about link:/post/2017/07/logging-money-in-org-mode and didn’t take much time to edit it.
+This bothers me.
+Today I went into <a href="https://github.com/bnbeckwith/writegood-mode" class="bare">https://github.com/bnbeckwith/writegood-mode</a> to catch my sloppiest writing mistakes.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><a href="/tags/vim">Vim</a> users may want to look at <a href="https://github.com/reedes/vim-wordy">vim-wordy</a>, a plugin with similar goals to <code>writegood-mode</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect1">
+<h2 id="_writegood_mode">writegood-mode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>writegood-mode</code> is a minor <a href="/tags/emacs/">Emacs</a> mode which highlights troublesome patterns in your writing.
+It looks for three patterns:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">weasel words</dt>
+<dd>
+<p>A set of adverbs that add no meaning to the words they modify.</p>
+</dd>
+<dt class="hdlist1">passive voice</dt>
+<dd>
+<p>sentences where the subject receives an action rather than performing it.
+Read this bit about <a href="https://www.hamilton.edu/academics/centers/writing/seven-sins-of-writing/1">passive voice</a>.
+They explain it better.</p>
+</dd>
+<dt class="hdlist1">duplicated words</dt>
+<dd>
+<p>``the the'' is a common writing mistake, unless you’re talking about <a href="https://youtu.be/ustXRPke9lM">the band</a>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><code>writegood-mode</code> used a collection of <a href="http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/">bash scripts</a> by <a href="http://matt.might.net">Matt Might</a> for inspiration.</p>
+</div>
+<div class="sect2">
+<h3 id="_installing_and_using_it">Installing And Using It</h3>
+<div class="paragraph">
+<p>Use the Emacs package manager to install <code>writegood-mode</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="text"><span></span>M-x package-install writegood-mode</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Enable it at any time with <code>M-x writegood-mode</code>.
+The documentation suggests you set a global command key to start <code>writegood-mode</code> more quickly, so I added that to <code>init.el</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lisp"><span></span><span class="tok-p">(</span><span class="tok-nv">global-set-key</span> <span class="tok-p">(</span><span class="tok-nv">kbd</span> <span class="tok-s">&quot;C-c g&quot;</span><span class="tok-p">)</span> <span class="tok-ss">&#39;writegood-mode</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_a_hook">Adding a Hook</h3>
+<div class="paragraph">
+<p>I must confess something to you. I installed <code>writegood-mode</code> months ago. I never remember to manually load it. Maybe add a hook to load it?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lisp"><span></span><span class="tok-p">(</span><span class="tok-nv">add-hook</span> <span class="tok-ss">&#39;markdown-mode-hook</span> <span class="tok-ss">&#39;writegood-mode</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This ensures that at least Markdown blog posts are automatically checked.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_customizing_your_weasel_words">Customizing Your Weasel Words</h3>
+<div class="paragraph">
+<p><code>writegood-weasel-words</code> contains a good starter collection of <a href="https://github.com/bnbeckwith/writegood-mode/blob/master/writegood-mode.el#L92">words and phrases</a> to avoid.
+You can replace or extend this list with your own preferences.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lisp"><span></span><span class="tok-p">(</span><span class="tok-k">setq</span> <span class="tok-nv">bmw/weasel-words</span>
+      <span class="tok-o">&#39;</span><span class="tok-p">(</span><span class="tok-s">&quot;actually&quot;</span>
+        <span class="tok-s">&quot;basically&quot;</span>
+        <span class="tok-s">&quot;easily&quot;</span>
+        <span class="tok-s">&quot;easy&quot;</span>
+        <span class="tok-s">&quot;simple&quot;</span>
+        <span class="tok-s">&quot;simply&quot;</span><span class="tok-p">))</span>
+<span class="tok-p">(</span><span class="tok-k">setq</span> <span class="tok-nv">writegood-weasel-words</span>
+      <span class="tok-p">(</span><span class="tok-nv">-concat</span> <span class="tok-nv">writegood-weasel-words</span> <span class="tok-nv">bmw/weasel-words</span><span class="tok-p">))</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Today I just take the take the original list as-is and add my own list of weasel words.
+<a href="https://github.com/magnars/dash.el#-concat-rest-lists"><code>-concat</code></a> from <a href="https://github.com/magnars/dash.el"><code>dash.el</code></a> returns the result of concatenating two lists into a single list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>dash.el</code> is an Emacs utility library that adds functions for examining and manipulating lists.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="text"><span></span>M-x package-install dash</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Have fun!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_readability_tests">Readability Tests</h3>
+<div class="paragraph">
+<p><code>writegood-mode</code> provides <a href="https://github.com/bnbeckwith/writegood-mode#readability-tests">readability tests</a> based on <a href="https://en.wikipedia.org/wiki/Flesch–Kincaid_readability_tests">Flesch-Kincaid</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="lisp"><span></span><span class="tok-p">(</span><span class="tok-nv">global-set-key</span> <span class="tok-p">(</span><span class="tok-nv">kbd</span> <span class="tok-s">&quot;C-c C-g g&quot;</span><span class="tok-p">)</span> <span class="tok-ss">&#39;writegood-grade-level</span><span class="tok-p">)</span>
+<span class="tok-p">(</span><span class="tok-nv">global-set-key</span> <span class="tok-p">(</span><span class="tok-nv">kbd</span> <span class="tok-s">&quot;C-c C-g e&quot;</span><span class="tok-p">)</span> <span class="tok-ss">&#39;writegood-reading-ease</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Test</th>
+<th class="tableblock halign-left valign-top">Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flesch-Kincaid grade level score</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.98</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flesch-Kincaid reading ease score</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">77.68</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>I write simply when possible, so these numbers please me.
+Readers can find highly technical writing at other sites.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_thats_it">That’s It</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Professional writers have professional editors.
+The rest of us do not.
+A tool like <code>writegood-mode</code> cannot replace a professional editor.
+However, by highlighting common patterns of lazy writing, it can help us pay attention to our words while we write them.</p>
+</div>
+<div class="paragraph">
+<p>Excuse me.
+I need to edit that other post.</p>
+</div>
+</div>
+</div>

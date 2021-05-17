@@ -1,14 +1,16 @@
 ---
 aliases:
+- /2007/07/03/zend-framework-1.0-released/
 - /blogspot/2007/07/03_zend-framework-10-released.html
 - /post/2007/zend-framework-10-released/
-date: 2007-07-03T00:00:00Z
+- /post/2007/07/zend-framework-1.0-released/
+slug: zen-framework-10-released
+date: 2007-07-03
 tags:
 - php
+- blogspot
 title: Zend Framework 1.0 Released
-type: post
-year: '2007'
-archived_category: blogspot
+uuid: 421d1822-b2e2-47a8-ba26-cc5a3a22dbf0
 ---
 <a href="/tags/php/">PHP</a> may not be my favorite language, but the last couple of years have seen profound improvement. I got the urge to start playing with <a href="http://framework.zend.com/">Zend Framework</a> last week. It isn't too shabby. Yesterday Zend made a <a href="http://devzone.zend.com/article/2262-Zend-Framework-1.0.0-production-release">1.0 release</a>, which is a good milestone for PHP types to learn about MVC and ACLs etc. You know, other than the ones who are already using <a href="http://cakephp.org/">CakePHP</a>. You're probably doing just fine.
 <!-- TEASER_END -->

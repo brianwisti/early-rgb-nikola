@@ -1,18 +1,17 @@
 ---
+slug: amigurumi-ball-thing
 aliases:
 - /craft/2015/amigurumi-ball-thing/
-date: 2015-03-08T00:00:00Z
-image: /img/2015/amigurumi-ball-thing.jpg
-posts:
-- title: Google+ Post
-  url: https://plus.google.com/+BrianWisti/posts/59Kp9LWkotH
+- /2015/03/08/amigurumi-ball-thing/
+date: 2015-03-08 00:00:00+00:00
 tags:
 - crochet
 - amigurumi
-thumbnail: /img/2015/amigurumi-ball-thing-thumbnail.jpg
+- craft
 title: Amigurumi Ball Thing
-year: '2015'
+uuid: 16fc9d3a-2115-4327-9fde-646b9ce65077
 category: craft
+type: micro
 previewimage: /images/2015/03/amigurumi-ball-thing/cover.jpg
 ---
 [this YouTube video]: https://youtu.be/mJ47MLlrLzw

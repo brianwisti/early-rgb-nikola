@@ -1,22 +1,24 @@
 ---
+slug: parrot-babysteps-06-files-and-hashes
 aliases:
 - /coolnamehere/2009/10/02_06-files-and-hashes.html
 - /post/2009/06-files-and-hashes/
-date: 2009-10-02T00:00:00Z
+- /2009/10/02/parrot-babysteps-06-files-and-hashes/
+date: 2009-10-02 00:00:00+00:00
 tags:
 - parrot
 - learn
 - space
+- coolnamehere
 title: Parrot Babysteps 06 - Files and Hashes
-type: post
-updated: 2011-04-12T00:00:00Z
-year: '2009'
+updated: 2011-04-12 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 55dc7291-4a43-4cae-a5c2-46f363cfdad3
+previewimage: /images/2009/10/parrot-babysteps-06-files-and-hashes/cover.jpg
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 6 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 
 This one's a bit more bloggy than the earlier steps, but that's just the mood
@@ -41,11 +43,6 @@ I was thinking of [nutritional
 data](http://www.ars.usda.gov/Services/docs.htm?docid=8964), but I'm not ready 
 for all of the cross-referencing I'd have to do in order to produce information
 that would be meaningful to me. 
-
-<a href="http://en.wikipedia.org/wiki/Pale_blue_dot"><img 
-    style="float: right"
-    src="/img/2009/pale-blue-dot.png" alt="Pale Blue Dot" title="Pale Blue Dot"
-    height="180" width="180" /></a>
 
 Then it hit me. I love astronomy. Wait a moment. That's not completely true. I like astronomy.
 It teaches us a lot about our place in the universe, and exactly how freaking
@@ -956,5 +953,3 @@ I think we're reaching the limits of what I want to do with `goto` as my primary
 tool for guiding program flow. PIR Code is getting harder to write and edit. The 
 next step really should be creating subroutines to abstract some of the more 
 complicated or tedious processes.
-
-

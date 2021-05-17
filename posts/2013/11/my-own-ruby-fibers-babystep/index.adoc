@@ -1,0 +1,134 @@
+---
+slug: my-own-ruby-fibers-babystep
+aliases:
+- /programming/2013/11/25_my-own-ruby-fibers-babystep.html
+- /post/2013/my-own-ruby-fibers-babystep/
+- /2013/11/25/my-own-ruby-fibers-babystep/
+date: 2013-11-25 00:00:00+00:00
+tags:
+- ruby
+- files
+- site
+- programming
+title: My Own Ruby Fibers Babystep
+uuid: d89b6b72-e030-4aac-81a8-742f2df1aedf
+format: adoc
+---
+<div class="paragraph">
+<p>My adventures <a href="/post/2013/11/rereading-the-pickaxe/">reading the full Pickaxe book</a> have reached the chapter on Fibers.
+Interesting stuff.
+Thought I would extrapolate from their initial example.
+The <a href="/categories/coolnamehere/">old static pages</a> started from a MANIFEST file that looked something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="text"><span></span>index.html
+/babblings/index.html
+/babblings/2013-05-30-javascript.html
+/babblings/2013-04-05-perl-and-opensuse.html
+/babblings/2013-03-big-updates.html
+/babblings/seattle.html
+/babblings/stalkingswfans.html
+/babblings/bra.html
+/brian/index.html</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And so on.
+The path components create a topic heirarchy.
+There are only 89 files.
+This is not a lot to track, but it is enough that I can still be hazy about some high level details.
+For example, I have no idea how many pages are in each section.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-n">sections</span> <span class="tok-o">=</span> <span class="tok-no">Fiber</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-k">do</span>
+  <span class="tok-no">File</span><span class="tok-o">.</span><span class="tok-n">foreach</span> <span class="tok-s2">&quot;MANIFEST&quot;</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">line</span><span class="tok-o">|</span>
+    <span class="tok-n">line</span><span class="tok-o">.</span><span class="tok-n">match</span> <span class="tok-sr">%r{^/(?&lt;path&gt;\w+)/}</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">section</span><span class="tok-o">|</span>
+      <span class="tok-no">Fiber</span><span class="tok-o">.</span><span class="tok-n">yield</span> <span class="tok-n">section</span><span class="tok-o">[</span><span class="tok-ss">:path</span><span class="tok-o">]</span>
+    <span class="tok-k">end</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-kp">nil</span>
+<span class="tok-k">end</span>
+
+<span class="tok-n">counts</span> <span class="tok-o">=</span> <span class="tok-no">Hash</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-mi">0</span>
+
+<span class="tok-k">while</span> <span class="tok-n">section</span> <span class="tok-o">=</span> <span class="tok-n">sections</span><span class="tok-o">.</span><span class="tok-n">resume</span>
+  <span class="tok-n">counts</span><span class="tok-o">[</span><span class="tok-n">section</span><span class="tok-o">]</span> <span class="tok-o">+=</span> <span class="tok-mi">1</span>
+<span class="tok-k">end</span>
+
+<span class="tok-n">counts</span><span class="tok-o">.</span><span class="tok-n">keys</span><span class="tok-o">.</span><span class="tok-n">sort</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-p">{</span> <span class="tok-o">|</span><span class="tok-n">section</span><span class="tok-o">|</span> <span class="tok-nb">puts</span> <span class="tok-s2">&quot;</span><span class="tok-si">#{</span><span class="tok-n">section</span><span class="tok-si">}</span><span class="tok-s2">: </span><span class="tok-si">#{</span><span class="tok-n">counts</span><span class="tok-o">[</span><span class="tok-n">section</span><span class="tok-o">]</span><span class="tok-si">}</span><span class="tok-s2">&quot;</span> <span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yes, this is just the example from the Pickaxe book with <code>line.scan</code> changed to <code>line.match</code> with a slightly altered regular expression.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>ruby nom-manifest.rb
+<span class="tok-go">babblings: 7</span>
+<span class="tok-go">brian: 2</span>
+<span class="tok-go">geekery: 78</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This isn’t that helpful though.
+I already knew that the majority of my pages were in <code>/geekery/</code>.
+Let’s adjust the regular expression so that the first two pieces of the entry count as a section.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-n">sections</span> <span class="tok-o">=</span> <span class="tok-no">Fiber</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-k">do</span>
+  <span class="tok-no">File</span><span class="tok-o">.</span><span class="tok-n">foreach</span> <span class="tok-s2">&quot;MANIFEST&quot;</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">line</span><span class="tok-o">|</span>
+    <span class="tok-n">line</span><span class="tok-o">.</span><span class="tok-n">match</span> <span class="tok-sr">%r{</span>
+<span class="tok-sr">      ^/(?&lt;path&gt;\w+ # main section: /geekery</span>
+<span class="tok-sr">      (?:/\w+)?)    # subsection:   /ruby</span>
+<span class="tok-sr">      /             # stop at path separator</span>
+<span class="tok-sr">    }x</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">section</span><span class="tok-o">|</span>
+        <span class="tok-no">Fiber</span><span class="tok-o">.</span><span class="tok-n">yield</span> <span class="tok-n">section</span><span class="tok-o">[</span><span class="tok-ss">:path</span><span class="tok-o">]</span>
+    <span class="tok-k">end</span>
+  <span class="tok-k">end</span>
+  <span class="tok-kp">nil</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now I’m looking for possible subsections and lumping them with the top level section.
+Does this change get me more useful information (for varying definitions of useful)?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>ruby nom-manifest.rb
+<span class="tok-go">babblings: 7</span>
+<span class="tok-go">brian: 2</span>
+<span class="tok-go">geekery: 2</span>
+<span class="tok-go">geekery/editors: 3</span>
+<span class="tok-go">geekery/js: 1</span>
+<span class="tok-go">geekery/lisp: 1</span>
+<span class="tok-go">geekery/osx: 1</span>
+<span class="tok-go">geekery/parrot: 17</span>
+<span class="tok-go">geekery/perl: 13</span>
+<span class="tok-go">geekery/php: 2</span>
+<span class="tok-go">geekery/python: 9</span>
+<span class="tok-go">geekery/rakudo: 3</span>
+<span class="tok-go">geekery/rebol: 10</span>
+<span class="tok-go">geekery/ruby: 10</span>
+<span class="tok-go">geekery/tools: 2</span>
+<span class="tok-go">geekery/unix: 2</span>
+<span class="tok-go">geekery/xml: 2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yeah.
+It does.
+I can now see that the most of my static pages are about Parrot or Perl.</p>
+</div>
+<div class="paragraph">
+<p>I recognize that all I’m doing in this example is shuffling complexity around.
+There’s nothing in the task that screams "OMG YOU NEED FIBERS TO DO THIS!"
+Still - I need to figure this stuff out somehow.</p>
+</div>
+<div class="paragraph">
+<p>Anyways, back to work.</p>
+</div>

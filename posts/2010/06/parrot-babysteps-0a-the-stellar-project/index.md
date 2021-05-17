@@ -1,27 +1,28 @@
 ---
+slug: parrot-babysteps-0a-the-stellar-project
 aliases:
 - /coolnamehere/2010/06/02_0a-the-stellar-project.html
 - /post/2010/0a-the-stellar-project/
-date: 2010-06-02T00:00:00Z
+- /2010/06/02/parrot-babysteps-0a-the-stellar-project/
+date: 2010-06-02 00:00:00+00:00
 tags:
 - parrot
 - learn
 - space
+- coolnamehere
 title: Parrot Babysteps 0a - The Stellar Project
-type: post
-updated: 2011-04-12T00:00:00Z
-year: '2010'
+updated: 2011-04-12 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 3925c917-b50b-4d78-9de1-abc7ad87f2b0
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 10 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
-[simple Parrot projects]: /post/2010/09-simple-projects/
-[been writing]: /post/2009/07-writing-subroutines/
+[simple Parrot projects]: {{< ref "post/2010-04-parrot-babysteps-09-simple-projects/index.md" >}}
+[been writing]: {{< ref "post/2009-10-parrot-babysteps-07-writing-subroutines/index.md" >}}
 [Parrot]: /tags/parrot/
 [Perl]: /tags/perl/
 
@@ -38,7 +39,7 @@ foundation. Today we're going to get that step our of the way.
 
 ## Set up the project
 
-[larger projects]: /post/2010/09-simple-projects/
+[larger projects]: {{< ref "post/2010-04-parrot-babysteps-09-simple-projects/index.md" >}}
 
 Let's apply what we learned last time putting together [larger projects][], and
 set up a project named `stellar`.
@@ -488,4 +489,3 @@ tested library that can be used by others. Now that we have our foundation, we
 can start building up. Our next step will involve adding some simple search
 behavior to the library, and that is a significant improvement. For the moment,
 take a little time to relax.
-

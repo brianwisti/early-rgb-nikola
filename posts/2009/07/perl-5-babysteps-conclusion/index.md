@@ -1,16 +1,17 @@
 ---
+slug: perl-5-babysteps-conclusion
 aliases:
 - /coolnamehere/2009/07/11_conclusion.html
 - /post/2009/conclusion/
-date: 2009-07-11T00:00:00Z
+- /2009/07/11/perl-5-babysteps-conclusion/
+date: 2009-07-11 00:00:00+00:00
 tags:
 - perl
 - learn
+- coolnamehere
 title: Perl 5 Babysteps - Conclusion
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2009'
-archived_category: coolnamehere
+updated: 2009-07-11 00:00:00+00:00
+uuid: 21eea937-a559-4480-9ba5-509df6694fa1
 ---
 Nice work! You have begun to learn Perl by writing a complete program which
 gets input from a user and prints output including a modified version of their
@@ -32,5 +33,3 @@ and how to use it for your own nefarious purposes.
 
 There are a *lot* more, but I can't recall many of the links right
 now. I may put them up as time goes on.
-
-

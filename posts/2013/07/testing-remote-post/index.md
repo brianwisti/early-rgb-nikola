@@ -1,11 +1,16 @@
 ---
+slug: testing-remote-post
 aliases:
 - /marginalia/2013/07/20_testing-remote-post.html
 - /post/2013/testing-remote-post/
-date: 2013-07-20T00:00:00Z
+- /2013/07/20/testing-remote-post/
+tags:
+- site
+- marginalia
+date: 2013-07-20 00:00:00+00:00
 title: Testing remote post
-type: post
-year: '2013'
-category: marginalia
+uuid: 19d59668-cc47-4010-8a5d-7245b1f7323b
 ---
-Yeah nothing to see here at the moment. I'm trying out BlogPress, since I want to start making more short posts. Most of them won't be this short. 
+Yeah nothing to see here at the moment.
+I'm trying out BlogPress, since I want to start making more short posts.
+Most of them won't be this short.

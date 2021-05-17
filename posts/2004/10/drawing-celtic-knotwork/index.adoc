@@ -1,0 +1,1136 @@
+---
+slug: drawing-celtic-knotwork
+aliases:
+- /coolnamehere/2004/10/01_drawing-celtic-knotwork.html
+- /post/2004/drawing-celtic-knotwork/
+- /2004/10/01/drawing-celtic-knotwork/
+date: 2004-10-01 00:00:00+00:00
+tags:
+- ruby
+- learn
+- celtic
+- coolnamehere
+title: Drawing Celtic Knotwork
+updated: 2020-08-01
+uuid: f7d746ac-e852-413b-8ad9-0bc1b8853260
+format: adoc
+---
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Updates</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">2020-08-01</dt>
+<dd>
+<p>Ye gods. 15,000 words?</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>I cut this down into smaller blocks after that <a href="/post/2020/07/tangling-code-from-hugo-content-with-raku/">Raku tangling post</a>.
+I don’t even care that this post is 16 years old. Somebody might accidentally try to read it!</p>
+</div>
+<div class="paragraph">
+<p>I touched up what I could without destroying the flow, but things would look much different if I wrote this post today.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Thanks to everybody for the positive feedback on the first MIRE. I still have your attention, so I’ll move on to my next exercise. This one is a little more involved than the first, but bear with me - the results should be worth it.</p>
+</div>
+<div class="sect1">
+<h2 id="_the_problem">The Problem</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I have been a big fan of <a href="/tags/celtic">Celtic knotwork</a> for many years,
+and have been drawing it myself as an occasional distraction for most of that time.
+I don’t think I’m very good at it, but I’ve occasionally made myself proud.
+Heck, I’ve even designed a couple tattoos for folks, making a few bucks in the process.
+Any time you can profit from your hobbies is good.
+Any time somebody likes your work so much that they want it embedded in their skin with a sharp needle is also good.</p>
+</div>
+<div class="paragraph">
+<p>My preferred technique has always been manual and therefore labor-intensive.
+You lay out a grid, block out your major areas, draw your knotwork paths, and then embellish a little for personality.
+It’s simple and repetitive, and I like it that way.
+There’s a meditative element to such things which can’t be ignored.
+Still, I’m here to write a programming exercise,
+not to wax eloquently about the virtues of being hunched over a sheet of paper for hours at a time.</p>
+</div>
+<div class="paragraph">
+<p>Any time a geek hears the phrase "simple and repetitive," the geek’s mind turns to ways of automating the task being described.
+Well, <strong>this</strong> geek’s mind does.
+I wonder how hard it would be to write a Ruby program which could, given some dimensions by the user,
+create a simple knotwork panel of the desired size and then write that panel to an image file?</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_finding_a_solution">Finding a Solution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As it turns out, somebody else has already solved a fair chunk of the problem.
+Andy Sloss’s book {knowork-book} provides a detailed overview of his approach,
+which essentially boils down to arranging a set of image tiles on a grid so that the end result looks like an attractive knotwork image.
+He’s even gone so far as to provide each of the tiles that can be used in his system.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_plan">The Plan</h3>
+<div class="paragraph">
+<p>This project is a little more complicated than the last MIRE, so I want to step through it a little more carefully.
+Actually, it’s not more complicated.
+It’s just that less of the work has already been done for me.
+Instead of jumping right into creating bitmap images on the fly,
+I’m going to use [ASCII art](<a href="http://en.wikipedia.org/wiki/ASCII_art" class="bare">http://en.wikipedia.org/wiki/ASCII_art</a>) to create my knotwork at first.</p>
+</div>
+<div class="paragraph">
+<p>Let’s step through what we’ll be doing later in code.
+Here is a collection of image tiles arranged in a grid.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>. . . . x x x x x  x x . . . . . x x  x x x x x . . . .
+. . . . x . . . .  . . x x . x x . .  . . . . x . . . .
+. . . . x . . . x  . . . . x . . . .  x . . . x . . . .
+. . . . x . . x .  x x . . . x . x x  . x . . x . . . .
+. . . . x . . x .  . . x . . . x . .  . x . . x . . . .
+. . . . . x . . x  x . . . x . . . x  x . . x . . . . .
+. . . . . x . . x  . . . x . x . . x  . . . x . . . . .
+. . . . . . x x .  . . x . . . x x .  . . x . . . . . .
+
+. . . . . . x . .  . . x . . . x . .  . x x . . . . . .
+. . . . . x . . .  . x . x . x . . .  x . . x . . . . .
+. . . . . x . . .  x . . . x . . . x  x . . x . . . . .
+. . . . x . . . x  . x . . . x . x .  . x . . x . . . .
+. . . . x . . x .  . . x . . . x . .  . x . . x . . . .
+. . . . x . . x .  . x . x . . . x .  . x . . x . . . .
+. . . . . x . . x  x . . . x . . . x  x . . x . . . . .
+. . . . . x . . x  . . . x . x . x .  . . . x . . . . .
+. . . . . . x x .  . . x . . . x . .  . . x . . . . . .
+
+. . . . . . x . .  . x x . . . x . .  . x x . . . . . .
+. . . . . x . . .  x . . x . x . . .  x . . x . . . . .
+. . . . . x . . x  x . . . x . . . x  x . . x . . . . .
+. . . . x . . x .  . x . . . x . x .  . x . . x . . . .
+. . . . x . . x .  . . x . . . x . .  . x . . x . . . .
+. . . . x . . . x  x x . x . . . x x  x . . . x . . . .
+. . . . x . . . .  . . . . x . . . .  . . . . x . . . .
+. . . . x . . . .  . . x x . x x . .  . . . . x . . . .
+. . . . x x x x x  x x . . . . . x x  x x x x x . . . .</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Squish them together into one big image, and guess what? We have a knot!</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>. . . . x x x x x x x . . . . . x x x x x x x . . . .
+. . . . x . . . . . . x x . x x . . . . . . x . . . .
+. . . . x . . . x . . . . x . . . . x . . . x . . . .
+. . . . x . . x . x x . . . x . x x . x . . x . . . .
+. . . . x . . x . . . x . . . x . . . x . . x . . . .
+. . . . . x . . x x . . . x . . . x x . . x . . . . .
+. . . . . x . . x . . . x . x . . x . . . x . . . . .
+. . . . . . x x . . . x . . . x x . . . x . . . . . .
+. . . . . . x . . . . x . . . x . . . x x . . . . . .
+. . . . . x . . . . x . x . x . . . x . . x . . . . .
+. . . . . x . . . x . . . x . . . x x . . x . . . . .
+. . . . x . . . x . x . . . x . x . . x . . x . . . .
+. . . . x . . x . . . x . . . x . . . x . . x . . . .
+. . . . x . . x . . x . x . . . x . . x . . x . . . .
+. . . . . x . . x x . . . x . . . x x . . x . . . . .
+. . . . . x . . x . . . x . x . x . . . . x . . . . .
+. . . . . . x x . . . x . . . x . . . . x . . . . . .
+. . . . . . x . . . x x . . . x . . . x x . . . . . .
+. . . . . x . . . x . . x . x . . . x . . x . . . . .
+. . . . . x . . x x . . . x . . . x x . . x . . . . .
+. . . . x . . x . . x . . . x . x . . x . . x . . . .
+. . . . x . . x . . . x . . . x . . . x . . x . . . .
+. . . . x . . . x x x . x . . . x x x . . . x . . . .
+. . . . x . . . . . . . . x . . . . . . . . x . . . .
+. . . . x . . . . . . x x . x x . . . . . . x . . . .
+. . . . x x x x x x x . . . . . x x x x x x x . . . .</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You don’t quite see it?
+Well, squint a little and tilt your head a bit.
+Still nothing?
+Just bear with me.
+We will get to actual pictures soon, I promise.</p>
+</div>
+<div class="paragraph">
+<p>Okay, let’s find a way to automate this process.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_turning_the_plan_into_code">Turning the Plan Into Code</h3>
+<div class="paragraph">
+<p>This works, doesn’t it?</p>
+</div>
+<div class="listingblock">
+<div class="title">print-knot.rb</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-n">knot</span> <span class="tok-o">=&lt;&lt;</span><span class="tok-dl">HERE</span>
+<span class="tok-sh">     . . . . x x x x x x x . . . . . x x x x x x x . . . .</span>
+<span class="tok-sh">     . . . . x . . . . . . x x . x x . . . . . . x . . . .</span>
+<span class="tok-sh">     . . . . x . . . x . . . . x . . . . x . . . x . . . .</span>
+<span class="tok-sh">     . . . . x . . x . x x . . . x . x x . x . . x . . . .</span>
+<span class="tok-sh">     . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">     . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">     . . . . . x . . x . . . x . x . . x . . . x . . . . .</span>
+<span class="tok-sh">     . . . . . . x x . . . x . . . x x . . . x . . . . . .</span>
+<span class="tok-sh">     . . . . . . x . . . . x . . . x . . . x x . . . . . .</span>
+<span class="tok-sh">     . . . . . x . . . . x . x . x . . . x . . x . . . . .</span>
+<span class="tok-sh">     . . . . . x . . . x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">     . . . . x . . . x . x . . . x . x . . x . . x . . . .</span>
+<span class="tok-sh">     . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">     . . . . x . . x . . x . x . . . x . . x . . x . . . .</span>
+<span class="tok-sh">     . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">     . . . . . x . . x . . . x . x . x . . . . x . . . . .</span>
+<span class="tok-sh">     . . . . . . x x . . . x . . . x . . . . x . . . . . .</span>
+<span class="tok-sh">     . . . . . . x . . . x x . . . x . . . x x . . . . . .</span>
+<span class="tok-sh">     . . . . . x . . . x . . x . x . . . x . . x . . . . .</span>
+<span class="tok-sh">     . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">     . . . . x . . x . . x . . . x . x . . x . . x . . . .</span>
+<span class="tok-sh">     . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">     . . . . x . . . x x x . x . . . x x x . . . x . . . .</span>
+<span class="tok-sh">     . . . . x . . . . . . . . x . . . . . . . . x . . . .</span>
+<span class="tok-sh">     . . . . x . . . . . . x x . x x . . . . . . x . . . .</span>
+<span class="tok-sh">     . . . . x x x x x x x . . . . . x x x x x x x . . . .</span>
+<span class="tok-dl">HERE</span>
+
+<span class="tok-nb">puts</span> <span class="tok-n">knot</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I know, "Ha ha, very funny.
+You are so clever and witty.
+We are being sarcastic, if you didn’t guess, Mister Writer."
+I know that this is cheating, but it <strong>works</strong> doesn’t it?
+This would be good enough if all you wanted was some sort of ASCII art knot.</p>
+</div>
+<div class="paragraph">
+<p>Then again, Laziness taken too far does become plain old laziness.
+This isn’t good enough for any of us.
+The idea is to be able to draw a knotwork panel of any size that we want.</p>
+</div>
+<div class="paragraph">
+<p>Let’s look at the nouns we’ve used when describing the problem:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>We want to create a knotwork panel by arranging tiles on a grid, then merging them into a single image.</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>knotwork panel - <strong>I threw the adjective in for a little descriptiveness</strong></p>
+</li>
+<li>
+<p>grid</p>
+</li>
+<li>
+<p>tile</p>
+</li>
+<li>
+<p>image</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>I think these nouns make a good start for the class names in our program.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.zenspider.com/">Zenspider</a> once mentioned a style of commenting classes that was like the classes were describing themselves in the first person.
+I don’t know why, but I really liked that concept.
+I’ve stuck with it in a lot of my own code ever since.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-c1"># I am a single small section of a knotwork image. I know about my</span>
+<span class="tok-c1"># dimensions, and can describe myself on a pixel-by-pixel basis.</span>
+<span class="tok-k">class</span> <span class="tok-nc">Tile</span>
+<span class="tok-k">end</span>
+
+<span class="tok-c1"># I am a 2-dimensional collection of tiles. I know where each of my Tiles are</span>
+<span class="tok-n">located</span><span class="tok-p">,</span> <span class="tok-ow">and</span> <span class="tok-n">can</span> <span class="tok-n">describe</span> <span class="tok-n">them</span> <span class="tok-n">as</span> <span class="tok-k">if</span> <span class="tok-n">they</span> <span class="tok-n">were</span> <span class="tok-n">a</span> <span class="tok-n">single</span> <span class="tok-n">large</span> <span class="tok-n">entity</span><span class="tok-o">.</span>
+<span class="tok-k">class</span> <span class="tok-nc">Grid</span>
+<span class="tok-k">end</span>
+
+<span class="tok-c1"># I am a lovely Celtic knotwork panel. I know my dimensions, and can output myself</span>
+<span class="tok-c1"># as ASCII art.</span>
+<span class="tok-k">class</span> <span class="tok-nc">KnotworkPanel</span>
+<span class="tok-k">end</span>
+
+<span class="tok-c1"># I know how to create a graphical representation of a KnotworkPanel</span>
+<span class="tok-k">class</span> <span class="tok-nc">Image</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now I know each of the major objects in this program, and the duties that they must fill.
+It’s time to blaze through the highlights of writing the code.
+For convenience, we can put the application code and the testing code in the same file for now.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_building_a_tile">Building a Tile</h3>
+<div class="paragraph">
+<p>The simplest element of our description is the Tile.
+I decided that a Tile would be a two dimensional chunk of characters that would let you set or get any point in that space.
+Remember that this isn’t the only way we could have done things.
+You could also describe the lines and curves in the tile, or the colors, transparency,
+and whatever else the crazy kids are coming up with these days.
+This is my first drawing program, though, and I want to keep it as simple as I can.
+So I’m going with the bitmap idea.
+The tile images in the Sloss book are provided in different sizes.
+Let’s go with 9x9.
+It’s small and manageable without being too small to see.</p>
+</div>
+<div class="listingblock">
+<div class="title">knotwork/tile.rb</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-no">TILE_SIZE</span> <span class="tok-o">=</span> <span class="tok-mi">9</span>
+
+<span class="tok-c1"># I am a single small section of a knotwork image. I know about my</span>
+<span class="tok-c1"># dimensions, and can describe myself on a pixel-by-pixel basis.</span>
+<span class="tok-k">class</span> <span class="tok-nc">Tile</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">initialize</span><span class="tok-p">(</span><span class="tok-n">str</span> <span class="tok-o">=</span> <span class="tok-kp">nil</span><span class="tok-p">)</span>
+    <span class="tok-vi">@pixels</span> <span class="tok-o">=</span> <span class="tok-nb">Array</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-no">TILE_SIZE</span><span class="tok-p">)</span> <span class="tok-p">{</span> <span class="tok-nb">Array</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-no">TILE_SIZE</span><span class="tok-p">)</span> <span class="tok-p">}</span>
+
+    <span class="tok-k">if</span> <span class="tok-n">str</span> <span class="tok-k">then</span>
+      <span class="tok-n">set_from_string</span><span class="tok-p">(</span><span class="tok-n">str</span><span class="tok-p">)</span>
+    <span class="tok-k">end</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">at</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">)</span>
+    <span class="tok-k">return</span> <span class="tok-vi">@pixels</span><span class="tok-o">[</span><span class="tok-n">x</span><span class="tok-o">][</span><span class="tok-n">y</span><span class="tok-o">]</span>
+  <span class="tok-k">end</span>
+  <span class="tok-k">alias</span> <span class="tok-n">is_set?</span> <span class="tok-n">at</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">set</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-n">value</span><span class="tok-o">=</span><span class="tok-kp">true</span><span class="tok-p">)</span>
+    <span class="tok-vi">@pixels</span><span class="tok-o">[</span><span class="tok-n">x</span><span class="tok-o">][</span><span class="tok-n">y</span><span class="tok-o">]</span> <span class="tok-o">=</span> <span class="tok-n">value</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">unset</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">)</span>
+    <span class="tok-nb">self</span><span class="tok-o">.</span><span class="tok-n">set</span> <span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-kp">nil</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">set_from_string</span><span class="tok-p">(</span><span class="tok-n">str</span><span class="tok-p">)</span>
+    <span class="tok-n">str</span><span class="tok-o">.</span><span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">each_with_index</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">row</span><span class="tok-o">|</span>
+      <span class="tok-n">line</span><span class="tok-o">.</span><span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-s1">&#39; &#39;</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">each_with_index</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">pixel</span><span class="tok-p">,</span> <span class="tok-n">col</span><span class="tok-o">|</span>
+        <span class="tok-n">set</span><span class="tok-p">(</span><span class="tok-n">row</span><span class="tok-p">,</span> <span class="tok-n">col</span><span class="tok-p">,</span> <span class="tok-n">pixel</span><span class="tok-p">)</span>
+      <span class="tok-k">end</span>
+    <span class="tok-k">end</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">to_s</span>
+    <span class="tok-n">str</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;&quot;</span>
+    <span class="tok-vi">@pixels</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-p">{</span> <span class="tok-o">|</span><span class="tok-n">row</span><span class="tok-o">|</span>
+      <span class="tok-n">str</span> <span class="tok-o">+=</span> <span class="tok-s2">&quot;|&quot;</span>
+      <span class="tok-n">row</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-p">{</span> <span class="tok-o">|</span><span class="tok-n">pixel</span><span class="tok-o">|</span>
+        <span class="tok-n">pixel</span> <span class="tok-o">||=</span> <span class="tok-s2">&quot; &quot;</span>
+        <span class="tok-n">str</span> <span class="tok-o">+=</span> <span class="tok-s2">&quot;</span><span class="tok-si">#{</span><span class="tok-n">pixel</span><span class="tok-si">}</span><span class="tok-s2">|&quot;</span>
+      <span class="tok-p">}</span>
+      <span class="tok-n">str</span> <span class="tok-o">+=</span> <span class="tok-s2">&quot;</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span>
+    <span class="tok-p">}</span>
+    <span class="tok-k">return</span> <span class="tok-n">str</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I&#8217;ll write tes the rock-solid <a href="http://docs.seattlerb.org/minitest/">Minitest</a> testing library.</p>
+</div>
+<div class="listingblock">
+<div class="title">tests/test_tile.rb</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-nb">require</span> <span class="tok-s2">&quot;minitest/autorun&quot;</span>
+<span class="tok-nb">require</span> <span class="tok-s2">&quot;../knotwork/tile.rb&quot;</span>
+
+<span class="tok-k">class</span> <span class="tok-nc">TestTile</span> <span class="tok-o">&lt;</span> <span class="tok-no">Minitest</span><span class="tok-o">::</span><span class="tok-no">Test</span>
+  <span class="tok-k">def</span> <span class="tok-nf">setup</span>
+    <span class="tok-vi">@tile</span> <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">test_pixels</span>
+    <span class="tok-n">refute</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">is_set?</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;By default, any pixel in a Tile is blank&quot;</span>
+
+    <span class="tok-n">assert</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">set</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;Use Tile#set(row, col) to set a pixel at coordinates (row, col)&quot;</span>
+
+    <span class="tok-n">assert</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">is_set?</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;A pixel (row, col) is set after Tile#set(row, col) has been called&quot;</span>
+
+    <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">unset</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span>
+    <span class="tok-n">refute</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">is_set?</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;An unset pixel has no set value&quot;</span>
+
+    <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">set</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">)</span>
+    <span class="tok-n">refute</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">is_set?</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;Setting one pixel has no effect on other pixels in a Tile&quot;</span>
+
+    <span class="tok-n">assert</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">is_set?</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;Tile remembers the set status of each pixel in its confines.&quot;</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">test_set_from_string</span>
+    <span class="tok-n">source_string</span> <span class="tok-o">=&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">      x . . . . . . . x</span>
+<span class="tok-sh">      . x . . . . . x .</span>
+<span class="tok-sh">      . . x . . . x . .</span>
+<span class="tok-sh">      . . . x . x . . .</span>
+<span class="tok-sh">      . . . . x . . . .</span>
+<span class="tok-sh">      . . . x . x . . .</span>
+<span class="tok-sh">      . . x . . . x . .</span>
+<span class="tok-sh">      . x . . . . . x .</span>
+<span class="tok-sh">      x . . . . . . . x</span>
+<span class="tok-dl">    HERE</span>
+
+    <span class="tok-n">assert</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">set_from_string</span><span class="tok-p">(</span><span class="tok-n">source_string</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;You can use ASCII art strings to set the pixels in a Tile&quot;</span>
+
+    <span class="tok-n">assert</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">is_set?</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
+    <span class="tok-n">assert</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">is_set?</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">)</span>
+
+    <span class="tok-n">assert_equal</span> <span class="tok-s1">&#39;x&#39;</span><span class="tok-p">,</span> <span class="tok-vi">@tile</span><span class="tok-o">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;A Tile remembers the value assigned, if given, during Tile#set(row, col, val)&quot;</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is — <strong>2020 note: my early attempt at</strong> — <a href="http://www.agiledata.org/essays/tdd.html">Test-Driven Development</a>, where you write the tests for your code as you are writing the code itself.
+A little <strong>before</strong> the code itself, actually.
+TDD is useful for any non-trivial programming task.
+You have the tests there right from the beginning to describe what your classes are supposed to be able to do.
+Because TDD is based on lots of tiny changes being applied rapidly over time,
+I decided it would be tedious to describe that process to you at each little step.
+Instead, we stop and take a snapshot as we get each major stage accomplished.
+Like that code sample up there.
+It’s really where I’m at right about now.
+See: there’s the class definition, a couple of very basic accessors,
+and the ability to set all the pixels of a Tile at once from a String.</p>
+</div>
+<div class="paragraph">
+<p>Now that the Tile is pretty much doing everything I want it to, let’s move on to the Grid.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_putting_the_tile_in_a_grid">Putting the Tile in a Grid</h3>
+<div class="paragraph">
+<p>I want to hurry on to making pictures, so let’s rush through the Grid part.</p>
+</div>
+<div class="paragraph">
+<p>That’s easy enough, actually.
+We only need to be able to do a few simple things with a Grid:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create it at a set size.</p>
+</li>
+<li>
+<p>Add a Tile somewhere in the Grid.</p>
+</li>
+<li>
+<p>Read each individual pixel of the Grid transparently.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>And here’s the code.</p>
+</div>
+<div class="listingblock">
+<div class="title">knotwork/grid.rb</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-c1"># I am an arranged collection of Tiles. I know how to add and remove</span>
+<span class="tok-c1"># Tiles along a 2-d grid, and can also present myself as if I were a single</span>
+<span class="tok-c1"># large Tile.</span>
+
+<span class="tok-nb">require</span> <span class="tok-s2">&quot;tile&quot;</span>
+
+<span class="tok-k">class</span> <span class="tok-nc">Grid</span>
+  <span class="tok-k">def</span> <span class="tok-nf">initialize</span><span class="tok-p">(</span><span class="tok-n">rows</span><span class="tok-p">,</span> <span class="tok-n">columns</span><span class="tok-p">)</span>
+    <span class="tok-vi">@tile_size</span> <span class="tok-o">=</span> <span class="tok-no">TILE_SIZE</span>
+    <span class="tok-vi">@rows</span>      <span class="tok-o">=</span> <span class="tok-n">rows</span>
+    <span class="tok-vi">@columns</span>   <span class="tok-o">=</span> <span class="tok-n">columns</span>
+    <span class="tok-vi">@pixels</span>    <span class="tok-o">=</span> <span class="tok-nb">Array</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">rows</span><span class="tok-o">*</span><span class="tok-vi">@tile_size</span><span class="tok-p">)</span> <span class="tok-p">{</span> <span class="tok-nb">Array</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">columns</span><span class="tok-o">*</span><span class="tok-vi">@tile_size</span><span class="tok-p">)</span> <span class="tok-p">}</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">set_tile</span><span class="tok-p">(</span><span class="tok-n">row</span><span class="tok-p">,</span> <span class="tok-n">column</span><span class="tok-p">,</span> <span class="tok-n">tile</span><span class="tok-p">)</span>
+    <span class="tok-n">pixel_origin_x</span> <span class="tok-o">=</span> <span class="tok-n">row</span> <span class="tok-o">*</span> <span class="tok-vi">@tile_size</span>
+    <span class="tok-n">pixel_origin_y</span> <span class="tok-o">=</span> <span class="tok-n">column</span> <span class="tok-o">*</span> <span class="tok-vi">@tile_size</span>
+
+    <span class="tok-vi">@tile_size</span><span class="tok-o">.</span><span class="tok-n">times</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">tile_x</span><span class="tok-o">|</span>
+      <span class="tok-n">x</span> <span class="tok-o">=</span> <span class="tok-n">pixel_origin_x</span> <span class="tok-o">+</span> <span class="tok-n">tile_x</span>
+
+      <span class="tok-vi">@tile_size</span><span class="tok-o">.</span><span class="tok-n">times</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">tile_y</span><span class="tok-o">|</span>
+        <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-n">pixel_origin_y</span> <span class="tok-o">+</span> <span class="tok-n">tile_y</span>
+        <span class="tok-vi">@pixels</span><span class="tok-o">[</span><span class="tok-n">x</span><span class="tok-o">][</span><span class="tok-n">y</span><span class="tok-o">]</span> <span class="tok-o">=</span> <span class="tok-n">tile</span><span class="tok-o">.</span><span class="tok-n">at</span> <span class="tok-n">tile_x</span><span class="tok-p">,</span> <span class="tok-n">tile_y</span>
+      <span class="tok-k">end</span>
+    <span class="tok-k">end</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">at</span><span class="tok-p">(</span><span class="tok-n">row</span><span class="tok-p">,</span> <span class="tok-n">column</span><span class="tok-p">)</span>
+    <span class="tok-k">return</span> <span class="tok-vi">@pixels</span><span class="tok-o">[</span><span class="tok-n">row</span><span class="tok-o">][</span><span class="tok-n">column</span><span class="tok-o">]</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">to_s</span>
+    <span class="tok-n">str</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;&quot;</span>
+    <span class="tok-vi">@pixels</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-p">{</span> <span class="tok-o">|</span><span class="tok-n">row</span><span class="tok-o">|</span>
+      <span class="tok-n">str</span> <span class="tok-o">+=</span> <span class="tok-n">row</span><span class="tok-o">.</span><span class="tok-n">join</span><span class="tok-p">(</span><span class="tok-s1">&#39; &#39;</span><span class="tok-p">)</span> <span class="tok-o">+</span> <span class="tok-s2">&quot;</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span>
+    <span class="tok-p">}</span>
+
+    <span class="tok-k">return</span> <span class="tok-n">str</span><span class="tok-o">.</span><span class="tok-n">chomp</span>
+  <span class="tok-k">end</span>
+
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">tests/test_grid.rb</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-nb">require</span> <span class="tok-s2">&quot;minitest/autorun&quot;</span>
+<span class="tok-nb">require</span> <span class="tok-s2">&quot;../knotwork/grid&quot;</span>
+
+<span class="tok-k">class</span> <span class="tok-nc">TestGrid</span> <span class="tok-o">&lt;</span> <span class="tok-no">Minitest</span><span class="tok-o">::</span><span class="tok-no">Test</span>
+  <span class="tok-k">def</span> <span class="tok-nf">setup</span>
+    <span class="tok-vi">@source_string</span> <span class="tok-o">=&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">      x . . . . . . . x</span>
+<span class="tok-sh">      . x . . . . . x .</span>
+<span class="tok-sh">      . . x . . . x . .</span>
+<span class="tok-sh">      . . . x . x . . .</span>
+<span class="tok-sh">      . . . . x . . . .</span>
+<span class="tok-sh">      . . . x . x . . .</span>
+<span class="tok-sh">      . . x . . . x . .</span>
+<span class="tok-sh">      . x . . . . . x .</span>
+<span class="tok-sh">      x . . . . . . . x</span>
+<span class="tok-dl">    HERE</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">test_simple_grid</span>
+    <span class="tok-n">grid</span> <span class="tok-o">=</span> <span class="tok-no">Grid</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">1</span>
+    <span class="tok-n">tile</span> <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-vi">@source_string</span>
+    <span class="tok-n">grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">tile</span>
+    <span class="tok-n">assert_equal</span> <span class="tok-s2">&quot;x&quot;</span><span class="tok-p">,</span> <span class="tok-n">grid</span><span class="tok-o">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;pixel_at fetches contents from pixel coordinates&quot;</span>
+
+    <span class="tok-n">assert_equal</span> <span class="tok-vi">@source_string</span><span class="tok-p">,</span> <span class="tok-n">grid</span><span class="tok-o">.</span><span class="tok-n">to_s</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">test_large_grid</span>
+    <span class="tok-n">grid</span> <span class="tok-o">=</span> <span class="tok-no">Grid</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">2</span>
+    <span class="tok-n">tile1</span> <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-vi">@source_string</span>
+    <span class="tok-n">tile2</span> <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-vi">@source_string</span>
+    <span class="tok-n">grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">tile1</span>
+    <span class="tok-n">grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-n">tile2</span>
+    <span class="tok-n">assert_equal</span> <span class="tok-s2">&quot;x&quot;</span><span class="tok-p">,</span> <span class="tok-n">grid</span><span class="tok-o">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">9</span><span class="tok-p">),</span>
+      <span class="tok-s2">&quot;pixel_at fetches from anywhere in the Grid.&quot;</span>
+
+    <span class="tok-n">expected_output</span> <span class="tok-o">=&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">      x . . . . . . . x x . . . . . . . x</span>
+<span class="tok-sh">      . x . . . . . x . . x . . . . . x .</span>
+<span class="tok-sh">      . . x . . . x . . . . x . . . x . .</span>
+<span class="tok-sh">      . . . x . x . . . . . . x . x . . .</span>
+<span class="tok-sh">      . . . . x . . . . . . . . x . . . .</span>
+<span class="tok-sh">      . . . x . x . . . . . . x . x . . .</span>
+<span class="tok-sh">      . . x . . . x . . . . x . . . x . .</span>
+<span class="tok-sh">      . x . . . . . x . . x . . . . . x .</span>
+<span class="tok-sh">      x . . . . . . . x x . . . . . . . x</span>
+<span class="tok-dl">    HERE</span>
+
+    <span class="tok-n">assert_equal</span> <span class="tok-n">expected_output</span><span class="tok-p">,</span> <span class="tok-n">grid</span><span class="tok-o">.</span><span class="tok-n">to_s</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There, that’s another fifteen minutes of coding done.
+Yes, the combination of TDD and Ruby makes it about this easy to write a program.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_grid_to_make_a_knotworkpanel">Using the Grid to Make a KnotworkPanel</h3>
+<div class="paragraph">
+<p>Things get a little more complex now, because we’re on to creating a KnotworkPanel.
+Every KnotworkPanel uses a specific set of predefined tiles&#8201;&#8212;&#8201;<strong>thanks again to Andy Sloss for going to the trouble of defining them</strong>&#8201;&#8212;&#8201;which I will store as class variables.
+I would probably store them in a different file if I wanted to include <strong>every</strong> Tile defined in Sloss’s book,
+but that’s more than I want to chew on today.</p>
+</div>
+<div class="paragraph">
+<p>Certain Tiles must go in certain locations of the KnotworkPanel’s Grid,
+such as the corners and edges, and we have to remember this in our tests.
+Ah, let’s just cut and paste the source strings and squish them together so that they look like what we’re aiming for.
+That’s probably the easiest test for now.</p>
+</div>
+<div class="paragraph">
+<p>For a while, my problem was that I was copying and pasting incorrectly.
+Don’t ask me how I pull this stuff off.
+I’m just special, I guess.
+The test results would end up spewing out
+"Expected "… a really long chain of <code>x</code> and <code>.</code> characters, " but got " … a really long chain of <code>x</code> and
+<code>.</code> characters, almost identical to the first chain.
+My solution?
+Test each row of output, that way I see exactly which line was one character off.</p>
+</div>
+<div class="listingblock">
+<div class="title">knotwork/knotwork_panel.rb</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-nb">require</span> <span class="tok-s2">&quot;tile&quot;</span>
+<span class="tok-nb">require</span> <span class="tok-s2">&quot;grid&quot;</span>
+
+<span class="tok-c1"># «define-tile-maps»</span>
+<span class="tok-c1"># «define-knotwork-panel-class»</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">define-tile-maps</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-no">NW_CORNER</span> <span class="tok-o">=&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">  . . . . x x x x x</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  . . . . x . . . x</span>
+<span class="tok-sh">  . . . . x . . x .</span>
+<span class="tok-sh">  . . . . x . . x .</span>
+<span class="tok-sh">  . . . . . x . . x</span>
+<span class="tok-sh">  . . . . . x . . x</span>
+<span class="tok-sh">  . . . . . . x x .</span>
+<span class="tok-dl">HERE</span>
+
+<span class="tok-no">N_EDGE</span> <span class="tok-o">=&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">  x x . . . . . x x</span>
+<span class="tok-sh">  . . x x . x x . .</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  x x . . . x . x x</span>
+<span class="tok-sh">  . . x . . . x . .</span>
+<span class="tok-sh">  . x . x . . . x .</span>
+<span class="tok-sh">  x . . . x . . . x</span>
+<span class="tok-sh">  . . . x . x . . x</span>
+<span class="tok-sh">  . . x . . . x x .</span>
+<span class="tok-dl">HERE</span>
+
+<span class="tok-no">NE_CORNER</span> <span class="tok-o">=&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">  x x x x x . . . .</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  x . . . x . . . .</span>
+<span class="tok-sh">  . x . . x . . . .</span>
+<span class="tok-sh">  . x . . x . . . .</span>
+<span class="tok-sh">  x . . x . . . . .</span>
+<span class="tok-sh">  . . . x . . . . .</span>
+<span class="tok-sh">  . . x . . . . . .</span>
+<span class="tok-dl">HERE</span>
+
+<span class="tok-no">W_EDGE</span> <span class="tok-o">=</span> <span class="tok-o">&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">  . . . . . . x . .</span>
+<span class="tok-sh">  . . . . . x . . .</span>
+<span class="tok-sh">  . . . . . x . . .</span>
+<span class="tok-sh">  . . . . x . . . x</span>
+<span class="tok-sh">  . . . . x . . x .</span>
+<span class="tok-sh">  . . . . x . . x .</span>
+<span class="tok-sh">  . . . . . x . . x</span>
+<span class="tok-sh">  . . . . . x . . x</span>
+<span class="tok-sh">  . . . . . . x x .</span>
+<span class="tok-dl">HERE</span>
+
+<span class="tok-no">CENTER</span> <span class="tok-o">=</span> <span class="tok-o">&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">  . . x . . . x . .</span>
+<span class="tok-sh">  . x . x . x . . .</span>
+<span class="tok-sh">  x . . . x . . . x</span>
+<span class="tok-sh">  . x . . . x . x .</span>
+<span class="tok-sh">  . . x . . . x . .</span>
+<span class="tok-sh">  . x . x . . . x .</span>
+<span class="tok-sh">  x . . . x . . . x</span>
+<span class="tok-sh">  . . . x . x . x .</span>
+<span class="tok-sh">  . . x . . . x . .</span>
+<span class="tok-dl">HERE</span>
+
+<span class="tok-no">E_EDGE</span> <span class="tok-o">=</span> <span class="tok-o">&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">  . x x . . . . . .</span>
+<span class="tok-sh">  x . . x . . . . .</span>
+<span class="tok-sh">  x . . x . . . . .</span>
+<span class="tok-sh">  . x . . x . . . .</span>
+<span class="tok-sh">  . x . . x . . . .</span>
+<span class="tok-sh">  . x . . x . . . .</span>
+<span class="tok-sh">  x . . x . . . . .</span>
+<span class="tok-sh">  . . . x . . . . .</span>
+<span class="tok-sh">  . . x . . . . . .</span>
+<span class="tok-dl">HERE</span>
+
+<span class="tok-no">SW_CORNER</span> <span class="tok-o">=</span> <span class="tok-o">&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">  . . . . . . x . .</span>
+<span class="tok-sh">  . . . . . x . . .</span>
+<span class="tok-sh">  . . . . . x . . x</span>
+<span class="tok-sh">  . . . . x . . x .</span>
+<span class="tok-sh">  . . . . x . . x .</span>
+<span class="tok-sh">  . . . . x . . . x</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  . . . . x x x x x</span>
+<span class="tok-dl">HERE</span>
+
+<span class="tok-no">S_EDGE</span> <span class="tok-o">=</span> <span class="tok-o">&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">  . x x . . . x . .</span>
+<span class="tok-sh">  x . . x . x . . .</span>
+<span class="tok-sh">  x . . . x . . . x</span>
+<span class="tok-sh">  . x . . . x . x .</span>
+<span class="tok-sh">  . . x . . . x . .</span>
+<span class="tok-sh">  x x . x . . . x x</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  . . x x . x x . .</span>
+<span class="tok-sh">  x x . . . . . x x</span>
+<span class="tok-dl">HERE</span>
+
+<span class="tok-no">SE_CORNER</span> <span class="tok-o">=</span> <span class="tok-o">&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">  . x x . . . . . .</span>
+<span class="tok-sh">  x . . x . . . . .</span>
+<span class="tok-sh">  x . . x . . . . .</span>
+<span class="tok-sh">  . x . . x . . . .</span>
+<span class="tok-sh">  . x . . x . . . .</span>
+<span class="tok-sh">  x . . . x . . . .</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  . . . . x . . . .</span>
+<span class="tok-sh">  x x x x x . . . .</span>
+<span class="tok-dl">HERE</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">define-knotwork-panel-class</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-c1"># I am a lovely Celtic knotwork panel. I know my dimensions, and can output</span>
+<span class="tok-c1"># myself as ASCII art.</span>
+<span class="tok-k">class</span> <span class="tok-nc">KnotworkPanel</span>
+  <span class="tok-vc">@@top_left</span> <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-no">NW_CORNER</span>
+  <span class="tok-vc">@@top</span>      <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-no">N_EDGE</span>
+  <span class="tok-vc">@@topright</span> <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-no">NE_CORNER</span>
+  <span class="tok-vc">@@left</span>     <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-no">W_EDGE</span>
+  <span class="tok-vc">@@center</span>   <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-no">CENTER</span>
+  <span class="tok-vc">@@right</span>    <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-no">E_EDGE</span>
+  <span class="tok-vc">@@bot_left</span> <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-no">SW_CORNER</span>
+  <span class="tok-vc">@@bottom</span>   <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-no">S_EDGE</span>
+  <span class="tok-vc">@@botright</span> <span class="tok-o">=</span> <span class="tok-no">Tile</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-no">SE_CORNER</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">initialize</span><span class="tok-p">(</span><span class="tok-n">rows</span><span class="tok-p">,</span> <span class="tok-n">columns</span><span class="tok-o">=</span><span class="tok-n">rows</span><span class="tok-p">)</span>
+    <span class="tok-vi">@row_size</span> <span class="tok-o">=</span> <span class="tok-n">rows</span> <span class="tok-o">+</span> <span class="tok-mi">2</span>
+    <span class="tok-vi">@col_size</span> <span class="tok-o">=</span> <span class="tok-n">columns</span> <span class="tok-o">+</span> <span class="tok-mi">2</span>
+    <span class="tok-vi">@grid</span> <span class="tok-o">=</span> <span class="tok-no">Grid</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-vi">@row_size</span><span class="tok-p">,</span> <span class="tok-vi">@col_size</span>
+
+    <span class="tok-c1"># Set the top row.</span>
+    <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-vc">@@top_left</span>
+    <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-vi">@col_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-vc">@@topright</span>
+
+    <span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-o">...</span><span class="tok-vi">@col_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-p">{</span> <span class="tok-o">|</span><span class="tok-n">i</span><span class="tok-o">|</span> <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-n">i</span><span class="tok-p">,</span> <span class="tok-vc">@@top</span> <span class="tok-p">}</span>
+
+    <span class="tok-c1"># Set the center rows.</span>
+    <span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-o">...</span><span class="tok-vi">@row_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">i</span><span class="tok-o">|</span>
+      <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-n">i</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-vc">@@left</span>
+      <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-n">i</span><span class="tok-p">,</span> <span class="tok-vi">@col_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-vc">@@right</span>
+
+      <span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-o">...</span><span class="tok-vi">@col_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-p">{</span> <span class="tok-o">|</span><span class="tok-n">j</span><span class="tok-o">|</span> <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-n">i</span><span class="tok-p">,</span> <span class="tok-n">j</span><span class="tok-p">,</span> <span class="tok-vc">@@center</span> <span class="tok-p">}</span>
+    <span class="tok-k">end</span>
+
+    <span class="tok-c1"># Set the bottom row</span>
+    <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-vi">@row_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-mi">0</span><span class="tok-p">,</span> <span class="tok-vc">@@bot_left</span>
+    <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-vi">@row_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-vi">@col_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-vc">@@botright</span>
+
+    <span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-o">...</span><span class="tok-vi">@col_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-p">{</span> <span class="tok-o">|</span><span class="tok-n">i</span><span class="tok-o">|</span> <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">set_tile</span> <span class="tok-vi">@row_size</span><span class="tok-o">-</span><span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-n">i</span><span class="tok-p">,</span> <span class="tok-vc">@@bottom</span> <span class="tok-p">}</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">to_aa</span><span class="tok-p">()</span>
+    <span class="tok-k">return</span> <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">to_s</span>
+  <span class="tok-k">end</span>
+
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">tests/test_knotwork_panel.rb</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-nb">require</span> <span class="tok-s2">&quot;minitest/autorun&quot;</span>
+<span class="tok-nb">require</span> <span class="tok-s2">&quot;../knotwork/knotwork_panel&quot;</span>
+
+<span class="tok-k">class</span> <span class="tok-nc">TestKnotworkPanel</span> <span class="tok-o">&lt;</span> <span class="tok-no">Minitest</span><span class="tok-o">::</span><span class="tok-no">Test</span>
+  <span class="tok-k">def</span> <span class="tok-nf">test_ascii</span>
+    <span class="tok-n">panel</span> <span class="tok-o">=</span> <span class="tok-no">KnotworkPanel</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-mi">1</span><span class="tok-p">)</span>
+    <span class="tok-n">expected_lines</span> <span class="tok-o">=&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span><span class="tok-o">.</span><span class="tok-n">split</span> <span class="tok-s2">&quot;</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span>
+<span class="tok-sh">      . . . . x x x x x x x . . . . . x x x x x x x . . . .</span>
+<span class="tok-sh">      . . . . x . . . . . . x x . x x . . . . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . . . . . . x . . . . . . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . x x x . . . x . x x x . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . x . x . . . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . x . . . x . x . . x . . . x . . . . .</span>
+<span class="tok-sh">      . . . . . . x x . . . x . . . x x . . . x . . . . . .</span>
+<span class="tok-sh">      . . . . . . x . . . . x . . . x . . . x x . . . . . .</span>
+<span class="tok-sh">      . . . . . x . . . . x . x . x . . . x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . . x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . x . . . x . x . . . x . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . x . x . . . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . x . . . x . x . x . . . . x . . . . .</span>
+<span class="tok-sh">      . . . . . . x x . . . x . . . x . . . . x . . . . . .</span>
+<span class="tok-sh">      . . . . . . x . . . x x . . . x . . . x x . . . . . .</span>
+<span class="tok-sh">      . . . . . x . . . x . . x . x . . . x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . x . . . x . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . x x x . x . . . x x x . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . . . . . . x . . . . . . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . . . . x x . x x . . . . . . x . . . .</span>
+<span class="tok-sh">      . . . . x x x x x x x . . . . . x x x x x x x . . . .</span>
+<span class="tok-dl">    HERE</span>
+
+    <span class="tok-n">output_lines</span> <span class="tok-o">=</span> <span class="tok-n">panel</span><span class="tok-o">.</span><span class="tok-n">to_aa</span><span class="tok-o">.</span><span class="tok-n">split</span> <span class="tok-s2">&quot;</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span>
+    <span class="tok-n">expected_lines</span><span class="tok-o">.</span><span class="tok-n">each_with_index</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">i</span><span class="tok-o">|</span>
+      <span class="tok-n">assert_equal</span> <span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">output_lines</span><span class="tok-o">[</span><span class="tok-n">i</span><span class="tok-o">]</span><span class="tok-p">,</span>
+        <span class="tok-s2">&quot;line </span><span class="tok-si">#{</span><span class="tok-n">i</span><span class="tok-si">}</span><span class="tok-s2"> doesn&#39;t match&quot;</span>
+    <span class="tok-k">end</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-k">def</span> <span class="tok-nf">test_large_panels</span>
+    <span class="tok-n">expected</span> <span class="tok-o">=&lt;&lt;~</span><span class="tok-dl">HERE</span><span class="tok-o">.</span><span class="tok-n">strip</span>
+<span class="tok-sh">      . . . . x x x x x x x . . . . . x x x x x x x . . . .</span>
+<span class="tok-sh">      . . . . x . . . . . . x x . x x . . . . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . . . . . . x . . . . . . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . x x x . . . x . x x x . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . x . x . . . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . x . . . x . x . . x . . . x . . . . .</span>
+<span class="tok-sh">      . . . . . . x x . . . x . . . x x . . . x . . . . . .</span>
+<span class="tok-sh">      . . . . . . x . . . . x . . . x . . . x x . . . . . .</span>
+<span class="tok-sh">      . . . . . x . . . . x . x . x . . . x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . . x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . x . . . x . x . . . x . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . x . x . . . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . x . . . x . x . x . . . . x . . . . .</span>
+<span class="tok-sh">      . . . . . . x x . . . x . . . x . . . . x . . . . . .</span>
+<span class="tok-sh">      . . . . . . x . . . . x . . . x . . . x x . . . . . .</span>
+<span class="tok-sh">      . . . . . x . . . . x . x . x . . . x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . . x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . x . . . x . x . . . x . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . x . x . . . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . x . . . x . x . x . . . . x . . . . .</span>
+<span class="tok-sh">      . . . . . . x x . . . x . . . x . . . . x . . . . . .</span>
+<span class="tok-sh">      . . . . . . x . . . x x . . . x . . . x x . . . . . .</span>
+<span class="tok-sh">      . . . . . x . . . x . . x . x . . . x . . x . . . . .</span>
+<span class="tok-sh">      . . . . . x . . x x . . . x . . . x x . . x . . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . x . . . x . x . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . x . . . x . . . x . . . x . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . x x x . x . . . x x x . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . . . . . . x . . . . . . . . x . . . .</span>
+<span class="tok-sh">      . . . . x . . . . . . x x . x x . . . . . . x . . . .</span>
+<span class="tok-sh">      . . . . x x x x x x x . . . . . x x x x x x x . . . .</span>
+<span class="tok-dl">    HERE</span>
+
+    <span class="tok-n">output_lines</span> <span class="tok-o">=</span> <span class="tok-no">KnotworkPanel</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-mi">2</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">to_aa</span><span class="tok-o">.</span><span class="tok-n">split</span> <span class="tok-s2">&quot;</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span>
+    <span class="tok-n">expected</span><span class="tok-o">.</span><span class="tok-n">split</span><span class="tok-p">(</span><span class="tok-s2">&quot;</span><span class="tok-se">\n</span><span class="tok-s2">&quot;</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">each_with_index</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">i</span><span class="tok-o">|</span>
+      <span class="tok-n">assert_equal</span> <span class="tok-n">line</span><span class="tok-p">,</span> <span class="tok-n">output_lines</span><span class="tok-o">[</span><span class="tok-n">i</span><span class="tok-o">]</span><span class="tok-p">,</span>
+        <span class="tok-s2">&quot;line </span><span class="tok-si">#{</span><span class="tok-n">i</span><span class="tok-si">}</span><span class="tok-s2"> doesn&#39;t match&quot;</span>
+    <span class="tok-k">end</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yeah, that works. Let’s move on.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Wait.
+This is me from the future, editing this page.
+KnotworkPanel’s initializer kinda bugs me.
+It’s fine for what it does, but how’s the average person supposed to know that <code>KnotworkPanel.new(1,2)</code> actually
+creates a KnotworkPanel with dimensions of 3x5, including the border?</p>
+</div>
+<div class="paragraph">
+<p>Really, this is why you need some person to represent the customer or a user besides yourself
+whenever you want to write code for other people to use. I could change the initializer, but I
+really want to get the article out so the geeks of the world can point and laugh at my mistakes.</p>
+</div>
+<div class="paragraph">
+<p>For now, just remember that the dimensions sent to the initializer don’t include the bordering
+tiles. So if you want a 5x5 panel, you’ll have to call <code>KnotworkPanel.new(3, 3)</code>. Man, that’s ugly.
+Let’s make fixing that an exercise at the end of the article, okay?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_an_image_of_the_knotworkpanel">Creating an Image of the KnotworkPanel</h3>
+<div class="paragraph">
+<p>I bet you feel really cheated by now.
+I’ve been going on for all this time about celtic knotwork and drawing pictures with the computer.
+All you’ve seen is a bunch of dots and crosses that kind of look like a picture if you go cross-eyed for a second.
+You can cheer up, folks, because you’ve finished the boring part.
+Now we want to make a real live picture!</p>
+</div>
+<div class="paragraph">
+<p>But how are we going to do it?
+You know that I’m <strong>not</strong> about to go making my own image creation library for a little project like this&#8201;&#8212;&#8201;or any other project, if I can help it.</p>
+</div>
+<div class="paragraph">
+<p>No need. The {rmagick} library wraps around [ImageMagick][] for all the image generating power I
+need today.</p>
+</div>
+<div class="listingblock">
+<div class="title">knotwork-image-logic</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-nb">require</span> <span class="tok-s1">&#39;rmagick&#39;</span>
+<span class="tok-kp">include</span> <span class="tok-no">Magick</span>
+
+<span class="tok-k">class</span> <span class="tok-nc">KnotworkPanel</span>
+  <span class="tok-k">def</span> <span class="tok-nf">to_image</span><span class="tok-p">()</span>
+    <span class="tok-n">filename</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;panel-</span><span class="tok-si">#{</span><span class="tok-vi">@row_size</span><span class="tok-si">}</span><span class="tok-s2">x</span><span class="tok-si">#{</span><span class="tok-vi">@col_size</span><span class="tok-si">}</span><span class="tok-s2">.png&quot;</span>
+
+    <span class="tok-n">max_x</span> <span class="tok-o">=</span> <span class="tok-mi">9</span> <span class="tok-o">*</span> <span class="tok-vi">@row_size</span>
+    <span class="tok-n">max_y</span> <span class="tok-o">=</span> <span class="tok-mi">9</span> <span class="tok-o">*</span> <span class="tok-vi">@col_size</span>
+
+    <span class="tok-n">image</span> <span class="tok-o">=</span> <span class="tok-no">Image</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">max_x</span><span class="tok-p">,</span> <span class="tok-n">max_y</span><span class="tok-p">)</span> <span class="tok-p">{</span> <span class="tok-nb">self</span><span class="tok-o">.</span><span class="tok-n">background_color</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;white&quot;</span> <span class="tok-p">}</span>
+    <span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-o">...</span><span class="tok-n">max_y</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">y</span><span class="tok-o">|</span>
+      <span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-o">...</span><span class="tok-n">max_x</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">x</span><span class="tok-o">|</span>
+        <span class="tok-n">pixel</span> <span class="tok-o">=</span> <span class="tok-vi">@grid</span><span class="tok-o">.</span><span class="tok-n">at</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">)</span>
+        <span class="tok-k">if</span> <span class="tok-n">pixel</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;x&quot;</span> <span class="tok-k">then</span>
+          <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">pixel_color</span><span class="tok-p">(</span><span class="tok-n">x</span><span class="tok-p">,</span> <span class="tok-n">y</span><span class="tok-p">,</span> <span class="tok-s2">&quot;black&quot;</span><span class="tok-p">)</span>
+        <span class="tok-k">end</span>
+      <span class="tok-k">end</span>
+    <span class="tok-k">end</span>
+    <span class="tok-n">image</span><span class="tok-o">.</span><span class="tok-n">write</span><span class="tok-p">(</span><span class="tok-n">filename</span><span class="tok-p">)</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">2020-08-01</div>
+<div class="paragraph">
+<p>Looks like I skipped tests for <code>Knotwork#to_image</code> as well.
+And wasn&#8217;t I saying something about "image" being one of the nouns that should be a class?
+Whatever happened to that?</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Time to make an image.</p>
+</div>
+<div class="listingblock">
+<div class="title">draw-knot.rb</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-nb">require</span> <span class="tok-s1">&#39;./knotwork/knotwork_panel.rb&#39;</span>
+
+<span class="tok-c1"># «knotwork-image-logic»</span>
+
+<span class="tok-n">panel</span> <span class="tok-o">=</span> <span class="tok-no">KnotworkPanel</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-mi">8</span><span class="tok-p">,</span> <span class="tok-mi">18</span><span class="tok-p">)</span>
+<span class="tok-n">panel</span><span class="tok-o">.</span><span class="tok-n">to_image</span><span class="tok-p">()</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Thanks to all the work we did building Tiles and Grids and ASCII art KnotworkPanels,
+we only need to add a few lines to allow KnotworkPanels to create a nice black and white PNG image file.
+Here’s what we get:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="panel.png" alt="10x20 panel">
+</div>
+<div class="title">Figure 1. 10x20 panel</div>
+</div>
+<div class="paragraph">
+<p>Cool, eh?</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_building_knotworkpanels_of_any_size">Building KnotworkPanels of Any Size</h3>
+<div class="paragraph">
+<p>Now the program does what I want it to.
+But if I hand this script off to somebody else and say "This program will make knotwork panels of any size,"
+one of their first questions will be how to set the size.
+"Go in and edit the code" won’t cut it.
+Let’s haul out our trusty [OptParse](<a href="http://www.ruby-doc.org/stdlib/libdoc/optparse/rdoc/classes/OptionParser.html" class="bare">http://www.ruby-doc.org/stdlib/libdoc/optparse/rdoc/classes/OptionParser.html</a>) library again.</p>
+</div>
+<div class="listingblock">
+<div class="title">main-with-option-parser</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-k">def</span> <span class="tok-nf">main</span>
+  <span class="tok-n">rows</span> <span class="tok-o">=</span> <span class="tok-mi">1</span>
+  <span class="tok-n">columns</span> <span class="tok-o">=</span> <span class="tok-mi">1</span>
+
+  <span class="tok-n">opts</span> <span class="tok-o">=</span> <span class="tok-no">OptionParser</span><span class="tok-o">.</span><span class="tok-n">new</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">opts</span><span class="tok-o">|</span>
+    <span class="tok-n">opts</span><span class="tok-o">.</span><span class="tok-n">banner</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;Usage </span><span class="tok-si">#{</span><span class="tok-vg">$0</span><span class="tok-si">}</span><span class="tok-s2"> |opts|&quot;</span>
+    <span class="tok-n">opts</span><span class="tok-o">.</span><span class="tok-n">separator</span> <span class="tok-s2">&quot;&quot;</span>
+    <span class="tok-n">opts</span><span class="tok-o">.</span><span class="tok-n">separator</span> <span class="tok-s2">&quot;Specific Options&quot;</span>
+
+    <span class="tok-n">opts</span><span class="tok-o">.</span><span class="tok-n">on</span><span class="tok-p">(</span><span class="tok-s2">&quot;-r&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;--rows [ROWS]&quot;</span><span class="tok-p">,</span>
+            <span class="tok-s2">&quot;Number of rows for this panel (default 1)&quot;</span><span class="tok-p">)</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">r</span><span class="tok-o">|</span>
+      <span class="tok-n">rows</span> <span class="tok-o">=</span> <span class="tok-n">r</span><span class="tok-o">.</span><span class="tok-n">to_i</span>
+      <span class="tok-n">columns</span> <span class="tok-o">=</span> <span class="tok-n">rows</span>
+    <span class="tok-k">end</span>
+
+    <span class="tok-n">opts</span><span class="tok-o">.</span><span class="tok-n">on</span><span class="tok-p">(</span><span class="tok-s2">&quot;-c&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;--columns [COLUMNS]&quot;</span><span class="tok-p">,</span>
+            <span class="tok-s2">&quot;Number of columns for this panel (default ROWS)&quot;</span><span class="tok-p">)</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">c</span><span class="tok-o">|</span>
+      <span class="tok-n">columns</span> <span class="tok-o">=</span> <span class="tok-n">c</span><span class="tok-o">.</span><span class="tok-n">to_i</span>
+    <span class="tok-k">end</span>
+
+    <span class="tok-n">opts</span><span class="tok-o">.</span><span class="tok-n">on_tail</span><span class="tok-p">(</span><span class="tok-s2">&quot;-h&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;--help&quot;</span><span class="tok-p">,</span>
+                 <span class="tok-s2">&quot;Show this message&quot;</span><span class="tok-p">)</span> <span class="tok-k">do</span>
+      <span class="tok-nb">puts</span> <span class="tok-n">opts</span>
+      <span class="tok-nb">exit</span>
+    <span class="tok-k">end</span>
+  <span class="tok-k">end</span>
+
+  <span class="tok-n">opts</span><span class="tok-o">.</span><span class="tok-n">parse!</span>
+
+  <span class="tok-n">panel</span> <span class="tok-o">=</span> <span class="tok-no">KnotworkPanel</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-n">rows</span><span class="tok-p">,</span> <span class="tok-n">columns</span><span class="tok-p">)</span>
+  <span class="tok-n">panel</span><span class="tok-o">.</span><span class="tok-n">to_image</span><span class="tok-p">()</span>
+<span class="tok-k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Running it with the default should result in a 3x3 panel:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>ruby knotworkpanel.rb</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="panel-3x3.png" alt="3x3 panel">
+</div>
+<div class="title">Figure 2. 3x3 panel</div>
+</div>
+<div class="paragraph">
+<p>Setting <code>rows</code> to 2 results in a 4x4 panel.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>ruby knotworkpanel.rb --rows <span class="tok-m">2</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="panel-4x4.png" alt="4x4 panel">
+</div>
+<div class="title">Figure 3. 4x4 panel</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Me from the future says "See? This is what I was talking about. You say
+'2 rows', and you get a 4x4 square? How do you think people are going to
+react? Man, I need more coffee."</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Ignoring me from the future for today, let’s see what happens when we try to make a nice <strong>big</strong> KnotworkPanel.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>ruby knotworkpanel.rb --rows <span class="tok-m">98</span> --columns <span class="tok-m">73</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hmm … took a few seconds this time.
+If I cared about performance, I might go in and see where this could be tightened up.
+I don’t care about performance today, though.
+I care about results.
+And <a href="panel-100x75.png">the results</a> aren’t too bad.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cleaning_up">Cleaning Up</h3>
+<div class="paragraph">
+<p>Okay, it’s done!
+That is to say, it does all the things I want it to for now.
+There’s a <strong>lot</strong> more stuff that I would like to do with this program,
+but it’s important to know when to stop and take a breath.
+Let’s just go back and clean up the code a little bit.
+Not actually change any functionality or user interface, so Me From The Future is just going to have to wait.
+I only want to make it easier to read the code that I have already written.</p>
+</div>
+<div class="listingblock">
+<div class="title">knotwork.rb</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-nb">require</span> <span class="tok-s1">&#39;./knotwork/knotwork_panel.rb&#39;</span>
+
+<span class="tok-c1"># «knotwork-image-logic»</span>
+
+<span class="tok-c1"># «main-with-option-parser»</span>
+
+<span class="tok-n">main</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Okay, so that’s about it. We’ve gone from an idea to a program that
+creates png formatted images of Celtic-style knotwork panels. Not bad at
+all. There are a lot of other things we could do with this program,
+though.</p>
+</div>
+<div class="paragraph">
+<p>Here are a few ideas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Come up with some good ideas for unit testing the image generation
+code. Then send them to me :smile:</p>
+</li>
+<li>
+<p>Antialias the lines for a smoother effect.</p>
+</li>
+<li>
+<p>Add color.</p>
+</li>
+<li>
+<p>Incorporate the rest of the patterns detailed in the Andy Sloss book.</p>
+</li>
+<li>
+<p>Add the ability to make complex panels.</p>
+</li>
+<li>
+<p>Add the ability to scale pattern panels to any size.</p>
+</li>
+<li>
+<p>Make Me From The Future happy by fine-tuning the KnotworkPanel
+initializer and/or the OptParse options so that the user gets a 3x3
+panel when they request a 3x3 panel. Oh, but what happens when the
+user requests a 1x1 panel? I guess you’ll have to figure that out.</p>
+</li>
+<li>
+<p>Done already? Andy Sloss also wrote a book using similar techniques
+for drawing key patterns. Go write that program, and merge it with
+this one for a lean, mean, Celtic-art producing machine.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>

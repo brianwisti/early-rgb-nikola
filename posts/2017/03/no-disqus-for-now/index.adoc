@@ -1,0 +1,24 @@
+---
+aliases:
+- /post/2017/no-disqus-for-now/
+- /2017/03/17/no-disqus-for-now/
+date: 2017-03-17
+draft: false
+tags:
+- site
+- disqus
+- marginalia
+title: No Disqus For Now
+slug: no-disqus-for-now
+uuid: 4fa6731b-6e3c-4f92-bab8-368698188c79
+format: adoc
+---
+<div class="paragraph">
+<p>Disabling comments until I figure out why Disqus insists on loading the same discussion for all 2017 posts.
+Not crafts, just posts.
+I spent almost a week trying to figure this out, as multiple rounds of one day fixing followed by a couple days wondering if UrlMapper finished yet.
+Very frustrating.</p>
+</div>
+<div class="paragraph">
+<p>Comments are welcome via <a href="mailto:brianwisti@pobox.com">email</a> or the social network links along each page.</p>
+</div>

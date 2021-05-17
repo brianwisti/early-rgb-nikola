@@ -1,29 +1,21 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/1028338292045967360
-date: 2018-08-11T00:00:00Z
+slug: satellite
+date: 2018-08-11 00:00:00+00:00
 draft: false
-store:
-- image: satellite-shirt.jpg
-  link: https://www.designbyhumans.com/shop/978110/
-  name: Satellite
-- image: satellite-lines-black.jpg
-  link: https://www.designbyhumans.com/shop/978120/
-  name: Satellite Lines Black
-- image: satellite-lines-white.jpg
-  link: https://www.designbyhumans.com/shop/978122/
-  name: Satellite Lines White
 tags:
 - drawing
 - Sketchbook Mobile
 - Procreate
 - buy me
+- craft
 title: Satellite
-year: '2018'
+uuid: ad222570-2d9d-49ba-92eb-fc1fad3b37f2
+aliases:
+- /2018/08/11/satellite/
 category: craft
+type: micro
 previewimage: /images/2018/08/satellite/cover.jpg
 ---
-
 This one took a while.
 <!-- TEASER_END -->
 
@@ -33,4 +25,3 @@ hours of touchups, because I prefer the feel of Procreate's brushes.
 
 Finally forced myself to stop and post this. It is too easy to keep going until you lose steam and end up with
 an overwhelmingly intricate but *unfinished* work.
-

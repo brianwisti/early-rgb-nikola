@@ -1,15 +1,16 @@
 ---
+slug: start-using-emacsclient
 aliases:
 - /emacs/2014/06/02_start-using-emacsclient.html
 - /post/2014/start-using-emacsclient/
-date: 2014-06-02T00:00:00Z
+- /2014/06/02/start-using-emacsclient/
+date: 2014-06-02 00:00:00+00:00
 tags:
 - emacs
+- tools
 title: Start Using Emacsclient
-type: post
-updated: 2017-07-06T00:00:00Z
-year: '2014'
-category: tools
+updated: 2017-07-06 00:00:00+00:00
+uuid: 8d03dfe1-5e4f-4832-9268-b49cfcb1f570
 ---
 [Emacs Client]: http://www.emacswiki.org/emacs/EmacsClient
 I have been curious about the [Emacs Client][] for a long time. Because

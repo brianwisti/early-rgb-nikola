@@ -1,15 +1,17 @@
 ---
+slug: rainys-mish-mash-gloves
 aliases:
 - /craft/2016/rainys-mishmash-gloves/
-date: 2016-03-20T00:00:00Z
-image: /img/2016/rainys-mishmash-gloves.jpg
+- /2016/03/20/rainys-mish-mash-gloves/
+date: 2016-03-20 00:00:00+00:00
 tags:
 - knitting
 - gloves
-thumbnail: /img/2016/rainys-mishmash-gloves-thumbnail.jpg
+- craft
 title: Rainy's Mish-Mash Gloves
-year: '2016'
+uuid: 2be9a6b7-5793-435c-933c-ec8bfdaf6fd7
 category: craft
+type: micro
 previewimage: /images/2016/03/rainys-mish-mash-gloves/cover.jpg
 ---
 By special request, some fingerless gloves using a bit of every sock yarn I own.

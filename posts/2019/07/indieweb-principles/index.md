@@ -1,8 +1,5 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102485673663547158
-  twitter: https://twitter.com/brianwisti/status/1153210957964836864
-date: 2019-07-22T00:30:02-07:00
+date: 2019-07-22 00:30:02-07:00
 source:
   title: sizeof.cat
   url: https://sizeof.cat/post/indieweb-principles/
@@ -12,11 +9,13 @@ tags:
 - notes
 - TODO
 title: IndieWeb Principles
-year: '2019'
+slug: indieweb-principles
+uuid: 7f0e4794-fea3-4a50-97aa-edf6fe187633
+aliases:
+- /note/2019/203/indieweb-principles/
 category: note
 type: micro
 ---
-
 [IndieWeb][] contains most of the philosophy behind my notes project: Own your
 own data, make what you need, use what you make, longevity, and most important:
 

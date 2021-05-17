@@ -1,17 +1,19 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/1013516279834034176
-date: 2018-07-01T00:00:00Z
+slug: my-first-f-bomb
+date: 2018-07-01 00:00:00+00:00
 draft: false
 tags:
 - knitting
 - crochet
+- craft
 title: My First F Bomb
-year: '2018'
+uuid: 4fd86fb4-50c7-4fc0-97c8-9ff62c276bdf
+aliases:
+- /2018/07/01/my-first-f-bomb/
 category: craft
+type: micro
 previewimage: /images/2018/07/my-first-f-bomb/cover.jpg
 ---
-
 Took a break this weekend with a quick yarn project.
 <!-- TEASER_END -->
 
@@ -21,4 +23,3 @@ improve.
 
 [original pattern]: https://www.ravelry.com/patterns/library/the-f-bomb
 [duplicate stitch knitting]: https://www.wikihow.com/Knit-the-Duplicate-Stitch
-

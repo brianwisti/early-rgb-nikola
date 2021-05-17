@@ -1,0 +1,21 @@
+---
+aliases:
+- /craft/2017/fragments-of-dreams/
+- /2017/01/17/fragments-of-dreams/
+date: 2017-01-17
+draft: false
+format: adoc
+tags:
+- drawing
+- Procreate
+- craft
+title: Fragments Of Dreams
+slug: fragments-of-dreams
+uuid: 1795a23b-cec8-4cb2-8f92-e8427cd0ebc3
+category: craft
+type: micro
+previewimage: /images/2017/01/fragments-of-dreams/cover.jpg
+---
+<div class="paragraph">
+<p>A quick lunchtime sketch that I ended up liking quite a bit.</p>
+</div>

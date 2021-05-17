@@ -1,15 +1,17 @@
 ---
 aliases:
 - /craft/2015/professor-whom-scarf/
-date: 2015-11-02T00:00:00Z
-image: /img/2015/professor-whom-scarf.jpg
+- /2015/11/02/professor-whom-scarf/
+date: 2015-11-02 00:00:00+00:00
+slug: professor-whom-scarf
 tags:
 - knitting
 - scarf
-thumbnail: /img/2015/professor-whom-scarf-thumbnail.jpg
+- craft
 title: Professor Whom Scarf
-year: '2015'
+uuid: 14d6e0e4-2004-4936-ab09-eb98bbeb5666
 category: craft
+type: micro
 previewimage: /images/2015/11/professor-whom-scarf/cover.jpg
 ---
 [pattern site]: http://doctorwhoscarf.com
@@ -24,4 +26,3 @@ scarf uses the pattern for the [original scarf][], with some differences.
 * It's only about 75% of the knitted rows from the pattern.
 
 With those differences, it hardly seemed fair calling it a "Doctor Who" scarf.
-

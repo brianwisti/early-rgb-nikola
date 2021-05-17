@@ -1,23 +1,23 @@
 ---
+slug: pyuthon-interactive-fiction-03-handling-multiple-turns
 aliases:
 - /coolnamehere/2007/06/14_03-handling-multiple-turns.html
 - /post/2007/03-handling-multiple-turns/
-date: 2007-06-14T00:00:00Z
+- /2007/06/14/python-interactive-fiction-03-handling-multiple-turns/
+date: 2007-06-14 00:00:00+00:00
 tags:
 - python
 - ifiction
 - learn
+- coolnamehere
 title: Python Interactive Fiction - 03 Handling Multiple Turns
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2007'
+updated: 2009-07-11 00:00:00+00:00
 series:
 - Python Interactive Fiction
-archived_category: coolnamehere
+uuid: e6d699a1-f005-4d39-ac23-28c333ba1186
 ---
-
-[ongoing series]: /post/2007/interactive-fiction-with-python/
-[Part 2]: /post/2007/02-tying-the-scenes-together/
+[ongoing series]: /post/2007/04/interactive-fiction-with-python/
+[Part 2]: /post/2007/04-python-interactive-fiction-02-tying-the-scenes-together/
 
 This is Part 3 of an [ongoing series][] about writing interactive fiction games in Python.
 By the end of [Part 2][] we had created a text-based user interface and explored
@@ -638,5 +638,3 @@ Are you feeling a little lost? It's okay, variable scope confuses many developer
 remember is that a local definition trumps a global definition. The style rule to remember? Don't use global
 variables and you only need to remember about local variables and variables handed to a function as 
 part of its arguments.
-
-

@@ -1,18 +1,17 @@
 ---
+slug: brookes-socks-not-sarahs
 aliases:
 - /craft/2009/brookes-socks-not-sarahs/
-date: 2009-02-13T00:00:00Z
-image: /img/2015/brookes-socks-not-sarahs.jpg
-posts:
-- title: Ravelry Project Page
-  url: http://www.ravelry.com/projects/brianwisti/double-moss
+- /2009/02/13/brookes-socks-not-sarahs/
+date: 2009-02-13 00:00:00+00:00
 tags:
 - knitting
 - socks
-thumbnail: /img/2015/brookes-socks-not-sarahs-thumbnail.jpg
+- craft
 title: Brooke's Socks - Not Sarah's
-year: '2009'
+uuid: ff6f0d2c-5ead-49aa-932e-dece2f6b686d
 category: craft
+type: micro
 previewimage: /images/2009/02/brookes-socks-not-sarahs/cover.jpg
 ---
 Made scads of mistakes, so I gave them to Brooke. She loved them.

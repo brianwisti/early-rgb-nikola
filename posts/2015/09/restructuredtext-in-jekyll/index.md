@@ -1,16 +1,18 @@
 ---
+slug: restructuredtext-in-jekyll
 aliases:
 - /tools/2015/09/08_restructuredtext-in-jekyll.html
 - /post/2015/restructuredtext-in-jekyll/
-date: 2015-09-08T00:00:00Z
+- /2015/09/08/restructuredtext-in-jekyll/
+date: 2015-09-08 00:00:00+00:00
 description: I can write Jekyll posts with reStructuredText now.
 tags:
 - jekyll
+- rst
 - site
+- tools
 title: reStructuredText in Jekyll
-type: post
-year: '2015'
-category: tools
+uuid: 67f50090-056d-4d2b-97d4-79856e45252b
 ---
 [Jekyll]: http://jekyllrb.com/
 [reStructuredText]: http://docutils.sourceforge.net/rst.html

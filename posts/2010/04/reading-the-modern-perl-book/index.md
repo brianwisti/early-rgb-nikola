@@ -1,14 +1,15 @@
 ---
+slug: reading-the-modern-perl-book
 aliases:
 - /blogspot/2010/04/06_reading-modern-perl-book.html
 - /post/2010/reading-modern-perl-book/
-date: 2010-04-06T00:00:00Z
+- /2010/04/06/reading-the-modern-perl-book/
+date: 2010-04-06 00:00:00+00:00
 tags:
 - perl
+- blogspot
 title: Reading the Modern Perl Book
-type: post
-year: '2010'
-archived_category: blogspot
+uuid: a7d3cf66-46b8-470e-944e-958191200704
 ---
 <p>I'm in the Perl phase of my language obsession rotation. I've created a handy language obsession table you can use to simulate the behavior for your favorite <a href="http://sjgames.com/gurps/">GURPS</a> Geek campaign.</p>
 <!-- TEASER_END -->

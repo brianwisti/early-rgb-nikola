@@ -1,15 +1,16 @@
 ---
+slug: whered-he-go
 aliases:
 - /blogspot/2010/07/27_whered-he-go.html
 - /post/2010/whered-he-go/
-date: 2010-07-27T00:00:00Z
+- /2010/07/27/whered-he-go/
+date: 2010-07-27 00:00:00+00:00
 title: Where'd He Go?
-type: post
-updated: 2015-03-27T00:00:00Z
-year: '2010'
-archived_category: blogspot
+updated: 2015-03-27 00:00:00+00:00
+uuid: 323f089e-4503-4533-9da6-72fcc3855ff8
+tags:
+- blogspot
 ---
-
 I haven't updated this blog in a while, and to be honest I don't really plan to. I tend to dump my thoughts of the moment on
 <a href="http://www.google.com/profiles/brian.wisti#buzz">Google Buzz</a>, while the content I intend to improve and maintain
 is still at [my site](/).

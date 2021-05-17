@@ -1,17 +1,17 @@
 ---
+slug: gnu-screen
 aliases:
 - /coolnamehere/2007/01/25_gnu-screen.html
 - /post/2007/gnu-screen/
-date: 2007-01-25T00:00:00Z
+- /2007/01/25/gnu-screen/
+date: 2007-01-25 00:00:00+00:00
 tags:
 - unix
+- coolnamehere
 title: GNU screen
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2007'
-archived_category: coolnamehere
+updated: 2009-07-11 00:00:00+00:00
+uuid: fd9ac7ab-35cc-421c-b3d0-727a3870cbfb
 ---
-
 Sometimes it's helpful to have multiple consoles open. The best example I can 
 think of is when you are logged in to a machine via `ssh`. There are other 
 ways, of course. You could try to log in to the server with '-X' so that X11 
@@ -91,5 +91,3 @@ Be careful with `Ctrl-A Ctrl-K`! If you are used to working in
 shell, you may be accustomed to that key combo moving you to the beginning of 
 the current line and cutting that line into the kill ring. In the screen 
 world, you would use `Ctrl-A A Ctrl-K` to get the same effect.
-
-

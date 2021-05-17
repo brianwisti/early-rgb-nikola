@@ -1,16 +1,16 @@
 ---
+slug: tying-bits-together
 aliases:
 - /blogspot/2010/03/04_tying-bits-together.html
 - /post/2010/tying-bits-together/
-date: 2010-03-04T00:00:00Z
+- /2010/03/04/tying-bits-together/
+date: 2010-03-04 00:00:00+00:00
 tags:
 - coolnamehere
+- blogspot
 title: Tying Bits Together
-type: post
-year: '2010'
-archived_category: blogspot
+uuid: 6b0102a9-8e28-4fcf-a095-f0ceefee774d
 ---
-
 [coolnamehere]: /categories/coolnamehere/
 [JQuery]: http://jquery.com
 

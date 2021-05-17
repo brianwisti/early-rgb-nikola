@@ -1,21 +1,20 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/103029473024705243
-  twitter: https://twitter.com/brianwisti/status/1188120798990651392
 caption: me, 2000-ish
-date: 2019-10-26T08:13:24-07:00
+date: 2019-10-26 08:13:24-07:00
 tags:
 - me
 - memories
 - time is an illusion
 - lunchtime doubly so
 title: Couple decades now
-year: '2019'
+slug: couple-decades-now
+uuid: 6bc5df1c-1fcb-4277-9103-7f1807e1687e
+aliases:
+- /note/2019/299/couple-decades-now/
 category: note
 type: micro
 previewimage: /images/2019/10/couple-decades-now/cover.jpg
 ---
-
 Twenty years ago -- give or take a couple weeks -- I started working as a backend programmer [in tech][] for a
 real live paycheck, as opposed to [designing sites][] for cigarette money from [local ISPs][].
 

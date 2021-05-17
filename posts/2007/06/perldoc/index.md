@@ -1,16 +1,17 @@
 ---
+slug: perldoc
 aliases:
 - /coolnamehere/2007/06/16_perldoc.html
 - /post/2007/perldoc/
-date: 2007-06-16T00:00:00Z
+- /2007/06/16/perldoc/
+date: 2007-06-16 00:00:00+00:00
 tags:
 - perl
 - learn
+- coolnamehere
 title: Perldoc
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2007'
-archived_category: coolnamehere
+updated: 2009-07-11 00:00:00+00:00
+uuid: 36ea676b-9cdc-4183-b03e-cff613b129f6
 ---
 I have heard first-time Perl programmers complain about the lack of documentation. 
 This is understandable. They don't know all the nifty stuff that comes with the 
@@ -94,5 +95,3 @@ present it to you.
 
 These are the main features of `perldoc` that I use, but that's not all there is 
 to it. Check `perldoc perldoc` for all the gory details.
-
-

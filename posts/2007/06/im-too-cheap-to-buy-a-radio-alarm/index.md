@@ -1,16 +1,17 @@
 ---
+slug: im-too-cheap-to-buy-a-radio-alarm
 aliases:
 - /blogspot/2007/06/29_im-too-cheap-to-buy-radio-alarm.html
 - /post/2007/im-too-cheap-to-buy-radio-alarm/
-date: 2007-06-29T00:00:00Z
+- /2007/06/29/im-too-cheap-to-buy-a-radio-alarm/
+date: 2007-06-29 00:00:00+00:00
 tags:
 - applescript
 - os x
 - unix
+- blogspot
 title: I'm too cheap to buy a radio alarm
-type: post
-year: '2007'
-archived_category: blogspot
+uuid: 3b0214af-d9fb-40b2-9cac-db15ed78ab52
 ---
 I have trouble waking up on time. That's probably because I have trouble getting to bed on time. You can tell I have trouble getting to bed on time, because it's 1:40 in the morning right now and I'm writing a little blog post instead of going to bed.
 <!-- TEASER_END -->

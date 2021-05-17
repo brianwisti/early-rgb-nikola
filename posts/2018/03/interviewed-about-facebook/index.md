@@ -1,16 +1,16 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/978657904759681029
-date: 2018-03-27T00:00:00Z
+slug: interviewed-about-facebook
+date: 2018-03-27 00:00:00+00:00
 draft: false
 tags:
 - links
+- marginalia
 title: Interviewed About Facebook
-year: '2018'
-category: marginalia
+uuid: 26959135-df79-4c6c-995a-2071653e7007
+aliases:
+- /2018/03/27/interviewed-about-facebook/
 previewimage: /images/2018/03/interviewed-about-facebook/cover.jpeg
 ---
-
 As mentioned [on Twitter](https://twitter.com/brianwisti/status/978439728226738176):
 
 > An hour and a half for a fifteen minute interview of which they used ten seconds for their two minute bit
@@ -44,6 +44,4 @@ Most importantly, I got an awful new profile image for FB and Twitter — thanks
 suggestion with a particularly choice screenshot —  *and* I got to show off my [Boy Beanie][] on national
 news.
 
-[Boy Beanie]: {{< ref "/post/2018/my-new-boy-beanie/index.md" >}}
-
-
+[Boy Beanie]: {{< ref "/post/2018-03-my-replacement-boy-beanie/index.md" >}}

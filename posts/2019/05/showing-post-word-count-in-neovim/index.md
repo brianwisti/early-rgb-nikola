@@ -1,19 +1,17 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102046653899640488
-  twitter: https://twitter.com/brianwisti/status/1125220640640962566
-date: 2019-05-05T00:00:00Z
+slug: showing-post-word-count-in-neovim
+date: 2019-05-05 00:00:00+00:00
 tags:
 - vim
 - pandoc
+- programming
 title: Showing Post Word Count in (neo)vim
-updated: 2019-05-06T00:00:00Z
-year: '2019'
-category: programming
+updated: 2019-05-06 00:00:00+00:00
+uuid: bc8e092a-0085-4bdb-a4c5-57ba22584591
+aliases:
+- /2019/05/05/showing-post-word-count-in-neovim/
 previewimage: /images/2019/05/showing-post-word-count-in-neovim/cover.png
 ---
-
-
 A couple shell pipes. A little Vimscript. Now I know (roughly) how many words my
 post has!
 
@@ -25,7 +23,7 @@ post has!
 everywhere else. Surely I can spare a few hundred words a week on my blog,
 right?
 
-[Once again]: {{< ref "/post/2014/counting-words.md" >}}
+[Once again]: {{< ref "/post/2014-10-counting-words-in-blog-posts/index.md" >}}
 
 Since I implied a number in that question, I have a metric I can use. Word
 count! Just write until I have 250 words, then post it. Or five hundred. Or a
@@ -92,9 +90,7 @@ $ mmark -html -fragment index.md | pandoc -f html -t plain | wc -w | tr -d ' '
 403
 ```
 
-****
-
-
+{{< aside >}}
 ### 2019-05-06 Update
 
 Found out that Hugo shortcodes look a lot like mmark includes, and that
@@ -106,8 +102,7 @@ posts *about* Hugo, but I will survive.
       | mmark -html -fragment index.md \
       | pandoc -f html -t plain \
       | wc -w | tr -d ' '
-
-****
+{{< /aside >}}
 
 I told mmark to generate a fragment of HTML rather than a complete HTML
 document, to reduce noise from things like a `<title>` tag.
@@ -127,7 +122,8 @@ to move that information from the shell to the status line.
 
 [Vimscript]: http://learnvimscriptthehardway.stevelosh.com/
 
-****
+{{< aside >}}
+[neovim]: https://neovim.io/
 
 I've been using [neovim][] as my main terminal `$EDITOR`. Although it maintains
 compatibility with Vim, some of the functions here may require a newer release
@@ -135,10 +131,7 @@ of Vim than you have on your machine.
 
 The goal was to figure this out on my own machine, so unfortunately the only
 advice I can offer if your Vim complains is: upgrade Vim or switch to Neovim.
-
-****
-
-[neovim]: https://neovim.io/
+{{< /aside >}}
 
 Later I may expand this into a library function that understands about different
 content types. Right now it returns a formatted word count if the filetype of
@@ -233,4 +226,3 @@ Yeah, my status line is a little busy.
 
 Anyways. It works! Is it perfect? Of course not. But it gives me the information
 I want, and that pleases me. On to the next task!
-

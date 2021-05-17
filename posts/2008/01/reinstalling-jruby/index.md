@@ -1,16 +1,17 @@
 ---
+slug: reinstalling-jruby
 aliases:
 - /blogspot/2008/01/02_reinstalling-jruby.html
 - /post/2008/reinstalling-jruby/
-date: 2008-01-02T00:00:00Z
+- /2008/01/02/reinstalling-jruby/
+date: 2008-01-02 00:00:00+00:00
 tags:
 - java
 - jruby
 - ruby
+- blogspot
 title: Reinstalling JRuby
-type: post
-year: '2008'
-archived_category: blogspot
+uuid: 71d6b5ea-49a4-470e-add4-a84231732c62
 ---
 [JRuby]: http://jruby.org
 I'm still getting everything back together after the iMac upgrade fiasco. [JRuby][],

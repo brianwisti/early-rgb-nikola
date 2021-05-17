@@ -1,27 +1,28 @@
 ---
+slug: parrot-babysteps-07-writing-subroutines
 aliases:
 - /coolnamehere/2009/10/06_07-writing-subroutines.html
 - /post/2009/07-writing-subroutines/
-date: 2009-10-06T00:00:00Z
+- /2009/10/06/parrot-babysteps-07-writing-subroutines/
+date: 2009-10-06 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 07 - Writing Subroutines
-type: post
-updated: 2011-04-12T00:00:00Z
-year: '2009'
+updated: 2011-04-12 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 2301daf7-e316-4f85-8736-b57f73edcb33
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 7 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
 ## Introduction
 
-[last step]: /post/2009/06-files-and-hashes/
+[last step]: {{< ref "post/2009-10-parrot-babysteps-06-files-and-hashes/index.md" >}}
 
 We accomplished quite a bit in our [last step][].
 We figured out how to parse a 20 MB star catalog and search for information that
@@ -39,7 +40,8 @@ powerful and worth deeper exploration on your own.
 
 ## Subroutines
 
-[the very beginning]: /post/2009/01-getting-started/
+[the very beginning]: {{< ref "post/2009-07-parrot-babysteps-01-getting-started/index.md" >}}
+
 We've been working with subroutines from [the very beginning][].
 Every Parrot application has a subroutine tagged as `:main` to show that it contains
 the main logic for the program. Let's start adding our own supplementary subroutines.
@@ -173,7 +175,7 @@ you need to do is declare a `.sub`.
 I like my subroutine names to clearly describe the task being accomplished,
 to minimize the guesswork when I come back to code later.
 
-[a few steps ago]: /post/2009/04-adding-command-line-arguments/
+[a few steps ago]: {{< ref "post/2009-09-parrot-babysteps-04-adding-command-line-arguments/index.md" >}}
 
 This subroutine accepts a single parameter: a Hash describing the star to be
 printed. We learned [a few steps ago][]
@@ -516,5 +518,3 @@ in the HYG database, and some of the complexity of this task has been
 tucked away behind subroutines. Is there more to be done? You bet! I would
 love to add user search features to the code. That's going to a fair step
 on its own, so I think I will close my Vim window and push this page.
-
-

@@ -1,20 +1,18 @@
 ---
-announcement: In which I suggest a password generator
-announcements:
-  facebook: https://www.facebook.com/brianwisti/posts/10157860381549665
-  mastodon: https://hackers.town/@randomgeek/102531070232066570
-  twitter: https://twitter.com/brianwisti/status/1156223226063794182
+slug: try-xkcdpass
+description: In which I suggest a password generator
 caption: '[XKCD 936](https://xkcd.com/936/) _([CC BY-NC 2.5](https://xkcd.com/license.html))_'
-date: 2019-07-30T07:36:11-07:00
+date: 2019-07-30 07:36:11-07:00
 tags:
 - linux
 - security
+- tools
 title: Try xkcdpass
-year: '2019'
-category: tools
+uuid: 4d3f885d-bec6-4096-b67b-2aaf31d97fa9
+aliases:
+- /2019/07/30/try-xkcdpass/
 previewimage: /images/2019/07/try-xkcdpass/cover.png
 ---
-
 *tl;dr*: Use [`xkcdpass`][] to generate more secure passwords, like
 "correcthorsebatterystaple".
 
@@ -51,4 +49,3 @@ you.
 
     $ xkcdpass
     tiara embezzle stack doorway scrambled imitate
-

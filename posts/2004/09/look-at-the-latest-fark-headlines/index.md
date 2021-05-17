@@ -1,41 +1,42 @@
 ---
+slug: look-at-the-latest-fark-headlines
 aliases:
 - /coolnamehere/2004/09/17_look-at-the-latest-fark-headlines.html
 - /post/2004/look-at-the-latest-fark-headlines/
-date: 2004-09-17T00:00:00Z
+- /2004/09/17/look-at-the-latest-fark-headlines/
+date: 2004-09-17 00:00:00+00:00
 tags:
 - ruby
 - learn
+- coolnamehere
 title: Look at the Latest Fark Headlines
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2004'
-archived_category: coolnamehere
+updated: 2009-07-11 00:00:00+00:00
+uuid: ad8004ae-d561-4d79-8cb1-295b6f03daff
 ---
-<!-- TEASER_END -->
+The Problem
+-----------
 
-## The Problem
+I want to look at the [Fark](http://fark.com/) headlines without opening
+a browser. Why? I dunno, maybe I just want to see what’s new since the
+last time I looked, without being distracted by the site clutter.
 
-I want to look at the [Fark](http://fark.com/) headlines without opening a 
-browser. Why? I dunno, maybe I just want to see what's new since the last 
-time I looked, without being distracted by the site clutter.
+Now, I could just turn off images and go to the site, and that would
+work fine. Actually, it would work quite well. No need for this article,
+then. I’m off for some coffee …
 
-Now, I could just turn off images and go to the site, and that would work 
-fine.  Actually, it would work quite well. No need for this article, then. 
-I'm off for some coffee ...
-
-What? I *have* to write something in here about Ruby?  ... okay.
+What? I *have* to write something in here about Ruby? … okay.
 
 ahem.
 
-I want to look at the [Fark](http://fark.com/) headlines without opening a 
-browser. Why? Well, as it so happens, I am logged into a machine via `ssh`, 
-and using elinks to load the page will result in a lot of extra clutter from 
-text versions of ads which obscure the headlines. I'm just interested in 
-seeing what interesting, scary, or amusing things have been posted on Fark 
-since the last time I checked.
+I want to look at the [Fark](http://fark.com/) headlines without opening
+a browser. Why? Well, as it so happens, I am logged into a machine via
+`ssh`, and using elinks to load the page will result in a lot of extra
+clutter from text versions of ads which obscure the headlines. I’m just
+interested in seeing what interesting, scary, or amusing things have
+been posted on Fark since the last time I checked.
 
-## Finding a Solution
+Finding a Solution
+------------------
 
 Well, we could always just dump the Fark page to the console:
 
@@ -49,7 +50,7 @@ puts headlines
 Three lines of code and we have output.
 
     $ ruby19 fark.rb
-    ...
+    ⋮
     <!-- START copyright_html() -->
     <div id="footer">
     <span class="boldy"><a target="_top" href="http://www.fark.com/nomirror/"></a>\
@@ -77,14 +78,14 @@ Three lines of code and we have output.
     </div> <!-- siteContainer -->
     </body>
     </html>
-    </body>
-    </html>
 
-But running this doesn't quite get the result I was looking for. I just want the 
-headlines, and I want them without the HTML, thank you very much.
+But running this doesn’t quite get the result I was looking for. I just
+want the headlines, and I want them without the HTML, thank you very
+much.
 
-Fark and a lot of other news sites make [RSS](https://blogging.im/RSS "Really Simple Syndication") feeds available. These are special XML files 
-containing mainly - you guessed it, the headlines, without the HTML, you're very welcome.
+Fark and a lot of other news sites make [RSS](https://blogging.im/RSS)
+feeds available. These are special XML files containing mainly - you
+guessed it, the headlines, without the HTML, you’re very welcome.
 
 ``` ruby
 require 'open-uri'
@@ -97,7 +98,7 @@ puts headlines
 This is a little closer to what we want.
 
     $ ruby fark.rb
-    ...
+    ⋮
     <item>
      <title>&#34;Hindsight isn&#39;t only 20/20, it&#39;s usually also sober&#34; [Dumbass]</title>
      <description><![CDATA[Atlanta Journal Constitution]]></description>
@@ -108,13 +109,13 @@ This is a little closer to what we want.
     </channel>
     </rss>
 
-Now I get the RSS file dumped to the console. At least the story headlines are 
-little easier to find.  To get the behavior I want, though, we're going to 
-need to chop out the bits we don't care about and get straight to the 
-headlines. This task is straightforward in Ruby, thanks to the 
-[RSS](http://ruby-doc.org/stdlib/libdoc/rss/rdoc/index.html) library. The RSS 
-library has recently been made an official part of the standard libs, which 
-makes a lot of this exercise much easier.
+Now I get the RSS file dumped to the console. At least the story
+headlines are little easier to find. To get the behavior I want, though,
+we’re going to need to chop out the bits we don’t care about and get
+straight to the headlines. This task is straightforward in Ruby, thanks
+to the [RSS](http://ruby-doc.org/stdlib/libdoc/rss/rdoc/index.html)
+library. The RSS library has recently been made an official part of the
+standard libs, which makes a lot of this exercise much easier.
 
 ``` ruby
 require 'open-uri'
@@ -163,10 +164,10 @@ Okay, now what does this look like?
     ; because decades in jail is so worth $10G [Asinine]
     Christian salt, contraceptive robberies, and a wallet full of teeth: Fark\
     's Headlines of the Week 3/1 to 3/7 [FarkBlog]
-    ... and on and on
+    ⋮
 
-This is even better still, but that's an awful lot of headlines. How about 
-just the most recent ones? How about the last 10?
+This is even better still, but that’s an awful lot of headlines. How
+about just the most recent ones? How about the last 10?
 
 ``` ruby
 require 'open-uri'
@@ -210,10 +211,10 @@ What does it look like now?
     Computer glitch caused Austrailian airliner to plunge 1,000 feet and the toil\
     ets to flush counterclockwise [Scary]
 
-Now we've got it down to the freshest 10, but each item is still filling up a 
-lot of space. One way to cut down the length of each line is to split each 
-headline into multiple lines. Let's start by cutting the category and title 
-into two separate lines:
+Now we’ve got it down to the freshest 10, but each item is still filling
+up a lot of space. One way to cut down the length of each line is to
+split each headline into multiple lines. Let’s start by cutting the
+category and title into two separate lines:
 
 ``` ruby
 require 'open-uri'
@@ -234,7 +235,7 @@ rss.items.each_with_index do |item, index|
 end
 ```
 
-It's a lot easier for me to read the output now.
+It’s a lot easier for me to read the output now.
 
     $ ruby19 fark.rb
     INTERESTING
@@ -269,8 +270,8 @@ It's a lot easier for me to read the output now.
     s a GREAT idea. Just don't do it using an open-bed pickup truck. Police m\
     ight see you
 
-Occasionally I saw HTML entities in the output. `&amp;quot;`, stuff like that. Let's 
-fix that problem before we move on to anything else.
+Occasionally I saw HTML entities in the output. `&quot;`, stuff like
+that. Let’s fix that problem before we move on to anything else.
 
 ``` ruby
 require 'open-uri'
@@ -294,7 +295,7 @@ rss.items.each_with_index do |item, index|
 end
 ```
 
-It isn't an issue this time, but I feel better.
+It isn’t an issue this time, but I feel better.
 
     $ ruby19 fark.rb
     INTERESTING
@@ -329,13 +330,13 @@ It isn't an issue this time, but I feel better.
     s a GREAT idea. Just don't do it using an open-bed pickup truck. Police m\
     ight see you
 
-Wherever possible, I'm using standard library tools to get my work done. I'm 
-too lazy to remember escaping every possible HTML entity, and I would rather 
-spend a few minutes searching through the [Standard Library
-documentation](http://www.ruby-doc.org/stdlib/) to find what I need. It's a 
-good habit, and you might want to try it yourself.
+Wherever possible, I’m using standard library tools to get my work done.
+I’m too lazy to remember escaping every possible HTML entity, and I
+would rather spend a few minutes searching through the [Standard Library
+documentation](http://www.ruby-doc.org/stdlib/) to find what I need.
+It’s a good habit, and you might want to try it yourself.
 
-Maybe I only care about particular types of headline. Say, I want to be 
+Maybe I only care about particular types of headline. Say, I want to be
 interested, but not amused.
 
 ``` ruby
@@ -378,9 +379,9 @@ And it does indeed show me only "interesting" headlines.
     those nerds you picked on become millionaires later in life? Well, good n\
     ews
 
-That's pretty nifty, except that it only looks for Interesting items out of 
-the last 10 headlines, rather than looking for the last 10 Interesting 
-headlines.
+That’s pretty nifty, except that it only looks for Interesting items out
+of the last 10 headlines, rather than looking for the last 10
+Interesting headlines.
 
 ``` ruby
 require 'open-uri'
@@ -425,13 +426,13 @@ Is this any better?
     those nerds you picked on become millionaires later in life? Well, good n\
     ews
 
+Well, we can only look at today’s headlines. I guess we can’t be sure of
+ten interesting things happening every day. Still, at least I know I’m
+getting all of the interesting headlines that are available, up to my
+limit.
 
-Well, we can only look at today's headlines. I guess we can't be sure of ten 
-interesting things happening every day. Still, at least I know I'm getting all 
-of the interesting headlines that are available, up to my limit.
-
-Next problem: the only way I can fetch different headline types is to manually 
-dig in to the source code and change the category. 
+Next problem: the only way I can fetch different headline types is to
+manually dig in to the source code and change the category.
 
 ``` ruby
 require 'open-uri'
@@ -449,7 +450,7 @@ opts = OptionParser.new do |opts|
   opts.banner = "#{$0} [options]"
   opts.separator("")
   opts.separator("Specific Options")
-  
+
   opts.on("-c", "--category CATEGORY",
           "Only grab headlines in specific category") do |cat|
     preferred_category = cat
@@ -471,7 +472,7 @@ rss.items.each_with_index do |item, index|
   if title_match then
     category = CGI::unescapeHTML(title_match[2])
 
-    if preferred_category.nil? 
+    if preferred_category.nil?
       puts title, category
     elsif category.upcase == preferred_category.upcase then
       puts title
@@ -482,51 +483,47 @@ rss.items.each_with_index do |item, index|
 end
 ```
 
-Let's test it by requesting "PSA" headlines.
+Let’s test it by requesting "PSA" headlines.
 
     $ ruby19 fark.rb -c psa
 
     Attention zoo visitors - please do not taunt the concrete chimpanzee
 
-That works. Pretty nicely, I might add. 
-[OptParse](http://www.ruby-doc.org/stdlib/libdoc/optparse/rdoc/)
-is a great library for handling command-line arguments.
+That works. Pretty nicely, I might add.
+[OptParse](http://www.ruby-doc.org/stdlib/libdoc/optparse/rdoc/) is a
+great library for handling command-line arguments.
 
-This program now does everything that I set out to do, and then some. I might 
-choose to do a some refactoring to "bulletproof" the code, or wrap it up in 
-some OO niceness to make it pretty. The truth is that this application is 
-exactly what it needs to be for now, and I think that I shouldn't overwork 
-something that I may never come back to. Maybe later I'll come back to it when 
-I think of new features or find new bugs, and *then* I can overwork it to my 
-heart's content.
+This program now does everything that I set out to do, and then some. I
+might choose to do a some refactoring to "bulletproof" the code, or wrap
+it up in some OO niceness to make it pretty. The truth is that this
+application is exactly what it needs to be for now, and I think that I
+shouldn’t overwork something that I may never come back to. Maybe later
+I’ll come back to it when I think of new features or find new bugs, and
+*then* I can overwork it to my heart’s content.
 
-I hope you enjoyed working along with me as much as I enjoyed sitting here 
-and typing random nonsense to myself.
+I hope you enjoyed working along with me as much as I enjoyed sitting
+here and typing random nonsense to myself.
 
-## What Else?
+What Else?
+----------
 
-I may be done with this exercise for now, but here are a few ideas about 
-features that can be added to make it a little cooler. Go ahead and try 
+I may be done with this exercise for now, but here are a few ideas about
+features that can be added to make it a little cooler. Go ahead and try
 them out!
 
-* Add word wrap to make the output a little more readable.
-* Add a parameter to change the number of headlines grabbed.
-* Modify so that this script will work with other newsfeeds.
-* Modify so that the functionality of this script can be embedded in other 
-  Ruby programs.
+- Add word wrap to make the output a little more readable.
+- Add a parameter to change the number of headlines grabbed.
+- Modify so that this script will work with other newsfeeds.
+- Modify so that the functionality of this script can be embedded in
+  other Ruby programs.
 
-## Revision History
+Revision History
+----------------
 
-* 12 March 2009:
-  Ran under Ruby 1.9, changed parsing to reflect Fark RSS changes 
-* 3 January 2007:
-  Major rewrite to incorporate RSS library and changes at Fark
-* 19 September 2004:
-  Changed the network library used from 'net/http' to 'open-uri' in the 
-  refactoring stage. This is from a suggestion that was made by Gavin Sinclair, 
-  Frederick Ros, and others. It's a good suggestion, and I'm *not* going to ignore a 
-  good suggestion!
-* 17 September 2004: 
-  Initial version released.
-
-
+- 12 March 2009: Ran under Ruby 1.9, changed parsing to reflect Fark RSS changes
+- 3 January 2007: Major rewrite to incorporate RSS library and changes at Fark
+- 19 September 2004: Changed the network library used from `net/http`
+  to `open-uri` in the refactoring stage. This is from a suggestion
+  that was made by Gavin Sinclair, Frederick Ros, and others. It’s a
+  good suggestion, and I’m *not* going to ignore a good suggestion!
+- 17 September 2004: Initial version released.

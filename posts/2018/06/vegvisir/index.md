@@ -1,23 +1,20 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/1006899778670612480
-date: 2018-06-13T00:00:00Z
+slug: vegvisir
+date: 2018-06-13 00:00:00+00:00
 draft: false
-store:
-- image: vegvisir-shirt.jpg
-  link: https://www.designbyhumans.com/shop/933878/
-  name: Vegvisir
 tags:
 - drawing
 - procreate
 - buy me
+- craft
 title: Vegvisir
-year: '2018'
+uuid: be58be47-bd53-4cca-a977-54c8d7584b02
+aliases:
+- /2018/06/13/vegvisir/
 category: craft
+type: micro
 previewimage: /images/2018/06/vegvisir/cover.jpg
 ---
-
-
 I wanted to see my own take on the [Vegvísir][], an Icelandic symbol also called a "Nordic Compass".
 
 [Vegvísir]: https://norse-mythology.org/vegvisir/
@@ -38,4 +35,3 @@ All I know for sure about the Vegvísir is this description from the 19th Centur
 > surrounds.
 
 Who wouldn't like that?
-

@@ -1,210 +1,239 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/965748609156198400
-date: 2018-02-19T00:00:00Z
+slug: setting-task-dependencies-in-taskwarrior
+date: 2018-02-19 00:00:00+00:00
 draft: false
 series:
 - Taskwarrior Babysteps
 tags:
 - taskwarrior
+- tools
 title: Setting Task Dependencies in Taskwarrior
-year: '2018'
-category: tools
+description: "I'm not done reading a book until I finish the exercises. Taskwarrior\
+  \ can help me remember.\n"
+uuid: 364c3bf7-fc22-492b-b24e-39fcbd902cf5
+aliases:
+- /2018/02/19/setting-task-dependencies-in-taskwarrior/
 previewimage: /images/2018/02/setting-task-dependencies-in-taskwarrior/cover.png
 ---
+I recently realized I could track my reading in
+[Taskwarrior](https://taskwarrior.org/), since I use it to track so many
+other things.
 
+{{< console >}}
+$ task +readlist
 
-I'm not done reading a book until I finish the exercises. [Taskwarrior][] can help me remember.
+ID Age   P Tag                    Description                        Urg
+67 22h   H community readlist     Forge Your Future with Open Source  6.9
+70 29min M fiction readlist       Binti                               4.8
+71 21min M health readlist        Emmerich Keto Guide                 4.8
+74 16min   health readlist reread The Healthy Programmer                1
+63 6d      dev readlist           Practical Data Science with R      0.93
+72 19min   dev readlist           Think Stats                         0.9
+73 17min   dev readlist           Understanding Computation           0.9
+75 16min   home readlist          Sink Reflections                    0.9
+{{< /console >}}
 
-[Taskwarrior]: https://taskwarrior.org/
-<!-- TEASER_END -->
+I use [Priority](/post/2017/12/taskwarrior-priorities) to show what I’m
+reading right now. The highest priority goes to the book which I intend
+to finish next.
 
-I recently realized I could track my reading in Taskwarrior, since I use it to track so many other things.
+[Forge Your Future with Open
+Source](https://pragprog.com/book/vbopens/forge-your-future-with-open-source)
+is my current main read. The book guides you through making your first
+open source community contributions. It includes exercises to help you
+make your best contribution.
 
-    $ task +readlist
+I want to complete these exercises, but I know I won’t unless I create
+some kind of reminder.
 
-    ID Age   P Tag                    Description                        Urg 
-    67 22h   H community readlist     Forge Your Future with Open Source  6.9
-    70 29min M fiction readlist       Binti                               4.8
-    71 21min M health readlist        Emmerich Keto Guide                 4.8
-    74 16min   health readlist reread The Healthy Programmer                1
-    63 6d      dev readlist           Practical Data Science with R      0.93
-    72 19min   dev readlist           Think Stats                         0.9
-    73 17min   dev readlist           Understanding Computation           0.9
-    75 16min   home readlist          Sink Reflections                    0.9
+I’ll add tasks for the exercises described so far.
 
-I use [Priority][] to show what I'm reading right now. The highest priority goes to the book which I
-intend to finish next.
+{{< console >}}
+$ task add +community Set FOSS contribution goals
+$ task add +community Set FOSS project requirements
+$ task add +community Collect FOSS candidate projects
+$ task add +community Select FOSS project
+{{< /console >}}
 
-[Priority]: /2017/12/25/taskwarrior-priorities
+There will certainly be more exercises. I will create tasks for them as
+they come up.
 
-[Forge Your Future with Open Source]: https://pragprog.com/book/vbopens/forge-your-future-with-open-source
+Assigning a shared [project](/post/2017/12/taskwarrior/#_projects) makes
+their connection clearer.
 
-[Forge Your Future with Open Source][], my current main read, guides you through making your first
-open source community contributions. It includes exercises to help you make your best contribution. 
+{{< console >}}
+$ task 67,76-79 modify project:fosscontrib
+  - Project will be set to 'fosscontrib'.
+Modify task 67 'Forge Your Future with Open Source'? (yes/no/all/quit) all
+Modifying task 67 'Forge Your Future with Open Source'.
+Modifying task 76 'Set FOSS contribution goals'.
+Modifying task 77 'Set FOSS project requirements'.
+Modifying task 78 'Collect FOSS candidate projects'.
+Modifying task 79 'Select FOSS project'.
+Modified 5 tasks.
+The project 'fosscontrib' has changed.  Project 'fosscontrib' is 0% complete (5 of 5 tasks remaining).
+{{< /console >}}
 
-I want to complete these exercises, but I know I won't unless I create some kind of reminder. 
+All right but how do I show the dependencies? Let’s describe them first.
 
-I'll add tasks for the exercises described so far.
+- I must collect candidate projects before I can select a FOSS
+  project.
+- I must set my FOSS project requirements before I can collect
+  candidate projects.
+- I must define my personal FOSS contribution goals before I can set
+  my project requirements.
+- I must complete all the tasks before I can mark the book as complete
 
-    $ task add +community Set FOSS contribution goals
-    $ task add +community Set FOSS project requirements
-    $ task add +community Collect FOSS candidate projects
-    $ task add +community Select FOSS project
+Each item depends on another being completed before I can work on it. It
+is *blocked*, and the task it depends on is *blocking* it.
 
-There will certainly be more exercises. I will create tasks for them as they come up.
+Use the `depends` attribute to show when one task blockeds another.
 
-Assigning a shared [project][] makes their connection clearer.
-[project]: /2017/12/16/taskwarrior#projects
-
-    $ task 67,76-79 modify project:fosscontrib
-      - Project will be set to 'fosscontrib'.
-    Modify task 67 'Forge Your Future with Open Source'? (yes/no/all/quit) all
-    Modifying task 67 'Forge Your Future with Open Source'.
-    Modifying task 76 'Set FOSS contribution goals'.
-    Modifying task 77 'Set FOSS project requirements'.
-    Modifying task 78 'Collect FOSS candidate projects'.
-    Modifying task 79 'Select FOSS project'.
-    Modified 5 tasks.
-    The project 'fosscontrib' has changed.  Project 'fosscontrib' is 0% complete (5 of 5 tasks remaining).
-
-All right but how do I show the dependencies? Let's describe them first.
-
-* I must collect candidate projects before I can select a FOSS project.
-* I must set my FOSS project requirements before I can collect candidate projects.
-* I must define my personal FOSS contribution goals before I can set my project requirements.
-* I must complete all the tasks before I can mark the book as complete
-
-Each item depends on another being completed before I can work on it. It is *blocked*, and the task it depends
-on is *blocking* it.
-
-Use the `depends` attribute to show when one task is blocked by another.
-
-    $ task 79 modify depends:78    
-    Modifying task 79 'Select FOSS project'.
-    Modified 1 task.
-    Project 'fosscontrib' is 0% complete (5 of 5 tasks remaining).
+{{< console >}}
+$ task 79 modify depends:78
+Modifying task 79 'Select FOSS project'.
+Modified 1 task.
+Project 'fosscontrib' is 0% complete (5 of 5 tasks remaining).
+{{< /console >}}
 
 What does that look like now?
 
-    $ task project:fosscontrib
+{{< console >}}
+$ task project:fosscontrib
 
-    ID Age   Deps P Project     Tag                Description                        Urg 
-    78 25min        fosscontrib community          Collect FOSS candidate projects     9.8
-    67 23h        H fosscontrib community readlist Forge Your Future with Open Source  7.9
-    76 25min        fosscontrib community          Set FOSS contribution goals         1.8
-    77 25min        fosscontrib community          Set FOSS project requirements       1.8
-    79 22min 78     fosscontrib community          Select FOSS project                -3.2
+ID Age   Deps P Project     Tag                Description                        Urg
+78 25min        fosscontrib community          Collect FOSS candidate projects     9.8
+67 23h        H fosscontrib community readlist Forge Your Future with Open Source  7.9
+76 25min        fosscontrib community          Set FOSS contribution goals         1.8
+77 25min        fosscontrib community          Set FOSS project requirements       1.8
+79 22min 78     fosscontrib community          Select FOSS project                -3.2
 
-    5 tasks
+5 tasks
+{{< /console >}}
 
+The report shows a new `Deps` column, indicating dependencies. The `Urg`
+column shows that "Select FOSS project" gets a lower priority — it’s
+blocked by "Collect FOSS candidate projects", which now has a higher
+priority because it blocks a task.
 
-The report shows a new `Deps` column, indicating dependencies. The `Urg` column shows that "Select FOSS
-project" gets a lower priority — it's blocked by "Collect FOSS candidate projects", which now has a higher
-priority due to the fact that it blocks a task.
+The report visually highlights the blocking task while downplaying the
+blocked task. This is easier to show with a screenshot.
 
-The report visually highlights the blocking task while downplaying the blocked task. This is easier to show
-with a screenshot.
+![fosscontrib project with one dependency set](single-dependency.png)
 
-{{< show-figure image="single-dependency.png"
-  description="fosscontrib project with one dependency set" >}}
+Let’s assign the rest of the dependencies.
 
-Let's assign the rest of the dependencies.
-
-    $ task 78 modify depends:77
-    $ task 77 modify depends:76
+{{< console >}}
+$ task 78 modify depends:77
+$ task 77 modify depends:76
+{{< /console >}}
 
 Wait a minute.
 
-How do I describe the book's dependencies? I want to say it depends on all of
-these tasks, but that's not possible in Taskwarrior — unless there's an [extension][],
-but I'm not ready for those yet.
+How do I describe the book’s dependencies? I want to say it depends on
+all of these tasks, but that’s not possible in Taskwarrior — unless
+there’s an [extension](https://taskwarrior.org/tools/), but I’m not
+ready for those yet.
 
-[extension]: https://taskwarrior.org/tools/
+There’s a missing task, isn’t there? Completing all the exercises in the
+book is its own task. *That* is what finishing the book depends on.
 
-There's a missing task, isn't there? Completing all the exercises in the book is its own task. *That* is
-what finishing the book depends on. 
+{{< console >}}
+$ task add Complete all tasks in book priority:H project:fosscontrib depends:79
+Created task 80.
+The project 'fosscontrib' has changed.  Project 'fosscontrib' is 0% complete (6 of 6 tasks remaining).
+{{< /console >}}
 
-    $ task add Complete all tasks in book priority:H project:fosscontrib depends:79
-    Created task 80.
-    The project 'fosscontrib' has changed.  Project 'fosscontrib' is 0% complete (6 of 6 tasks remaining).
+Today it depends on selecting a FOSS project. That will change as the
+book presents new exercises. This is a small inconvenience that makes
+the tasks' overall relationships clearer to *me*. I am the important
+audience for my personal task list.
 
-Today it depends on selecting a FOSS project. That will change as the book presents new exercises. This is a
-small inconvenience that makes the tasks' overall relationships clearer to *me*. I am the important audience
-for my personal task list.
+Now I can correctly describe what I must do to complete the book.
 
-Now I can correctly describe what must be done to complete the book.
-
-    $ task 67 modify depends:80
-    Modifying task 67 'Forge Your Future with Open Source'.
-    Modified 1 task.
+{{< console >}}
+$ task 67 modify depends:80
+Modifying task 67 'Forge Your Future with Open Source'.
+Modified 1 task.
+{{< /console >}}
 
 What does this project look like now?
 
-    $ task project:fosscontrib
+{{< console >}}
+$ task project:fosscontrib
 
-    ID Age Deps P Project     Tag                Description                        Urg 
-    80 53s 79   H fosscontrib                    Complete all tasks in book           10
-    76 1h         fosscontrib community          Set FOSS contribution goals         9.8
-    77 1h  76     fosscontrib community          Set FOSS project requirements       4.8
-    78 1h  77     fosscontrib community          Collect FOSS candidate projects     4.8
-    79 1h  78     fosscontrib community          Select FOSS project                 4.8
-    67 23h 80   H fosscontrib community readlist Forge Your Future with Open Source  2.9
+ID Age Deps P Project     Tag                Description                        Urg
+80 53s 79   H fosscontrib                    Complete all tasks in book           10
+76 1h         fosscontrib community          Set FOSS contribution goals         9.8
+77 1h  76     fosscontrib community          Set FOSS project requirements       4.8
+78 1h  77     fosscontrib community          Collect FOSS candidate projects     4.8
+79 1h  78     fosscontrib community          Select FOSS project                 4.8
+67 23h 80   H fosscontrib community readlist Forge Your Future with Open Source  2.9
 
-    6 tasks
+6 tasks
+{{< /console >}}
 
 Right but what does it *look* like?
 
-{{< show-figure image="cover.png" description="I have my work cut out for me" >}}
+![taskwarrior report](cover.png "I have my work cut out for me")
 
-The report deemphasizes everything but the task that blocks everything else. You can see some urgency math going
-on in that last column where tasks are both blocking and blocked.
+The report deemphasizes everything but the task that blocks everything
+else. You can see some urgency math going on in that last column where
+tasks are both blocking and blocked.
 
-## New virtual tags!
+## New virtual tags\!
 
-Dependencies give us new virtual tags to filter reports based on task dependencies.
+Dependencies give us new virtual tags to filter reports based on task
+dependencies.
 
 ### `+BLOCKED`
 
-The `+BLOCKED` virtual tag filter includes only those tasks which depend on another task.
+The `+BLOCKED` virtual tag filter includes only those tasks which depend
+on another task.
 
-    $ task +BLOCKED                
+{{< console >}}
+$ task +BLOCKED
 
-    ID Age  Deps P Project     Tag                Description                        Urg 
-    80 3min 79   H fosscontrib                    Complete all tasks in book           10
-    77 1h   76     fosscontrib community          Set FOSS project requirements       4.8
-    78 1h   77     fosscontrib community          Collect FOSS candidate projects     4.8
-    79 1h   78     fosscontrib community          Select FOSS project                 4.8
-    67 23h  80   H fosscontrib community readlist Forge Your Future with Open Source  2.9
+ID Age  Deps P Project     Tag                Description                        Urg
+80 3min 79   H fosscontrib                    Complete all tasks in book           10
+77 1h   76     fosscontrib community          Set FOSS project requirements       4.8
+78 1h   77     fosscontrib community          Collect FOSS candidate projects     4.8
+79 1h   78     fosscontrib community          Select FOSS project                 4.8
+67 23h  80   H fosscontrib community readlist Forge Your Future with Open Source  2.9
 
-    5 tasks
+5 tasks
+{{< /console >}}
 
 ### `+BLOCKING`
 
-The `+BLOCKING` virtual tag filter includes only those tasks which I assigned as dependencies for another
-task.
+The `+BLOCKING` virtual tag filter includes only those tasks which I
+assigned as dependencies for another task.
 
-    $ task +BLOCKING
+{{< console >}}
+$ task +BLOCKING
 
-    ID Age  Deps P Project     Tag       Description                     Urg 
-    80 4min 79   H fosscontrib           Complete all tasks in book        10
-    76 1h          fosscontrib community Set FOSS contribution goals      9.8
-    77 1h   76     fosscontrib community Set FOSS project requirements    4.8
-    78 1h   77     fosscontrib community Collect FOSS candidate projects  4.8
-    79 1h   78     fosscontrib community Select FOSS project              4.8
+ID Age  Deps P Project     Tag       Description                     Urg
+80 4min 79   H fosscontrib           Complete all tasks in book        10
+76 1h          fosscontrib community Set FOSS contribution goals      9.8
+77 1h   76     fosscontrib community Set FOSS project requirements    4.8
+78 1h   77     fosscontrib community Collect FOSS candidate projects  4.8
+79 1h   78     fosscontrib community Select FOSS project              4.8
 
-    5 tasks
+5 tasks
+{{< /console >}}
 
 ## What now?
 
-By looking at what *is* blocking and is *not* blocked, you can focus on the tasks that block everything else.
+By looking at what *is* blocking and is *not* blocked, you can focus on
+the tasks that block everything else.
 
-    $ task +BLOCKING -BLOCKED
+{{< console >}}
+$ task +BLOCKING -BLOCKED
 
-    ID Age Project     Tag       Description                 Urg 
-    76 4h  fosscontrib community Set FOSS contribution goals  9.8
+ID Age Project     Tag       Description                 Urg
+76 4h  fosscontrib community Set FOSS contribution goals  9.8
 
-    1 task
+1 task
+{{< /console >}}
 
 I should start working on those goals so I can finish that book.
-

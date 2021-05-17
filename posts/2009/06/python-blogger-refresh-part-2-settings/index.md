@@ -1,25 +1,25 @@
 ---
+slug: python-blogger-refresh-part-2-settings
 aliases:
 - /blogspot/2009/06/12_python-blogger-refresh-part-2-settings.html
 - /post/2009/python-blogger-refresh-part-2-settings/
-date: 2009-06-12T00:00:00Z
+- /2009/06/12/python-blogger-refresh-part-2-settings/
+date: 2009-06-12 00:00:00+00:00
 tags:
 - blogger
 - gdata
 - python
+- blogspot
 title: Python Blogger Refresh Part 2 - Settings
-type: post
-year: '2009'
 series:
 - Python Blogger Refresh
-archived_category: blogspot
+uuid: 4235a7b0-4fc9-4d10-8bac-dee2aa86fd89
 ---
-
 <!-- TEASER_END -->
 
-<h2>The Idea</h2>
+## The Idea
 
-[last time]: /post/2009/python-blogger-refresh-part-1/
+[last time]: {{< ref "post/2009-06-python-blogger-refresh-part-1/index.md" >}}
 
 I had to focus my efforts [last time][] on restoring the original functionality
 of my Python Blogger script. That's out of the way. I can now start looking at
@@ -125,7 +125,7 @@ Anyways, how about when running it correctly?
 A quick look at the drafts in my Blogspot dashboard confirms that the code works.
 That command line has gotten a bit long, though. How about adding a config file?
 
-<h3>From a Config File</h3>
+### From a Config File
 
 It's good to have a configuration file holding most of your details. We can keep
 sensitive information out of the application code, and not have to remember them 

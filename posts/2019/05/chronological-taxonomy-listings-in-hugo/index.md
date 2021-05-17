@@ -1,16 +1,15 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102132792782409820
-  twitter: https://twitter.com/brianwisti/status/1130733283384410112
-date: 2019-05-20T00:00:00Z
+slug: chronological-taxonomy-listings-in-hugo
+date: 2019-05-20 00:00:00+00:00
 tags:
 - site
 - hugo
+- tools
 title: Chronological Taxonomy Listings in Hugo
-year: '2019'
-category: tools
+uuid: f29aacd2-d911-4dfc-ba01-febb427718fd
+aliases:
+- /2019/05/20/chronological-taxonomy-listings-in-hugo/
 ---
-
 The archive pages now list tags and categories such that the ones with most
 recent posts come first!
 <!-- TEASER_END -->
@@ -97,4 +96,3 @@ had before.
 ```
 
 And that's pretty much it! Had to post in case I needed this information later.
-

@@ -1,16 +1,17 @@
 ---
+slug: using-octopress-3
 aliases:
 - /tools/2015/07/12_using-octopress-3.html
 - /post/2015/using-octopress-3/
-date: 2015-07-12T00:00:00Z
+- /2015/07/12/using-octopress-3/
+date: 2015-07-12 00:00:00+00:00
 description: Experiments with the Octopress Jekyll extension bundle
 tags:
 - site
 - jekyll
+- tools
 title: Using Octopress 3
-type: post
-year: '2015'
-category: tools
+uuid: 1683f702-7c5e-459d-adce-d6829fe607f4
 ---
 [Octopress]: http://octopress.org/
 [Jekyll]: http://jekyllrb.com/

@@ -1,14 +1,15 @@
 ---
+slug: there-must-be-something-wrong-with-me
 aliases:
 - /blogspot/2006/03/24_there-must-be-something-wrong-with-me.html
 - /post/2006/there-must-be-something-wrong-with-me/
-date: 2006-03-24T00:00:00Z
+- /2006/03/24/there-must-be-something-wrong-with-me/
+date: 2006-03-24 00:00:00+00:00
 title: There Must Be Something Wrong With Me
-type: post
-year: '2006'
-archived_category: blogspot
+uuid: b8979f38-97c3-47d0-9aa1-2fe3a23cfc30
+tags:
+- blogspot
 ---
-
 [Jigdo]: http://atterer.org/jigdo
 [Debian]: http://www.debian.org
 

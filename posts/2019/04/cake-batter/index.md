@@ -1,18 +1,19 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/101905230728697448
-  twitter: https://twitter.com/brianwisti/status/1116169118858792960
-date: 2019-04-10T00:00:00Z
+slug: cake-batter
+date: 2019-04-10 00:00:00+00:00
 draft: false
 tags:
 - drawing
 - Procreate
+- craft
 title: Cake Batter
-year: '2019'
+uuid: 9935ca70-0b76-43c7-8b36-58d5dc025015
+aliases:
+- /2019/04/10/cake-batter/
 category: craft
+type: micro
 previewimage: /images/2019/04/cake-batter/cover.jpg
 ---
-
 Getting the doodle time in.
 <!-- TEASER_END -->
 
@@ -25,4 +26,3 @@ Posted a version of this to the social networks. [My mom][] had some comments wh
 resulted in both a name and a few color adjustments.
 
 [My mom]: https://shellybedsaul.com/
-

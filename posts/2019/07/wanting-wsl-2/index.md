@@ -1,8 +1,5 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102453426272533557
-  twitter: https://twitter.com/brianwisti/status/1151254113113595905
-date: 2019-07-16T14:42:12-07:00
+date: 2019-07-16 14:42:12-07:00
 source:
   title: What's new for Windows 10 Insider Preview Builds (20H1)
   url: https://docs.microsoft.com/en-us/windows-insider/at-home/whats-new-wip-at-home-20h1
@@ -13,11 +10,13 @@ tags:
 - break my computer
 - never mind I'll do it myself
 title: Wanting WSL 2
-year: '2019'
+slug: wanting-wsl-2
+uuid: 0474291a-6000-43bd-94ae-9bd452c2b95c
+aliases:
+- /note/2019/197/wanting-wsl-2/
 category: note
 type: micro
 ---
-
 Been impatiently waiting for the general release of WSL 2 -- the [Windows
 Subsystem for Linux][]. What's interesting about WSL 2?
 

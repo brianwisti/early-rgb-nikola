@@ -1,13 +1,15 @@
 ---
-date: 2018-08-30T00:00:00Z
+slug: windows-virtual-desktops
+date: 2018-08-30 00:00:00+00:00
 draft: false
 tags:
 - windows
+- tools
 title: Windows Virtual Desktops
-year: '2018'
-category: tools
+uuid: afed263a-6ccb-4a1c-84c0-a37be516b051
+aliases:
+- /2018/08/30/windows-virtual-desktops/
 ---
-
 A short post noting Windows 10 keyboard shortcuts for virtual desktops
 <!-- TEASER_END -->
 
@@ -28,4 +30,3 @@ Keys                     | Action
 This [Microsoft help page][] had all the info I need and more.
 
 [Microsoft help page]:https://support.microsoft.com/en-us/help/12445/windows-keyboard-shortcuts
-

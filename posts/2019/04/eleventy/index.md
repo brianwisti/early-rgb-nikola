@@ -1,20 +1,17 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/101882459939490036
-  twitter: https://twitter.com/brianwisti/status/1114712015904366592
-date: 2019-04-06T00:00:00Z
+slug: eleventy
+date: 2019-04-06 00:00:00+00:00
 draft: false
-series:
-- Artisanal Blogging With Eleventy
 tags:
 - Node.js
 - Eleventy
+- tools
 title: Eleventy
-year: '2019'
-category: tools
+uuid: 3a447167-bbc9-4e0a-8231-b8697bd6e30a
+aliases:
+- /2019/04/06/eleventy/
 previewimage: /images/2019/04/eleventy/cover.jpg
 ---
-
 Spring has sprung, and with it comes thoughts of new tools to build a Web site. Okay no the picture has
 nothing to do with Web sites but isn't it pretty?
 
@@ -29,7 +26,7 @@ simpler static site generator. [Node.js][] powers Eleventy. That caught my
 attention because of how much I've been using the platform at work recently.
 
 [Hugo]: /tags/hugo
-[a while]: {{< ref "/post/2015/hugo.md" >}}
+[a while]: {{< ref "/post/2015-09-next-hugo/index.md" >}}
 [Eleventy]: https://www.11ty.io/
 [Node.js]: https://nodejs.org/
 
@@ -41,15 +38,17 @@ files outside of the content/layout flow (stylesheets, images, etc).
 [core documentation]: https://www.11ty.io/docs/
 ["Hello World"]: https://en.wikipedia.org/wiki/%22Hello,_World!%22_program
 
-****
+<div class="admonition note">
 
-## But I just want to blog
+<p class="first admonition-title">Note</p>
+
+What if you just want to blog?
 
 Use one of the [starter projects][], packaged with the configuration and plugins needed
 for blogging in Eleventy. I don't know enough about Eleventy or Node.js to
 tell you which one to use though!
 
-****
+</div>
 
 [starter projects]: https://www.11ty.io/docs/starter/
 
@@ -145,4 +144,57 @@ My `_includes/layout.njk` is pretty much your basic minimal HTML 5 skeleton.
 So yeah. I should probably add some front matter.
 
 ``` markdown
+---
+layout: layout.njk
+title: Random Geekery Blog
+---
 
+But in [Eleventy][].
+
+[Eleventy]: https://www.11ty.io/
+```
+
+Rebuild, and now `_site/index.html` looks like a Web page.
+
+``` html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Geekery Blog</title>
+  </head>
+  <body>
+    <h1>Random Geekery Blog</h1>
+
+    <p>But in <a href="https://www.11ty.io/">Eleventy</a>.</p>
+
+  </body>
+</html>
+```
+
+## Use Pass-through File Copy for static content
+
+Finally, I want to put in some CSS. I could just insert it in the template,
+but I prefer to keep styles in their own file.
+
+Eleventy's default behavior is minimal. It knows content. It knows
+templates. Going beyond that requires special instructions. In order to add
+static content like stylesheets, we must [configure][] Eleventy to recognize
+them.
+
+My `.eleventy.js` tells Eleventy that everything in the folder `static/css` gets
+copied into site output unmodified.
+
+[configure]: https://www.11ty.io/docs/config/
+
+``` javascript
+module.exports = function(eleventyConfig) {
+    eleventyConfig.addPassthroughCopy("static/css");
+    return {
+        passthroughFileCopy: true
+    };
+}
+```
+
+[passthroughFileCopy]: https://www.11ty.io/docs/copy/#manual-passthrough-copy-(faster)

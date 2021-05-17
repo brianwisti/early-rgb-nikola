@@ -1,18 +1,19 @@
 ---
+slug: connect-to-mongodb-on-a-vagrant-box-from-the-host
 aliases:
 - /tools/2014/08/06_mongo-vagrant-connect.html
 - /post/2014/mongo-vagrant-connect/
-date: 2014-08-06T00:00:00Z
+- /2014/08/06/connect-to-mongodb-on-a-vagrant-box-from-the-host/
+date: 2014-08-06 00:00:00+00:00
 tags:
 - vagrant
 - mongodb
+- tools
 title: Connect To MongoDB on a Vagrant box from the host
-type: post
-year: '2014'
-category: tools
+uuid: 5ce0c69d-7c4b-4355-b286-13eae9199775
 previewimage: /images/2014/08/connect-to-mongodb-on-a-vagrant-box-from-the-host/cover.png
 ---
-[Yesterday]: /post/2014/trusty-mongo-mojo/
+[Yesterday]: {{< relref "post/2014-08-trusty-mongo-mojo-box/index.rst" >}}
 
 [Yesterday][] I finished a little project to set up a reusable Vagrant box
 for MongoDB and Perl Mojolicious experiments. That project is okay as

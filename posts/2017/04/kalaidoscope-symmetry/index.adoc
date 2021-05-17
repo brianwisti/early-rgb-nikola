@@ -1,0 +1,20 @@
+---
+aliases:
+- /craft/2017/kalaidoscope-symmetry/
+- /2017/04/22/kalaidoscope-symmetry/
+date: 2017-04-22 00:00:00+00:00
+draft: false
+tags:
+- drawing
+- Infinite Painter
+- craft
+title: Kalaidoscope Symmetry
+uuid: f79c68c7-892f-49bf-8d4f-6ef762ae2d66
+format: adoc
+category: craft
+type: micro
+previewimage: /images/2017/04/kalaidoscope-symmetry/cover.jpg
+---
+<div class="paragraph">
+<p>I’ve been enjoying <a href="http://www.seanbrakefield.com/painter.html">Infinite Painter</a>’s symmetry tools.</p>
+</div>

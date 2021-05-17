@@ -1,0 +1,48 @@
+---
+aliases:
+- /post/2017/geekish-update/
+- /2017/03/28/geekish-update/
+date: 2017-03-28
+draft: false
+tags:
+- personal
+- site
+- marginalia
+title: Geekish Update
+slug: geekish-update
+uuid: 84e232c3-e5d6-40d7-8347-5b4fec5f5e62
+format: adoc
+previewimage: /images/2017/03/geekish-update/cover.jpg
+---
+<div class="paragraph">
+<p>I set up a space for myself in the basement.
+This is now where I keep my desktop — running <a href="https://www.ubuntu.com/">Ubuntu</a> at the moment.
+Easy enough to get at from the laptop upstairs.
+Maybe keep <a href="https://irssi.org/">Irssi</a> running in a <a href="https://tmux.github.io/">Tmux</a> session or something.</p>
+</div>
+<div class="paragraph">
+<p>Oh, and just in case you want to know how the basement looked when we moved in, here’s a picture.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="basement-original.jpg" alt="The original basement">
+</div>
+<div class="title">Figure 1. The original basement</div>
+</div>
+<div class="paragraph">
+<p>I like it better now.</p>
+</div>
+<div class="paragraph">
+<p>What have I been coding in this workspace that looks a bit less like a horror movie scene than it did a few weeks ago?</p>
+</div>
+<div class="paragraph">
+<p>I’m working on a <code>test</code> rule for this site.
+Mainly I use it to check for bad links in an attempt to deal with <a href="https://en.wikipedia.org/wiki/Link_rot">link rot</a>.
+The link checker is <a href="https://www.python.org/">Python</a> with <a href="http://docs.python-requests.org/en/master/">Requests</a>,
+and seeing if <a href="https://scrapy.org/">Scrapy</a> can be useful in this context.
+Scrapy seems like overkill at first glance, but it has middleware for respecting <a href="http://www.robotstxt.org/">robots.txt</a>.
+I care about being a good Internet citizen.</p>
+</div>
+<div class="paragraph">
+<p>I plan to write about that soon, since I enjoy the task so far.</p>
+</div>

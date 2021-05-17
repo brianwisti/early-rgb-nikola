@@ -1,8 +1,5 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102424893178122236
-  twitter: https://twitter.com/brianwisti/status/1149427483781009411
-date: 2019-07-11T12:01:10-07:00
+date: 2019-07-11 12:01:10-07:00
 tags:
 - art
 - work trip
@@ -13,10 +10,12 @@ tags:
 - The art is not ick
 - unless that's cool
 title: Artist's rendition of my sinuses
-year: '2019'
+slug: artists-rendition-of-my-sinuses
+uuid: 48e67d8a-9048-405d-a974-582c902c0a7f
+aliases:
+- /note/2019/192/artists-rendition-of-my-sinuses/
 category: note
 type: micro
 previewimage: /images/2019/07/artists-rendition-of-my-sinuses/cover.jpg
 ---
-
 Got my allergy meds at least, so I feel better than an hour ago.

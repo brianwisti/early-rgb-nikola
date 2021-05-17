@@ -1,14 +1,15 @@
 ---
+slug: aliases
 aliases:
 - /blogspot/2006/03/01_aliases.html
 - /post/2006/aliases/
-date: 2006-03-01T00:00:00Z
+- /2006/03/01/aliases/
+date: 2006-03-01 00:00:00+00:00
 tags:
 - ruby
+- blogspot
 title: Aliases
-type: post
-year: '2006'
-archived_category: blogspot
+uuid: 262a7795-c384-4d6a-adb2-9a7dec089bf4
 ---
 Here's something I didn't know. When you override a method in a subclass, you
 also need to redeclare any aliases for that method. Seems pretty obvious when

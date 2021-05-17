@@ -1,21 +1,20 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102593803075301927
-  twitter: https://twitter.com/brianwisti/status/1160237906830725126
 caption: Somebody scraped the "lives" part off "sweep leaves not lives"
-date: 2019-08-10T09:38:46-07:00
+date: 2019-08-10 09:38:46-07:00
 tags:
 - seattle
 - graffiti
 - art
 - homelessness
 title: Sweep Leaves Not Lives
-year: '2019'
+slug: sweep-leaves-not-lives
+uuid: faef8031-095f-4918-9cca-0e041f06c670
+aliases:
+- /note/2019/222/sweep-leaves-not-lives/
 category: note
 type: micro
 previewimage: /images/2019/08/sweep-leaves-not-lives/cover.jpg
 ---
-
 Seattle's homeless sweeps are contentious to say the least.
 
 From [The Seattle Times][], on July 9th:

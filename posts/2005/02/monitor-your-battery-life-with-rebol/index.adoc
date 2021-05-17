@@ -1,0 +1,871 @@
+---
+aliases:
+- /coolnamehere/2005/02/28_monitor-your-battery-life.html
+- /post/2005/monitor-your-battery-life/
+- /2005/02/28/monitor-your-battery-life-with-rebol/
+date: 2005-02-28
+tags:
+- rebol
+- learn
+- coolnamehere
+title: Monitor Your Battery Life With REBOL
+slug: monitor-your-battery-life-with-rebol
+updated: 2009-07-11 00:00:00+00:00
+uuid: cce1fc1b-ec92-4ab4-8165-5773cb400f74
+format: adoc
+---
+<div class="paragraph">
+<p>One thing you like to keep track of on your laptop is how much juice is left in your battery.
+There’s nothing quite like being in the middle of some insane hacking session and watching as the computer suddenly gets tired and blacks out on you.
+Of course, I’ve already got a handy battery monitor in my <a href="https://kde.org">Ubuntu</a> panel, but what if I’m not in KDE?
+Okay, okay, there are handy battery monitors for nearly every desktop environment out there.
+That’s not my point, though.
+My point is that I’d like to explore some basic system stuff using REBOL on an <a href="https://ubuntu.com:">Ubuntu</a> 8.10 system.
+Got it?
+Okay, good.
+Now that we’ve settled this little detail, let’s move on.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>I should mention that if all you want is a command-line printout of your battery information on Linux,
+you can get that with the command <code>acpi -b</code>.
+Still, reinventing wheels can be fun.
+Why not give this a shot?</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect1">
+<h2 id="_the_raw_materials">The Raw Materials</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Text is like water in UNIX-type systems.
+It is everywhere, and nearly everything can be accessed as a text file.
+Linux follows this ideal by keeping system information in a number of files in the <code>/proc/</code> directory.
+I could probably find everything I might want to know about the system in that directory,
+but let’s just focus on the directories which contain battery information.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ubuntu keeps the files in <code>/proc/</code>, but other distros may keep the files in other locations, such as <code>/var/proc/</code>.
+Poke around on your own system to find out the specifics for your distribution.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt;&gt; read %/proc/acpi/battery/
+== [%BAT0/]
+&gt;&gt; read %/proc/acpi/battery/BAT0/
+== [%alarm %state %info]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I only have one battery, and this time I only see one folder under <code>/proc/acpi/battery</code>.
+There were two folders when I ran this on another machine a while back.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt;&gt; print read %/proc/acpi/battery/BAT0/state
+present:                 yes
+capacity state:          ok
+charging state:          charged
+present rate:            0 mA
+remaining capacity:      4263 mAh
+present voltage:         12495 mV</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That one battery happens to be fully charged.
+Good thing, because it’s been sitting plugged in all day.
+I’m curious.
+Let’s see what the <code>state</code> file looks like when I unplug the computer.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt;&gt; print read %/proc/acpi/battery/BAT0/state
+present:                 yes
+capacity state:          ok
+charging state:          discharging
+present rate:            0 mA
+remaining capacity:      4341 mAh
+present voltage:         12107 mV</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Okay, so it is pretty easy to tell when your computer is plugged in and when it isn’t.
+The <code>info</code> file contains some more useful information about the battery which will come in handy later on.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt;&gt; print read %/proc/acpi/battery/BAT0/info
+present:                 yes
+design capacity:         4400 mAh
+last full capacity:      4263 mAh
+battery technology:      rechargeable
+design voltage:          10800 mV
+design capacity warning: 210 mAh
+design capacity low:     147 mAh
+capacity granularity 1:  63 mAh
+capacity granularity 2:  4053 mAh
+model number:            Primary
+serial number:
+battery type:            LION
+OEM info:                Hewlett-Packard</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>What about the <code>alarm</code> file?</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt;&gt; print read %/proc/acpi/battery/BAT0/alarm
+alarm:                   unsupported</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Oh well, I wasn’t really sure what I’d do with that information anyhow.</p>
+</div>
+<div class="paragraph">
+<p>Now that we’ve seen what the raw information looks like, let’s work on making a useful utility which processes that information.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_beginning_the_script">Beginning the Script</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-c">#!/usr/local/bin/rebol -qs</span>
+
+<span class="tok-gs">REBOL [</span>
+    <span class="tok-gu">Title:</span> <span class="tok-s">&quot;Battery Monitor&quot;</span>
+    <span class="tok-gu">File:</span> <span class="tok-nd">%battery.r</span>
+    <span class="tok-gu">Date:</span> <span class="tok-sx">24-Feb-2009</span>
+    <span class="tok-gu">Author:</span> <span class="tok-s">&quot;Brian Wisti&quot;</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-gu">battery-dir:</span> <span class="tok-nd">%/proc/acpi/battery/</span>
+
+<span class="tok-gu">batteries:</span> <span class="tok-nb">read</span> <span class="tok-nd">%/proc/acpi/battery/</span>
+
+<span class="tok-nb">foreach</span> <span class="tok-nv">battery</span> <span class="tok-nv">batteries</span> <span class="tok-gs">[</span>
+    <span class="tok-nb">print</span> <span class="tok-nv">battery</span>
+    <span class="tok-gu">battery-state:</span> <span class="tok-kn">rejoin</span> <span class="tok-gs">[</span> <span class="tok-nv">battery-dir</span> <span class="tok-nv">battery</span> <span class="tok-s">&quot;state&quot;</span> <span class="tok-gs">]</span>
+    <span class="tok-nb">print</span> <span class="tok-nb">read</span> <span class="tok-nv">battery-state</span>
+<span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We need that <code>-s</code> command line parameter in there if we want to run this script peacefully.
+What happens if we don’t?
+Every time we run the script, REBOL throws a little dialog asking us if we’re sure we want this script touching our precious files.
+All in all, a good thing to do, but we <em>know</em> we are okay with this script reading our files, precious or otherwise.</p>
+</div>
+<div class="paragraph">
+<p>Right.
+We are looking for every battery directory, and printing out its <code>state</code>.
+What does that look like?
+Not much, right now.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>BAT0/
+present:                 yes
+capacity state:          ok
+charging state:          charged
+present rate:            0 mA
+remaining capacity:      4360 mAh
+present voltage:         12465 mV</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It’s time to start looking at REBOL’s <code>parse</code> rules.</p>
+</div>
+<div class="paragraph">
+<p>Tell me not to be scared.</p>
+</div>
+<div class="sect2">
+<h3 id="_playing_at_parse">Playing at Parse</h3>
+<div class="paragraph">
+<p>Each item is on one line.
+The key is on the left side, then there’s a colon and some whitespace before reaching the actual value.
+I’d like to get at the information in this file as a hash:
+a dictionary datatype where values on the right are tied to keys on the left.
+Let’s use Parse and split along the colon character, like so.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-c">#!/usr/local/bin/rebol -qs</span>
+
+<span class="tok-gs">REBOL [</span>
+    <span class="tok-gu">Title:</span> <span class="tok-s">&quot;Battery Monitor&quot;</span>
+    <span class="tok-gu">File:</span> <span class="tok-nd">%battery.r</span>
+    <span class="tok-gu">Date:</span> <span class="tok-sx">24-Feb-2009</span>
+    <span class="tok-gu">Author:</span> <span class="tok-s">&quot;Brian Wisti&quot;</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-gu">battery-dir:</span> <span class="tok-nd">%/proc/acpi/battery/</span>
+
+<span class="tok-gu">batteries:</span> <span class="tok-nb">read</span> <span class="tok-nd">%/proc/acpi/battery/</span>
+
+<span class="tok-nb">foreach</span> <span class="tok-nv">battery</span> <span class="tok-nv">batteries</span> <span class="tok-gs">[</span>
+    <span class="tok-nb">print</span> <span class="tok-nv">battery</span>
+    <span class="tok-gu">battery-state:</span> <span class="tok-nb">read</span> <span class="tok-kn">rejoin</span> <span class="tok-gs">[</span> <span class="tok-nv">battery-dir</span> <span class="tok-nv">battery</span> <span class="tok-s">&quot;state&quot;</span> <span class="tok-gs">]</span>
+    <span class="tok-nb">print</span> <span class="tok-nv">battery-state</span>
+    <span class="tok-gu">state:</span> <span class="tok-nf">make</span> <span class="tok-kt">hash!</span> <span class="tok-ne">parse</span><span class="tok-na">/all</span> <span class="tok-nv">battery-state</span> <span class="tok-s">&quot;:&quot;</span>
+
+    <span class="tok-c">; Print out what we have so far for debugging purposes.</span>
+    <span class="tok-nb">foreach</span> <span class="tok-gs">[</span> <span class="tok-nv">key</span> <span class="tok-nv">value</span> <span class="tok-gs">]</span> <span class="tok-nv">state</span> <span class="tok-gs">[</span>
+        <span class="tok-nb">print</span> <span class="tok-gs">[</span> <span class="tok-nv">key</span> <span class="tok-s">&quot;--&quot;</span> <span class="tok-nv">value</span> <span class="tok-gs">]</span>
+    <span class="tok-gs">]</span>
+<span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That doesn’t <em>quite</em> do the job we wanted, unfortunately.
+All of the whitespace is stuck with <code>value</code>, obscuring the actual value.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>BAT0/
+present:                 yes
+capacity state:          ok
+charging state:          discharging
+present rate:            0 mA
+remaining capacity:      4310 mAh
+present voltage:         12081 mV
+
+present --                  yes
+capacity state
+          ok
+charging state --           discharging
+present rate
+            0 mA
+remaining capacity --       4310 mAh
+present voltage
+         12081 mV
+-- none</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We want to get rid of the leading whitespace for each value.</p>
+</div>
+<div class="paragraph">
+<p>I need to think for a minute…</p>
+</div>
+<div class="paragraph">
+<p>Okay, I know how I would do this with a regular expression in <a href="/tags/perl">Perl</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl"><span></span><span class="tok-ch">#!/usr/bin/perl</span>
+
+<span class="tok-k">use</span> <span class="tok-nn">Modern::Perl</span><span class="tok-p">;</span>
+<span class="tok-k">use</span> <span class="tok-nn">Fatal</span> <span class="tok-sx">qw(open close)</span><span class="tok-p">;</span>
+
+<span class="tok-k">my</span> <span class="tok-nv">%state</span> <span class="tok-o">=</span> <span class="tok-p">();</span>
+<span class="tok-nb">open</span><span class="tok-p">(</span><span class="tok-k">my</span> <span class="tok-nv">$state</span><span class="tok-p">,</span> <span class="tok-s">&quot;/proc/acpi/battery/BAT0/state&quot;</span><span class="tok-p">);</span>
+<span class="tok-k">while</span> <span class="tok-p">(</span><span class="tok-k">my</span> <span class="tok-nv">$line</span> <span class="tok-o">=</span> <span class="tok-sr">&lt;$state&gt;</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+  <span class="tok-nb">chomp</span><span class="tok-p">(</span><span class="tok-nv">$line</span><span class="tok-p">);</span>
+  <span class="tok-k">my</span> <span class="tok-p">(</span><span class="tok-nv">$key</span><span class="tok-p">,</span> <span class="tok-nv">$value</span><span class="tok-p">)</span> <span class="tok-o">=</span> <span class="tok-nb">split</span><span class="tok-p">(</span><span class="tok-sr">/:/</span><span class="tok-p">,</span> <span class="tok-nv">$line</span><span class="tok-p">);</span>
+  <span class="tok-nv">$value</span> <span class="tok-o">=~</span> <span class="tok-sr">s{^\s*}{}</span><span class="tok-p">;</span>
+  <span class="tok-nv">$state</span><span class="tok-p">{</span><span class="tok-nv">$key</span><span class="tok-p">}</span> <span class="tok-o">=</span> <span class="tok-nv">$value</span><span class="tok-p">;</span>
+<span class="tok-p">}</span>
+
+<span class="tok-nb">close</span> <span class="tok-nv">$state</span><span class="tok-p">;</span>
+
+<span class="tok-c1"># Print out what we have so far for debugging purposes.</span>
+<span class="tok-k">foreach</span> <span class="tok-k">my</span> <span class="tok-nv">$key</span> <span class="tok-p">(</span><span class="tok-nb">keys</span> <span class="tok-nv">%state</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+  <span class="tok-n">say</span> <span class="tok-nv">$key</span><span class="tok-p">,</span> <span class="tok-s">&quot; -- &quot;</span><span class="tok-p">,</span> <span class="tok-nv">$state</span><span class="tok-p">{</span><span class="tok-nv">$key</span><span class="tok-p">};</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This obviously isn’t the only Perl solution I could have chosen, but it was the first one that came to mind.
+The point is that it gets the job done.
+It’s kind of ugly, but Perl is kind enough to let you be ugly if you’re in a hurry.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ perl battery.pl
+present voltage -- 12021 mV
+capacity state -- ok
+present rate -- 0 mA
+remaining capacity -- 4088 mAh
+charging state -- discharging
+present -- yes</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>How do I strip the leading whitespace in Rebol?
+I know there’s a "right" way, but for now I just want to get those spaces out of there.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-c">#!/usr/local/bin/rebol -qs</span>
+
+<span class="tok-gs">REBOL [</span>
+    <span class="tok-gu">Title:</span> <span class="tok-s">&quot;Battery Monitor&quot;</span>
+    <span class="tok-gu">File:</span> <span class="tok-nd">%battery.r</span>
+    <span class="tok-gu">Date:</span> <span class="tok-sx">24-Feb-2009</span>
+    <span class="tok-gu">Author:</span> <span class="tok-s">&quot;Brian Wisti&quot;</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-gu">battery-dir:</span> <span class="tok-nd">%/proc/acpi/battery/</span>
+
+<span class="tok-gu">batteries:</span> <span class="tok-nb">read</span> <span class="tok-nd">%/proc/acpi/battery/</span>
+
+<span class="tok-nb">foreach</span> <span class="tok-nv">battery</span> <span class="tok-nv">batteries</span> <span class="tok-gs">[</span>
+    <span class="tok-gu">battery-file:</span> <span class="tok-kn">rejoin</span> <span class="tok-gs">[</span> <span class="tok-nv">battery-dir</span> <span class="tok-nv">battery</span> <span class="tok-s">&quot;state&quot;</span> <span class="tok-gs">]</span>
+    <span class="tok-gu">state:</span> <span class="tok-nf">make</span> <span class="tok-kt">hash!</span> <span class="tok-gs">[]</span>
+    <span class="tok-nb">print</span> <span class="tok-nv">battery</span>
+
+    <span class="tok-nb">foreach</span> <span class="tok-nv">line</span> <span class="tok-nb">read</span><span class="tok-na">/lines</span> <span class="tok-nv">battery-file</span> <span class="tok-gs">[</span>
+        <span class="tok-ne">parse</span> <span class="tok-nv">line</span> <span class="tok-gs">[</span>
+            <span class="tok-nf">copy</span> <span class="tok-nv">key</span> <span class="tok-nv">thru</span> <span class="tok-s">&quot;:&quot;</span>
+            <span class="tok-nf">copy</span> <span class="tok-nv">value</span> <span class="tok-nf">to</span> <span class="tok-nv">end</span>
+        <span class="tok-gs">]</span>
+        <span class="tok-gu">value:</span> <span class="tok-nf">trim</span> <span class="tok-nv">value</span>
+        <span class="tok-kn">append</span> <span class="tok-nv">state</span> <span class="tok-nv">key</span>
+        <span class="tok-kn">append</span> <span class="tok-nv">state</span> <span class="tok-nv">value</span>
+    <span class="tok-gs">]</span>
+
+    <span class="tok-c">; Print out what we have so far for debugging purposes.</span>
+    <span class="tok-nb">foreach</span> <span class="tok-gs">[</span> <span class="tok-nv">key</span> <span class="tok-nv">value</span> <span class="tok-gs">]</span> <span class="tok-nv">state</span> <span class="tok-gs">[</span>
+        <span class="tok-nb">print</span> <span class="tok-gs">[</span> <span class="tok-nv">key</span> <span class="tok-s">&quot;--&quot;</span> <span class="tok-nv">value</span> <span class="tok-gs">]</span>
+    <span class="tok-gs">]</span>
+<span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is a lot longer than the Perl version, but you could argue that it’s easier to read.
+And I just <em>know</em> that there’s a better way to do it.
+Sadly, we won’t know what the better way is until we learn a little more about how Parse works.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>./battery.r
+<span class="tok-go">BAT0/</span>
+<span class="tok-go">present: -- yes</span>
+<span class="tok-go">capacity state: -- ok</span>
+<span class="tok-go">charging state: -- discharging</span>
+<span class="tok-go">present rate: -- 0 mA</span>
+<span class="tok-go">remaining capacity: -- 4242 mAh</span>
+<span class="tok-go">present voltage: -- 12375 mV</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Well, that colon is still in there, but at least I got rid of the leading spaces in the values.</p>
+</div>
+<div class="paragraph">
+<p>I’ll come back to that issue after I’ve learned a little bit more about Parse.
+For now, let’s focus on the fact that we are finally getting to the data.
+That means we have reached a milestone, and it also means we can stretch our legs for a minute.
+Good circulation is important, after all.</p>
+</div>
+<div class="paragraph">
+<p>Let’s refactor before we move on.
+I like to have my code as clean as I know how to make it each step of the way.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-c">#!/usr/local/bin/rebol -qs</span>
+
+<span class="tok-gs">REBOL [</span>
+    <span class="tok-gu">Title:</span> <span class="tok-s">&quot;Battery Monitor&quot;</span>
+    <span class="tok-gu">File:</span> <span class="tok-nd">%battery.r</span>
+    <span class="tok-gu">Date:</span> <span class="tok-sx">24-Feb-2009</span>
+    <span class="tok-gu">Author:</span> <span class="tok-s">&quot;Brian Wisti&quot;</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-gu">battery-dir:</span> <span class="tok-nd">%/proc/acpi/battery/</span>
+<span class="tok-gu">batteries:</span> <span class="tok-nf">make</span> <span class="tok-kt">hash!</span> <span class="tok-gs">[</span> <span class="tok-gs">]</span>
+
+<span class="tok-c">; Load battery information</span>
+<span class="tok-nb">foreach</span> <span class="tok-nv">battery</span> <span class="tok-nb">read</span> <span class="tok-nv">battery-dir</span> <span class="tok-gs">[</span>
+    <span class="tok-gu">battery-file:</span> <span class="tok-kn">rejoin</span> <span class="tok-gs">[</span> <span class="tok-nv">battery-dir</span> <span class="tok-nv">battery</span> <span class="tok-s">&quot;state&quot;</span> <span class="tok-gs">]</span>
+    <span class="tok-gu">state:</span> <span class="tok-nf">make</span> <span class="tok-kt">hash!</span> <span class="tok-gs">[]</span>
+
+    <span class="tok-nb">foreach</span> <span class="tok-nv">line</span> <span class="tok-nb">read</span><span class="tok-na">/lines</span> <span class="tok-nv">battery-file</span> <span class="tok-gs">[</span>
+        <span class="tok-ne">parse</span> <span class="tok-nv">line</span> <span class="tok-gs">[</span>
+            <span class="tok-nf">copy</span> <span class="tok-nv">key</span> <span class="tok-nf">to</span> <span class="tok-s">&quot;:&quot;</span>
+            <span class="tok-nf">skip</span>
+            <span class="tok-nf">copy</span> <span class="tok-nv">value</span> <span class="tok-nf">to</span> <span class="tok-nv">end</span> <span class="tok-gs">(</span><span class="tok-nf">trim</span> value<span class="tok-gs">)</span>
+        <span class="tok-gs">]</span>
+        <span class="tok-kn">repend</span> <span class="tok-nv">state</span> <span class="tok-gs">[</span> <span class="tok-nv">key</span> <span class="tok-nv">value</span> <span class="tok-gs">]</span>
+    <span class="tok-gs">]</span>
+    <span class="tok-kn">repend</span> <span class="tok-nv">batteries</span> <span class="tok-gs">[</span> <span class="tok-nv">battery</span> <span class="tok-nv">state</span> <span class="tok-gs">]</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-c">; Print out what we have so far for debugging purposes.</span>
+<span class="tok-nb">foreach</span> <span class="tok-gs">[</span> <span class="tok-nv">name</span> <span class="tok-nv">info</span> <span class="tok-gs">]</span> <span class="tok-nv">batteries</span> <span class="tok-gs">[</span>
+    <span class="tok-nb">print</span> <span class="tok-nv">name</span>
+    <span class="tok-nb">foreach</span> <span class="tok-gs">[</span> <span class="tok-nv">key</span> <span class="tok-nv">value</span> <span class="tok-gs">]</span> <span class="tok-nv">info</span> <span class="tok-gs">[</span>
+        <span class="tok-nb">print</span> <span class="tok-gs">[</span> <span class="tok-nv">key</span> <span class="tok-s">&quot;--&quot;</span> <span class="tok-nv">value</span> <span class="tok-gs">]</span>
+    <span class="tok-gs">]</span>
+<span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You aren’t supposed to change the actual functionality during refactoring, because the whole idea is to make it do exactly the same thing it did before, but in a more sane style. I was hit by a lightbulb moment while refactoring the <code>parse</code> rule, though, and decided to see what would happen if <code>skip</code> would get me past that colon. Sure enough, that did the trick!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>./battery.r
+<span class="tok-go">BAT0/</span>
+<span class="tok-go">present -- yes</span>
+<span class="tok-go">capacity state -- ok</span>
+<span class="tok-go">charging state -- charged</span>
+<span class="tok-go">present rate -- 0 mA</span>
+<span class="tok-go">remaining capacity -- 4299 mAh</span>
+<span class="tok-go">present voltage -- 12540 mV</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_useful_output">Useful Output</h3>
+<div class="paragraph">
+<p>Now let’s take this raw data and turn it into output that I can actually do something with.
+To do that, we need to decide what information we care about and what we don’t.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>I don’t care about batteries I don’t have.
+Don’t show them to me.</p>
+</li>
+<li>
+<p>I care about whether the computer is plugged in or not.</p>
+</li>
+<li>
+<p>I can’t convert remaining capacity of total capacity in my head.
+Just show me a percentage remaining.</p>
+</li>
+<li>
+<p>I <em>certainly</em> can’t convert present rate and remaining capacity.
+Show me a time value instead.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_dont_show_batteries_i_dont_have">Don’t Show Batteries I Don’t Have</h4>
+<div class="paragraph">
+<p>This should be the easiest step.
+All we need to do is check the value of the "present" key.
+Should be no problem at all.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>; Print out what we have so far for debugging purposes.
+foreach [ name info ] batteries [
+    if "yes" = select info "present" [
+        print name
+        foreach [key value] info [
+            print [ key "--" value ]
+        ]
+    ]
+]</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_show_me_if_the_computer_is_plugged_in">Show Me If The Computer Is Plugged In</h4>
+<div class="paragraph">
+<p>We are now officially out of the "print out what we have for debugging purposes" stage.
+From here on, we will be creating the output we expect to see.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>foreach [ name info ] batteries [
+    if "yes" = select info "present" [
+        charging-state: select info "charging state"
+        print [ name charging-state ]
+    ]
+]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Rather than step through and display every single item of data, we are printing one line with minimal information:
+the name of the battery and whether it is charging or not.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ ./battery.r
+BAT0/ discharging</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I like this.
+It is easy for me to understand this output compared to the raw files.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_show_me_percentage_of_remaining_battery_capacity">Show Me Percentage Of Remaining Battery Capacity</h4>
+<div class="paragraph">
+<p>I will want to know how much power is remaining if the battery is either "charging" or "discharging".
+I don’t know what <code>mAh</code> is – <em>milliAmp-hours?</em>.
+I prefer to see this in terms of what percentage is remaining.
+A full battery has 100%, and an empty battery has 0%.
+Seems easy enough, but we don’t have the total capacity listed in the state file.
+To get this information, we will need to look at the <code>info</code> file.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>foreach [ name info ] batteries [
+    if "yes" = select info "present" [
+        charging-state: select info "charging state"
+        prin [ name charging-state ]
+        info-file: rejoin [ battery-dir name "info" ]
+        foreach line read/lines info-file [
+            if parse line [
+                "design capacity:"
+                copy capacity to end (trim capacity)
+            ] [
+                items: parse capacity none
+                cap: to-integer items/1
+                items: parse select state "remaining capacity" none
+                rem: to-integer items/1
+                per: to-integer (rem / cap * 100)
+                prin join " " [ per "%" ]
+                break
+            ]
+        ]
+        print []
+    ]
+]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now I can see the percentage remaining:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ ./battery.r
+$ BAT0/ discharging 91%</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yes, that’s the output that I want, but the code is turning into something … <em>evil</em>.
+Or at least something <em>ugly</em>.
+I should consider refactoring again before I move on to the next step.
+I will just show you the end result of the refactoring, but these are the ideas that guided me as I looked at my code:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Go ahead and read all the data files. It’s not like memory is an issue for an app like this.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Don’t forget to look for duplicate keys when assembling the hash.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Remove duplication where possible.</p>
+</li>
+<li>
+<p>Only use <code>print</code> once for each battery.
+Narrowing down the sources of output can make debugging and reading easier.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>And here’s the refactoring.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-c">#!/usr/local/bin/rebol -s</span>
+
+<span class="tok-gs">REBOL [</span> <span class="tok-gs">]</span>
+
+<span class="tok-c">;;</span>
+<span class="tok-c">;; Function Definitions</span>
+<span class="tok-c">;;</span>
+
+<span class="tok-gu">get-value:</span> <span class="tok-kn">func</span> <span class="tok-gs">[</span>
+    <span class="tok-s">&quot;Get numeric part of a value in the battery info hash&quot;</span>
+    <span class="tok-nv">information</span> <span class="tok-gs">[</span><span class="tok-kt">hash!</span><span class="tok-gs">]</span>   <span class="tok-s">&quot;A Hash containing battery data&quot;</span>
+    <span class="tok-nv">key</span>         <span class="tok-gs">[</span><span class="tok-kt">string!</span><span class="tok-gs">]</span> <span class="tok-s">&quot;A key to look up in the hash&quot;</span>
+    <span class="tok-na">/local</span> <span class="tok-nv">value</span> <span class="tok-nv">tokens</span> <span class="tok-nv">numeric-value</span>
+<span class="tok-gs">]</span> <span class="tok-gs">[</span>
+    <span class="tok-gu">value:</span> <span class="tok-nf">select</span> <span class="tok-nv">information</span> <span class="tok-nv">key</span>
+    <span class="tok-gu">tokens:</span> <span class="tok-ne">parse</span> <span class="tok-nv">value</span> <span class="tok-nv">none</span>
+    <span class="tok-gu">numeric-value:</span> <span class="tok-k">to-integer</span> <span class="tok-nv">tokens</span><span class="tok-na">/1</span>
+    <span class="tok-ne">return</span> <span class="tok-nv">numeric-value</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-c">;;</span>
+<span class="tok-c">;; Main logic starts here.</span>
+<span class="tok-c">;;</span>
+
+<span class="tok-gu">battery-dir:</span> <span class="tok-nd">%/proc/acpi/battery/</span>
+<span class="tok-gu">batteries:</span> <span class="tok-nf">make</span> <span class="tok-kt">hash!</span> <span class="tok-gs">[</span> <span class="tok-gs">]</span>
+
+<span class="tok-c">; Load battery information.</span>
+<span class="tok-nb">foreach</span> <span class="tok-nv">battery</span> <span class="tok-nb">read</span> <span class="tok-nv">battery-dir</span> <span class="tok-gs">[</span>
+    <span class="tok-gu">state:</span> <span class="tok-nf">make</span> <span class="tok-kt">hash!</span> <span class="tok-gs">[]</span>
+    <span class="tok-gu">battery-files:</span> <span class="tok-nb">read</span> <span class="tok-kn">rejoin</span> <span class="tok-gs">[</span> <span class="tok-nv">battery-dir</span>  <span class="tok-nv">battery</span> <span class="tok-gs">]</span>
+
+    <span class="tok-nb">foreach</span> <span class="tok-nv">file</span> <span class="tok-nv">battery-files</span> <span class="tok-gs">[</span>
+        <span class="tok-gu">full-path:</span> <span class="tok-kn">rejoin</span> <span class="tok-gs">[</span> <span class="tok-nv">battery-dir</span> <span class="tok-nv">battery</span> <span class="tok-nv">file</span> <span class="tok-gs">]</span>
+
+        <span class="tok-nb">foreach</span> <span class="tok-nv">line</span> <span class="tok-nb">read</span><span class="tok-na">/lines</span> <span class="tok-nv">full-path</span> <span class="tok-gs">[</span>
+            <span class="tok-ne">parse</span> <span class="tok-nv">line</span> <span class="tok-gs">[</span>
+                <span class="tok-nf">copy</span> <span class="tok-nv">key</span> <span class="tok-nf">to</span> <span class="tok-s">&quot;:&quot;</span>
+                <span class="tok-nf">skip</span>
+                <span class="tok-nf">copy</span> <span class="tok-nv">value</span> <span class="tok-nf">to</span> <span class="tok-nv">end</span> <span class="tok-gs">(</span><span class="tok-nf">trim</span> value<span class="tok-gs">)</span>
+            <span class="tok-gs">]</span>
+            <span class="tok-nb">unless</span> <span class="tok-nf">select</span> <span class="tok-nv">state</span> <span class="tok-nv">key</span> <span class="tok-gs">[</span>
+                <span class="tok-kn">repend</span> <span class="tok-nv">state</span> <span class="tok-gs">[</span> <span class="tok-nv">key</span> <span class="tok-nv">value</span> <span class="tok-gs">]</span>
+            <span class="tok-gs">]</span>
+        <span class="tok-gs">]</span>
+    <span class="tok-gs">]</span>
+    <span class="tok-kn">repend</span> <span class="tok-nv">batteries</span> <span class="tok-gs">[</span> <span class="tok-nv">battery</span> <span class="tok-nv">state</span> <span class="tok-gs">]</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-c">; Display information for each battery</span>
+<span class="tok-nb">foreach</span> <span class="tok-gs">[</span> <span class="tok-nv">name</span> <span class="tok-nv">info</span> <span class="tok-gs">]</span> <span class="tok-nv">batteries</span> <span class="tok-gs">[</span>
+
+    <span class="tok-c">; ... but only if the battery is present.</span>
+    <span class="tok-nb">if</span> <span class="tok-s">&quot;yes&quot;</span> <span class="tok-o">=</span> <span class="tok-nf">select</span> <span class="tok-nv">info</span> <span class="tok-s">&quot;present&quot;</span> <span class="tok-gs">[</span>
+        <span class="tok-gu">charging-state:</span> <span class="tok-nf">select</span> <span class="tok-nv">info</span> <span class="tok-s">&quot;charging state&quot;</span>
+
+        <span class="tok-gu">capacity:</span> <span class="tok-nv">get-value</span> <span class="tok-nv">info</span> <span class="tok-s">&quot;design capacity&quot;</span>
+        <span class="tok-gu">remaining:</span> <span class="tok-nv">get-value</span> <span class="tok-nv">info</span> <span class="tok-s">&quot;remaining capacity&quot;</span>
+        <span class="tok-gu">percent:</span> <span class="tok-k">to-integer</span> <span class="tok-gs">(</span><span class="tok-nv">remaining</span> <span class="tok-na">/</span> <span class="tok-nv">capacity</span> <span class="tok-o">*</span> <span class="tok-m">100</span><span class="tok-gs">)</span>
+
+        <span class="tok-gu">battery-text:</span> <span class="tok-kn">reform</span> <span class="tok-gs">[</span>
+            <span class="tok-nv">name</span>
+            <span class="tok-nv">charging-state</span>
+            <span class="tok-kn">join</span> <span class="tok-nv">percent</span> <span class="tok-gs">[</span> <span class="tok-s">&quot;%&quot;</span> <span class="tok-gs">]</span>
+        <span class="tok-gs">]</span>
+        <span class="tok-nb">print</span> <span class="tok-nv">battery-text</span>
+    <span class="tok-gs">]</span>
+<span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The end result is the same as before, but I’ve made the code easy to read again.
+This process of writing and refactoring is pretty much standard to my development style.
+Well, I’m not the <em>only</em> one who writes code like this.
+Anyhow.
+Let’s move on, shall we?</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_show_me_estimated_time_remaining">Show Me Estimated Time Remaining.</h4>
+<div class="paragraph">
+<p>In order to calculate the time remaining before the battery runs out, we need to get the remaining charge and the rate that we’re using it up.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>        ...
+        print battery-text
+        print select info "remaining capacity"
+        print select info "present rate"
+    ]
+]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Wow, I really don’t know what those numbers mean.
+We could fake it until we get a result that looks like what I see when I scrub the mouse over my KDE battery applet.
+I think I will do a little bit of searching on the Web, though.
+There is probably some sort of reference to the ACPI state files.</p>
+</div>
+<div class="paragraph">
+<p>I have a rule not to spend more than fifteen minutes looking something up online, unless the end result of such a search would be money or finding something that pleases my wife.
+This is neither, and I’ve just spent fifteen minutes making a few clumsy stabs at finding a reference for the ACPI state file.
+No luck, so let’s go with the faking it.</p>
+</div>
+<div class="paragraph">
+<p>The KDE panel says I have a little over two hours left on my laptop.
+With a couple of quick hacks, my script more or less agrees with KDE.
+There’s an occasional difference of a minute or two, but that is not an urgent issue for something like this.
+I would be much more concerned if this script was going to be used in a production environment, or in an environment where being off by a couple of seconds could cost somebody their life.
+On the other hand, what are they doing using some script they cobbled off the Web to keep their loved ones alive?
+And then they’ll probably get mad at <em>me</em> when it goes wrong.
+I swear, some people are just too strange for words.</p>
+</div>
+<div class="paragraph">
+<p>What?
+Oh, right.
+Here’s the finished version of the utility.
+Took me a couple of hours, but a lot of that was me learning the basics of <code>parse</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="rebol"><span></span><span class="tok-c">#!/usr/local/bin/rebol -s</span>
+
+<span class="tok-gs">REBOL [</span>
+    <span class="tok-gu">Title:</span> <span class="tok-s">&quot;Battery Monitor&quot;</span>
+    <span class="tok-gu">File:</span> <span class="tok-nd">%battery.r</span>
+    <span class="tok-gu">Date:</span> <span class="tok-sx">14-mar-2005</span>
+    <span class="tok-gu">Author:</span> <span class="tok-s">&quot;Brian Wisti&quot;</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-c">;;</span>
+<span class="tok-c">;; Function Definitions</span>
+<span class="tok-c">;;</span>
+
+<span class="tok-gu">get-value:</span> <span class="tok-kn">func</span> <span class="tok-gs">[</span>
+    <span class="tok-s">&quot;Get numeric part of a value in the battery info hash&quot;</span>
+    <span class="tok-nv">information</span> <span class="tok-gs">[</span><span class="tok-kt">hash!</span><span class="tok-gs">]</span>   <span class="tok-s">&quot;A Hash containing battery data&quot;</span>
+    <span class="tok-nv">key</span>         <span class="tok-gs">[</span><span class="tok-kt">string!</span><span class="tok-gs">]</span> <span class="tok-s">&quot;A key to look up in the hash&quot;</span>
+    <span class="tok-na">/local</span> <span class="tok-nv">value</span> <span class="tok-nv">tokens</span> <span class="tok-nv">numeric-value</span>
+<span class="tok-gs">]</span> <span class="tok-gs">[</span>
+    <span class="tok-gu">value:</span> <span class="tok-nf">select</span> <span class="tok-nv">information</span> <span class="tok-nv">key</span>
+    <span class="tok-gu">tokens:</span> <span class="tok-ne">parse</span> <span class="tok-nv">value</span> <span class="tok-nv">none</span>
+    <span class="tok-gu">numeric-value:</span> <span class="tok-k">to-integer</span> <span class="tok-nv">tokens</span><span class="tok-na">/1</span>
+    <span class="tok-ne">return</span> <span class="tok-nv">numeric-value</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-c">;;</span>
+<span class="tok-c">;; Main logic starts here.</span>
+<span class="tok-c">;;</span>
+
+<span class="tok-gu">battery-dir:</span> <span class="tok-nd">%/proc/acpi/battery/</span>
+<span class="tok-gu">batteries:</span> <span class="tok-nf">make</span> <span class="tok-kt">hash!</span> <span class="tok-gs">[</span> <span class="tok-gs">]</span>
+
+<span class="tok-c">; Load battery information.</span>
+<span class="tok-nb">foreach</span> <span class="tok-nv">battery</span> <span class="tok-nb">read</span> <span class="tok-nv">battery-dir</span> <span class="tok-gs">[</span>
+    <span class="tok-gu">state:</span> <span class="tok-nf">make</span> <span class="tok-kt">hash!</span> <span class="tok-gs">[]</span>
+    <span class="tok-gu">battery-files:</span> <span class="tok-nb">read</span> <span class="tok-kn">rejoin</span> <span class="tok-gs">[</span> <span class="tok-nv">battery-dir</span> <span class="tok-nv">battery</span> <span class="tok-gs">]</span>
+
+    <span class="tok-nb">foreach</span> <span class="tok-nv">file</span> <span class="tok-nv">battery-files</span> <span class="tok-gs">[</span>
+        <span class="tok-gu">full-path:</span> <span class="tok-kn">rejoin</span> <span class="tok-gs">[</span> <span class="tok-nv">battery-dir</span> <span class="tok-nv">battery</span> <span class="tok-nv">file</span> <span class="tok-gs">]</span>
+
+        <span class="tok-nb">foreach</span> <span class="tok-nv">line</span> <span class="tok-nb">read</span><span class="tok-na">/lines</span> <span class="tok-nv">full-path</span> <span class="tok-gs">[</span>
+            <span class="tok-ne">parse</span> <span class="tok-nv">line</span> <span class="tok-gs">[</span>
+                <span class="tok-nf">copy</span> <span class="tok-nv">key</span> <span class="tok-nf">to</span> <span class="tok-s">&quot;:&quot;</span>
+                <span class="tok-nf">skip</span>
+                <span class="tok-nf">copy</span> <span class="tok-nv">value</span> <span class="tok-nf">to</span> <span class="tok-nv">end</span> <span class="tok-gs">(</span><span class="tok-nf">trim</span> value<span class="tok-gs">)</span>
+            <span class="tok-gs">]</span>
+            <span class="tok-nb">unless</span> <span class="tok-nf">select</span> <span class="tok-nv">state</span> <span class="tok-nv">key</span> <span class="tok-gs">[</span>
+                <span class="tok-kn">repend</span> <span class="tok-nv">state</span> <span class="tok-gs">[</span> <span class="tok-nv">key</span> <span class="tok-nv">value</span> <span class="tok-gs">]</span>
+            <span class="tok-gs">]</span>
+        <span class="tok-gs">]</span>
+    <span class="tok-gs">]</span>
+    <span class="tok-kn">repend</span> <span class="tok-nv">batteries</span> <span class="tok-gs">[</span> <span class="tok-nv">battery</span> <span class="tok-nv">state</span> <span class="tok-gs">]</span>
+<span class="tok-gs">]</span>
+
+<span class="tok-c">; Display information for each battery</span>
+<span class="tok-nb">foreach</span> <span class="tok-gs">[</span> <span class="tok-nv">name</span> <span class="tok-nv">info</span> <span class="tok-gs">]</span> <span class="tok-nv">batteries</span> <span class="tok-gs">[</span>
+
+    <span class="tok-c">; ... but only if the battery is present.</span>
+    <span class="tok-nb">if</span> <span class="tok-s">&quot;yes&quot;</span> <span class="tok-o">=</span> <span class="tok-nf">select</span> <span class="tok-nv">info</span> <span class="tok-s">&quot;present&quot;</span> <span class="tok-gs">[</span>
+        <span class="tok-gu">charging-state:</span> <span class="tok-nf">select</span> <span class="tok-nv">info</span> <span class="tok-s">&quot;charging state&quot;</span>
+
+        <span class="tok-gu">capacity:</span> <span class="tok-nv">get-value</span> <span class="tok-nv">info</span> <span class="tok-s">&quot;design capacity&quot;</span>
+        <span class="tok-gu">remaining:</span> <span class="tok-nv">get-value</span> <span class="tok-nv">info</span> <span class="tok-s">&quot;remaining capacity&quot;</span>
+        <span class="tok-gu">percent:</span> <span class="tok-k">to-integer</span> <span class="tok-gs">(</span><span class="tok-nv">remaining</span> <span class="tok-na">/</span> <span class="tok-nv">capacity</span> <span class="tok-o">*</span> <span class="tok-m">100</span><span class="tok-gs">)</span>
+
+        <span class="tok-gu">rate:</span> <span class="tok-nv">get-value</span> <span class="tok-nv">info</span> <span class="tok-s">&quot;present rate&quot;</span>
+        <span class="tok-nb">either</span> <span class="tok-nv">rate</span> <span class="tok-o">&gt;</span> <span class="tok-m">0</span> <span class="tok-gs">[</span>
+            <span class="tok-gu">seconds:</span> <span class="tok-nv">remaining</span> <span class="tok-na">/</span> <span class="tok-nv">rate</span> <span class="tok-o">*</span> <span class="tok-m">60</span> <span class="tok-o">*</span> <span class="tok-m">60</span>
+            <span class="tok-gu">time-remaining:</span> <span class="tok-k">to-time</span> <span class="tok-k">to-integer</span> <span class="tok-nv">seconds</span>
+        <span class="tok-gs">]</span> <span class="tok-gs">[</span>
+            <span class="tok-gu">time-remaining:</span> <span class="tok-s">&quot;--&quot;</span>
+        <span class="tok-gs">]</span>
+
+        <span class="tok-gu">battery-text:</span> <span class="tok-kn">reform</span> <span class="tok-gs">[</span>
+            <span class="tok-nv">name</span>
+            <span class="tok-nv">charging-state</span>
+            <span class="tok-kn">join</span> <span class="tok-nv">percent</span> <span class="tok-gs">[</span> <span class="tok-s">&quot;%&quot;</span> <span class="tok-gs">]</span>
+            <span class="tok-nv">time-remaining</span>
+        <span class="tok-gs">]</span>
+        <span class="tok-nb">print</span> <span class="tok-nv">battery-text</span>
+    <span class="tok-gs">]</span>
+<span class="tok-gs">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Running it shows a problem on Ubuntu.
+The discharge rate in the state file is listed as zero, which means the script has no way to determine estimated time remaining.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wisti grabbag $ ./battery.r
+BAT0/ discharging 82% --</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is a known issue, but I do not yet know a way around it.
+I left the original code intact just in case <em>your</em> laptop does not have this problem.</p>
+</div>
+<div class="paragraph">
+<p>Now, if I wanted to make this readily accessible from the command line, which I do, then I would just copy <code>laptop.r</code> to someplace on my path.
+I might even rename to something like <code>check-battery</code> without the ".r" suffix, to make it look more like any old command.
+This is a common manuever on the command line.
+Many of the commands you use every day in the shell are just thinly disguised scripts, written in one language or another.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>wisti grabbag $ cp battery.r ~/bin/check-battery</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And now I have one written in REBOL.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project was an exercise to see how difficult it would be to create a relatively simple utility.
+It was a challenge until I started getting the hang of Parse.
+I think Parse is easier to understand than regular expressions, but regular expressions have the advantage that they are familiar to more Linux developers.
+Still - get Parse out of the way, and creating useful applications in REBOL suddenly becomes very easy.</p>
+</div>
+<div class="sect2">
+<h3 id="_additional_ideas">Additional Ideas</h3>
+<div class="paragraph">
+<p>There are a number of different things you could do to enhance or refine this script.
+Here are a couple of ideas.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This script is <em>not</em> portable.
+It assumes that you have the same file setup as my HP notebook running Ubuntu 8.10.
+Any differences brought on by different distributions or operating systems are unaccounted for.
+You might want to alter the script to look in the right places for your machine.</p>
+</li>
+<li>
+<p>The script is <em>not</em> robust.
+What happens if there’s a zero in the wrong place, or ACPI can’t figure out how what the rate of discharge is?
+I don’t know, but it’s probably not something good.
+You might want to make it more robust by checking for possible errors.</p>
+</li>
+<li>
+<p>Hey, what about writing this as a View application?
+Yeah, you could make a cute little picture of a battery that empties out as the remaining power drops.
+Why stop there? You could implement a whole system monitor, like <a href="http://gkrellm.net/">gkrellm</a>.
+That might be fun.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>

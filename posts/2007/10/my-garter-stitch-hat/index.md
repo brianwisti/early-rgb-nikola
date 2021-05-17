@@ -1,18 +1,17 @@
 ---
+slug: my-garter-stitch-hat
 aliases:
 - /craft/2007/my-garter-stitch-hat/
-date: 2007-10-15T00:00:00Z
-image: /img/2015/my-garter-stitch-hat.jpg
-posts:
-- title: Ravelry Project Page
-  url: http://www.ravelry.com/projects/brianwisti/my-garter-stitch-hat
+- /2007/10/15/my-garter-stitch-hat/
+date: 2007-10-15 00:00:00+00:00
 tags:
 - knitting
 - hat
-thumbnail: /img/2015/my-garter-stitch-hat-thumbnail.jpg
+- craft
 title: My Garter Stitch Hat
-year: '2007'
+uuid: 9291e85a-227a-4f7b-9c4c-a51e8fa191ad
 category: craft
+type: micro
 previewimage: /images/2007/10/my-garter-stitch-hat/cover.jpg
 ---
 It's not the best hat I've made. It wasn't even the best hat I'd made when I made it.

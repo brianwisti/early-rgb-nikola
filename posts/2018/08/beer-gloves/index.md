@@ -1,18 +1,19 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/1025894930600718336
-date: 2018-08-04T00:00:00Z
+slug: beer-gloves
+date: 2018-08-04 00:00:00+00:00
 draft: false
 tags:
 - knitting
 - gloves
+- craft
 title: Beer Gloves
-year: '2018'
+uuid: ba9802f2-5112-4a4f-8985-33d531022f26
+aliases:
+- /2018/08/04/beer-gloves/
 category: craft
+type: micro
 previewimage: /images/2018/08/beer-gloves/cover.jpg
 ---
-
-
 I knitted a pair of the fingerless Beer Gloves from [Son of Stitch 'n Bitch][]. This involved a couple new
 techniques and several new mistakes.
 
@@ -50,4 +51,3 @@ them enthusiastically once the weather gets cold enough.
 
 I enjoyed making these, but I want to learn more about glove construction in general instead of haphazardly
 implementing cool-looking patterns. I have several simple mitten and glove ideas planned!
-

@@ -1,0 +1,118 @@
+---
+aliases:
+- /post/2017/summer-reading/
+- /2017/08/17/summer-reading/
+date: 2017-08-17
+draft: false
+tags:
+- books
+- marginalia
+title: Summer Reading
+slug: summer-reading
+uuid: 43dba5a2-30c9-4ebb-b5f9-1d78ef6ca60a
+format: adoc
+---
+<div class="paragraph">
+<p>What have I been doing with my spare time? I’ve been reading books. Not too much. Mostly tech.</p>
+</div>
+<div class="sect1">
+<h2 id="_the_imposters_handbook">The Imposter’s Handbook</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://bigmachine.io/products/the-imposters-handbook/">The Imposter’s Handbook</a> aims for readers - especially experienced developers -
+who never got around to earning a degree related to software development.
+That’s me!</p>
+</div>
+<div class="paragraph">
+<p>It describes the programming domain well enough, going so far as to discuss <a href="https://en.wikipedia.org/wiki/Lambda_calculus">lambda calculus</a>.
+That chapter challenged me the most.
+The rest, on topics ranging from complexity theory to data structures, algorithms, computation, databases, design patterns, and the basics of the UNIX command line, whetted my appetite for more information on each topic.</p>
+</div>
+<div class="paragraph">
+<p>That led me to the next book in my summer reading.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_linux_command_line">The Linux Command Line</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The first edition of <em>The Linux Command Line</em> appeared before <a href="https://freedesktop.org/wiki/Software/systemd/">systemd</a> took over the world’s Linux systems.
+The change resulted in odd corners of incompatility when working through the book on my <a href="https://linuxmint.com/">Linux Mint</a> 18.2 desktop.
+Fortunately, William Shotts continued to update the book.
+The <a href="http://linuxcommand.org/tlcl.php">Third Internet Edition</a> is available online under a Creative Commons License.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This book builds its reader up from minimal understanding to being comfortably competent using the Linux shell and scripting in <a href="https://www.gnu.org/software/bash/">Bash</a>..
+It applies well to most Linux systems, and some pieces also apply on OS X.</p>
+</div>
+<div class="paragraph">
+<p>I particularly enjoyed the introduction to <a href="https://www.gnu.org/software/coreutils/coreutils.html">GNU Coreutils</a>, which does more than I ever knew.
+Seeing <a href="https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html#date-invocation"><code>date</code></a> do things I usually run to a library for in my favorite languages almost made me angry!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>date --date<span class="tok-o">=</span><span class="tok-s1">&#39;2 weeks ago&#39;</span> <span class="tok-s1">&#39;+%F&#39;</span>
+<span class="tok-go">2017-08-03</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Maybe not <em>angry</em>.
+It surprised me though.
+I explore new corners of GNU Coreutils regularly now.</p>
+</div>
+<div class="paragraph">
+<p>Nevertheless, by the end of the book I was ready to jump back to a programming language with better features for describing complex problems. Perl, Python, Ruby - these are still more familiar to me.</p>
+</div>
+<div class="paragraph">
+<p>I sort of wanted to learn an unfamiliar language, though.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_go_in_action">Go In Action</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Just a couple chapters into <a href="https://www.manning.com/books/go-in-action">this one</a>.
+The author could use <a href="/post/2017/08/emacs-writegood-mode/">writegood-mode</a>.
+Still, <a href="https://golang.org/">Go</a> is a widely used language.
+I feel a certain moral responsibility to learn it.
+Of course, that’s how I felt about Java for the first 15 years of my career.
+Never really learned Java.
+My bad attitude about Java may be leaking over to my attitude about studying Go.
+I better keep an eye on that, and see how I feel at the end of <em>Go In Action</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_intermission">Intermission</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For the next couple of days I’ll focus on getting my notes for <em>The Imposter’s Handbook</em> and <em>The Linux Command Line</em> from paper into <a href="/tags/orgmode">org</a>.
+My old brain still finds it easier to get the initial thoughts down on paper.
+Then I copy the notes into org files, which simplifies searching and using those notes later.
+Honestly, I tend to abandon my paper notes and forget whatever I studied.
+This new two step process already has me using and referencing my notes more often.</p>
+</div>
+<div class="paragraph">
+<p>Incidentally -
+I spend enough time in <a href="/tags/emacs">Emacs</a> these days that it’s starting to become <em>more</em> comfortable for me than <a href="https://vim.org">Vim</a>.
+This is a strange and uncomfortable sensation for me.
+I may start editing something in Vim, but soon enough I switch over to Emacs.</p>
+</div>
+<div class="paragraph">
+<p>Maybe I should add the <a href="https://www.gnu.org/software/emacs/manual/elisp.html">GNU Emacs Lisp Reference Manual</a> to my reading list.</p>
+</div>
+</div>
+</div>

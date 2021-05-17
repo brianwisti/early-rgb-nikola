@@ -1,17 +1,16 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/995851385508773888
-date: 2018-05-13T00:00:00Z
+slug: new-theme-for-a-bit
+date: 2018-05-13 00:00:00+00:00
 draft: false
 tags:
 - site
+- marginalia
 title: New Theme for a Bit
-year: '2018'
-category: marginalia
+uuid: 8c1967d7-47fb-4d78-913e-be65e2e8bd96
+aliases:
+- /2018/05/13/new-theme-for-a-bit/
 previewimage: /images/2018/05/new-theme-for-a-bit/cover.jpg
 ---
-
-
 I adapted the [Nederburg][] theme for my [Hugo][] site. I probably won't keep it but I'll darn well use it for a
 bit.
 
@@ -25,4 +24,3 @@ quirky taxonomy. Maybe I'll try a different theme later – Hugo has [many theme
 making my own since I'm so fussy.
 
 [many themes]: https://themes.gohugo.io/
-

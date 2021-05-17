@@ -1,8 +1,5 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102491565963708275
-  twitter: https://twitter.com/brianwisti/status/1153694584767242241
-date: 2019-07-23T08:09:30-07:00
+date: 2019-07-23 08:09:30-07:00
 source:
   title: Perl 6 Weekly
   url: https://p6weekly.wordpress.com/2019/07/22/2019-29-released/
@@ -12,11 +9,13 @@ tags:
 - just when I thought I was out
 - they pull me back in
 title: Saving some links from Perl 6 Weekly
-year: '2019'
+slug: saving-some-links-from-perl-6-weekly
+uuid: cc579106-94f8-408c-8391-51d926e0f609
+aliases:
+- /note/2019/204/saving-some-links-from-perl-6-weekly/
 category: note
 type: micro
 ---
-
 Haven't done anything interesting related to [Perl 6][] for _years_, but I still
 subscribe to the [Perl 6 Weekly][] blog. Several links caught my eye this week.
 

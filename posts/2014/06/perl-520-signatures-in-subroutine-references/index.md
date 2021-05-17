@@ -1,14 +1,16 @@
 ---
+slug: perl-520-signatures-in-subroutine-references
 aliases:
 - /programming/2014/06/25_perl-subref-signatures.html
 - /post/2014/perl-subref-signatures/
-date: 2014-06-25T00:00:00Z
+- /post/2014/06/perl-520-signatures-in-subroutine-references/
+- /2014/06/25/perl-5.20-signatures-in-subroutine-references/
+date: 2014-06-25 00:00:00+00:00
 tags:
 - perl
+- programming
 title: Perl 5.20 Signatures in Subroutine References
-type: post
-year: '2014'
-category: programming
+uuid: df17eaeb-6dc8-435d-8d83-6c7492b3c09d
 ---
 [Perl]: http://perl.org
 [Perl][] 5.20 has experimental support for function signatures. That's good 

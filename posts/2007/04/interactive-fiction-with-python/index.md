@@ -1,19 +1,20 @@
 ---
+slug: interactive-fiction-with-python
 aliases:
 - /coolnamehere/2007/04/19_interactive-fiction-with-python.html
 - /post/2007/interactive-fiction-with-python/
-date: 2007-04-18T00:00:00Z
+- /2007/04/18/interactive-fiction-with-python/
+date: 2007-04-18 00:00:00+00:00
 tags:
 - python
 - ifiction
 - learn
+- coolnamehere
 title: Interactive Fiction with Python
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2007'
+updated: 2009-07-11 00:00:00+00:00
 series:
 - Python Interactive Fiction
-archived_category: coolnamehere
+uuid: 80581bcf-0ba0-43f5-90e1-36e0eae3a170
 ---
 The idea for this article came from a coolnamehere reader 
 named Laura. Thanks, Laura! I was looking for good Python ideas.
@@ -22,9 +23,9 @@ named Laura. Thanks, Laura! I was looking for good Python ideas.
 ## Pages
 
 * Introduction
-* [01 Building a Single Round](/post/2007/01-handling-a-single-round/)
-* [02 Tying The Scenes Together](/post/2007/02-tying-the-scenes-together/)
-* [03 Handling Multiple Turns](/post/2007/03-handling-multiple-turns/)
+* [01 Building a Single Round](/post/2007/04/python-interactive-fiction-01-handling-a-single-round/)
+* [02 Tying The Scenes Together](/post/2007/04/python-interactive-fiction-02-tying-the-scenes-together/)
+* [03 Handling Multiple Turns](/post/2007/06-python-interactive-fiction-03-handling-multiple-turns/)
 
 ## Introduction
 
@@ -140,6 +141,4 @@ more complex. Writing them is an art - you have to get all the requirements down
 on paper, but you also try to keep things short and sweet so that your development 
 team will actually *read* them. It is even harder than that, because the requirements 
 change as development continues. Yep - writing specs is hard, and I haven't gotten 
-the art down myself. 
-
-
+the art down myself.

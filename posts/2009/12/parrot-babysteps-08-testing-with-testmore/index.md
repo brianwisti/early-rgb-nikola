@@ -1,26 +1,27 @@
 ---
+slug: parrot-babysteps-08-testing-with-testmore
 aliases:
 - /coolnamehere/2009/12/16_08-testing-with-test-more.html
 - /post/2009/08-testing-with-test-more/
-date: 2009-12-16T00:00:00Z
+- /2009/12/16/parrot-babysteps-08-testing-with-testmore/
+date: 2009-12-16 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 08 - Testing With Test::More
-type: post
-updated: 2011-04-12T00:00:00Z
-year: '2009'
+updated: 2011-04-12 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 9007f466-43ed-4da6-a472-17a765881e05
 ---
-
 [Tapir]: http://github.com/leto/tapir
 [Test Anything Protocol]: http://en.wikipedia.org/wiki/Test_Anything_Protocol
 [Test::More]: https://github.com/parrot/parrot/blob/RELEASE_3_0_0/runtime/parrot/library/Test/More.pir
 [test_more.pir]: https://github.com/parrot/parrot/blob/RELEASE_3_0_0/runtime/parrot/library/Test/More.pir
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
+
 
 This is part 8 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 
@@ -148,7 +149,8 @@ the helpfulness of those descriptions. They are a form of documentation.
     1..1
     ok 1 - `ok` tests for simple truth
 
-[already saw]: /post/2009/03-simple-control-structures/
+[already saw]: {{< ref "post/2009-09-parrot-babysteps-03-simple-control-structures/index.md" >}}
+
 The test in `ok` is one of simple truth as seen by Parrot. We [already saw][]
 that anything which looks like `0` or an empty string is considered false by Parrot,
 while everything else is considered true.
@@ -431,4 +433,3 @@ As long as we stay disciplined and run our tests regularly, we will learn
 immediately when we have an "inspired" moment that breaks existing code. Since
 I'm such a huge fan of Test-Driven Development, you can be assured of seeing many assertions in
 future Parrot Babysteps.
-

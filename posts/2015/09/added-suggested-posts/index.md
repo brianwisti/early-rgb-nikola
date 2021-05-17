@@ -1,21 +1,24 @@
 ---
+slug: added-suggested-posts
 aliases:
 - /tools/2015/09/14_adding-suggested-posts.html
 - /post/2015/adding-suggested-posts/
-date: 2015-09-14T00:00:00Z
-description: I started writing about PNWPHP but got distracted and added "Suggested
-  Reading" to my posts instead.
+- /2015/09/14/added-suggested-posts/
+date: 2015-09-14 00:00:00+00:00
+description: "I started writing about PNWPHP but got distracted and added \"Suggested\
+  \ Reading\" to my posts instead.\n"
 tags:
 - jekyll
 - site
+- tools
 title: Added Suggested Posts
-type: post
-year: '2015'
-category: tools
+uuid: 5a478260-ca80-42d6-9b6b-de34d6b71e8f
 ---
 I started writing about [PNWPHP][] but got distracted and added "Suggested
 Reading" to my posts instead.
+
 [PNWPHP]: http://www.pnwphp.com/
+
 <!-- TEASER_END -->
 
 This weekend I attended [PNWPHP][]. It was great. Instead of writing about that,
@@ -71,4 +74,3 @@ a.post-link {
 Now the text of each post link stays together.
 
 Just wanted to share all this. Have fun!
-

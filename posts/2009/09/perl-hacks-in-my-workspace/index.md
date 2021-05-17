@@ -1,16 +1,16 @@
 ---
+slug: perl-hacks-in-my-workspace
 aliases:
 - /coolnamehere/2009/09/21_perl-hacks-in-my-workspace.html
 - /post/2009/perl-hacks-in-my-workspace/
-date: 2009-09-21T00:00:00Z
+- /2009/09/21/perl-hacks-in-my-workspace/
+date: 2009-09-21 00:00:00+00:00
 tags:
 - perl
+- coolnamehere
 title: Perl Hacks In My Workspace
-type: post
-year: '2009'
-archived_category: coolnamehere
+uuid: a9601761-4e04-4fab-85d3-707430c079cd
 ---
-
 This page shines a fresh light on specific hacks from the O'Reilly [Perl 
 Hacks](http://oreilly.com/catalog/9780596526740/) book. It should be obvious
 from the tone and content that this is not intended to replace any of the 
@@ -22,7 +22,7 @@ at least partly because I still haven't read it from cover to cover. The "Hacks"
 series of books is written in such a way that cover-to-cover reading is not 
 needed, thankfully. 
 
-[GNU Screen]: /post/2007/gnu-screen/
+[GNU Screen]: {{< ref "post/2007-01-gnu-screen/index.md" >}}
 [Vim]: /tags/vim/
 [Firefox]: https://www.mozilla.org/en-US/firefox/new/
 
@@ -57,7 +57,8 @@ Or [MacPorts](http://www.macports.org/) on OS X:
 
     $ sudo port install elinks
 
-[Cygwin]: /post/2004/cygwin/
+[Cygwin]: {{< ref "post/2004-07-cygwin/index.md" >}}
+
 Windows folks are left to their own devices, since most of my Windows `elinks` 
 usage is on other systems via [Putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
 I do know that ELinks is available in [Cygwin][].
@@ -115,4 +116,3 @@ Try the following URLs to get you started.
 
 * [Perl Hacks](http://oreilly.com/catalog/9780596526740/) by chromatic with 
   Damian Conway and Curtis 'Ovid' Poe. Copyright 2006 O'Reilly Media, Inc., 0-596-52674-1
-

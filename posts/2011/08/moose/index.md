@@ -1,15 +1,16 @@
 ---
+slug: moose
 aliases:
 - /coolnamehere/2011/08/23_moose.html
 - /post/2011/moose/
-date: 2011-08-23T00:00:00Z
+- /2011/08/23/moose/
+date: 2011-08-23 00:00:00+00:00
 tags:
 - perl
 - moose
+- coolnamehere
 title: Moose
-type: post
-year: '2011'
-archived_category: coolnamehere
+uuid: 6892fdee-725c-41bd-b72d-27a25def0b1c
 ---
 [Perl]: /tags/perl/
 [Moose]: https://metacpan.org/module/Moose
@@ -125,4 +126,3 @@ A fully fleshed Moose object maintains a lot of flexibility. Unless I explicitly
 That's it. The package is done. It's worth noticing what's missing: the classic `1;` 
 that has ended Perl modules for years. As far as I can tell, the new `package` syntax
 makes it unnecessary. Perl 5.14 doesn't complain about it missing.
-

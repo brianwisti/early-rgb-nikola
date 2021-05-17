@@ -1,14 +1,15 @@
 ---
+slug: pretty-recursive-grep
 aliases:
 - /tools/2014/06/18_pretty-recursive-grep.html
 - /post/2014/pretty-recursive-grep/
-date: 2014-06-18T00:00:00Z
+- /2014/06/18/pretty-recursive-grep/
+date: 2014-06-18 00:00:00+00:00
 tags:
 - shell
+- tools
 title: Pretty Recursive Grep
-type: post
-year: '2014'
-category: tools
+uuid: 5fad27c1-d678-453b-a269-eddb123632e7
 ---
 [ack]: http://beyondgrep.com
 *TL;DR* Set `GREP_OPTIONS='-RI --color=auto'`. Or install [ack][].

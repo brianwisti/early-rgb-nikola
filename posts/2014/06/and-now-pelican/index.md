@@ -1,41 +1,29 @@
 ---
+slug: and-now-pelican
 aliases:
 - /marginalia/2014/06/23_and-now-pelican.html
 - /post/2014/and-now-pelican/
-announcements:
-  twitter: https://twitter.com/brianwisti/status/481771033590919168
-date: 2014-06-23T00:00:00Z
+- /2014/06/23/and-now-pelican/
+date: 2014-06-23 00:00:00+00:00
 tags:
 - pelican
 - site
+- marginalia
 title: And now, Pelican!
-type: post
-year: '2014'
-category: marginalia
+description: I know. I'm fickle.
+uuid: 4f651958-e4e2-4d24-b753-7b95a9bd59a9
 ---
-I know. I'm fickle. Maybe this one will stick for a while. *Edit: Nope.*
-<!-- TEASER_END -->
+I’m not sure why, but I wasn’t *quite* comfortable with
+[o-blog](https://github.com/renard/o-blog). It works well enough, but
+decided it was time to poke around with [jekyll](/tags/jekyll) again.
 
-I'm not sure why, but I wasn't *quite* comfortable with [o-blog][]. It
-works well enough, but decided it was time to poke around with
-[jekyll][] again.
-
-Used [exitwp][] to convert the older WordPress posts to
-Markdown. Discovered that I like how Emacs handles Markdown files more
-than Vim. Contemplated drinking heavily to readjust my world view,
-decided against it.
-
-[Pelican]: http://blog.getpelican.com/
+Used [exitwp](https://github.com/thomasf/exitwp) to convert the older
+WordPress posts to Markdown. Discovered that I like how Emacs handles
+Markdown files more than Vim. Contemplated drinking heavily to readjust
+my world view, decided against it.
 
 Even so, I kept bumping into issues with Jekyll - that can happen with
-opinionated software. Gave [Pelican][] a try, and turns out Pelican was
-exactly what I was looking for.
+opinionated software. Gave [Pelican](http://blog.getpelican.com/) a try,
+and turns out Pelican was exactly what I was looking for.
 
 For now.
-
-[o-blog]: https://github.com/renard/o-blog
-[jekyll-gh]: https://github.com/jekyll/jekyll
-[jekyll]:    http://jekyllrb.com
-
-[exitwp]: https://github.com/thomasf/exitwp
-

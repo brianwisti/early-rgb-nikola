@@ -1,0 +1,196 @@
+---
+aliases:
+- /post/2017/hugo-archetype-templates/
+- /2017/07/01/hugo-archetype-templates/
+date: 2017-07-01
+draft: false
+tags:
+- hugo
+- site
+- bash
+- tools
+title: Hugo Archetype Templates
+slug: hugo-archetype-templates
+uuid: 88777d98-385e-4584-bec6-bfad1d9179f5
+format: adoc
+previewimage: /images/2017/07/hugo-archetype-templates/cover.png
+---
+<div class="paragraph">
+<p>I try out archetype templates from the Hugo static site generator, smoothing the whole thing into my workflow with a bash script.</p>
+</div>
+<div class="sect1">
+<h2 id="_hugo_archetypes">Hugo Archetypes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://gohugo.io/content/archetypes/">Hugo archetypes</a> are templates that Hugo uses when you tell it to create new content.
+Hugo allows both default archetypes and <a href="http://gohugo.io/content/archetypes/#section-archetypes">section archetypes</a> for content that belongs in a particular section (such as Posts or Crafts).</p>
+</div>
+<div class="paragraph">
+<p>As of release <a href="https://github.com/gohugoio/hugo/releases/tag/v0.24">v0.24</a>, archetypes are full templates.
+You can use <a href="http://gohugo.io/templates/variables/">variables</a> and <a href="http://gohugo.io/templates/functions/">functions</a> to fine-tune details of your archetype.
+This gives me a chance to simplify my content creation workflow.</p>
+</div>
+<div class="sect2">
+<h3 id="_my_default_archetype_template">My Default Archetype Template</h3>
+<div class="paragraph">
+<p>My archetype focuses on <a href="http://gohugo.io/content/front-matter/">front matter</a>.
+Since the site sections share taxonomy rules, I use a single default archetype.</p>
+</div>
+<div class="listingblock">
+<div class="title">archetypes/default.md</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="html"><span></span>---
+title: &quot;{{ replace .TranslationBaseName &quot;-&quot; &quot; &quot; | title }}&quot;
+date: {{ dateFormat &quot;2006-01-02&quot; .Date }}
+year: &quot;{{ dateFormat &quot;2006&quot; .Date }}&quot;
+draft: true
+tags:
+-
+categories:
+-
+---
+tl;dr
+<span class="tok-c">&lt;!-- more --&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_notes">Notes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Hugo provides <code>title</code> and <code>date</code> if you leave them out.
+My <code>title</code> looks the same as the default, but I add it to the template to remember what transformations are being done.</p>
+</li>
+<li>
+<p>I prefer a specific format for date in my front matter, so I add my own version.</p>
+</li>
+<li>
+<p>I use a <code>year</code> taxonomy for archives.</p>
+</li>
+<li>
+<p>Everything is a <code>draft</code> until I specify otherwise.</p>
+</li>
+<li>
+<p>All my content should be tagged and categorized.</p>
+</li>
+<li>
+<p>I try to summarize the post in an initial paragraph that gets shown in list views.</p>
+</li>
+<li>
+<p>That last line is really <code>&#60;&#33;&#45;&#45;more&#45;&#45;&#62;</code> with no spaces,
+but if I skip the spaces here Hugo thinks I want another summary block in this post.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>That&#8217;s good enough for <code>hugo new</code>.
+Since I have <code>newContentEditor</code> set to "vim" in my <a href="http://gohugo.io/overview/configuration/">config</a>, Hugo opens the new file in my editor after creating it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>hugo new post/2017/23-things-i-hate-about-lists.md</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>My workflow is a little more complicated than "create a draft and edit it" though.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_my_workflow">My Workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I create and edit site content in its own git branch.
+With multiple drafts going at any one time, using separate branches lets me focus on the current content.</p>
+</div>
+<div class="paragraph">
+<p>I follow these steps every time I add a new post.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a branch</p>
+</li>
+<li>
+<p>Add a draft content file</p>
+</li>
+<li>
+<p>Start editing the draft file!</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>I can ignore the publishing part of the workflow for today, which involves running some tests and pushing to {aws-sw}.
+That deserves its own post.</p>
+</div>
+<div class="paragraph">
+<p>I originally automated this with a small Ruby script which would create the branch and generate a content file for me.
+The file generating code is not needed now that Hugo archetypes are templates.
+My small, slightly clunky Ruby script can be replaced with a smaller, hopefully less clunky <a href="https://www.gnu.org/software/bash/">Bash</a> script.</p>
+</div>
+<div class="listingblock">
+<div class="title">scripts/add</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-ch">#!/usr/bin/env bash</span>
+
+<span class="tok-c1"># stricter bash</span>
+<span class="tok-c1">#  see http://redsymbol.net/articles/unofficial-bash-strict-mode/</span>
+<span class="tok-nb">set</span> -euo pipefail
+<span class="tok-nv">IFS</span><span class="tok-o">=</span><span class="tok-s1">$&#39;\n\t&#39;</span>
+
+<span class="tok-nv">SECTION</span><span class="tok-o">=</span><span class="tok-si">${</span><span class="tok-nv">1</span><span class="tok-k">:-</span><span class="tok-si">}</span>
+<span class="tok-nv">TITLE</span><span class="tok-o">=</span><span class="tok-si">${</span><span class="tok-nv">2</span><span class="tok-k">:-</span><span class="tok-si">}</span>
+
+<span class="tok-k">if</span> <span class="tok-o">[[</span> -z <span class="tok-s2">&quot;</span><span class="tok-nv">$SECTION</span><span class="tok-s2">&quot;</span> <span class="tok-o">||</span> -z <span class="tok-s2">&quot;</span><span class="tok-nv">$TITLE</span><span class="tok-s2">&quot;</span> <span class="tok-o">]]</span><span class="tok-p">;</span> <span class="tok-k">then</span>
+  <span class="tok-nb">echo</span> <span class="tok-s2">&quot;Usage: </span><span class="tok-nv">$0</span><span class="tok-s2"> SECTION TITLE&quot;</span>
+  <span class="tok-nb">exit</span> <span class="tok-m">1</span>
+<span class="tok-k">fi</span>
+
+<span class="tok-nv">TITLE_SLUG</span><span class="tok-o">=</span><span class="tok-s2">&quot;</span><span class="tok-k">$(</span><span class="tok-nb">echo</span> -n <span class="tok-s2">&quot;</span><span class="tok-nv">$TITLE</span><span class="tok-s2">&quot;</span> <span class="tok-p">|</span> sed -e <span class="tok-s1">&#39;s/[^[:alnum:]]/-/g&#39;</span> <span class="tok-p">|</span> tr -s <span class="tok-s1">&#39;-&#39;</span> <span class="tok-p">|</span> tr A-Z a-z<span class="tok-k">)</span><span class="tok-s2">&quot;</span>
+<span class="tok-nv">YEAR</span><span class="tok-o">=</span><span class="tok-s2">&quot;</span><span class="tok-k">$(</span>date +<span class="tok-s2">&quot;%Y&quot;</span><span class="tok-k">)</span><span class="tok-s2">&quot;</span>
+<span class="tok-nv">STUB</span><span class="tok-o">=</span><span class="tok-s2">&quot;</span><span class="tok-nv">$SECTION</span><span class="tok-s2">/</span><span class="tok-nv">$YEAR</span><span class="tok-s2">/</span><span class="tok-nv">$TITLE_SLUG</span><span class="tok-s2">&quot;</span>
+
+git checkout -b <span class="tok-s2">&quot;</span><span class="tok-nv">$STUB</span><span class="tok-s2">&quot;</span>
+hugo new <span class="tok-s2">&quot;</span><span class="tok-nv">$STUB</span><span class="tok-s2">.md&quot;</span>
+<span class="tok-c1"># newContentEditor set in Hugo config, expect Vim here.</span></code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_notes_2">Notes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Applying details like <a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/">unofficial strict mode</a> is part my process for getting more comfortable scripting Bash.
+The bit that&#8217;s important to me: this script fails loudly on encountering bad variables and bad processes.</p>
+</li>
+<li>
+<p>The fun little slug-generating <code>sed</code> and <code>tr</code> pipe came directly from <a href="https://bigmachine.io/products/the-imposters-handbook/">The Imposter&#8217;s Handbook</a>.
+I know that I will lose punctuation and unusual capitalization between this and Hugo&#8217;s manipulation of <code>.TranslationBaseName</code>.
+It encourages me to keep titles simple.
+The title can edited in the front matter later if it is that important to me.</p>
+</li>
+<li>
+<p><a href="https://www.gnu.org/software/coreutils/manual/html_node/date-invocation.html#date-invocation"><code>date</code></a> comes from <a href="https://www.gnu.org/software/coreutils/manual/html_node/index.html#Top">GNU Coreutils</a>.
+I knew I could use <code>date</code> to get a simple description of the date.
+I recently discovered that it also accepts a format string!
+Turns out that GNU Coreutils gives the shell quite a bit of functionality that I usually ran to some programming language and its libraries for.
+Being self-taught produces weird gaps in my knowledge.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>./script/add post <span class="tok-s2">&quot;23 Things I Hate About Lists&quot;</span>
+<span class="tok-go">Switched to a new branch &#39;post/2017/23-things-i-hate-about-lists&#39;</span>
+<span class="tok-go">/home/brian/Sites/rgb-hugo/content/post/2017/23-things-i-hate-about-lists.md created</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Excuse me while I go write my masterpiece.
+Have fun!</p>
+</div>
+</div>
+</div>
+</div>

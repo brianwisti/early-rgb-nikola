@@ -1,0 +1,23 @@
+---
+aliases:
+- /post/2017/disqus-again/
+- /2017/06/14/disqus-again/
+date: 2017-06-14 00:00:00+00:00
+draft: false
+tags:
+- site
+- disqus
+- marginalia
+title: Disqus Again
+uuid: d7fdc604-d43b-4185-8e4a-6c604854ba53
+format: adoc
+previewimage: /images/2017/06/disqus-again/cover.png
+---
+<div class="paragraph">
+<p><em>sigh</em></p>
+</div>
+<div class="paragraph">
+<p><a href="https://disqus.com/">Disqus</a> discussions are hooking up to the wrong URLs again.
+Assigning discussions for posts to URLs that don’t point anywhere.
+Working on it, and also looking at alternate discussion tools.</p>
+</div>

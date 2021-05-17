@@ -1,25 +1,25 @@
 ---
+slug: draft-mode-in-jekyll-templates
 aliases:
 - /tools/2015/07/20_draft-mode-in-jekyll-templates.html
 - /post/2015/draft-mode-in-jekyll-templates/
-announcements:
-  twitter: https://twitter.com/brianwisti/status/623300128145715201
-date: 2015-07-20T00:00:00Z
-description: Use site.show_drafts in templates if the local and live versions of your
-  jekyll site need to be different.
+- /2015/07/20/draft-mode-in-jekyll-templates/
+date: 2015-07-20 00:00:00+00:00
+description: "Use site.show_drafts in your template to keep site development from\
+  \ cluttering analytics\n"
 tags:
 - jekyll
+- tools
 title: Draft Mode in Jekyll Templates
-type: post
-year: '2015'
-category: tools
+uuid: aa03f645-f865-4dda-967c-6b7dfbb3960e
 ---
 [Jekyll]:  http://jekyllrb.com
-Use `site.show_drafts` in templates if the local and live versions of your [Jekyll][] site need to be different.
-<!-- TEASER_END -->
 
-[a post about Jekyll collections]: /post/2015/making-a-jekyll-collection/
+Use `site.show_drafts` in templates if the local and live versions of your [Jekyll][] site need to be different.
+
+[a post about Jekyll collections]: {{< ref "post/2015-07-making-a-jekyll-collection/index.rst" >}}
 [Google Analytics]: http://www.google.com/analytics/
+
 Yesterday I published [a post about Jekyll collections][].  Today I checked [Google Analytics][] to see if
 anybody looked at my site. 99 visits! Hey, nice. But I also noticed several "localhost" entries: those times I
 was double-checking my page locally with `jekyll serve -Dw` counted as visits, because the browser saw

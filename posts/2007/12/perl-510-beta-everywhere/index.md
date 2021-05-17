@@ -2,13 +2,15 @@
 aliases:
 - /blogspot/2007/12/05_perl-510-beta-everywhere.html
 - /post/2007/perl-510-beta-everywhere/
-date: 2007-12-05T00:00:00Z
+- /2007/12/05/perl-5.10-beta-everywhere/
+- /post/2007/12/perl-5.10-beta-everywhere/
+date: 2007-12-05 00:00:00+00:00
 tags:
 - perl
+- blogspot
 title: Perl 5.10 beta Everywhere
-type: post
-year: '2007'
-archived_category: blogspot
+slug: perl-510-beta-everywhere
+uuid: ee25036c-51f2-4f71-81e4-405318c6157c
 ---
 I decided to install Perl 5.10 on all my machines after the thrill of installing ActivePerl 5.10 beta on my Windows VM last night. Yes yes, it is true that strange things will thrill me.
 <!-- TEASER_END -->

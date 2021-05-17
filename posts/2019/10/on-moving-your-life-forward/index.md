@@ -11,11 +11,13 @@ tags:
 - strike that
 - reverse it
 title: On moving your life forward
-year: '2019'
+slug: on-moving-your-life-forward
+uuid: 7294b09c-b4a2-452a-81f6-8cb4a9caa149
+aliases:
+- /note/2019/303/on-moving-your-life-forward/
 category: note
 type: micro
 ---
-
 > When you metaphorically live life “paycheck to paycheck,” you do just enough each week to maintain your
 > current existence.  You take care of the urgent and outstanding tasks the neglect of which would disrupt the
 > status quo, but you never take action on things that would improve and progress your situation.
@@ -38,5 +40,5 @@ Okay, I can do that. Well, sort of. I'm still trying to build some kind of idea 
 However, I *can* make a point of completing one task a week that's been pushed aside by the high-[priority][],
 immediately-[due][] attention grabbers at the top of `task next`.
 
-[priority]: post/2017/taskwarrior-priorities/index.md
-[due]: {{< ref "post/2018/taskwarrior-due-dates/index.md" >}}
+[priority]: /post/2017/12/taskwarrior-priorities/
+[due]: /post/2018/01/taskwarrior-due-dates/

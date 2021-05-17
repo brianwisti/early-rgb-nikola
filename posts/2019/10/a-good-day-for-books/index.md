@@ -1,8 +1,5 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102951835247015657
-  twitter: https://twitter.com/brianwisti/status/1183152199888723969
-date: 2019-10-12T14:37:45-07:00
+date: 2019-10-12 14:37:45-07:00
 tags:
 - toread
 - pragprog
@@ -10,12 +7,14 @@ tags:
 - rakulang
 - i need to read faster
 title: A good day for books
-year: '2019'
+slug: a-good-day-for-books
+uuid: c2f34181-eaed-4cf2-81be-74ce16b7d491
+aliases:
+- /note/2019/285/a-good-day-for-books/
 category: note
 type: micro
 previewimage: /images/2019/10/a-good-day-for-books/cover.jpg
 ---
-
 Decided I wanted a copy of "[Learning Perl 6][]" before it becomes "Learning [Raku][]". 
 
 But I give my bookshelf room for nostalgia.

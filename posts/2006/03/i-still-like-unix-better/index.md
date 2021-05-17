@@ -1,14 +1,15 @@
 ---
+slug: i-still-like-unix-better
 aliases:
 - /blogspot/2006/03/28_i-still-like-unix-better.html
 - /post/2006/i-still-like-unix-better/
-date: 2006-03-28T00:00:00Z
+- /2006/03/28/i-still-like-unix-better/
+date: 2006-03-28 00:00:00+00:00
 tags:
 - 43 Things
+- blogspot
 title: I still like UNIX better
-type: post
-year: '2006'
-archived_category: blogspot
+uuid: be47b607-23c8-46b0-8c3d-3c9cd006d50b
 ---
 But at least now I have learned enough to actually get stuff done in Windows.
 That, and enough of my favorite tools have been ported over that I don't have

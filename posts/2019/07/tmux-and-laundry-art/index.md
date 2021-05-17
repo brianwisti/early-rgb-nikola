@@ -1,9 +1,6 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102448342849787216
-  twitter: https://twitter.com/brianwisti/status/1150928643037782016
 caption: I drew this while doing laundry Sunday
-date: 2019-07-15T17:25:36-07:00
+date: 2019-07-15 17:25:36-07:00
 tags:
 - tmux
 - art
@@ -13,12 +10,14 @@ tags:
 - and a proper timestamp
 - life is good
 title: tmux and laundry art
-year: '2019'
+slug: tmux-and-laundry-art
+uuid: 49fceeb4-31b8-4e3a-a45d-b5be82f3b352
+aliases:
+- /note/2019/196/tmux-and-laundry-art/
 category: note
 type: micro
 previewimage: /images/2019/07/tmux-and-laundry-art/cover.jpg
 ---
-
 I made a [toot][] and then I realized it's the sort of thing that should be
 a note here for the next time I forget.
 

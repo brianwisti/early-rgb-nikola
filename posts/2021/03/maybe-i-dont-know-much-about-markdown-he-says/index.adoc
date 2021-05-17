@@ -1,0 +1,25 @@
+---
+title: Maybe I don't know much about Markdown, he says
+slug: maybe-i-dont-know-much-about-markdown-he-says
+caption: TBD
+format: adoc
+tags:
+- links
+date: 2021-03-07 15:40:29.349893-08:00
+category: note
+type: micro
+---
+<div class="paragraph">
+<p>John Gruber&#8201;&#8212;&#8201;the creator of Markdown&#8201;&#8212;&#8201;<a href="https://daringfireball.net/linked/2021/03/05/snell-ios-markdown-editors">commenting</a> on Markdown editors and their trend towards hiding the syntax.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Maybe I don’t know much about Markdown,
+but my understanding is that the whole point of it is to provide a syntax where the most common HTML tags for prose can be replaced by simple punctuation characters that are meant to be visible to the writer.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>A joke so dry you&#8217;ll need a glass of water when you get it.</p>
+</div>

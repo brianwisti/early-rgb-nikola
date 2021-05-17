@@ -1,59 +1,56 @@
 ---
+slug: finding-and-removing-duplicate-files
 aliases:
 - /programming/2014/12/13_duplicate-files.html
 - /post/2014/duplicate-files/
-announcements:
-  twitter: https://twitter.com/brianwisti/status/543919408276467712
-date: 2014-12-13T00:00:00Z
+- /2014/12/13/finding-and-removing-duplicate-files/
+date: 2014-12-13 00:00:00+00:00
 description: Perl CPAN modules to simplify file cleanup
 tags:
 - perl
+- files
+- programming
 title: Finding and Removing Duplicate Files
-type: post
-year: '2014'
-category: programming
+uuid: df061bdd-5c6e-42be-a1e6-3b24d171fe77
 ---
-[MD5 hash]: http://en.wikipedia.org/wiki/MD5#MD5_hashes
-[CPAN]: http://www.cpan.org/
-I had a clever idea a couple months ago: to write a blog post detailing how to
-find recursively find duplicate files in a folder. My technique was good enough:
-track file sizes, find files that had the same file size and [MD5 hash][], and
-display the resulting list. It wasn't foolproof, but it showed some thought.
-After spending a little too much time on the post, I realized I had never checked
-[CPAN][]. Of course there is already a module to handle that exact task.
-<!-- TEASER_END -->
+I had a clever idea a couple months ago: to write a blog post detailing
+how to find recursively find duplicate files in a folder. My technique
+was good enough: track file sizes, find files that had the same file
+size and [MD5 hash](http://en.wikipedia.org/wiki/MD5#MD5_hashes), and
+display the resulting list. It wasn’t foolproof, but it showed some
+thought. After spending a little too much time on the post, I realized I
+had never checked [CPAN](http://www.cpan.org/). Of course there is
+already a module to handle that exact task.
 
 ## The Problem
 
-So here is my problem. I have - let's see -
+So here is my problem. I have — let’s see —
 
-```
+{{< console >}}
 $ find ~/Sync -type f | wc -l
     44388
-```
+{{< /console >}}
 
 I have 44,388 files in my Sync folder.
 
-I organized my home machines recently. When I say "organized" I mean that
-everything got swept into my `~/Sync` folder to deal with later. The refuse
-of several years squirreling files into random locations is now sitting in
-that single folder.
+I organized my home machines recently. When I say "organized" I mean
+that everything got swept into my `~/Sync` folder to deal with later.
+The refuse of several years squirreling files into random locations is
+now sitting in that single folder.
 
-[File::Find::Duplicates]: https://metacpan.org/pod/File::Find::Duplicates
-
-Well, now it is time to clean that single folder up. I want to find and delete
-duplicate files. I planned to focus on image files, but [File::Find::Duplicates][]
-makes it easier to find *all* duplicates.
+Well, now it is time to clean that single folder up. I want to find and
+delete duplicate files. I planned to focus on image files, but
+File::Find::Duplicates makes it easier to find *all* duplicates.
 
 ## The Solution
 
-[File::Find::Duplicates][] exports a `find_duplicate_files` subroutine, which
-finds the duplicate files in a list of folders.
+[File::Find::Duplicates](https://metacpan.org/pod/File::Find::Duplicates)
+exports a `find_duplicate_files` subroutine, which finds the duplicate
+files in a list of folders.
 
 First tell me how many sets of duplicates I have.
 
-``` perl
-# count-dupes.pl
+{{< code file="count-dupes.pl" >}}
 use 5.20.0;
 use warnings;
 
@@ -64,19 +61,18 @@ my @dupes      = find_duplicate_files( $root );
 my $dupe_count = @dupes;
 
 say "Found $dupe_count sets of duplicates in $root";
-```
+{{< /code >}}
 
 This will tell me how much work is ahead of me.
 
-```
+{{< console >}}
 $ perl count-dupes.pl
 Found 3465 sets of duplicates in /Users/brian/Sync
-```
+{{< /console >}}
 
 Removing the files was easy, but it rattled my nerves.
 
-``` perl
-# remove-dupes.pl
+{{< code file="remove-dupes.pl" >}}
 use 5.20.0;
 use warnings;
 
@@ -104,37 +100,35 @@ for my $dupeset ( @dupes ) {
 }
 
 say "Deleted $deleted files.";
-```
+{{< /code >}}
 
-I fought the temptation to add progress bars or anything like that. Focus
-on getting the job done. I can add work if I end up revisiting this task
-later.
+I fought the temptation to add progress bars or anything like that.
+Focus on getting the job done. I can add work if I end up revisiting
+this task later.
 
-```
+{{< console >}}
 $ perl remove-dupes.pl
 Deleted 3509 files.
-```
+{{< /console >}}
 
 I removed a lot of files. Are there still any duplicates?
 
-```
+{{< console >}}
 $ perl count-dupes.pl
 Found 0 sets of duplicates in /Users/brian/Sync
-```
+{{< /console >}}
 
-Thing is, I suspect that my `Sync` directory contains many empty subdirectories.
+Thing is, I suspect that my `Sync` directory contains many empty
+subdirectories.
 
 ## About Those Directories
 
-[File::Find::Rule::DirectoryEmpty]: https://metacpan.org/pod/File::Find::Rule::DirectoryEmpty
-[File::Find::Rule]: https://metacpan.org/pod/File::Find::Rule
+[File::Find::Rule::DirectoryEmpty](https://metacpan.org/pod/File::Find::Rule::DirectoryEmpty)
+helps with exactly that problem. It extends the useful
+[File::Find::Rule](https://metacpan.org/pod/File::Find::Rule) module to
+simplify finding files with characteristics you define.
 
-[File::Find::Rule::DirectoryEmpty][] helps with exactly that problem. It
-extends the useful [File::Find::Rule][] module to simplify finding files with
-characteristics you define.
-
-``` perl
-# find-leaves.pl
+{{< code file="find-leaves.pl" >}}
 use 5.20.0;
 use warnings;
 
@@ -146,22 +140,21 @@ my @empties = File::Find::Rule
   ->in( $root );
 my $empty_count = @empties;
 say "$empty_count empty directories";
-```
+{{< /code >}}
 
-```
+{{ console >}}
 $ perl find-leaves.pl
 2904 empty directories
-```
+{{ /console >}}
 
 Yow. I can delete those directories, but then there could be parent
-directories that are now empty, and then grandparent directories,
-and then -
+directories that are now empty, and then grandparent directories, and
+then —
 
-You know what? Just keep looking and deleting until there no
-more empty directories.
+You know what? Just keep looking and deleting until there no more empty
+directories.
 
-``` perl
-# remove-leaves.pl
+{{< code file="remove-leaves.pl" >}}
 use 5.20.0;
 use warnings;
 
@@ -184,28 +177,29 @@ while ( my @empties = $found->in( $root ) ) {
 }
 
 say "$deleted empty folders deleted";
-```
+{{< /code >}}
 
-I like a little logging on each pass so that I know what my program is seeing.
+I like a little logging on each pass so that I know what my program is
+seeing.
 
-```
+{{< console >}}
 $ perl remove-leaves.pl
 Found 2904 empty directories
 Found 529 empty directories
 Found 29 empty directories
 Found 5 empty directories
 3467 empty folders deleted
-```
+{{< /console >}}
 
-I might dig in later to *actually* organize the remaining files. I may even
-automate it with some Perl. This is good enough for today, though.
+I might dig in later to *actually* organize the remaining files. I may
+even automate it with some Perl. This is good enough for today, though.
 
 ## Done
 
-```
+{{< console >}}
 $ find ~/Sync/ -type f | wc -l
    40880
-```
+{{< /console >}}
 
-Now I have 40,880 files in my `~/Sync` folder. Maybe I should have counted
-directories too.
+Now I have 40,880 files in my \~/Sync folder. Maybe I should have
+counted directories too.

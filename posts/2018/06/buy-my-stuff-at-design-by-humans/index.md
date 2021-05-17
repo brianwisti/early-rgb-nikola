@@ -1,24 +1,22 @@
 ---
-date: 2018-06-12T00:00:00Z
+date: 2018-06-12 00:00:00+00:00
 draft: false
-store:
-- image: pegs-mandala-shirt.jpg
-  link: https://www.designbyhumans.com/shop/t-shirt/men/pegs-mandala/933514/
-  name: Pegs Mandala
 tags:
 - drawing
 - infinite painter
 - hugo
 - buy me
+- craft
+slug: buy-my-stuff-at-design-by-humans
 title: Buy My Stuff At Design by Hümans
-updated: 2018-06-26T00:00:00Z
-url: /2018/06/12/buy-my-stuff
-year: '2018'
+updated: 2018-06-26 00:00:00+00:00
+uuid: b3ebbda5-6f5a-436b-924f-9d8b8ea08001
+aliases:
+- /2018/06/12/buy-my-stuff/
 category: craft
+type: micro
 previewimage: /images/2018/06/buy-my-stuff-at-design-by-humans/cover.png
 ---
-
-
 I opened a [store][] on the Design by Hümans site! I also made [Hugo][] warn me when I forget purchase links.
 
 [store]: https://www.designbyhumans.com/shop/randomgeek/
@@ -46,12 +44,9 @@ have a direct link to its page on the [store][]. I get a lovely Hugo [`errorf`][
 
 My partial is a little clunky, but it worked. I can improve it later.
 
-****
-
+{{< aside >}}
 And then a couple weeks later I realized my needs would be better served by a new section than by a tag.
-
-****
+{{< /aside >}}
 
 ["buy me"]: /tags/buy-me
 [`errorf`]: http://gohugo.io/functions/errorf/
-

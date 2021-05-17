@@ -1,16 +1,17 @@
 ---
+slug: beholder
 aliases:
 - /craft/2016/beholder/
-date: 2016-11-04T00:00:00Z
-fullimage: /img/2016/beholder.jpg
-image: /img/2016/beholder-medium.jpg
+- /2016/11/04/beholder/
+date: 2016-11-04 00:00:00+00:00
 tags:
 - drawing
 - Sketch Club
-thumbnail: /img/2016/beholder-thumbnail.jpg
+- craft
 title: Beholder
-year: '2016'
+uuid: 4471c2e0-5a49-4d2e-a6fd-5d7233c8d8a6
 category: craft
+type: micro
 previewimage: /images/2016/11/beholder/cover.jpg
 ---
 Fun with symmetry

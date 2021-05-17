@@ -1,0 +1,23 @@
+---
+aliases:
+- /craft/2017/a-desktop-background/
+- /2017/09/03/a-desktop-background/
+date: 2017-09-03
+draft: false
+tags:
+- drawing
+- Procreate
+- Infinite Painter
+- craft
+title: A Desktop Background
+slug: a-desktop-background
+uuid: 5e84a356-2baa-4f02-9eed-fd1cb20680e8
+format: adoc
+category: craft
+type: micro
+previewimage: /images/2017/09/a-desktop-background/cover.jpg
+---
+<div class="paragraph">
+<p>Thought I’d make a picture with the right aspect ratio for my desktop.
+Used Infinite Painter’s radial symmetry tool for most of the linework, then over to finish up with color and shade in Procreate.</p>
+</div>

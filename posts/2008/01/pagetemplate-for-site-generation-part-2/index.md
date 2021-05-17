@@ -1,24 +1,25 @@
 ---
+slug: pagetemplate-for-site-generation-part-2
 aliases:
 - /blogspot/2008/01/07_pagetemplate-for-site-generation-part-2.html
 - /post/2008/pagetemplate-for-site-generation-part-2/
-date: 2008-01-07T00:00:00Z
+- /2008/01/07/pagetemplate-for-site-generation-part-2/
+date: 2008-01-07 00:00:00+00:00
 tags:
 - pagetemplate
 - ruby
+- blogspot
 title: PageTemplate for Site Generation Part 2
-type: post
-update: 2009-06-09
-year: '2008'
-archived_category: blogspot
+updated: 2009-06-09
+uuid: a18be3de-d368-4007-b0cd-e472beff6d58
 ---
 I've got my code [filtering Markdown][] and now I want to stuff that filtered content into an HTML page. I could just use
 `maruku#to_html_document`, but I need the ability to add details like a title and site-related links.
 
-[filtering Markdown]: /post/2008/pagetemplate-for-site-generation/
+[filtering Markdown]: /post/2008/01/pagetemplate-for-site-generation/
 <!-- TEASER_END -->
 
-[Python blog files]: /post/2007/python-loves-blogger/
+[Python blog files]: /post/2007/12/python-loves-blogger-part-1/
 I could use a format similar to my [Python blog files][]. I won't really need
 PageTemplate if I do that, though. Not for the content file, anyways. That's okay, though. The Maruku filter
 was more of a proof-of-concept, anyways. PageTemplate will be useful for fitting the generated content into an

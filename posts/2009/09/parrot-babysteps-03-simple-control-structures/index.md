@@ -1,24 +1,28 @@
 ---
+slug: parrot-babysteps-03-simple-control-structures
 aliases:
 - /coolnamehere/2009/09/11_03-simple-control-structures.html
 - /post/2009/03-simple-control-structures/
-date: 2009-09-11T00:00:00Z
+- /2009/09/11/parrot-babysteps-03-simple-control-structures/
+date: 2009-09-11 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 03 - Simple Control Structures
-type: post
-updated: 2010-02-12T00:00:00Z
-year: '2009'
+updated: 2010-02-12 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 1357d622-4869-478e-b9d6-fc90ab141bbb
 ---
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
+
 This is part 3 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
-I've already written a little bit about [control structures](/post/2004/control-structures/)
+[control structures]: {{< ref "post/2004-07-control-structures/index.md" >}}
+
+I've already written a little bit about [control structures][]
 on another page. Because of that, I won't spend a whole lot of time on what control
 structures *are* and more time on how to implement them in Parrot.
 
@@ -471,5 +475,3 @@ enough. We can use the simple combination of `if` and `goto` to create counter
 and condition controlled loops. A really determined person could create useful 
 programs with just this information. However, even simple useful
 programs would benefit from using the library of PMCs that are available.
-
-

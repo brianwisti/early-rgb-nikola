@@ -1,40 +1,37 @@
 ---
-author:
-- Random Geek
+slug: emacs-use-package
 date: 2019-11-09
 draft: false
 tags:
 - emacs
 - packages
+- tools
 title: Emacs use-package
-updated: 2019-11-17T12:15:12-08:00
-year: '2019'
-category: tools
+description: Just declared `.emacs` bankruptcy. Starting over with `use-package`.
+updated: 2019-11-17 12:15:12-08:00
+uuid: 8f571b0f-ca72-4a0e-a058-724600f30a22
+aliases:
+- /2019/11/09/emacs-use-package/
 ---
+I admit it. My [Emacs](/tags/emacs) usage is intermittent at best. But I
+do use Emacs *sometimes*. Still haven’t found anything to match [org
+mode](/tags/org-mode) for taking notes or writing posts.
 
-Just declared `.emacs` bankruptcy. Starting over with [`use-package`](https://github.com/jwiegley/use-package).
+So until I find something better than Org mode — which may take a while
+— I need Emacs. That means I need to get better at using it. *That*
+starts with configuration that isn’t a tribute to the [Flying Spaghetti
+Monster](http://spaghettimonster.com/).
 
-<!-- TEASER_END -->
+[use-package](https://github.com/jwiegley/use-package) helps organize
+loading and configuring Emacs packages. I need it.
 
-I admit it. My [Emacs](/tags/emacs) usage is intermittent at best. But I do use
-Emacs _sometimes_. Still haven't found anything to match [org mode](/tags/org) for
-taking notes or writing posts.
-
-So until I find something better than Org mode -- which may take a
-while -- I need Emacs. That means I need to get better at using it,
-and that starts with configuration that _isn't_ a tribute to [Flying
-Spaghetti Monster](http://spaghettimonster.com/).
-
-[`use-package`](https://github.com/jwiegley/use-package) helps organize loading and configuring Emacs packages. I need it.
-
-
-## My new `~/.emacs` {#my-new-dot-emacs}
+## My new `~/.emacs`
 
 I start with a prelude, telling Emacs about package manager details:
-mainly where to find packages and to install `use-package` if it isn't
+mainly where to find packages and to install `use-package` if it isn’t
 already available.
 
-```emacs-lisp
+``` elisp
 ;;
 ;; package manager setup
 ;;
@@ -55,17 +52,16 @@ already available.
   (require 'use-package))
 ```
 
-<div class="note">
-  <div></div>
+<div class="warning">
 
-Trailing slashes are important! `melpa.org/packages/` gets a
-list. `melpa.org/packages` does not.
+Trailing slashes are important\! `melpa.org/packages/` gets a list.
+`melpa.org/packages` does not.
 
 </div>
 
-Next I tell `use-package` that I want `org`.
+Next I tell use-package that I want org.
 
-```emacs-lisp
+``` elisp
 ;;
 ;; Load and configure packages
 ;;
@@ -82,26 +78,26 @@ Next I tell `use-package` that I want `org`.
 
 The additional options are where the `use-package` approach gets
 interesting to me. I can insist the package be installed with `:ensure
-t` --- or as in this case, ensure that another package be installed to
+t` — or as in this case, ensure that another package be installed to
 meet my requirements.
 
-`:config` provides code that gets executed after `org` is
-loaded. Pretty minimal so far, but the thing is -- well, there's a
-couple things:
+`:config` provides code that gets executed after `org` is loaded. Pretty
+minimal so far, but the thing is — well, there’s a couple things:
 
--   `:config` code won't execute if the package doesn't load. That keeps
-    the Emacs session tidy.
--   All the configuration relevant to `org` is right there in one place.
+- `:config` code won’t execute if the package doesn’t load. That keeps
+the Emacs session tidy.
+- All the configuration relevant to `org` is right there in one place.
 
-So later tonight when I add [`elscreen`](/2017/01/11/elscreen/) and [`writegood-mode`](/2017/08/06/emacs-writegood-mode/), I can keep
-all their configuration details together with minimal effort. It's the
-default pattern with `use-package`. That's promising.
+So later tonight when I add [elscreen](/post/2017/01/elscreen/) and
+[writegood-mode](/post/2017/08/emacs-writegood-mode/), I can keep all
+their configuration details together with minimal effort. It’s the
+default pattern with `use-package`. That’s promising.
 
-That's the package management out of the way. The rest is a couple
-settings I already know I want, to satisfy muscle memory and
-streamline prose editing.
+That’s the package management out of the way. The rest is a couple
+settings I already know I want, to satisfy muscle memory and streamline
+prose editing.
 
-```emacs-lisp
+``` elisp
 ;;
 ;; Preferences not covered already by packages or custom
 ;;
@@ -114,10 +110,10 @@ streamline prose editing.
 ```
 
 Finally is `custom-set-variables`, already filling up with automated
-customizations. My bad habits include hand-editing these values, so
-I put in a reminder to stop doing that.
+customizations. My bad habits include hand-editing these values, so I
+put in a reminder to stop doing that.
 
-```emacs-lisp
+``` elisp
 ;;
 ;; Custom settings. Try to leave them alone.
 ;;
@@ -128,18 +124,18 @@ I put in a reminder to stop doing that.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages (quote (use-package))))
- )
 ```
 
-Done! Now let's see how tidy I can keep my `.emacs` file.
+Done\! Now let’s see how tidy I can keep my `.emacs` file.
 
+## What next
 
-## What next {#what-next}
-
-Not sure, really. Install `elscreen` and `writegood-mode`. Maybe
-revisit Rainer König's [OrgMode Tutorial](https://www.youtube.com/playlist?list=PLVtKhBrRV%5FZkPnBtt%5FTD1Cs9PJlU0IIdE) videos. [`ox-hugo`](https://ox-hugo.scripter.co/) also looks
-pretty interesting!
+Not sure, really. Install `elscreen` and `writegood-mode`. Maybe revisit
+Rainer König’s [OrgMode
+Tutorial](https://www.youtube.com/playlist?list=PLVtKhBrRV%5FZkPnBtt%5FTD1Cs9PJlU0IIdE)
+videos. [ox-hugo](https://ox-hugo.scripter.co/) also looks pretty
+interesting\!
 
 Okay that last is a little disengenous. `ox-hugo` looked interesting
 enough that I used it to write this post. I might talk about that more
-once I have a better idea what I'm doing.
+once I have a better idea what I’m doing.

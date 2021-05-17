@@ -1,16 +1,17 @@
 ---
+slug: my-new-new-new-site
 aliases:
 - /emacs/2014/05/15_my-new-new-new-site.html
 - /post/2014/my-new-new-new-site/
-date: 2014-05-15T00:00:00Z
+- /2014/05/15/my-new-new-new-site/
+date: 2014-05-15 00:00:00+00:00
 tags:
 - site
 - emacs
-- org
+- OrgMode
+- marginalia
 title: My New New (New) Site
-type: post
-year: '2014'
-category: marginalia
+uuid: 9dd909f6-80e9-47e4-86e7-6f472f31691d
 ---
 [GNU Emacs]: http://www.gnu.org/software/emacs/
 [o-blog]: http://renard.github.io/o-blog/

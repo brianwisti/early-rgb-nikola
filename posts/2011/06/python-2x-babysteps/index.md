@@ -2,15 +2,17 @@
 aliases:
 - /coolnamehere/2011/06/07_python-2.x-babysteps.html
 - /post/2011/python-2.x-babysteps/
-date: 2011-06-07T00:00:00Z
+- /post/2011/06/python-2.x-babysteps/
+- /2011/06/07/python-2.x-babysteps/
+date: 2011-06-07 00:00:00+00:00
 tags:
 - python
 - learn2x
+- coolnamehere
 title: Python 2.x Babysteps
-type: post
-updated: 2011-06-16T00:00:00Z
-year: '2011'
-archived_category: coolnamehere
+slug: python-2x-babysteps
+updated: 2011-06-16 00:00:00+00:00
+uuid: ca83a56f-1840-4fc6-aa37-b7e00f82d78d
 ---
 <!-- TEASER_END -->
 [Python]: http://python.org
@@ -47,6 +49,4 @@ If anybody has any suggestions or comments about this tutorial, please let me kn
 
 I hope you enjoy this!
 
-1. [Installing Python](/post/2011/01-installing-python-2/)
-
-
+1. [Installing Python]({{< ref "post/2011-06-python-2-babysteps-01-installing-python-2/index.rst" >}})

@@ -1,20 +1,20 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/103017963008702400
-  twitter: https://twitter.com/brianwisti/status/1187384102670012417
 caption: '[KEXP.org 90.3FM Seattle](https://kexp.org)'
-date: 2019-10-24T07:53:13-07:00
+date: 2019-10-24 07:53:13-07:00
 tags:
 - music
 - old school tech
 - from a more civilized age
+- kexp
 title: Bookmarking the KEXP livestream links
-year: '2019'
+slug: bookmarking-the-kexp-livestream-links
+uuid: 06eaa505-02c4-45af-b391-315b944464ca
+aliases:
+- /note/2019/297/bookmarking-the-kexp-livestream-links/
 category: note
 type: micro
 previewimage: /images/2019/10/bookmarking-the-kexp-livestream-links/cover.jpg
 ---
-
 [KEXP][] used to show their live streaming links on the site. Not the [browser stream][], [podcast
 library][], [video archive][], or [Windows][], [iOS][], or [Android][] apps. An actual [URI][] I can load in
 [Audacious][] or whatever music player I'm using that week.

@@ -1,23 +1,23 @@
 ---
+slug: quick-garter-stitch-scarf
 aliases:
 - /craft/2015/quick-garter-scarf/
-date: 2015-04-04T00:00:00Z
-image: /img/2015/garter-scarf-wrapped.jpg
-posts:
-- title: A Quick Garter Stitch Scarf
-  url: /marginalia/2015/04/04_quick-garter-scarf.html
+- /2015/04/04/quick-garter-stitch-scarf/
+date: 2015-04-04 00:00:00+00:00
 tags:
 - knitting
 - scarf
-thumbnail: /img/2015/garter-scarf-wrapped-thumbnail.jpg
+- craft
 title: Quick Garter Stitch Scarf
-year: '2015'
+uuid: 327843d8-45ae-418f-8b92-96768bead878
 category: craft
+type: micro
 previewimage: /images/2015/04/quick-garter-stitch-scarf/cover.jpg
 ---
 [wikiHow]: http://www.wikihow.com/Add-Fringe-to-a-Crochet-or-Knit-Project
 [blue blog]: http://alison.knitsmiths.us/pattern_beginners_scarves.html
 [Tosh Merino]: http://madelinetosh.com/store/index.php/yarns/tosh-merino.html
+
 I made a scarf for a friend. Nothing fancy, though the choice of soft, cozy [Tosh Merino][] convinced her
 otherwise. She requested a long and skinny scarf. The finished product measures just over six feet long and
 four - wait, let me measure: *three* -  inches
@@ -31,4 +31,3 @@ There. Now I have a reference if somebody asks how I made that scarf, or I want 
 it. The [blue blog][] patterns are handy for getting started. They were also handy for getting me back into
 practice. Sometimes you need to step back and do something simple when your yarn basket is full of ambitious
 works in progress. Gets the morale back up.
-

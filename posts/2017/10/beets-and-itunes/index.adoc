@@ -1,0 +1,345 @@
+---
+date: 2017-10-01
+draft: false
+format: adoc
+tags:
+- music
+- macOS
+- beets
+- python
+- tools
+title: Beets and iTunes
+slug: beets-and-itunes
+description: beets and AppleScript helped me fix my incorrect track information
+updated: 2017-10-02 00:00:00+00:00
+uuid: 289a21db-bef8-4238-80b0-e2fbf29cafce
+aliases:
+- /2017/10/01/beets-and-itunes/
+---
+<div class="paragraph">
+<p>My macOS iTunes music library includes over 21,000 songs.
+Some of those tracks contain the wrong information.
+Wrong title, wrong album, wrong artist, wrong year.</p>
+</div>
+<div class="sect1">
+<h2 id="_beets">Beets</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The open source <a href="http://beets.io/">beets</a> command line tool helps manage your music library.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The purpose of beets is to get your music collection right once and for all.
+It catalogs your collection, automatically improving its metadata as it goes using the <a href="https://musicbrainz.org/">MusicBrainz</a> database.
+Then it provides a bouquet of tools for manipulating and accessing your music.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p><a href="http://beets.readthedocs.io/en/v1.4.5/plugins/index.html">Plugins</a> allow beets to perform more than media management.
+I won’t talk about most of them today.
+I don’t want to overwhelm myself.
+I will keep my focus on using beets from the command line to help me fix my iTunes library.</p>
+</div>
+<div class="sect2">
+<h3 id="_alternatives">Alternatives</h3>
+<div class="paragraph">
+<p>I prefer command line open source tools.
+It’s a comfortable habit.
+You have other options, though.</p>
+</div>
+<div class="paragraph">
+<p>If you prefer using a mouse, try out <a href="https://picard.musicbrainz.org/">Picard</a> from MusicBrainz.
+Its manual includes an <a href="https://musicbrainz.org/doc/iTunes_Guide">iTunes guide</a>, so you won’t have to guess your way through the process.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.tuneupmedia.com/">TuneUp</a> is a commercial application that integrates with iTunes.
+I haven’t used it, but TuneUp was the first thing that came up in most of my initial research into fixing my tracks.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation_and_configuration">Installation and Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>beets is written in <a href="https://python.org">Python</a>.
+It works with both Python 2 and 3, but I had better results with my hooks when using Python 2.</p>
+</div>
+<div class="paragraph">
+<p>I already installed <a href="https://github.com/pyenv/pyenv">pyenv</a> and <a href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a> via <a href="https://brew.sh/">Homebrew</a>.
+They aren’t strictly needed, but having distinct environments simplifies things when you have several Python-related projects.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>pyenv virtualenv <span class="tok-m">2</span>.7.14 beets
+<span class="tok-gp">$ </span>pyenv shell beets</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>beets uses <a href="https://pypi.python.org/pypi/pyacoustid">pyacoustid</a> for acoustic fingerprinting, which helps identify tracks by their audio data.
+pyacoustid needs the <a href="https://acoustid.org/chromaprint">Chromaprint</a> library, so I install that also.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>brew install chromaprint
+<span class="tok-gp">$ </span>pip install beets pyacoustid</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This <a href="https://groups.google.com/forum/#!topic/beets-users/yijEk858yiw">Google Groups thread</a> got me started on configuration.
+My settings focus on safely cataloging music rather than organizing it.</p>
+</div>
+<div class="listingblock">
+<div class="title">~/.config/beets/config.yaml</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-c1"># using default library ~/.beets/config/library.db</span>
+<span class="tok-c1"># using default directory ~/Music, but see &#39;copy&#39;</span>
+
+<span class="tok-nt">plugins</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">chroma edit ftintitle fromfilename importadded hook</span>
+
+<span class="tok-nt">import</span><span class="tok-p">:</span>
+  <span class="tok-nt">copy</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">no</span>         <span class="tok-c1"># Copy the file to our directory when importing?</span>
+  <span class="tok-nt">incremental</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">yes</span> <span class="tok-c1"># Skip directories we already imported?</span>
+  <span class="tok-nt">write</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">no</span>        <span class="tok-c1"># Automatically write the file on library import / update?</span>
+  <span class="tok-nt">resume</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">yes</span>      <span class="tok-c1"># Resume interrupted imports?</span>
+  <span class="tok-nt">log</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">beets.log</span>   <span class="tok-c1"># Where should we write what we do?</span>
+
+<span class="tok-nt">match</span><span class="tok-p">:</span>
+  <span class="tok-nt">strong_rec_thresh</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">0.1</span>            <span class="tok-c1"># Any difference less than this is a strong recommendation</span>
+  <span class="tok-nt">preferred</span><span class="tok-p">:</span>                        <span class="tok-c1"># Put these at the top of recommendations</span>
+    <span class="tok-nt">countries</span><span class="tok-p">:</span> <span class="tok-p tok-p-Indicator">[</span><span class="tok-nv">US</span><span class="tok-p tok-p-Indicator">,</span> <span class="tok-nv">GB|UK</span><span class="tok-p tok-p-Indicator">]</span>          <span class="tok-c1"># My favorite music publishing countries</span>
+    <span class="tok-nt">media</span><span class="tok-p">:</span> <span class="tok-p tok-p-Indicator">[</span><span class="tok-nv">CD</span><span class="tok-p tok-p-Indicator">,</span> <span class="tok-nv">Digital Media|File</span><span class="tok-p tok-p-Indicator">]</span> <span class="tok-c1"># My favorite music sources</span>
+    <span class="tok-nt">original_year</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">yes</span>              <span class="tok-c1"># entry year is close to entry original_year</span>
+
+<span class="tok-c1"># Tell iTunes to add and/or update the track in its library after we write a file.</span>
+<span class="tok-nt">hook</span><span class="tok-p">:</span>
+  <span class="tok-nt">hooks</span><span class="tok-p">:</span>
+    <span class="tok-p tok-p-Indicator">-</span> <span class="tok-nt">event</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">after_write</span>
+      <span class="tok-nt">command</span><span class="tok-p">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">osascript /Users/brianwisti/bin/iTunesRefresh.scpt &quot;{item.path}&quot;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The plugins add important functionality.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="http://beets.readthedocs.io/en/v1.4.5/plugins/chroma.html">chroma</a></dt>
+<dd>
+<p>Use acoustic fingerprinting to identify songs by their sound. Slower, but helps with tracks that have bad metadata.</p>
+</dd>
+<dt class="hdlist1"><a href="http://beets.readthedocs.io/en/v1.4.5/plugins/edit.html">edit</a></dt>
+<dd>
+<p>Edit details of your songs after importing</p>
+</dd>
+<dt class="hdlist1"><a href="http://beets.readthedocs.io/en/v1.4.5/plugins/ftintitle.html">ftintitle</a></dt>
+<dd>
+<p>Puts featured artist information in song title instead of artist.</p>
+</dd>
+<dt class="hdlist1"><a href="http://beets.readthedocs.io/en/v1.4.5/plugins/fromfilename.html">fromfilename</a></dt>
+<dd>
+<p>Try to guess missing metadata from the filename of a song.</p>
+</dd>
+<dt class="hdlist1"><a href="http://beets.readthedocs.io/en/v1.4.5/plugins/importadded.html">importadded</a></dt>
+<dd>
+<p>Use the file’s modification time to determine when you added it to your library. Useful for importing an existing library.</p>
+</dd>
+<dt class="hdlist1"><a href="http://beets.readthedocs.io/en/v1.4.5/plugins/hook.html">hook</a></dt>
+<dd>
+<p>Run commands for specific beet events.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Oh in iTunes uncheck <span class="menuseq"><b class="menu">Preferences</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Advanced</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Keep iTunes Media folder organized</b></span>.
+Otherwise you’ll end up deleting and reimporting songs that iTunes moved.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Configuration is out of the way. Let’s import music.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>beet import ~/Music/iTunes/iTunes Media/Music</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Importing a large music library takes time, especially with acoustic fingerprinting.
+My music took a full weekend, even with <code>match</code> settings giving it more leeway to automatically use the likeliest matches.
+But at the end of it all, here’s what I had.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>beet stats
+<span class="tok-go">Tracks: 22112</span>
+<span class="tok-go">Total time: 8.7 weeks</span>
+<span class="tok-go">Approximate total size: 107.8 GiB</span>
+<span class="tok-go">Artists: 2498</span>
+<span class="tok-go">Albums: 2405</span>
+<span class="tok-go">Album artists: 1117</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I won’t tell you about all the amazing <a href="http://beets.readthedocs.io/en/v1.4.5/reference/query.html">query support</a> or <a href="http://beets.readthedocs.io/en/v1.4.5/reference/pathformat.html">format strings</a> in beets.
+Instead let’s just list matches for a random word.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>beet ls pigeon
+<span class="tok-go">Bert - Songs From the Street: 35 Years of Music - Doin&#39; the Pigeon</span>
+<span class="tok-go">Cyndi Lauper - Hat Full of Stars - Sally&#39;s Pigeons</span>
+<span class="tok-go">Cyndi Lauper - Twelve Deadly Cyns... and Then Some - Sally&#39;s Pigeons</span>
+<span class="tok-go">Tom Lehrer - An Evening Wasted With Tom Lehrer - Poisoning Pigeons in the Park</span>
+<span class="tok-go">Lo Fidelity Allstars - How to Operate With a Blown Mind - Battle Flag feat. Pigeonhed</span>
+<span class="tok-go">RJD2 - Have Mercy - Have Mercy (Remix feat Lyrics Born and Pigeon John)</span>
+<span class="tok-go">RJD2 - Have Mercy - Have Mercy (Remix feat Lyrics Born and Pigeon John)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Looks like I have some duplicates.
+I can worry about that another day.</p>
+</div>
+<div class="sect2">
+<h3 id="_tell_beets_to_tell_itunes_to_refresh">Tell Beets to Tell iTunes to Refresh</h3>
+<div class="paragraph">
+<p>Now that beets has imported everything, it’s time to write it all back out and update the iTunes library.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_write_some_applescript">Write Some AppleScript</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>I spent a full day trying to make JXA work for this.
+It didn’t.
+I kept crashing Script Editor with whimsical directives like <code>console.log(iTunes)</code>.
+If you want to try JXA, look at this <a href="https://www.macstories.net/tutorials/getting-started-with-javascript-for-automation-on-yosemite/">blog post on JavaScript and iTunes</a>, or the <a href="https://github.com/JXA-Cookbook/JXA-Cookbook/wiki/iTunes">JXA Cookbook page for iTunes</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>I rarely use <a href="https://developer.apple.com/library/content/documentation/AppleScript/Conceptual/AppleScriptX/AppleScriptX.html">AppleScript</a>, so it took a combination of Web searching and guesswork to come up with this.
+<a href="https://dougscripts.com/itunes/2010/12/get-a-track-reference-from-a-file-path/">This post</a> from <a href="https://dougscripts.com/itunes/index.php#whatsnew">Doug’s AppleScripts for iTunes</a> blog and this <a href="https://apple.stackexchange.com/questions/202504/searching-itunes-library-for-file-location#222834">this Ask Different answer</a> got me most of the way there.
+The guesswork finished it off.</p>
+</div>
+<div class="listingblock">
+<div class="title">~/bin/iTunesRefresh.scpt</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="applescript"><span></span><span class="tok-k">on</span> <span class="tok-nb">run</span> <span class="tok-p">(</span><span class="tok-nv">argv</span><span class="tok-p">)</span>
+  <span class="tok-k">tell</span> <span class="tok-nb">application</span> <span class="tok-s2">&quot;iTunes&quot;</span>
+    <span class="tok-k">set</span> <span class="tok-nv">filename</span> <span class="tok-k">to</span> <span class="tok-nv">POSIX</span> <span class="tok-nv">file</span> <span class="tok-p">(</span><span class="tok-nv">argv</span>&#39;s <span class="tok-nb">item</span> <span class="tok-mi">1</span> <span class="tok-k">as </span><span class="tok-nc">string</span><span class="tok-p">)</span> <span class="tok-k">as</span> <span class="tok-nv">alias</span>
+    <span class="tok-k">try</span>
+      <span class="tok-k">set</span> <span class="tok-nv">trackRef</span> <span class="tok-k">to</span> <span class="tok-p">(</span><span class="tok-nv">add</span> <span class="tok-nv">filename</span><span class="tok-p">)</span>
+      <span class="tok-nv">refresh</span> <span class="tok-nv">trackRef</span>
+    <span class="tok-k">end</span> <span class="tok-k">try</span>
+  <span class="tok-k">end</span> <span class="tok-k">tell</span>
+<span class="tok-k">end</span> <span class="tok-nb">run</span></code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_beets_hook">The Beets Hook</h4>
+<div class="paragraph">
+<p><code>osascript</code> lets you run AppleScript commands and files from the command line.
+This <code>after_write</code> hook is only called when song metadata is updated in the file itself.</p>
+</div>
+<div class="paragraph">
+<p>Writing every track with the hook after that big import took about four hours —
+but I could leave it in the background while I did other stuff.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_after_the_big_import">After the big import</h3>
+<div class="paragraph">
+<p>Sometimes beets identifies tracks incorrectly.
+It happens.
+For example, Bob Dylan did not sing <a href="https://youtu.be/DohRa9lsx0Q">Stuck in the Middle With You</a>.</p>
+</div>
+<div class="paragraph">
+<p>I could <a href="http://beets.readthedocs.io/en/v1.4.5/reference/cli.html#modify">modify</a> that song with <code>beets modify</code>, but I can also do it with the <a href="http://beets.readthedocs.io/en/v1.4.5/plugins/edit.html">edit plugin</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>beet edit <span class="tok-sb">`</span>stuck <span class="tok-k">in</span> the middle<span class="tok-err">&#39;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This pulls up <code>$EDITOR</code>, which in my case is Vim.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="beet-edit-screen.png" alt="Editing a Beets entry in Vim">
+</div>
+<div class="title">Figure 1. Editing a Beets entry in Vim</div>
+</div>
+<div class="paragraph">
+<p>After the import and update, I saw something else in iTunes that bugged me. iTunes can sort by <code>year</code>, but not by <code>original_year</code> — the year an album was originally released, rather than the year that particular file or CD was available.</p>
+</div>
+<div class="paragraph">
+<p>I don’t know how to edit that with beets commands, but I can work directly with its underlying SQLite database. Maybe I’m being a little bold here, but I can always spend another weekend reimporting my music.</p>
+</div>
+<div class="listingblock">
+<div class="title">sqlite3 ~/.config/beets/library.db</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="sql"><span></span><span class="tok-n">sqlite</span><span class="tok-o">&gt;</span> <span class="tok-k">update</span> <span class="tok-n">items</span> <span class="tok-k">set</span> <span class="tok-k">year</span> <span class="tok-o">=</span> <span class="tok-n">original_year</span> <span class="tok-k">where</span> <span class="tok-k">year</span> <span class="tok-o">!=</span> <span class="tok-n">original_year</span> <span class="tok-k">and</span> <span class="tok-n">original_year</span> <span class="tok-o">!=</span> <span class="tok-mi">0</span><span class="tok-p">;</span>
+<span class="tok-n">sqlite</span><span class="tok-o">&gt;</span> <span class="tok-k">update</span> <span class="tok-n">albums</span> <span class="tok-k">set</span> <span class="tok-k">year</span> <span class="tok-o">=</span> <span class="tok-n">original_year</span> <span class="tok-k">where</span> <span class="tok-k">year</span> <span class="tok-o">!=</span> <span class="tok-n">original_year</span> <span class="tok-k">and</span> <span class="tok-n">original_year</span> <span class="tok-o">!=</span> <span class="tok-mi">0</span><span class="tok-p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>beet write</code> finalizes those changes, and updates iTunes again thanks to the <code>after_write</code> hook.</p>
+</div>
+<div class="paragraph">
+<p>Everything worked out for me this time.
+But remember, if you change values in the database, they happen <a href="https://xkcd.com/180/">in real life</a> too!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Then somebody mentioned that I could skip this particular mess by setting the <a href="http://beets.readthedocs.io/en/v1.4.5/reference/config.html#original-date">original_date</a> option to <code>yes</code> in my beets configuration.
+beets will update a song’s <code>year</code>, <code>month</code>, and <code>day</code> fields to reflect the values in <code>original_date</code>.
+Use that setting if you would rather not poke around in the database.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_next">What Next?</h3>
+<div class="paragraph">
+<p>That’s good enough for today.
+I’ll correct entries as I see them, but things are definitely better than when I started.</p>
+</div>
+<div class="paragraph">
+<p>To see what you can do with beets, check out the <a href="http://beets.readthedocs.io/en/v1.4.5/plugins/index.html">plugins</a>.</p>
+</div>
+<div class="paragraph">
+<p>Play with the <a href="http://beets.readthedocs.io/en/v1.4.5/reference/query.html">query support</a> and <a href="http://beets.readthedocs.io/en/v1.4.5/reference/pathformat.html">format strings</a>.
+Have fun!</p>
+</div>
+</div>
+</div>
+</div>

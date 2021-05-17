@@ -1,23 +1,20 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/101781261652356567
-  twitter: https://twitter.com/brianwisti/status/1108232025503195138
-date: 2019-03-19T00:00:00Z
+slug: garden-mandala
+date: 2019-03-19 00:00:00+00:00
 draft: false
-store:
-- image: garden-mandala-green-tee.jpg
-  link: https://www.designbyhumans.com/shop/1150601/
-  name: Garden Mandala
 tags:
 - drawing
 - Infinite Painter
 - buy me
+- craft
 title: Garden Mandala
-year: '2019'
+uuid: cdc83669-6985-433c-a0cf-5f980f6cd821
+aliases:
+- /2019/03/19/garden-mandala/
 category: craft
+type: micro
 previewimage: /images/2019/03/garden-mandala/cover.jpg
 ---
-
 A Samsung Note 9 means my phone drawing has been upgraded.
 <!-- TEASER_END -->
 
@@ -43,5 +40,4 @@ been doing lately! Maybe practice some cartoon style doodles. Pull out the Mark 
 Oh, and I should finish those draft posts at some point.
 
 [Syncthing]: https://syncthing.net/
-[circle template]: {{< ref "/post/2019/circular-grids-with-python-and-pillow/index.md" >}}
-
+[circle template]: {{< ref "/post/2019-01-circular-grids-with-python-and-pillow/index.md" >}}

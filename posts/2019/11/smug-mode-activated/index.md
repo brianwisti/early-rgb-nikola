@@ -8,12 +8,14 @@ tags:
 - tools
 - smeghead
 title: Smug mode activated
-year: '2019'
+slug: smug-mode-activated
+uuid: 3f4dc7a9-8af1-42c0-962a-3abed5a3731a
+aliases:
+- /note/2019/326/smug-mode-activated/
 category: note
 type: micro
 previewimage: /images/2019/11/smug-mode-activated/cover.png
 ---
-
 I checked the site at [Fit on a Floppy][].
 
 [Fit on a Floppy]:https://fitonafloppy.website
@@ -23,4 +25,4 @@ I checked the site at [Fit on a Floppy][].
 
 The first page fits, at least. Thanks to little efforts like when I [weighed the site][].
 
-[weighed the site]: {{< ref "post/2019/weighing-files-with-python/index.md" >}}
+[weighed the site]: /post/2019/06/weighing-files-with-python/

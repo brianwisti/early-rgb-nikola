@@ -1,25 +1,23 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/1092993084428738560
-date: 2019-02-05T00:00:00Z
+slug: three-circles
+date: 2019-02-05 00:00:00+00:00
 draft: false
-store:
-- image: three-circles-tee.jpg
-  link: https://www.designbyhumans.com/shop/1119755/
-  name: Three Circles
 tags:
 - drawing
 - Procreate
 - buy me
+- craft
 title: Three Circles
-year: '2019'
+uuid: 6ea4e58f-7a83-4c0b-8bee-671a8b53402c
+aliases:
+- /2019/02/05/three-circles/
 category: craft
+type: micro
 previewimage: /images/2019/02/three-circles/cover.jpg
 ---
-
 That [circle template][] I mentioned a couple weeks ago? Well, I made it so I could draw stuff like this!
 
-[circle template]: {{< ref "/post/2019/circular-grids-with-python-and-pillow/index.md" >}}
+[circle template]: {{< ref "/post/2019-01-circular-grids-with-python-and-pillow/index.md" >}}
 <!-- TEASER_END -->
 
 Spent about a month on it, an hour or so at a time. Will I do it again? Of course! Will I do it regularly?
@@ -31,4 +29,3 @@ I enjoyed figuring out the templates with code and then building on them manuall
 But first I need to get back to preparing a work talk.
 
 [Celtic]: /tags/celtic
-

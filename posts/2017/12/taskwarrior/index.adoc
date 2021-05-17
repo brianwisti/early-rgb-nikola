@@ -1,0 +1,673 @@
+---
+caption: '`task -work` report showing everything but my work tasks'
+date: 2017-12-16
+draft: false
+series:
+- Taskwarrior Babysteps
+tags:
+- taskwarrior
+- tools
+title: Taskwarrior
+slug: taskwarrior
+updated: 2017-12-22 00:00:00+00:00
+uuid: 1f30d9d2-77e0-4c05-beff-06d6c5745445
+aliases:
+- /2017/12/16/taskwarrior/
+format: adoc
+previewimage: /images/2017/12/taskwarrior/cover.png
+---
+<div class="paragraph">
+<p>I ended up with a mess after half a year trying to use <em>every feature</em> of <a href="https://taskwarrior.org/">Taskwarrior</a>.
+It’s time to focus on building solid knowledge one step at a time.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>I sat on this draft for a couple weeks.
+Rather than change task dates to make it look like I wrote this yesterday, I’ll leave <code>task</code> output as-is.
+Otherwise I’ll have to change those details every time I revisit Taskwarrior on the blog.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_taskwarrior">What Is Taskwarrior?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Taskwarrior helps you manage tasks and ideas from the command line.
+It provides a convenient interface, assuming your idea of convenient is a rich collection of commands you can enter, customize, and pipe to other utilities.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">What&#8217;s wrong with Org mode?</div>
+<div class="paragraph">
+<p>Nothing at all! <a href="/tags/org-mode">Org</a> provides similar functionality and more for GNU Emacs users.
+Taskwarrior focuses narrowly on task management and reporting, while Org is also a time tracker, note-taking tool, markup language for publishing, and more.</p>
+</div>
+<div class="paragraph">
+<p>Taskwarrior works better than Org mode for people that don’t live in Emacs.
+Wait.
+<a href="https://github.com/jceb/vim-orgmode">Vim-OrgMode</a> exists.
+I should be more general: Taskwarrior works better for people that don’t live in their editor.</p>
+</div>
+<div class="paragraph">
+<p>Ultimately it comes down to personal taste.
+I enjoy using Taskwarrior today.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_starting_from_scratch">Starting from scratch</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I archived my confused earlier attempts at usage. Here I am with a fresh slate.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task –-version
+<span class="tok-go">2.5.1</span>
+<span class="tok-gp">$ </span>task
+<span class="tok-go">[task next] No matches.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you don’t tell <code>task</code> what you want, it assumes by default that you want to see your <code>next</code> report. You can customize many aspects of Taskwarrior, but for my own understanding I will not look at customization today.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_tutorial_summarized">The Tutorial, Summarized</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let’s review the <a href="https://taskwarrior.org/docs/30second.html">30-Second Tutorial</a>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="https://taskwarrior.org/docs/commands/add.html"><code>add</code></a></dt>
+<dd>
+<p>creates a new task</p>
+</dd>
+<dt class="hdlist1"><a href="https://taskwarrior.org/docs/commands/done.html"><code>done</code></a></dt>
+<dd>
+<p>marks a task as complete</p>
+</dd>
+<dt class="hdlist1"><code>delete</code></dt>
+<dd>
+<p>marks a task as deleted</p>
+</dd>
+<dt class="hdlist1"><code>next</code></dt>
+<dd>
+<p>show a <a href="https://taskwarrior.org/docs/report.html">report</a> listing of tasks in decreasing order of Urgency</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Taskwarrior calculates <a href="https://taskwarrior.org/docs/urgency.html">Urgency</a> based on multiple factors, including your own <code>priority:</code> ranking.
+I plan to ignore Urgency and <code>priority</code> until life no longer seems sorted into "it’s on fire" and "it’s just an idea."</p>
+</div>
+<div class="paragraph">
+<p>I’ll add a few tasks.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task add knit fingerless gloves
+<span class="tok-go">Created task 1.</span>
+<span class="tok-gp">$ </span>task add write about Taskwarrior
+<span class="tok-go">Created task 2.</span>
+<span class="tok-gp">$ </span>task add get a size G crochet hook
+<span class="tok-go">Created task 3.</span>
+<span class="tok-gp">$ </span>task next
+
+<span class="tok-go">ID Age Description               Urg</span>
+<span class="tok-go"> 1 29s knit fingerless gloves       0</span>
+<span class="tok-go"> 2 14s write about Taskwarrior      0</span>
+<span class="tok-go"> 3 1s  get a size G crochet hook    0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I added that last one about the crochet hook to convince myself to get off my tush and go get that hook from my friendly Local Yarn Store.
+Give me a minute.</p>
+</div>
+<div class="paragraph">
+<p>Okay, done.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task <span class="tok-m">3</span> <span class="tok-k">done</span>
+<span class="tok-go">Completed task 3 &#39;get a size G crochet hook&#39;.</span>
+<span class="tok-go">Completed 1 task.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>What about <code>delete</code>? Say I want to see a movie this weekend.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task add go see that movie
+<span class="tok-go">Created task 3.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Turns out it’s not in theaters anymore.
+I need to pay closer attention to these things.</p>
+</div>
+<div class="paragraph">
+<p><code>delete</code> lets you abandon a task.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task <span class="tok-m">3</span> delete
+<span class="tok-go">Delete task 3 &#39;go see that movie&#39;? (yes/no) yes</span>
+<span class="tok-go">Deleting task 3 &#39;go see that movie&#39;.</span>
+<span class="tok-go">Deleted 1 task.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Those are the core Taskwarrior commands.
+It’s enough to make and manage a useful task list.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_a_few_more_core_commands">A few more "core" commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I consider a few more features core to my own Taskwarrior experience.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>editing a task</p>
+</li>
+<li>
+<p>recording a completed task that I never added</p>
+</li>
+<li>
+<p>reporting my completed tasks</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_modify"><code>modify</code></h3>
+<div class="paragraph">
+<p>I see a typo in my task descriptions. <code>modify</code> helps there.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-go">---</span>
+<span class="tok-gp">$ </span>task <span class="tok-m">1</span> modify crochet fingerless gloves
+<span class="tok-go">Modifying task 1 &#39;crochet fingerless gloves&#39;.</span>
+<span class="tok-go">Modified 1 task.</span>
+<span class="tok-go">---</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_log_and_completed"><code>log</code> and <code>completed</code></h3>
+<div class="paragraph">
+<p>I don’t just track things I want to do.
+I track things I did.
+I feel better on days when I barely dent my <code>next</code> list but can point to other accomplishments.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task log mailed presents
+<span class="tok-go">Logged task 0ef63b0b-ba36-495c-8684-d2c45258ea3d.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>completed</code> report shows my completed tasks, including those I logged and those marked <code>done</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task completed
+
+<span class="tok-go">ID UUID     Created    Completed  Age Description</span>
+<span class="tok-go"> - 20334a63 2017-12-01 2017-12-01 20h get a size G crochet hook</span>
+<span class="tok-go"> - 0ef63b0b 2017-12-02 2017-12-02 19s mailed presents</span>
+
+<span class="tok-go">2 tasks</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Taskwarrior tells you all sorts of interesting things about your tasks with a wealth of <a href="https://taskwarrior.org/docs/report.html">reports</a>. Explore them!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_projects">Projects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It can be demoralizing to have one huge task that just sits there forever, even though you work on it and make progress.
+A good way to keep yourself motivated is to split it into smaller subtasks.
+Taskwarrior does that with projects.</p>
+</div>
+<div class="paragraph">
+<p>Let’s go with a knit vest that I have <em>almost</em> finished.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task add knit vest project:ruana
+<span class="tok-go">Created task 3.</span>
+<span class="tok-go">The project &#39;ruana&#39; has changed.  Project &#39;ruana&#39; is 0% complete (1 task remaining).</span>
+<span class="tok-gp">$ </span>task next
+
+<span class="tok-go">ID Age Project Description                Urg</span>
+<span class="tok-go"> 3 3s  ruana   knit vest                    1</span>
+<span class="tok-go"> 1 20h         crochet fingerless gloves    0</span>
+<span class="tok-go"> 2 20h         write about Taskwarrior      0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hey look a column for <a href="https://taskwarrior.org/docs/urgency.html">Urgency</a>. Ignoring that.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task add finish vest project:ruana
+<span class="tok-gp">$ </span>task add knit belt project:ruana
+<span class="tok-gp">$ </span>task add block vest project:ruana
+<span class="tok-gp">$ </span>task add blog about vest project:ruana</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Knitting the vest itself is still the largest task, but at least I have some additional information about the other tasks involved in the project.</p>
+</div>
+<div class="paragraph">
+<p>What does my task list look like now?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task next
+
+<span class="tok-go">ID Age  Project Description                Urg</span>
+<span class="tok-go"> 3 4min ruana   knit vest                    1</span>
+<span class="tok-go"> 4 3min ruana   finish vest                  1</span>
+<span class="tok-go"> 5 3min ruana   knit belt                    1</span>
+<span class="tok-go"> 6 3min ruana   block vest                   1</span>
+<span class="tok-go"> 7 2s   ruana   blog about vest              1</span>
+<span class="tok-go"> 1 20h          crochet fingerless gloves    0</span>
+<span class="tok-go"> 2 20h          write about Taskwarrior      0</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For the curious: "finishing" a knit project is a distinct step that involves sewing in the loose ends.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tags">Tags</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Taskwarrior lets us add text tags to describe aspects of the task that may be useful beyond its description or project.</p>
+</div>
+<div class="paragraph">
+<p>Indicate a tag by prefixing it with <code>+</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task modify <span class="tok-m">1</span> +crochet
+<span class="tok-go">Modifying task 1 &#39;crochet fingerless gloves&#39;.</span>
+<span class="tok-go">Modified 1 task.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>next</code> report includes a new column for tags now.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task next
+
+<span class="tok-go">ID Age  Project Tag     Description                Urg</span>
+<span class="tok-go"> 3 7min ruana           knit vest                    1</span>
+<span class="tok-go"> 4 7min ruana           finish vest                  1</span>
+<span class="tok-go"> 5 6min ruana           knit belt                    1</span>
+<span class="tok-go"> 6 6min ruana           block vest                   1</span>
+<span class="tok-go"> 7 3min ruana           blog about vest              1</span>
+<span class="tok-go"> 1 20h          crochet crochet fingerless gloves  0.8</span>
+<span class="tok-go"> 2 20h                  write about Taskwarrior      0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Oh look.
+Assigning a tag gave an <a href="https://taskwarrior.org/docs/urgency.html">Urgency</a> to task the <code>+crochet</code> task.
+Still ignoring it.</p>
+</div>
+<div class="paragraph">
+<p>I added little information putting <code>+crochet</code> on a task that I already described with "crochet," but tags make convenient filters for Taskwarrrior commands and reports.</p>
+</div>
+<div class="sect2">
+<h3 id="_filters">Filters</h3>
+<div class="paragraph">
+<p>Filters let you work with a defined set of tasks.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task <span class="tok-m">3</span>-7 modify +knitting
+<span class="tok-go">  - Tags will be set to &#39;knitting&#39;.</span>
+<span class="tok-go">Modify task 3 &#39;knit vest&#39;? (yes/no/all/quit) all</span>
+<span class="tok-go">Modifying task 3 &#39;knit vest&#39;.</span>
+<span class="tok-go">Modifying task 4 &#39;finish vest&#39;.</span>
+<span class="tok-go">Modifying task 5 &#39;knit belt&#39;.</span>
+<span class="tok-go">Modifying task 6 &#39;block vest&#39;.</span>
+<span class="tok-go">Modifying task 7 &#39;blog about vest&#39;.</span>
+<span class="tok-go">Modified 5 tasks.</span>
+<span class="tok-go">Project &#39;ruana&#39; is 0% complete (5 of 5 tasks remaining).</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>What if the tasks aren’t right next to each other? No problem.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task <span class="tok-m">2</span>,7 modify +blog
+<span class="tok-go">Modifying task 2 &#39;write about Taskwarrior&#39;.</span>
+<span class="tok-go">Modifying task 7 &#39;blog about vest&#39;.</span>
+<span class="tok-go">Modified 2 tasks.</span>
+<span class="tok-go">Project &#39;ruana&#39; is 0% complete (5 of 5 tasks remaining).</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>How have these modifications changed my <code>next</code> report?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task next
+
+<span class="tok-go">ID Age   Project Tag           Description                Urg</span>
+<span class="tok-go"> 7 8min  ruana   blog knitting blog about vest            1.9</span>
+<span class="tok-go"> 3 12min ruana   knitting      knit vest                  1.8</span>
+<span class="tok-go"> 4 12min ruana   knitting      finish vest                1.8</span>
+<span class="tok-go"> 5 12min ruana   knitting      knit belt                  1.8</span>
+<span class="tok-go"> 6 11min ruana   knitting      block vest                 1.8</span>
+<span class="tok-go"> 1 20h           crochet       crochet fingerless gloves  0.8</span>
+<span class="tok-go"> 2 20h           blog          write about Taskwarrior    0.8</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Filters work on reports, too.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task <span class="tok-m">3</span>-7 next
+
+<span class="tok-go">ID Age   Project Tag           Description      Urg</span>
+<span class="tok-go"> 7 11min ruana   blog knitting blog about vest  1.9</span>
+<span class="tok-go"> 3 15min ruana   knitting      knit vest        1.8</span>
+<span class="tok-go"> 4 15min ruana   knitting      finish vest      1.8</span>
+<span class="tok-go"> 5 15min ruana   knitting      knit belt        1.8</span>
+<span class="tok-go"> 6 14min ruana   knitting      block vest       1.8</span>
+
+<span class="tok-go">5 tasks</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>What if I filter to a single ID without a command?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task <span class="tok-m">1</span>
+<span class="tok-go">No command specified - assuming &#39;information&#39;.</span>
+
+<span class="tok-go">Name          Value</span>
+<span class="tok-go">ID            1</span>
+<span class="tok-go">Description   crochet fingerless gloves</span>
+<span class="tok-go">Status        Pending</span>
+<span class="tok-go">Entered       2017-12-01 14:49:32 (20h)</span>
+<span class="tok-go">Last modified 2017-12-02 11:08:25 (18min)</span>
+<span class="tok-go">Tags          crochet</span>
+<span class="tok-go">Virtual tags  PENDING READY TAGGED UNBLOCKED</span>
+<span class="tok-go">UUID          fadd9280-6796-4fe9-9f97-0a3ff0f5fd4b</span>
+<span class="tok-go">Urgency        0.8</span>
+
+<span class="tok-go">    tags    0.8 *    1 =    0.8</span>
+<span class="tok-go">                         ------</span>
+<span class="tok-go">                            0.8</span>
+
+<span class="tok-go">Date                Modification</span>
+<span class="tok-go">2017-12-02 10:51:12 Description changed from &#39;knit fingerless gloves&#39; to &#39;crochet fingerless gloves&#39;.</span>
+<span class="tok-go">2017-12-02 11:08:25 Tags set to &#39;crochet&#39;.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I get a lot of stuff I’m not ready for yet.
+I’ll come back to this some other day.</p>
+</div>
+<div class="paragraph">
+<p>Filters don’t have to be task IDs.
+Use plain text to filter based on task description.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task gloves
+<span class="tok-go">[task next ( gloves )]</span>
+
+<span class="tok-go">ID Age Tag     Description                Urg</span>
+<span class="tok-go"> 1 20h crochet crochet fingerless gloves  0.8</span>
+
+<span class="tok-go">1 task</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Prefix with <code>+</code> for a tag filter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task +blog
+<span class="tok-go">[task next ( +blog )]</span>
+
+<span class="tok-go">ID Age   Project Tag           Description             Urg</span>
+<span class="tok-go"> 7 12min ruana   blog knitting blog about vest          1.9</span>
+<span class="tok-go"> 2 20h           blog          write about Taskwarrior  0.8</span>
+
+<span class="tok-go">2 tasks</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Prefix with <code>-</code> to show tasks that <strong>do not</strong> have a particular tag.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task -knitting
+<span class="tok-go">[task next ( -knitting )]</span>
+
+<span class="tok-go">ID Age Tag     Description               Urg</span>
+<span class="tok-go"> 1 20h crochet crochet fingerless gloves  0.8</span>
+<span class="tok-go"> 2 20h blog    write about Taskwarrior    0.8</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Prefix with <code>project:</code> to list tasks associated with a particular project.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task project:ruana
+<span class="tok-go">[task next ( project:ruana )]</span>
+
+<span class="tok-go">ID Age   Project Tag           Description     Urg</span>
+<span class="tok-go"> 7 12min ruana   blog knitting blog about vest  1.9</span>
+<span class="tok-go"> 3 16min ruana   knitting      knit vest        1.8</span>
+<span class="tok-go"> 4 15min ruana   knitting      finish vest      1.8</span>
+<span class="tok-go"> 5 15min ruana   knitting      knit belt        1.8</span>
+<span class="tok-go"> 6 15min ruana   knitting      block vest       1.8</span>
+
+<span class="tok-go">5 tasks</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Org mode lets you write quick notes about a task.
+Can Taskwarrior do that?</p>
+</div>
+<div class="paragraph">
+<p>Of course it can!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_annotations">Annotations</h3>
+<div class="paragraph">
+<p>Annotations let you add a one line note to a task.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task knit vest annotate pattern at http://www.redheart.com/free-patterns/ruana-style-vest
+<span class="tok-go">Annotating task 3 &#39;knit vest&#39;.</span>
+<span class="tok-go">Annotated 1 task.</span>
+<span class="tok-go">Project &#39;ruana&#39; is 0% complete (5 of 5 tasks remaining).</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Taskwarrior presents these annotations with their tasks in reports.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task project:ruana
+<span class="tok-go">[task next ( project:ruana )]</span>
+
+<span class="tok-go">ID Age   Project Tag           Description                                                                    Urg</span>
+<span class="tok-go"> 3 24min ruana   knitting      knit vest                                                                       2.6</span>
+<span class="tok-go">                                 2017-12-02 pattern at http://www.redheart.com/free-patterns/ruana-style-vest</span>
+<span class="tok-go"> 7 20min ruana   blog knitting blog about vest                                                                 1.9</span>
+<span class="tok-go"> 4 24min ruana   knitting      finish vest                                                                     1.8</span>
+<span class="tok-go"> 5 24min ruana   knitting      knit belt                                                                       1.8</span>
+<span class="tok-go"> 6 24min ruana   knitting      block vest                                                                      1.8</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice how a task’s Urgency automatically increases as we add more information to it? I know —
+I’m still ignoring it, but it does make it convenient that the tasks I spend more time on in Taskwarrior get pushed to the top.</p>
+</div>
+<div class="paragraph">
+<p>Anyways I’m done knitting the vest.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task <span class="tok-m">3</span> <span class="tok-k">done</span>
+<span class="tok-go">Completed task 3 &#39;knit vest&#39;.</span>
+<span class="tok-go">Completed 1 task.</span>
+<span class="tok-go">The project &#39;ruana&#39; has changed.  Project &#39;ruana&#39; is 20% complete (4 of 5 tasks remaining).</span></code></pre>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>A couple days after posting this article I made an annotation on the wrong task.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task annotate <span class="tok-m">5</span> edges <span class="tok-k">done</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That’s when I learned about the <code>denotate</code> command, which removes a matching annotation from a task.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task denotate <span class="tok-m">5</span> edges <span class="tok-k">done</span>
+<span class="tok-gp">$ </span>task annotate <span class="tok-m">3</span> edges <span class="tok-k">done</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Good to know!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_oops">Oops</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let’s go shopping!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task add groceries +misc project:home
+<span class="tok-go">Created task 7.</span>
+<span class="tok-go">The project &#39;home&#39; has changed.  Project &#39;home&#39; is 0% complete (1 task remaining).</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sometimes I need to remove a tag, or remove a task from a project.</p>
+</div>
+<div class="paragraph">
+<p>Prefixing the tag with <code>-</code> in a <code>modify</code> command removes that tag.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task groceries modify -misc +food
+<span class="tok-go">Modifying task 7 &#39;groceries&#39;.</span>
+<span class="tok-go">Modified 1 task.</span>
+<span class="tok-go">Project &#39;home&#39; is 0% complete (1 task remaining).</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>home</code> isn’t a project — at least not in this context.
+Assigning an empty project removes a task’s project connection.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task groceries modify project:
+<span class="tok-go">Modifying task 7 &#39;groceries&#39;.</span>
+<span class="tok-go">Modified 1 task.</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary">Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here’s what I have so far for my task list, without <code>work</code> stuff because you don’t need to know about that.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task -work
+<span class="tok-go">[task next ( -work )]</span>
+
+<span class="tok-go">ID Age   Project Tag              Description                                      Urg</span>
+<span class="tok-go"> 6 1h    ruana   blog knitting    blog about vest                                   1.9</span>
+<span class="tok-go"> 3 1h    ruana   knitting         finish vest                                       1.8</span>
+<span class="tok-go"> 4 1h    ruana   knitting         knit belt                                         1.8</span>
+<span class="tok-go"> 5 1h    ruana   knitting         block vest                                        1.8</span>
+<span class="tok-go"> 2 21h           blog taskwarrior Taskwarrior tags, projects, annotations, filters  1.7</span>
+<span class="tok-go">                                    2017-12-02 basic flow done</span>
+<span class="tok-go"> 7 22min         food shopping    groceries                                         1.7</span>
+<span class="tok-go">                                    2017-12-02 shopping list done</span>
+<span class="tok-go"> 8 14min         blog taskwarrior Taskwarrior due dates, priorities, recurrences    0.9</span>
+<span class="tok-go">15 5min          clothes shopping get winter coat                                   0.9</span>
+<span class="tok-go"> 1 21h           crochet          crochet fingerless gloves                         0.8</span>
+<span class="tok-go">16 9s                             visit library                                       0</span>
+
+<span class="tok-go">10 tasks</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That’s enough for now. I feel comfortable using Taskwarrior to manage
+and describe my tasks. Next time I write about Taskwarrior I might
+choose to focus on tiny pieces so I can post more often.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>task <span class="tok-m">2</span> <span class="tok-k">done</span>
+<span class="tok-go">Completed task 2 &#39;Taskwarrior tags, projects, annotations, filters&#39;.</span>
+<span class="tok-go">Completed 1 task.</span>
+<span class="tok-go">You have more urgent tasks.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Oh hush, you.
+I’ll get to <a href="https://taskwarrior.org/docs/urgency.html">Urgency</a> when I feel like it.</p>
+</div>
+</div>
+</div>

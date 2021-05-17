@@ -1,0 +1,43 @@
+---
+aliases:
+- /post/2017/new-twitter-account-just-for-the-site/
+- /2017/03/18/new-twitter-account-just-for-the-site/
+date: 2017-03-18
+updated: 2020-01-31
+draft: false
+tags:
+- site
+- marginalia
+title: New Twitter Account Just For The Site
+slug: new-twitter-account-just-for-the-site
+uuid: 5a61223b-ac2f-48fa-82e2-fc1ba1bbd75a
+format: adoc
+previewimage: /images/2017/03/new-twitter-account-just-for-the-site/cover.png
+---
+<div class="paragraph">
+<p>Follow <a href="https://twitter.com/randgeeekery">@randgeekery</a> if Twitter is your news feed.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>As of 2020-01-31, I haven’t updated that twitter account in about two years.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>This is relevant to my earlier <a href="/post/2017/03/maybe-ration-my-time-in-hot-take-land/">post about limiting social media</a>.
+See, if Twitter gets scary enough that I want to lock down <a href="https://twitter.com/brianwisti/">my personal account</a>,
+I’ll still have this one for sharing posts.
+Plenty of folks use Twitter as their news feed.
+And honestly the way I tweet it’s easy to lose any site-related content in the GIFs, jokes, and existential despair.</p>
+</div>
+<div class="paragraph">
+<p>For now the new account exists mainly to be retweeted by me&#8201;&#8212;&#8201;and maybe the two friends that found it even though I haven’t posted anything yet.
+In the future?
+Who knows? I’ve been just <a href="https://twitter.com/brianwisti">@brianwisti</a> for nearly ten years now.
+I might enjoy the change of pace.</p>
+</div>
+<div class="paragraph">
+<p>In the spirit of streamlining, I added a <a href="/follow/">Follow</a> page for RSS and social media links,
+and cleaned up the sidebar links a bit.</p>
+</div>

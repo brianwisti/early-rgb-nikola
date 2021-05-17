@@ -1,0 +1,23 @@
+---
+aliases:
+- /post/2017/disqus-refresh/
+- /2017/05/07/disqus-refresh/
+date: 2017-05-07
+draft: false
+tags:
+- site
+- disqus
+- marginalia
+title: Disqus Refresh
+slug: disqus-refresh
+uuid: c316ef79-1495-4ad2-9596-3c61c6bfaf9a
+format: adoc
+---
+<div class="paragraph">
+<p>Tentatively adding fresh <a href="https://disqus.com/">Disqus</a> conversations to the site.</p>
+</div>
+<div class="paragraph">
+<p>Worked around several missteps that resulted in redundant conversations by deleting the old Disqus conversations.
+I may need to fiddle a little bit more before everything settles.
+Fingers crossed that everything basically works now.</p>
+</div>

@@ -1,15 +1,17 @@
 ---
+slug: bad-kitty
 aliases:
 - /craft/2016/bad-kitty/
-date: 2016-10-24T00:00:00Z
-image: /img/2016/Bad_kitty-medium.png
+- /2016/10/24/bad-kitty/
+date: 2016-10-24 00:00:00+00:00
 tags:
 - drawing
 - Procreate
-thumbnail: /img/2016/Bad_kitty-thumbnail.png
+- craft
 title: Bad Kitty
-year: '2016'
+uuid: b167ce19-37dc-423f-a931-8abf112c4a3c
 category: craft
+type: micro
 previewimage: /images/2016/10/bad-kitty/cover.png
 ---
 Dunno but pretty sure it's a bad kitty. I think I had spent a whole day listening to psychobilly music.

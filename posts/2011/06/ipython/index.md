@@ -1,14 +1,15 @@
 ---
+slug: ipython
 aliases:
 - /coolnamehere/2011/06/10_ipython.html
 - /post/2011/ipython/
-date: 2011-06-10T00:00:00Z
+- /2011/06/10/ipython/
+date: 2011-06-10 00:00:00+00:00
 tags:
 - python
+- coolnamehere
 title: IPython
-type: post
-year: '2011'
-archived_category: coolnamehere
+uuid: be04d381-091d-446c-9640-5b5c2aa77d6d
 ---
 <!-- TEASER_END -->
 [MacPorts]: http://macports.org
@@ -33,4 +34,3 @@ archived_category: coolnamehere
 
     In [1]: exit()
     Do you really want to exit ([y]/n)? y
-

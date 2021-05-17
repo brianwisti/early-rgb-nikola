@@ -1,19 +1,21 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/964955519587729408
-date: 2018-02-17T00:00:00Z
+slug: my-sloppy-floppy-fingerless-mitten
+date: 2018-02-17 00:00:00+00:00
 draft: false
 tags:
 - knitting
 - glove
 - hugo
+- craft
 title: My Sloppy Floppy Fingerless Mitten
-updated: 2018-02-17T00:00:00Z
-year: '2018'
+updated: 2018-02-17 00:00:00+00:00
+uuid: 30b2333d-81f3-4933-a1da-1d2300719fd0
+aliases:
+- /2018/02/17/my-sloppy-floppy-fingerless-mitten/
 category: craft
+type: micro
 previewimage: /images/2018/02/my-sloppy-floppy-fingerless-mitten/cover.jpg
 ---
-
 I knit a fingerless mitten. Mistakes were made. I also figured out some stuff about Hugo Page Bundles and
 image processing.
 <!-- TEASER_END -->
@@ -122,4 +124,3 @@ redesign page layout later.
 I better get to it.
 
 [Hugo]: https://gohugo.io/
-

@@ -1,15 +1,17 @@
 ---
+slug: my-first-socks
 aliases:
 - /craft/2015/my-first-socks/
-date: 2015-11-25T00:00:00Z
-image: /img/2015/my-first-socks.jpg
+- /2015/11/25/my-first-socks/
+date: 2015-11-25 00:00:00+00:00
 tags:
 - knitting
 - socks
-thumbnail: /img/2015/my-first-socks-thumbnail.jpg
+- craft
 title: My First Socks
-year: '2015'
+uuid: 85b3d400-09e9-49be-a33a-4066bddf30d1
 category: craft
+type: micro
 previewimage: /images/2015/11/my-first-socks/cover.jpg
 ---
 Not my first socks ever, of course. But there are many firsts in these socks.

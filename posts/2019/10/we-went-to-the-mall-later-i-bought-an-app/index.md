@@ -1,9 +1,6 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102914154102080827
-  twitter: https://twitter.com/brianwisti/status/1180740438338224128
 caption: GoodNotes screenshot
-date: 2019-10-05T23:30:39-07:00
+date: 2019-10-05 23:30:39-07:00
 tags:
 - iOS
 - notes
@@ -13,12 +10,12 @@ tags:
 - notebooks
 - yeah those
 title: We went to the mall. Later, I bought an app.
-year: '2019'
+uuid: 5176d8ee-65f7-406f-b683-fd7ac6c310f2
+slug: we-went-to-the-mall-later-i-bought-an-app
 category: note
 type: micro
 previewimage: /images/2019/10/we-went-to-the-mall-later-i-bought-an-app/cover.png
 ---
-
 We went to the [Apple][] store. I played with a new iPad Pro. Tried hard not to like it, but it was a really
 pleasant experience.
 
@@ -30,7 +27,7 @@ then search through their content later.
 Been messing with Windows and [WSL 2][] more lately. So we went to the [Microsoft][] store too. I tried hard
 to like it, but everything felt a little clumsy and disappointing after the smoothness of the Apple devices.
 
-[WSL 2]: /hashtags/wsl
+[WSL 2]: /tags/wsl
 [Microsoft]: https://microsoft.com
 
 When I got home I had to find and install [GoodNotes][], the notebook app I played with at the Apple Store, on

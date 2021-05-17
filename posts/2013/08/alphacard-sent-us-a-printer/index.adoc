@@ -1,0 +1,19 @@
+---
+slug: alphacard-sent-us-a-printer
+aliases:
+- /marginalia/2013/08/09_alphacard-sent-us-a-printer.html
+- /post/2013/alphacard-sent-us-a-printer/
+- /2013/08/09/alphacard-sent-us-a-printer/
+date: 2013-08-09 00:00:00+00:00
+title: AlphaCard Sent Us A Printer
+uuid: d335e654-187b-48ae-8b6d-2e5ba547e6df
+format: adoc
+tags:
+- marginalia
+---
+<div class="paragraph">
+<p><a href="https://www.alphacard.com">AlphaCard</a> generously donated a badge printer &amp; supplies for <a href="https://marysplaceseattle.org">Mary&#8217;s Place</a> day shelter in Seattle.</p>
+</div>
+<div class="paragraph">
+<p>Now I can start automated checkin and develop other features in the app I’ve been writing for the shelter.</p>
+</div>

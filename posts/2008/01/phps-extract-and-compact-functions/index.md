@@ -1,16 +1,16 @@
 ---
+slug: phps-extract-and-compact-functions
 aliases:
 - /blogspot/2008/01/30_php-extract-and-compact-functions.html
 - /post/2008/php-extract-and-compact-functions/
-date: 2008-01-30T00:00:00Z
+- /2008/01/30/phps-extract-and-compact-functions/
+date: 2008-01-30 00:00:00+00:00
 tags:
 - php
+- blogspot
 title: PHP's extract and compact functions
-type: post
-year: '2008'
-archived_category: blogspot
+uuid: 47e4d9ef-c5aa-4bcd-a673-09b5380a8b84
 ---
-
 [PHP]: http://php.net
 
 I've been brushing up on my PHP basics lately. Why? Well, it never hurts to 

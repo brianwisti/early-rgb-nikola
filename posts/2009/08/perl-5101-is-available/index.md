@@ -2,14 +2,14 @@
 aliases:
 - /blogspot/2009/08/23_perl-5101-is-available.html
 - /post/2009/perl-5101-is-available/
-date: 2009-08-23T00:00:00Z
+- /post/2009/08/perl-5101-is-available/
+- /2009/08/23/perl-5.10.1-is-available/
+date: 2009-08-23 00:00:00+00:00
 tags:
 - perl
+- blogspot
 title: Perl 5.10.1 is available
-type: post
-year: '2009'
-archived_category: blogspot
+slug: perl-5101-is-available
+uuid: b616c853-a949-4aab-b157-ec6366bf9e52
 ---
-
 Find it at <a href="http://perl.org">perl.org</a>. I can stop whining - for a little bit, at least.
-<!-- TEASER_END -->

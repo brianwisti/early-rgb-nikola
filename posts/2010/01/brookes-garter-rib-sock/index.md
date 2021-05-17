@@ -1,19 +1,17 @@
 ---
+slug: brookes-garter-rib-sock
 aliases:
 - /craft/2010/brookes-garter-rib-sock/
-date: 2010-01-03T00:00:00Z
-image: /img/2015/brookes-garter-rib-sock.jpg
-posts:
-- title: Ravelry Project Page
-  url: http://www.ravelry.com/projects/brianwisti/garter-rib
+- /2010/01/03/brookes-garter-rib-sock/
+date: 2010-01-03 00:00:00+00:00
 tags:
 - knitting
 - socks
-thumbnail: /img/2015/brookes-garter-rib-sock-thumbnail.jpg
+- craft
 title: Brooke's Garter Rib Sock
-year: '2010'
+uuid: c420160a-194e-47d9-bfc1-6a07da8366bf
 category: craft
+type: micro
 previewimage: /images/2010/01/brookes-garter-rib-sock/cover.jpg
 ---
-
 Accidentally made one foot a little pointy. Rather than frog and fix, I just matched the error on the other side. Now instead of making a mistake, I added character.

@@ -1,0 +1,411 @@
+---
+aliases:
+- /post/2017/making-a-mojo-link-checker/
+- /2017/04/11/making-a-mojo-link-checker/
+date: 2017-04-11
+draft: false
+tags:
+- perl
+- site
+- mojolicious
+- programming
+title: Making A Mojo Link Checker
+slug: making-a-mojo-link-checker
+uuid: 0a59ade7-b170-49e9-8732-e8b8c03e484d
+format: adoc
+---
+<div class="paragraph">
+<p>I wrote a Perl script using utility features in Mojolicious to check all of the links in my Hugo site.</p>
+</div>
+<div class="paragraph">
+<p>Nothing lasts forever. Sites get reorganized, move, or disappear.
+As my own site has gotten older — some of these pages are over fifteen years old — links from old posts stop working.
+<a href="https://en.wikipedia.org/wiki/Link_rot">Link rot</a> is a fact of life on the Internet.
+I want to minimize it here.</p>
+</div>
+<div class="paragraph">
+<p>Instead of manually checking each of the 245 posts on this site, I chose to write some code that identifies the dead end links.
+Then I could manually adjust the bad links.
+Yay!
+That’s hand-crafted automation there.</p>
+</div>
+<div class="sect1">
+<h2 id="_use_mojo">use Mojo!</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://mojolicious.org/">Mojolicious</a> is a <a href="https://perl.org/">Perl</a> framework for making Web applications.
+It also happens to provide <a href="http://mojolicious.org/perldoc#REFERENCE">excellent support</a> for a wide range of Web-related programming.</p>
+</div>
+<div class="paragraph">
+<p>I mentioned Mojolicious here <a href="/tags/mojolicious/">before</a>..
+I use it as a part of my daily dev toolkit, even though I <em>still</em> haven’t made a real Web app with it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_code">The code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I could just dump the script here and go on with my day, but I feel like typing a lot for some reason.
+Let’s go through the major chunks of the code.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_setup">The setup</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl"><span></span><span class="tok-k">use</span> <span class="tok-mf">5.24.0</span><span class="tok-p">;</span>
+<span class="tok-k">use</span> <span class="tok-nn">warnings</span><span class="tok-p">;</span>
+<span class="tok-k">use</span> <span class="tok-nn">experimental</span> <span class="tok-s">&#39;signatures&#39;</span><span class="tok-p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Whenever possible, I specify the latest version of Perl (currently <a href="http://perldoc.perl.org/perl5240delta.html">5.24</a>). It enables some features and deprecates others. If nothing else, it reminds me when I last worked on the code. Recent Perl versions automatically enable <a href="http://perldoc.perl.org/strict.html">strict</a>, but it’s useful for me to also turn on <a href="http://perldoc.perl.org/warnings.html">warnings</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="https://metacpan.org/pod/experimental">experimental</a> CPAN module saves some boiler plate when using Perl features that have not fully stabilized, such as function <a href="http://perldoc.perl.org/feature.html#The-'signatures'-feature">signatures</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl"><span></span><span class="tok-k">use</span> <span class="tok-nn">Mojo::DOM</span><span class="tok-p">;</span>
+<span class="tok-k">use</span> <span class="tok-nn">Mojo::File</span><span class="tok-p">;</span>
+<span class="tok-k">use</span> <span class="tok-nn">Mojo::JSON</span> <span class="tok-sx">qw(decode_json)</span><span class="tok-p">;</span>
+<span class="tok-k">use</span> <span class="tok-nn">Mojo::URL</span><span class="tok-p">;</span>
+<span class="tok-k">use</span> <span class="tok-nn">Mojo::UserAgent</span><span class="tok-p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mojolicious provides a remarkable amount of functionality for such a small installation. This is just what I’m explicitly using.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="http://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a></dt>
+<dd>
+<p>HTML/XML DOM parser that supports <a href="https://www.w3.org/TR/CSS2/selector.html">CSS Selectors</a></p>
+</dd>
+<dt class="hdlist1"><a href="http://mojolicious.org/perldoc/Mojo/File">Mojo::File</a></dt>
+<dd>
+<p>for handling filepaths and easy reading / writing files.</p>
+</dd>
+<dt class="hdlist1"><a href="http://mojolicious.org/perldoc/Mojo/JSON">Mojo::JSON</a></dt>
+<dd>
+<p><code>decode_json</code> lets me turn the <a href="http://gohugo.io/">Hugo</a> <code>config.json</code> file into a Perl structure.</p>
+</dd>
+<dt class="hdlist1"><a href="http://mojolicious.org/perldoc/Mojo/URL">Mojo::URL</a></dt>
+<dd>
+<p>understands the components of Uniform Resource Locators</p>
+</dd>
+<dt class="hdlist1"><a href="http://mojolicious.org/perldoc/Mojo/UserAgent">Mojo::UserAgent</a></dt>
+<dd>
+<p>makes HTTP and WebSocket requests (similar to <a href="https://metacpan.org/pod/LWP::UserAgent">LWP::UserAgent</a>, or <a href="http://docs.python-requests.org/en/master/">Requests</a> for Python people)</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_from_the_top">From the top</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl"><span></span><span class="tok-k">my</span> <span class="tok-nv">$config_file</span>   <span class="tok-o">=</span> <span class="tok-s">&quot;config.json&quot;</span><span class="tok-p">;</span>
+<span class="tok-k">my</span> <span class="tok-nv">$config</span>        <span class="tok-o">=</span> <span class="tok-n">decode_json</span><span class="tok-p">(</span><span class="tok-nn">Mojo::File</span><span class="tok-o">-&gt;</span><span class="tok-k">new</span><span class="tok-p">(</span><span class="tok-nv">$config_file</span><span class="tok-p">)</span><span class="tok-o">-&gt;</span><span class="tok-n">slurp</span><span class="tok-p">);</span>
+<span class="tok-k">my</span> <span class="tok-nv">$site</span>          <span class="tok-o">=</span> <span class="tok-nn">Mojo::URL</span><span class="tok-o">-&gt;</span><span class="tok-k">new</span><span class="tok-p">(</span><span class="tok-nv">$config</span><span class="tok-o">-&gt;</span><span class="tok-p">{</span><span class="tok-n">BaseURL</span><span class="tok-p">});</span>
+<span class="tok-k">my</span> <span class="tok-nv">$root</span>          <span class="tok-o">=</span> <span class="tok-nv">$config</span><span class="tok-o">-&gt;</span><span class="tok-p">{</span><span class="tok-n">publishDir</span><span class="tok-p">}</span> <span class="tok-o">||</span> <span class="tok-s">&#39;public&#39;</span><span class="tok-p">;</span>
+<span class="tok-k">my</span> <span class="tok-nv">$checked_links</span> <span class="tok-o">=</span> <span class="tok-p">{};</span>
+<span class="tok-k">my</span> <span class="tok-nv">$ua</span>            <span class="tok-o">=</span> <span class="tok-nn">Mojo::UserAgent</span><span class="tok-o">-&gt;</span><span class="tok-k">new</span><span class="tok-p">;</span>
+<span class="tok-nv">$ua</span><span class="tok-o">-&gt;</span><span class="tok-n">max_redirects</span><span class="tok-p">(</span> <span class="tok-mi">5</span> <span class="tok-p">);</span> <span class="tok-c1"># some sites love lots of redirects</span>
+
+<span class="tok-k">my</span> <span class="tok-nv">$test_file</span> <span class="tok-o">=</span> <span class="tok-nb">shift</span> <span class="tok-nv">@ARGV</span> <span class="tok-sr">//</span> <span class="tok-s">&#39;&#39;</span><span class="tok-p">;</span>
+
+<span class="tok-k">if</span> <span class="tok-p">(</span> <span class="tok-nv">$test_file</span> <span class="tok-p">)</span> <span class="tok-p">{</span>
+  <span class="tok-n">check_links_in</span><span class="tok-p">(</span> <span class="tok-nv">$test_file</span><span class="tok-p">,</span> <span class="tok-nv">$ua</span> <span class="tok-p">);</span>
+<span class="tok-p">}</span>
+<span class="tok-k">else</span> <span class="tok-p">{</span>
+  <span class="tok-k">my</span> <span class="tok-nv">$path</span> <span class="tok-o">=</span> <span class="tok-nn">Mojo::File</span><span class="tok-o">-&gt;</span><span class="tok-k">new</span><span class="tok-p">(</span> <span class="tok-nv">$root</span> <span class="tok-p">);</span>
+  <span class="tok-k">my</span> <span class="tok-nv">$files</span> <span class="tok-o">=</span> <span class="tok-nv">$path</span><span class="tok-o">-&gt;</span><span class="tok-nn">list_tree</span><span class="tok-o">-&gt;</span><span class="tok-nb">grep</span><span class="tok-p">(</span> <span class="tok-sx">qr{ \. (?:html|xml )$ }</span><span class="tok-n">x</span> <span class="tok-p">);</span>
+
+  <span class="tok-nv">$files</span><span class="tok-o">-&gt;</span><span class="tok-nb">each</span><span class="tok-p">(</span> <span class="tok-k">sub</span> <span class="tok-p">{</span> <span class="tok-n">check_links_in</span><span class="tok-p">(</span><span class="tok-nv">$_</span><span class="tok-p">);</span> <span class="tok-p">}</span> <span class="tok-p">);</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is the important bit:
+load the config, create a user agent, and check links in one or all of the generated HTML files.
+I checked the generated HTML files in <code>public</code> because I didn’t feel like messing with <code>hugo server</code> or a Mojolicious mini-app.
+Scraping a local server could be an option later.</p>
+</div>
+<div class="paragraph">
+<p>Using Mojolicious for everything was so much fun that I rewrote <code>config.yaml</code> as <code>config.json</code> to allow using <a href="http://mojolicious.org/perldoc/Mojo/JSON">Mojo::JSON</a> here.
+Hugo’s built-in support for different {configuration-formation} made that a painless shift.
+Then Mojo lets me <a href="http://mojolicious.org/perldoc/Mojo/File#slurp">slurp</a> the contents of the config file into a single string,
+which <a href="http://mojolicious.org/perldoc/Mojo/JSON#decode_json">decode_json</a> turns into a hash reference.</p>
+</div>
+<div class="paragraph">
+<p><a href="http://mojolicious.org/perldoc/Mojo/File#list_tree">list_tree</a> gives a recursive directory listing of everything under <code>$root</code> as a <a href="http://mojolicious.org/perldoc/Mojo/Collection">Mojo::Collection</a>.
+Collections provide a tidy toolkit of list handling functionality without requiring me to go back and forth between arrays and array references.
+I could find and iterate over all the HTML and XML files in vanilla Perl 5, but I like this better.</p>
+</div>
+<div class="paragraph">
+<p>After a few runs, I added the ability to specify a single file in <a href="http://perldoc.perl.org/perlvar.html#%40ARGV">@ARGV</a>..
+That way I can figure things out when that one link in that one file causes trouble.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_checking_links_in_a_file">Checking links in a file</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl"><span></span><span class="tok-k">sub</span> <span class="tok-nf">check_links_in</span><span class="tok-p">($filename) {</span>
+  <span class="tok-k">my</span> <span class="tok-nv">$html</span> <span class="tok-o">=</span> <span class="tok-nn">Mojo::File</span><span class="tok-o">-&gt;</span><span class="tok-k">new</span><span class="tok-p">(</span> <span class="tok-nv">$filename</span> <span class="tok-p">)</span><span class="tok-o">-&gt;</span><span class="tok-n">slurp</span><span class="tok-p">;</span>
+  <span class="tok-k">my</span> <span class="tok-nv">$dom</span> <span class="tok-o">=</span> <span class="tok-nn">Mojo::DOM</span><span class="tok-o">-&gt;</span><span class="tok-k">new</span><span class="tok-p">(</span> <span class="tok-nv">$html</span> <span class="tok-p">);</span>
+  <span class="tok-k">my</span> <span class="tok-nv">$links</span> <span class="tok-o">=</span> <span class="tok-nv">$dom</span><span class="tok-o">-&gt;</span><span class="tok-n">find</span><span class="tok-p">(</span> <span class="tok-s">&#39;[href], [src]&#39;</span> <span class="tok-p">);</span>
+
+  <span class="tok-nv">$links</span><span class="tok-o">-&gt;</span><span class="tok-nb">each</span><span class="tok-p">(</span> <span class="tok-n">sub</span><span class="tok-p">(</span><span class="tok-nv">$link</span><span class="tok-p">,</span> <span class="tok-nv">$n</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-k">my</span> <span class="tok-nv">$target</span> <span class="tok-o">=</span> <span class="tok-nv">$link</span><span class="tok-o">-&gt;</span><span class="tok-n">attr</span><span class="tok-p">(</span> <span class="tok-s">&quot;href&quot;</span> <span class="tok-p">)</span> <span class="tok-o">||</span> <span class="tok-nv">$link</span><span class="tok-o">-&gt;</span><span class="tok-n">attr</span><span class="tok-p">(</span> <span class="tok-s">&quot;src&quot;</span> <span class="tok-p">);</span>
+
+    <span class="tok-c1"># Assume status will not change during the same run.</span>
+    <span class="tok-k">return</span> <span class="tok-k">if</span> <span class="tok-nb">exists</span> <span class="tok-nv">$checked_links</span><span class="tok-o">-&gt;</span><span class="tok-p">{</span> <span class="tok-nv">$target</span> <span class="tok-p">};</span>
+
+    <span class="tok-nv">$checked_links</span><span class="tok-o">-&gt;</span><span class="tok-p">{</span> <span class="tok-nv">$target</span> <span class="tok-p">}</span> <span class="tok-o">=</span> <span class="tok-mi">1</span><span class="tok-p">;</span>
+    <span class="tok-k">my</span> <span class="tok-nv">$url</span> <span class="tok-o">=</span> <span class="tok-nn">Mojo::URL</span><span class="tok-o">-&gt;</span><span class="tok-k">new</span><span class="tok-p">(</span> <span class="tok-nv">$target</span> <span class="tok-p">);</span>
+
+    <span class="tok-c1"># Ignore email links</span>
+    <span class="tok-k">return</span> <span class="tok-k">if</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">scheme</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">scheme</span> <span class="tok-ow">eq</span> <span class="tok-s">&#39;mailto&#39;</span><span class="tok-p">;</span>
+
+    <span class="tok-nv">$checked_links</span><span class="tok-o">-&gt;</span><span class="tok-p">{</span> <span class="tok-nv">$target</span> <span class="tok-p">}</span> <span class="tok-o">=</span> <span class="tok-n">file_exists_for</span><span class="tok-p">(</span> <span class="tok-nv">$url</span> <span class="tok-p">)</span>
+      <span class="tok-sr">//</span> <span class="tok-n">external_link_works_for</span><span class="tok-p">(</span> <span class="tok-nv">$url</span> <span class="tok-p">)</span>
+      <span class="tok-sr">//</span> <span class="tok-mi">0</span><span class="tok-p">;</span>
+
+    <span class="tok-c1"># In this version we only care about invalid links.</span>
+    <span class="tok-k">unless</span> <span class="tok-p">(</span> <span class="tok-nv">$checked_links</span><span class="tok-o">-&gt;</span><span class="tok-p">{</span> <span class="tok-nv">$target</span> <span class="tok-p">}</span> <span class="tok-p">)</span> <span class="tok-p">{</span> <span class="tok-n">say</span> <span class="tok-n">summary_for</span><span class="tok-p">(</span> <span class="tok-nv">$target</span><span class="tok-p">,</span> <span class="tok-nv">$filename</span> <span class="tok-p">);</span> <span class="tok-p">}</span>
+  <span class="tok-p">});</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once again I <code>slurp</code> a file into a string.
+This time it gets handed off to <a href="http://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> so it can <a href="http://mojolicious.org/perldoc/Mojo/DOM#find">find</a> any elements with <code>src</code> or <code>href</code> attributes,
+and then create a <a href="http://mojolicious.org/perldoc/Mojo/URL">Mojo::URL</a> from the appropriate <a href="http://mojolicious.org/perldoc/Mojo/DOM#attr">attr</a>.
+Mojo::URL does the tedious work of parsing URLs and making components like <a href="http://mojolicious.org/perldoc/Mojo/URL#scheme">scheme</a> available.</p>
+</div>
+<div class="paragraph">
+<p>Leaning on the <code>//</code> defined-or logical shortcut lets me take advantage of the three boolean states of Perl: truthy, falsey, and <code>`I dunno.'' Each URL-testing subroutine can return `undef</code> to indicate that it doesn’t know what to do with the URL, and let the next subroutine in line handle it. If nobody knows what to do with it, then that’s a bad link and gets remembered as a falsey value.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><a href="http://mojolicious.org/perldoc/Mojo/Collection#each"><code>each</code></a> hands two items to the subroutine it invokes: an item in the collection and what number in the collection that item is (starting from 1).
+No, I don’t use <code>$n</code>, but I wanted you to see that it’s available.
+You can also access the item as <code>$<em></code> as I did earlier.
+You can even do your subroutine arguments the old fashioned way with <code>@</em></code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_is_it_an_internal_link">Is it an internal link?</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl"><span></span><span class="tok-k">sub</span> <span class="tok-nf">file_exists_for</span><span class="tok-p">($url) {</span>
+  <span class="tok-c1"># Ignore full urls that aren&#39;t pointed at my site.</span>
+  <span class="tok-k">if</span> <span class="tok-p">(</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">host</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">host</span> <span class="tok-ow">ne</span> <span class="tok-nv">$site</span><span class="tok-o">-&gt;</span><span class="tok-n">host</span> <span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-k">return</span><span class="tok-p">;</span>
+  <span class="tok-p">}</span>
+
+  <span class="tok-k">if</span> <span class="tok-p">(</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">fragment</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">path</span> <span class="tok-ow">eq</span> <span class="tok-s">&#39;&#39;</span><span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-c1"># Points to a URL fragment within itself</span>
+    <span class="tok-c1"># Today I don&#39;t care about those.</span>
+    <span class="tok-c1"># If I did, I&#39;d remember what file $url came from, load it, and check the DOM.</span>
+    <span class="tok-k">return</span> <span class="tok-mi">1</span><span class="tok-p">;</span>
+  <span class="tok-p">}</span>
+
+  <span class="tok-k">my</span> <span class="tok-nv">$path</span> <span class="tok-o">=</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">path</span>
+    <span class="tok-ow">or</span> <span class="tok-k">return</span><span class="tok-p">;</span>
+
+  <span class="tok-k">if</span> <span class="tok-p">(</span> <span class="tok-nv">$path</span> <span class="tok-ow">eq</span> <span class="tok-s">&#39;/&#39;</span> <span class="tok-o">||</span> <span class="tok-nv">$path</span><span class="tok-o">-&gt;</span><span class="tok-n">trailing_slash</span> <span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-nv">$path</span> <span class="tok-o">=</span> <span class="tok-nv">$path</span><span class="tok-o">-&gt;</span><span class="tok-n">merge</span><span class="tok-p">(</span><span class="tok-s">&quot;index.html&quot;</span><span class="tok-p">)</span>
+  <span class="tok-p">}</span>
+
+  <span class="tok-k">my</span> <span class="tok-nv">$file</span> <span class="tok-o">=</span> <span class="tok-nv">$root</span> <span class="tok-o">.</span> <span class="tok-nv">$path</span><span class="tok-p">;</span>
+  <span class="tok-k">return</span> <span class="tok-o">-</span><span class="tok-n">f</span> <span class="tok-nv">$file</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I would check for <code>../</code> abuse if this was a general purpose script, but it’s mostly links I added by hand and checked manually at some point in the last fifteen years.
+So - assuming past me was not acting maliciously or foolishly, we rule out more likely situations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The URL <a href="http://mojolicious.org/perldoc/Mojo/URL#host"><code>host</code></a> points to something besides my site, which means it can’t be a local file.</p>
+</li>
+<li>
+<p>The link has a <a href="http://mojolicious.org/perldoc/Mojo/URL#fragment"><code>fragment</code></a> pointing to a named anchor and nothing else.
+I only have that on :one-page: right now, and I don’t feel like complicating this script for a single page.</p>
+</li>
+<li>
+<p>The <a href="http://mojolicious.org/perldoc/Mojo/URL#path">path</a> isn’t set, which at this point means an empty link. That can’t be good.</p>
+</li>
+<li>
+<p>If the link <em>is</em> to a local file, we check whether it exists.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="http://mojolicious.org/perldoc/Mojo/Path">Mojo::Path</a> manipulation delights me.
+Sure, this could be a regular expression substition with fewer characters of code,
+but someone else seeing <a href="http://mojolicious.org/perldoc/Mojo/Path#merge">merge</a> after a check for a <a href="http://mojolicious.org/perldoc/Mojo/Path#trailing_slash">trailing slash</a> would probably understand that I’m adjusting for the common practice of <code>/thing/</code> being a link to <code>/thing/index.html</code>.
+They might understand even if they weren’t Perl developers!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_is_it_a_working_external_link">Is it a working external link?</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl"><span></span><span class="tok-k">sub</span> <span class="tok-nf">external_link_works_for</span><span class="tok-p">($url, $ua) {</span>
+  <span class="tok-k">my</span> <span class="tok-nv">$response</span><span class="tok-p">;</span>
+
+  <span class="tok-c1"># Ignore tutorial demo links</span>
+  <span class="tok-k">return</span> <span class="tok-mi">1</span>
+    <span class="tok-k">if</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">host</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">host</span> <span class="tok-ow">eq</span> <span class="tok-s">&#39;localhost&#39;</span><span class="tok-p">;</span>
+
+  <span class="tok-c1"># Ex: //www.youtube.com/embed/bWqSuBg8AMo</span>
+  <span class="tok-c1"># Produced by some Hugo shortcodes.</span>
+  <span class="tok-k">my</span> <span class="tok-nv">$is_protocol_relative</span> <span class="tok-o">=</span> <span class="tok-o">!</span><span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">scheme</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">host</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">host</span> <span class="tok-ow">ne</span> <span class="tok-nv">$site</span><span class="tok-o">-&gt;</span><span class="tok-n">host</span><span class="tok-p">;</span>
+
+  <span class="tok-k">if</span> <span class="tok-p">(</span> <span class="tok-nv">$is_protocol_relative</span> <span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-c1"># Use my site&#39;s choice of HTTP / HTTPS</span>
+    <span class="tok-nv">$url</span><span class="tok-o">-&gt;</span><span class="tok-n">scheme</span><span class="tok-p">(</span> <span class="tok-nv">$site</span><span class="tok-o">-&gt;</span><span class="tok-n">scheme</span> <span class="tok-p">);</span>
+  <span class="tok-p">}</span>
+
+  <span class="tok-nb">eval</span> <span class="tok-p">{</span>
+    <span class="tok-nv">$response</span> <span class="tok-o">=</span> <span class="tok-nv">$ua</span><span class="tok-o">-&gt;</span><span class="tok-n">head</span><span class="tok-p">(</span> <span class="tok-nv">$url</span> <span class="tok-p">)</span><span class="tok-o">-&gt;</span><span class="tok-n">result</span><span class="tok-p">;</span>
+  <span class="tok-p">};</span>
+
+  <span class="tok-k">if</span> <span class="tok-p">(</span> <span class="tok-vg">$@</span> <span class="tok-p">)</span> <span class="tok-p">{</span>
+    <span class="tok-nb">warn</span> <span class="tok-s">&quot;When checking $url: $@&quot;</span><span class="tok-p">;</span>
+    <span class="tok-k">return</span><span class="tok-p">;</span>
+  <span class="tok-p">}</span>
+
+  <span class="tok-k">return</span> <span class="tok-nv">$response</span><span class="tok-o">-&gt;</span><span class="tok-n">is_success</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After some quick checks to ensure I’m not looking at a blog demo link and that I handle <a href="https://www.paulirish.com/2010/the-protocol-relative-url/">protocol-relative URLs</a> correctly, I wrap a simple <a href="http://mojolicious.org/perldoc/Mojo/UserAgent#head"><code>head</code></a> request in an <code>eval</code> block.</p>
+</div>
+<div class="paragraph">
+<p>I use <a href="https://ochronus.com/http-head-request-good-uses/">HTTP HEAD</a> because I only care about whether the link is valid.
+I don’t want the full content at the link.
+<code>eval</code> lets me catch timeouts and requests being sent to Web sites which no longer exist.
+Assuming no errors, this eventually returns whether the <a href="http://mojolicious.org/perldoc/Mojo/Transaction#result"><code>result</code></a> of the <a href="http://mojolicious.org/perldoc/Mojo/Transaction/HTTP">HTTP transaction</a> succeeded with <a href="http://mojolicious.org/perldoc/Mojo/Message/Response#is_success"><code>is_success</code></a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summarize_it">Summarize it</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl"><span></span><span class="tok-k">sub</span> <span class="tok-nf">summary_for</span><span class="tok-p">($target, $filename) {</span>
+  <span class="tok-nb">die</span> <span class="tok-s">&quot;Didn&#39;t check [$target]?&quot;</span>
+    <span class="tok-k">unless</span> <span class="tok-nb">exists</span> <span class="tok-nv">$checked_links</span><span class="tok-o">-&gt;</span><span class="tok-p">{</span> <span class="tok-nv">$target</span> <span class="tok-p">};</span>
+
+  <span class="tok-k">my</span> <span class="tok-nv">$status</span> <span class="tok-o">=</span> <span class="tok-nv">$checked_links</span><span class="tok-o">-&gt;</span><span class="tok-p">{</span> <span class="tok-nv">$target</span> <span class="tok-p">}</span>
+    <span class="tok-p">?</span> <span class="tok-s">&quot;+&quot;</span>  <span class="tok-c1"># It worked!</span>
+    <span class="tok-p">:</span> <span class="tok-s">&quot;-&quot;</span>  <span class="tok-c1"># Something went wrong.</span>
+    <span class="tok-p">;</span>
+  <span class="tok-k">return</span> <span class="tok-s">&quot;$status $filename $target&quot;</span><span class="tok-p">;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Today I only looked for bad links, but it can be useful to know the status of <em>all</em> links in my site.
+I used it a few times during development.
+May as well leave that bit of logic in.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_whats_that_do">What’s That Do?</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="console"><span></span><span class="tok-gp">$ </span>./scripts/link-checker &gt; links.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A couple hundred lines like this, basically.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="text"><span></span>When checking http://coolnamehere.com: Premature connection close at scripts/check-links.pl line 53.
+- public/categories/blogspot/index.html http://coolnamehere.com
+- public/categories/blogspot/index.html http://blogspot.com
+When checking http://vim.org/: Can&#39;t connect: Name or service not known at scripts/check-links.pl line 53.
+- public/categories/blogspot/index.html http://vim.org/
+When checking http://jruby.codehaus.org: Connect timeout at scripts/check-links.pl line 53.
+- public/categories/blogspot/index.html http://jruby.codehaus.org
+- public/categories/blogspot/index.html http://devzone.zend.com/article/2262-Zend-Framework-1.0.0-production-release
+When checking http://jruby.codehaus.org/: Connect timeout at scripts/check-links.pl line 53.
+- public/categories/coolnamehere/index.html http://jruby.codehaus.org/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Goodness those are embarrassing.</p>
+</div>
+<div class="paragraph">
+<p>Okay I’m gonna go fix this.</p>
+</div>
+<div class="paragraph">
+<p>Some links just won’t work with this code.
+I may revisit this later, but I got what I need.
+All links should at least work in a browser for now.</p>
+</div>
+<div class="paragraph">
+<p>An added bonus that I didn’t expect: this code also ran on Windows 10 with no changes needed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_more_ideas">More Ideas</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Improvements that I thought of while putting this together, which I may eventually try out.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Be a good bot citizen by paying attention to <a href="http://www.robotstxt.org/robotstxt.html">robots.txt</a>.
+I tried that in an early version of the script, but hardly any of the sites provided one.
+I’ll ponder and try not to run the script too often for now.</p>
+</li>
+<li>
+<p>Wrap things up in a <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> class for organization.</p>
+</li>
+<li>
+<p>Run an instance and scrape that live - see if it makes a difference!</p>
+</li>
+<li>
+<p>Use non-blocking requests, since <a href="http://mojolicious.org/perldoc/Mojo/UserAgent">Mojo::UserAgent</a> supports them.</p>
+</li>
+<li>
+<p>Cache results to disk, since working links tend to stay that way for <em>at least</em> a few days.</p>
+</li>
+<li>
+<p>Find out why some URLs didn’t work.
+Was it a <a href="http://www.robotstxt.org/robotstxt.html">robots.txt</a> thing?
+A weird redirect?
+They worked in the browser, after all.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Honestly the script does what I need it to, and I might never implement these other ideas.</p>
+</div>
+</div>
+</div>

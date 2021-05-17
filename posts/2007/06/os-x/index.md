@@ -1,15 +1,17 @@
 ---
+slug: os-x
 aliases:
 - /coolnamehere/2007/06/13_os-x.html
 - /post/2007/os-x/
-date: 2007-06-13T00:00:00Z
+- /2007/06/13/os-x/
+date: 2007-06-13 00:00:00+00:00
 tags:
 - os x
+- macOS
+- coolnamehere
 title: OS X
-type: post
-updated: 2006-04-25T00:00:00Z
-year: '2007'
-archived_category: coolnamehere
+updated: 2006-04-25 00:00:00+00:00
+uuid: bd760de6-383d-49c5-b164-7451ce293820
 ---
 This is a dumping ground for anything I've figured out to make command line
 existence on a Mac nearly as pleasant as sitting and looking at all the pretty
@@ -33,5 +35,3 @@ the [ELinks](http://elinks.or.cz/) text mode web browser for that task.
     $ sudo installer -verbose -pkg fpc-2.1.4.powerpc-macosx.pkg -target /
     $ cd ~/
     $ hdiutil detach /Volumes/fpc-2.1.4.powerpc-macosx/
-
-

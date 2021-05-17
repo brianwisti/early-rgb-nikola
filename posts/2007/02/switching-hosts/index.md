@@ -1,14 +1,15 @@
 ---
+slug: switching-hosts
 aliases:
 - /blogspot/2007/02/03_switching-hosts.html
 - /post/2007/switching-hosts/
-date: 2007-02-03T00:00:00Z
+- /2007/02/03/switching-hosts/
+date: 2007-02-03 00:00:00+00:00
 tags:
 - site
+- blogspot
 title: Switching hosts
-type: post
-year: '2007'
-archived_category: blogspot
+uuid: 688a87aa-728e-40bb-8ab7-457fa3ca0d12
 ---
 [coolnamehere]: /categories/coolnamehere/
 The old Web host was fine, but I have been missing A2 Hosting recently. I just set [coolnamehere][] under them. While I'm at it, this blog is officially the coolnamehere site news blog - in addition to the general geekiness you've been seeing here lately.

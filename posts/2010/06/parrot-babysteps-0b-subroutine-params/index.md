@@ -1,32 +1,33 @@
 ---
+slug: parrot-babysteps-0b-subroutine-params
 aliases:
 - /coolnamehere/2010/06/15_0b-subroutine-params.html
 - /post/2010/0b-subroutine-params/
-date: 2010-06-15T00:00:00Z
+- /2010/06/15/parrot-babysteps-0b-subroutine-params/
+date: 2010-06-15 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 0b - Subroutine Params
-type: post
-updated: 2011-04-11T00:00:00Z
-year: '2010'
+updated: 2011-04-11 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 0971c043-f2ff-44cf-a018-92c12ce2ff51
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 11 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
 [Subroutines chapter]: http://docs.parrot.org/parrot/latest/html/docs/book/pir/ch06_subroutines.pod.html
-[First]: /post/2009/06-files-and-hashes/
-[Second]: /post/2009/07-writing-subroutines/
-[testing]: /post/2009/08-testing-with-test-more/
-[larger projects]: /post/2010/09-simple-projects/
+[First]: {{< ref "post/2009-10-parrot-babysteps-06-files-and-hashes/index.md" >}}
+[Second]: {{< ref "post/2009-10-parrot-babysteps-07-writing-subroutines/index.md" >}}
+[testing]: {{< ref "post/2009-12-parrot-babysteps-08-testing-with-testmore/index.md" >}}
+[larger projects]: {{< ref "post/2010-04-parrot-babysteps-09-simple-projects/index.md" >}}
 [Parrot]: /tags/parrot/
 [Perl]: /tags/perl/
-[Stellar project]: /post/2010/0a-the-stellar-project/
+[Stellar project]: {{< ref "post/2010-06-parrot-babysteps-0a-the-stellar-project/index.md" >}}
 
 It's time to treat the star database like a database. Well, it's time to treat
 it like something we can search, anyways. I know this is not a trivial task in
@@ -129,7 +130,7 @@ than necessary, to be honest:
         .return(check_result)
     .end
 
-[Remember]: /post/2009/02-variables-and-types/
+[Remember]: {{< ref "post/2009-07-parrot-babysteps-02-variables-and-types/index.md" >}}
 
 The sub returns the result of comparing our desired `ProperName` with the actual
 value held in the `star`. I rely on Parrot to do the right thing when comparing
@@ -518,5 +519,4 @@ That's the part I've been looking forward to for a while!
 
 In the meantime, continue your own [Parrot][] exploration. You might review the 
 Parrot [Subroutines chapter][] a little more. I hardly left that page while 
-working through this step. Whatever you do, remember to have fun! 
-
+working through this step. Whatever you do, remember to have fun!

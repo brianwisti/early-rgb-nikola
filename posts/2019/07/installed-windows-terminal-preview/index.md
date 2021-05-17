@@ -1,21 +1,20 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102497605498142294
-  twitter: https://twitter.com/brianwisti/status/1154081553728884737
 caption: Adding taskwarrior tasks for Windows in Windows Terminal
-date: 2019-07-24T09:33:53-07:00
+date: 2019-07-24 09:33:53-07:00
 tags:
 - windows
 - wsl
 - terminal
 - the most important app
 title: Installed Windows Terminal Preview
-year: '2019'
+slug: installed-windows-terminal-preview
+uuid: 0a81b571-eb99-4b6d-82a1-465c08cd934e
+aliases:
+- /note/2019/205/installed-windows-terminal-preview/
 category: note
 type: micro
 previewimage: /images/2019/07/installed-windows-terminal-preview/cover.png
 ---
-
 Windows partition is [Fast Ring][] now, but that took the full night. All
 I had time for this morning was installing the fancy – and [open source][]! –
 [terminal][] preview from the [Windows Store][].

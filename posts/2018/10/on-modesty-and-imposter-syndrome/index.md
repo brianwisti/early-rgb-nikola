@@ -1,21 +1,17 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/1054133667147051008
-date: 2018-10-21T00:00:00Z
+slug: on-modesty-and-imposter-syndrome
+date: 2018-10-21 00:00:00+00:00
+description: Take a deep breath. Relax. You got this.
 draft: false
 tags:
 - personal
+- marginalia
 title: On Modesty And Imposter Syndrome
-year: '2018'
-category: marginalia
+uuid: d77e36b1-a46b-4115-ad6e-b4b2b73a8398
+aliases:
+- /2018/10/21/on-modesty-and-imposter-syndrome/
 previewimage: /images/2018/10/on-modesty-and-imposter-syndrome/cover.jpg
 ---
-
-
-*Take a deep breath. Relax. You got this.*
-
-<!-- TEASER_END -->
-
 Articulating and addressing a chain of thought that kept me up last night. It's a brain dump instead of a crafted essay, because the point was to get it down rather than to get it pretty. It's something I'll need to read again.
 
 It might not apply to you, but if some of it does I'm glad.
@@ -144,4 +140,3 @@ Now go knit or something.
 *Take a deep breath. Relax. You got this.*
 
 PS. Still not smoking. It'll be five months on Saturday.
-

@@ -1,9 +1,6 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102380546392209386
-  twitter: https://twitter.com/brianwisti/status/1146589994191974401
 caption: Picasso's studio circa 1912, via [Art Observed](http://artobserved.com/2011/03/go-see-new-york-picasso-guitars-1912-1914-at-the-moma-through-june-06-2011/)
-date: 2019-07-03T18:10:51-07:00
+date: 2019-07-03 18:10:51-07:00
 tags:
 - Picasso
 - TS Eliot
@@ -11,12 +8,14 @@ tags:
 - am i a great artist
 - don't answer that
 title: I Stole A Great Idea
-year: '2019'
+slug: i-stole-a-great-idea
+uuid: 2d049297-7779-4b09-b752-572dd08c8c05
+aliases:
+- /note/2019/184/i-stole-a-great-idea/
 category: note
 type: micro
 previewimage: /images/2019/07/i-stole-a-great-idea/cover.jpg
 ---
-
 > Good artists copy; great artists steal.
 >
 > <cite>([probably not Picasso](https://quoteinvestigator.com/2013/03/06/artists-steal/))</cite>

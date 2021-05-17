@@ -1,15 +1,16 @@
 ---
+slug: reduce-reuse-recycle-in-rebol
 aliases:
 - /coolnamehere/2006/04/30_reduce-reuse-recycle.html
 - /post/2006/reduce-reuse-recycle/
-date: 2006-04-30T00:00:00Z
+- /2006/04/30/reduce-reuse-recycle-in-rebol/
+date: 2006-04-30 00:00:00+00:00
 tags:
 - rebol
+- coolnamehere
 title: Reduce, Reuse, Recycle in REBOL
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2006'
-archived_category: coolnamehere
+updated: 2009-07-11 00:00:00+00:00
+uuid: 5970a2e0-434e-4128-b8ac-cf36b0264b7d
 ---
 I had to share a "Eureka!" moment that I recently experienced about REBOL. I 
 never did get around to refining it, but it stands here as a rambling 
@@ -163,5 +164,3 @@ I feel good.
 
 Great, now I think I've got a little bit better understanding of Rebol. Let's 
 see if I've gotten far enough to make truly useful programs.
-
-

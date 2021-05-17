@@ -1,15 +1,17 @@
 ---
+slug: windows-chocolatey
 aliases:
 - /tools/2014/10/04_windows-chocolatey.html
 - /post/2014/windows-chocolatey/
-date: 2014-10-04T00:00:00Z
+- /2014/10/04/chocolatey/
+date: 2014-10-04 00:00:00+00:00
 description: A package manager for Windows
 tags:
 - windows
+- package manager
+- tools
 title: chocolatey
-type: post
-year: '2014'
-category: tools
+uuid: 18f88ca1-ceba-442b-b5ac-de43111c68af
 ---
 [Programming Languages]: https://www.coursera.org/course/proglang/
 [Coursera]: https://www.coursera.org/

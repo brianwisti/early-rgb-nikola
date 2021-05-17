@@ -1,15 +1,16 @@
 ---
-author:
-- Random Geek
+slug: coolnamehere
+tags:
+- coolnamehere
+description: ancient history
 date: 2000-12-06
 draft: false
-formatter: ox-hugo
 title: coolnamehere
-updated: 2019-12-01T08:43:10-08:00
-year: '2000'
-archived_category: coolnamehere
+updated: 2019-12-01 08:43:10-08:00
+uuid: 7819b94f-8b45-4fb5-91ea-14795d13ec9d
+aliases:
+- /2000/12/06/coolnamehere/
 ---
-
-Once upon a time I kept my stuff on a different Web site.
-[This category](/categories/coolnamehere) is where I keep those pages.
-I may update them at some point, or I may not.
+Once upon a time I kept my stuff on a different Web site. [This
+category](/categories/coolnamehere) is where I keep those pages. I may
+update them at some point, or I may not.

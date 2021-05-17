@@ -1,8 +1,5 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102542731700265633
-  twitter: https://twitter.com/brianwisti/status/1156969352622743554
-date: 2019-08-01T08:59:12-07:00
+date: 2019-08-01 08:59:12-07:00
 tags:
 - watch
 - movie
@@ -10,11 +7,13 @@ tags:
 - jam fight
 - you've got red on you
 title: Might see Little Monsters
-year: '2019'
+slug: might-see-little-monsters
+uuid: 5913a7be-17eb-48bb-a961-b7f1905727de
+aliases:
+- /note/2019/213/might-see-little-monsters/
 category: note
 type: micro
 ---
-
 I'm done with zombie movies.
 
 *watches trailer*

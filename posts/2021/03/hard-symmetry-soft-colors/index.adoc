@@ -1,0 +1,42 @@
+---
+title: Hard symmetry soft colors
+description: Linea needs a time tracker
+slug: hard-symmetry-soft-colors
+caption: intricate patterns drawn in the middle of the night is my jam
+date: 2021-03-06
+format: adoc
+tags:
+- drawing
+- color me
+- Linea Sketch
+- symmetry
+- craft
+draft: false
+category: craft
+type: micro
+previewimage: /images/2021/03/hard-symmetry-soft-colors/cover.jpg
+---
+<div class="paragraph">
+<p>I don&#8217;t even know how many hours I spent on this.
+An hour or two a night — but not every night — since November or so?</p>
+</div>
+<div class="paragraph">
+<p>I like it, however long I spent drawing the dang thing.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://linea-app.com/">Linea</a> takes a very constrained approach to tools.
+No automatic symmetry.
+No blend modes.
+Only five layers.
+Makes it feel like a paper sketch book, but with bonuses.
+Their approach to color palettes is one of those bonuses.
+I used their predefined "Art Deco" palette for this.</p>
+</div>
+<div class="paragraph">
+<p>You can grab the line work yourself if you want something to color.</p>
+</div>
+<div class="paragraph">
+<p>
+{{< image-link name="2021-03-06-linework.jpg" >}}
+</p>
+</div>

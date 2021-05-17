@@ -8,11 +8,13 @@ tags:
 - thanks to mom
 - kalevala
 title: Art Nouveau, Psychedelia, and a Kalevala tangent
-year: '2019'
+slug: art-nouveau-psychedeilia-and-a-kalevala-tangent
+uuid: 27101dd1-5f60-4353-b914-0c53bf0038c7
+aliases:
+- /note/2019/325/art-nouveau-psychedelia-and-a-kalevala-tangent/
 category: note
 type: micro
 ---
-
 > No object was too mundane to be beautiful.
 
 Probably my favorite comment about [Art Nouveau][].
@@ -32,4 +34,3 @@ And yeah [JRR Tolkien loved the Kalevala][], tying in another piece to hippy cul
 I saw as a kid had a copy of The Lord of the Rings.
 
 [JRR Tolkien loved the Kalevala]: http://tolkiengateway.net/wiki/Kalevala
-

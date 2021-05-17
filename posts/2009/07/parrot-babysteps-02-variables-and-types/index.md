@@ -1,21 +1,22 @@
 ---
+slug: parrot-babysteps-02-variables-and-types
 aliases:
 - /coolnamehere/2009/07/11_02-variables-and-types.html
 - /post/2009/02-variables-and-types/
-date: 2009-07-11T00:00:00Z
+- /2009/07/11/parrot-babysteps-02-variables-and-types/
+date: 2009-07-11 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 02 - Variables and Types
-type: post
-updated: 2010-07-21T00:00:00Z
-year: '2009'
+updated: 2010-07-21 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 8c69f18c-a428-41d0-b222-4980788db1ad
 ---
+[Parrot Babysteps]: {{< relref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 2 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
@@ -25,7 +26,7 @@ point number, what a string is, and have a general idea for how you work with ea
 mainly care about the details of how you work with them in your new platform. It
 is important to learn these details, though.
 
-[the last step]: /post/2009/01-getting-started/
+[the last step]: {{< ref "post/2009-07-parrot-babysteps-01-getting-started/index.md" >}}
 
 We already looked at variables when we wrote the simple "Hello, World" program 
 in [the last step][].  We looked at the different variable 
@@ -107,7 +108,8 @@ the name of the variable.
 
     .local <type-identifier> <name>
 
-[previous step]: /post/2009/01-getting-started/
+[previous step]: {{< ref "post/2009-07-parrot-babysteps-01-getting-started/index.md" >}}
+
 I briefly described the type identifiers in the [previous step][], but here they are again.
 
 Identifier | Type
@@ -136,7 +138,8 @@ delightfully small.
 * `string`
 * `unless`
 
-[myself]: /post/2002/simple-types-in-python/
+[myself]: {{< relref "post/2002-06-simple-types-in-python/index.rst" >}}
+
 I think I'll plagiarize [myself][] and reiterate
 some of my old guidelines for variable names.
 
@@ -668,4 +671,3 @@ own programs. If you use the opcodes available, you can get an incredible amount
 your Parrot programs. But so far, Parrot is nothing more than an awkward calculator for you.
 You will want to look at labels and branching statements to start getting something interesting
 out of Parrot.
-

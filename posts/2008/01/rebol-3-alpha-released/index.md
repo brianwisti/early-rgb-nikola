@@ -1,14 +1,15 @@
 ---
+slug: rebol-3-alpha-released
 aliases:
 - /blogspot/2008/01/08_rebol-3-alpha-released.html
 - /post/2008/rebol-3-alpha-released/
-date: 2008-01-08T00:00:00Z
+- /2008/01/08/rebol-3-alpha-released/
+date: 2008-01-08 00:00:00+00:00
 tags:
 - rebol
+- blogspot
 title: REBOL 3 alpha released
-type: post
-year: '2008'
-archived_category: blogspot
+uuid: e4e3904b-e534-4720-8d55-f296c541f00e
 ---
 I just saw Petr Krenzelok's giddy announcement on the REBOL mailing list that a public alpha of REBOL 3 is available today. I've been waiting to see this for a while and can't even begin to describe how excited I am. 
 <!-- TEASER_END -->

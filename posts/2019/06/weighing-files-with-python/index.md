@@ -1,139 +1,134 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102199106551447993
-  twitter: https://twitter.com/brianwisti/status/1134977256684761089
-date: 2019-06-01T00:00:00Z
+slug: weighing-files-with-python
+date: 2019-06-01 00:00:00+00:00
 tags:
 - python
 - site
+- files
+- programming
 title: Weighing Files With Python
-updated: 2019-06-02T00:00:00Z
-year: '2019'
-category: programming
+description: I want to optimize this site's file sizes, but first I should see if
+  I need to.
+updated: 2019-06-02 00:00:00+00:00
+uuid: 21d3f28d-e109-4d2a-a856-71176be30e32
+aliases:
+- /2019/06/01/weighing-files-with-python/
 previewimage: /images/2019/06/weighing-files-with-python/cover.png
 ---
-
-I want to optimize this site's file sizes, but first I should see if I need to.
-<!-- TEASER_END -->
-
-****
-
-I apologize for the length of this post! It sort of got away from me as I
-examine different interesting corners, and I didn't want to cut *all* of it out.
-
-****
+{{< aside title="Updates" >}}
+2018-06-02
+: adjusted a couple clumsy property methods with
+  [attr.Factory](https://attrs.readthedocs.io/en/stable/api.html#attr.Factory)
+  callables for legibility
+{{< /aside >}}
 
 ## The idea
 
-I got an idea in my head a while ago to reduce image sizes for the site. Some
-of my drawings and photos are a little big. On a slower connection, a visitor
-could spend a while waiting. And if their bandwidth is metered? Oh I'd hate to
-think one of my sketches was what put their account over the cap, or got their
-account throttled to Edge speeds for the rest of the month.
+I got an idea in my head a while ago to reduce image sizes for the site.
+Some of my drawings and photos are a little big. On a slower connection,
+a visitor could spend a while waiting. And if their bandwidth is
+metered? Oh I’d hate to think one of my sketches was what put their
+account over the cap, or got their account throttled to Edge speeds for
+the rest of the month.
 
 I know I can make it better.
 
 ## The problem with my idea
 
-Well, I don't *really* know. I suspect a handful of files are big, but how many
-files? How big? Big for who? And what about after I do the work? What is less
-than big? How will I know what work to do, and how will I know the effectiveness
-of what work when I'm done?
+Well, I don’t *really* know. I suspect a handful of files are big, but
+how many files? How big? Big for who? And what about after I do the
+work? What is less than big? How will I know what work to do, and how
+will I know the effectiveness of what work when I’m done?
 
-[VM Brasseur][] gives excellent advice on many topics. One tip sticks in my
-head: I need numbers for my accomplishments. Heck, right now I need numbers to
-see if this accomplishment is necessary.
-
-[VM Brasseur]: https://anonymoushash.vmbrasseur.com/
+[VM Brasseur](https://anonymoushash.vmbrasseur.com/) gives excellent
+advice on many topics. One tip sticks in my head: I need numbers for my
+accomplishments. Heck, right now I need numbers to see if this
+accomplishment is necessary.
 
 ## What numbers *should* I care about?
 
-Of course the problem with data is that there is so much of it. What should I
-care about, if the goal is making a visit easier for visitors on limited
-connections?
+Of course the problem with data is that there is so much of it. What
+should I care about, if the goal is making a visit easier for visitors
+on limited connections?
 
 ### File size
 
-This is the more obvious and easily measured. This site (and most others)
-consists of files, right? Text files, image files, the occasional video file.
-All else being equal, a file that takes up more storage will also take more time
-to download.
+This is the more obvious and easily measured. This site (and most
+others) consists of files, right? Text files, image files, the
+occasional video file. All else being equal, a file that takes up more
+storage will also take more time to download.
 
 "All else being equal" gets a little tricky though.
 
 ### Latency
 
-How long does it take for the user to see something useful when interacting with
-your site? (loading a page, clicking a link, doing things with web apps). It's
-affected by – well, everything really.  Network speed, server resources,
-sunspots.
+How long does it take for the user to see something useful when
+interacting with your site? (loading a page, clicking a link, doing
+things with web apps). It’s affected by – well, everything really.
+Network speed, server resources, sunspots.
 
-If latency is high enough, one big file may reach a visitor quicker than a dozen
-small requests. If they spend too long waiting for too many pieces, they'll go
-elsewhere in a heartbeat.
+If latency is high enough, one big file may reach a visitor quicker than
+a dozen small requests. If they spend too long waiting for too many
+pieces, they’ll go elsewhere in a heartbeat.
 
-This [Twitter thread][] by Andrew Certain provides an interesting look at how a
-large organization like Amazon takes latency seriously. It's far deeper than I
-plan to measure, but it might help build more context.
+This [Twitter
+thread](https://twitter.com/tacertain/status/1132391299733000193) by
+Andrew Certain provides an interesting look at how a large organization
+like Amazon takes latency seriously. It’s far deeper than I plan to
+measure, but it might help build more context.
 
-[Twitter thread]: https://twitter.com/tacertain/status/1132391299733000193
+Unfortunately latency can be hard to predict for one person with a blog.
+I do not yet know what tools work best for evaluating the effect of
+latency on site performance.
 
-Unfortunately latency can be hard to predict for one person with a blog. I do not yet
-know what tools work best for evaluating the effect of latency on site
-performance.
+There are some easily found tools.
+[Chrome](https://developers.google.com/web/tools/chrome-devtools/network/#throttle)
+and
+[Firefox](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor/Throttling)
+both include tools to "throttle" – simulating different network
+conditions.
 
-There are some easily found tools. [Chrome][] and [Firefox][] both include tools
-to "throttle" – simulating different network conditions.
-
-[Chrome]: https://developers.google.com/web/tools/chrome-devtools/network/#throttle
-[Firefox]: https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor/Throttling
-
-{{< show-figure image="firefox-throttled-3g-kitty.png"
-    description="Firefox Developer Tools network tab with throttling at 3G" >}}
+![Firefox Developer Tools network tab with throttling at
+3G](firefox-throttled-3g-kitty.png)
 
 This is helpful on a page-by-page basis, and probably *very* helpful for
-evaluating a single page application. It doesn't translate easily to
-checking an entire site. I suppose I could use [Comcast][], a command line
-tool for "simulating shitty network conditions" and maybe [HTTPie][] to crawl
-the site under those conditions.
+evaluating a single page application. It doesn’t translate easily to
+checking an entire site. I suppose I could use
+[Comcast](https://github.com/tylertreat/Comcast), a command line tool
+for "simulating shitty network conditions" and maybe
+[HTTPie](https://httpie.org/) to crawl the site under those conditions.
 
-****
-
-Brian, stop. This is taking you into the world of resilience testing and [chaos
-engineering][], which sounds *awesome* and likely has a wealth of tools already
-written. It also sounds completely unnecessary for this humble little blog.
-
-****
+{{< aside >}}
+Brian, stop. This is taking you into the world of resilience testing and
+[chaos engineering](https://en.wikipedia.org/wiki/Chaos_engineering),
+which sounds *awesome* and has a wealth of tools already written. It
+also sounds completely unnecessary for this humble little blog.
+{{< /aside >}}
 
 "Pick your battles" is another truism that applies here.
 
-We'll ignore latency for now. Besides, I've already managed many major elements
-of latency. [Hugo][] creates a static site. Every page already exists by the
-time you visit. No extra time needed for database lookups or constructing views.
-I use AWS [S3][] to host, and [Cloudfront][] as a [CDN][].  This is probably the
-fastest and most reliable approach possible with my resources.
+We’ll ignore latency for now. Besides, I’ve already managed many major
+elements of latency. [Hugo](https://gohugo.io) creates a static site.
+Every page already exists by the time you visit. No extra time needed
+for database lookups or constructing views. I use AWS
+[S3](https://aws.amazon.com/s3/) to host, and
+[Cloudfront](https://aws.amazon.com/cloudfront/) as a
+[CDN](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/). This is
+probably the fastest and most reliable approach possible with my
+resources.
 
-I *do* have an issue with the CDN not promptly updating some files when I upload
-the site, but I'm working on that.
-
-[Comcast]: https://github.com/tylertreat/Comcast
-[HTTPie]: https://httpie.org/
-[chaos engineering]: https://en.wikipedia.org/wiki/Chaos_engineering
-[Hugo]: https://gohugo.io
-[S3]: https://aws.amazon.com/s3/
-[Cloudfront]: https://aws.amazon.com/cloudfront/
-[CDN]: https://www.cloudflare.com/learning/cdn/what-is-a-cdn/
+I *do* have an issue with the CDN not promptly updating some files when
+I upload the site, but I’m working on that.
 
 ## Measuring file sizes
 
-I could just pick an arbitrary threshold and find every file bigger than that with
-a [Perl][] one-liner using [File::Find::Rule][]'s [procedural][] flavor.
+I could just pick an arbitrary threshold and find every file bigger than
+that with a [Perl](/tags/perl) one-liner using
+[File::Find::Rule](https://metacpan.org/pod/File::Find::Rule)'s
+[procedural](https://metacpan.org/pod/distribution/File-Find-Rule/lib/File/Find/Rule/Procedural.pod)
+flavor.
 
-[Perl]: /tags/perl
-[File::Find::Rule]: https://metacpan.org/pod/File::Find::Rule
-[procedural]: https://metacpan.org/pod/distribution/File-Find-Rule/lib/File/Find/Rule/Procedural.pod
-
-``` shell
+{{< console >}}
 $ perl -MFile::Find::Rule -E 'say for find(file => size => "> 6M" => in => "public");'
 public/2015/08/01/zentangle-doodle/cover.png
 public/2017/04/22/kalaidoscope-symmetry/cover.jpg
@@ -144,26 +139,22 @@ public/2018/09/30/cougar-mountain/old-stump.jpg
 public/2018/09/30/cougar-mountain/mossy.jpg
 public/2018/09/30/cougar-mountain/tall-stump.jpg
 public/2018/09/30/cougar-mountain/cover.jpg
-```
+{{< /console >}}
 
 Or maybe find the median between my biggest and smallest files, flagging
-everything bigger than the median. I promised [Python][] in the tags, so let's
-move away from Perl.
+everything bigger than the median. I promised [Python](/tags/python) in
+the tags, so let’s move away from Perl.
 
-[Python]: /tags/python
-
-``` python
+{{< code file="median.py" >}}
 import os
 
 import attr
-
 
 @attr.s(auto_attribs=True)
 class FileWeight:
     """Knows how much a file weighs"""
     path: str
     size: int
-
 
 if __name__ == '__main__':
     files_seen = []
@@ -178,18 +169,17 @@ if __name__ == '__main__':
     biggest_half = [f for f in files_seen if f.size > median]
     for fw in biggest_half:
         print(fw)
-```
+{{< /aside >}}
 
-I know Python 3.7 has [data classes][]. I like [`attrs`][], which supports type
-hinting while still working on older versions of the language.
-
-[data classes]: https://docs.python.org/3/library/dataclasses.html
-[`attrs`]: https://www.attrs.org
+I know Python 3.7 has [data
+classes](https://docs.python.org/3/library/dataclasses.html). I like
+[attrs](https://www.attrs.org), which supports type hinting while still
+working on older versions of the language.
 
 Running this gives me the same files as my one-liner. Good choice for an
 arbitrary number, right?
 
-``` shell
+{{< console >}}
 $ python median.py
 FileWeight(path='public/2015/08/01/zentangle-doodle/cover.png', size=8964751)
 FileWeight(path='public/2017/04/22/kalaidoscope-symmetry/cover.jpg', size=7729604)
@@ -200,48 +190,52 @@ FileWeight(path='public/2018/09/30/cougar-mountain/old-stump.jpg', size=7672471)
 FileWeight(path='public/2018/09/30/cougar-mountain/mossy.jpg', size=6639527)
 FileWeight(path='public/2018/09/30/cougar-mountain/tall-stump.jpg', size=7052340)
 FileWeight(path='public/2018/09/30/cougar-mountain/cover.jpg', size=8412560)
-```
+{{< /console >}}
 
-I learned that this technique of grabbing everything on one side of the median
-is called a "median split." I also learned that however convenient it might be,
-a median split doesn't *mean* anything. It's the value halfway between two
-numbers. Is it a big download size? Maybe. What if I have a bunch of 5.9MB
-files? Those would be kind of big too, right? If I keep optimizing the biggest
-half and the median steadily moves down, how will I know when I'm done? What's a
-small download?
+I learned that this technique of grabbing everything on one side of the
+median is called a "median split." I also learned that however
+convenient it might be, a median split doesn’t *mean* anything. It’s the
+value halfway between two numbers. Is it a big download size? Maybe.
+What if I have a bunch of 5.9MB files? Those would be kind of big too,
+right? If I keep optimizing the biggest half and the median steadily
+moves down, how will I know when I’m done? What’s a small download?
 
-Okay. I'm okay. I need to breathe for a minute. Once you start asking questions,
-it can be hard to stop.
+Okay. I’m okay. I need to breathe for a minute. Once you start asking
+questions, it can be hard to stop.
 
-So I need to know what the numbers mean, and what a good threshold is. Come to
-think of it, there might be a few thresholds.
+So I need to know what the numbers mean, and what a good threshold is.
+Come to think of it, there might be a few thresholds.
 
 ## Estimating download time
 
-I care about how long it takes to download a file, assuming latency is as good
-as it's going to get. The file size is one part of the download question. The
-visitor's connection is the other part. I usually have a nice high speed
-connection, but not always.
+I care about how long it takes to download a file, assuming latency is
+as good as it’s going to get. The file size is one part of the download
+question. The visitor’s connection is the other part. I usually have a
+nice high speed connection, but not always.
 
-Often I'm on LTE with one bar. Sometimes I'm on 3G. Very occasionally I find a
-dark corner that only gets me an Edge connection.
+Often I’m on LTE with one bar. Sometimes I’m on 3G. Very occasionally I
+find a dark corner that only gets me an Edge connection.
 
-Sometimes I have no connection at all, but site optimization can't help with
-that.
+Sometimes I have no connection at all, but site optimization can’t help
+with that.
 
-The [Firefox][] throttling tool documentation includes a chart specifying what
-its selections represent. I know from site analytics that a third of my visitors
-use mobile devices. I don't know what their connection speed is, but I find
-myself on 3G often enough that I think "Regular 3G" is an acceptable choice.
+The
+[Firefox](https://developer.mozilla.org/en-US/docs/Tools/Network_Monitor/Throttling)
+throttling tool documentation includes a chart specifying what its
+selections represent. I know from site analytics that a third of my
+visitors use mobile devices. I don’t know what their connection speed
+is, but I find myself on 3G often enough that I think "Regular 3G" is an
+acceptable choice.
 
-That 750 Kbps number represents 750,000 bits. There are eight bits in a byte.
-Divide 750,000 by eight and that's only 93,750 bytes per second. The site's median
-size of roughly six megabytes suddenly feels a lot bigger.
+That 750 Kbps number represents 750,000 bits. There are eight bits in a
+byte. Divide 750,000 by eight and that’s only 93,750 bytes per second.
+The site’s median size of roughly six megabytes suddenly feels a lot
+bigger.
 
-Let's teach the FileWeight class to estimate downloads. I'll clarify its printed
-details while I'm at it.
+Let’s teach the FileWeight class to estimate downloads. I’ll clarify its
+printed details while I’m at it.
 
-``` python
+{{< code file="download-time.py" >}}
 import os
 
 import attr
@@ -275,15 +269,14 @@ class FileWeight:
         time_3g = self.download_time(DOWNLOAD_SPEED)
         return f"<{self.path}> ({size}) 3g={time_3g:.3f}s"
 
-
 if __name__ == '__main__':
     # ...
-```
+{{< /console >}}
 
-The script is still focusing on the median, but the extra information should
-give us a little context.
+The script is still focusing on the median, but the extra information
+should give us a little context.
 
-``` shell
+{{< console >}}
 $ python download-time.py
 <public/2015/08/01/zentangle-doodle/cover.png> (8.55 MB) 3g=95.624s
 <public/2017/04/22/kalaidoscope-symmetry/cover.jpg> (7.37 MB) 3g=82.449s
@@ -294,44 +287,48 @@ $ python download-time.py
 <public/2018/09/30/cougar-mountain/mossy.jpg> (6.33 MB) 3g=70.822s
 <public/2018/09/30/cougar-mountain/tall-stump.jpg> (6.73 MB) 3g=75.225s
 <public/2018/09/30/cougar-mountain/cover.jpg> (8.02 MB) 3g=89.734s
-```
+{{< /console >}}
 
-Oh that's not good. The biggest file would take almost two and a half minutes to
-download, while the smallest above the median would still take over a minute.
-That's on top of whatever else is on the page.
+Oh that’s not good. The biggest file would take almost two and a half
+minutes to download, while the smallest above the median would still
+take over a minute. That’s on top of whatever else is on the page.
 
 My threshold should be far less than the median. How much less?
 
 ### Picking my thresholds
 
-Jakob Nielsen [summarized][] how different response times feel to a user when
-interacting with an application – and yes, loading a post from your blog in a
-browser is interacting with an application, affected by the browser *and* your
-site (and the network, and so on).
+Jakob Nielsen
+[summarized](https://www.nngroup.com/articles/response-times-3-important-limits/)
+how different response times feel to a user when interacting with an
+application – and yes, loading a post from your blog in a browser is
+interacting with an application, affected by the browser *and* your site
+(and the network, and so on).
 
-[summarized]: https://www.nngroup.com/articles/response-times-3-important-limits/
+- less than *0.1 seconds* is fast enough that it feels like they’re
+  doing it themselves
+- less than *1 second* is slow enough that it feels like they’re
+  telling the computer to do something
+- less than *10 seconds* is so slow that you’re starting to lose their
+  attention
 
-* less than *0.1 seconds* is fast enough that it feels like they're doing it themselves
-* less than *1 second* is slow enough that it feels like they're telling the computer to do something
-* less than *10 seconds* is so slow that you're starting to lose their attention
-
-Beyond ten seconds and you're wrestling with the limits of a normal human brain
-that already has plenty of stuff to think about.
+Beyond ten seconds and you’re wrestling with the limits of a normal
+human brain that already has plenty of stuff to think about.
 
 I can and do make excuses –
 
-* "They probably came here on purpose, so they'll wait!"
-* "This is so cool that they won't mind waiting!"
-* "So many factors are beyond my control that there's no point worrying about it."
-* "Everybody else's site is even worse!"
+- "They probably came here on purpose, so they’ll wait\!"
+- "This is so cool that they won’t mind waiting\!"
+- "So many factors are beyond my control that there’s no point
+  worrying about it."
+- "Everybody else’s site is even worse\!"
 
-– but no. The first two are lies from my ego, the last two are *terrible*
-arguments from my apathy.
+– but no. The first two are lies from my ego, the last two are
+*terrible* arguments from my apathy.
 
-I know my thresholds. Let's teach FileWeight about them so it can report the
-news.
+I know my thresholds. Let’s teach FileWeight about them so it can report
+the news.
 
-```python
+``` python
 # ...
 
 DOWNLOAD_EXPRESSIONS = {
@@ -339,7 +336,6 @@ DOWNLOAD_EXPRESSIONS = {
     "slow": "😐",
     "ok": "😊",
     "instant": "😁"}
-
 
 @attr.s(auto_attribs=True)
 class FileWeight:
@@ -372,7 +368,6 @@ class FileWeight:
     def is_instant(self) -> bool:
         return self.download_time() <= 0.1
 
-
 if __name__ == '__main__':
     files_seen = []
     for root, _, files in os.walk("public"):
@@ -387,10 +382,10 @@ if __name__ == '__main__':
         print(fw)
 ```
 
-I also added a little emoji quick reference so I can tell at a glance the
-expected user reaction at the file's download rate.
+I also added a little emoji quick reference so I can tell at a glance
+the expected user reaction at the file’s download rate.
 
-```
+{{< console >}}
 $ python download-time.py
 <public/2018/12/31/hopepunk-for-2019/cover_hu302a359ad2f64a42481affbc4fbbb8c4_4191368_1000x0_resize_q75_linear.jpg> (156.96 KB) 3g=1.714s😐
 <public/2018/10/27/winter-hat-and-gloves/cover_hu42513aeed6d773f768448596f8f497f6_2320770_1000x0_resize_q75_linear.jpg> (182.43 KB) 3g=1.993s😐
@@ -402,31 +397,31 @@ $ python download-time.py
 <public/coolnamehere/2007/04/19_01-handling-a-single-round.html> (469 bytes) 3g=0.005s😁
 <public/2018/08/19/island-center-forest/mossy-trees.jpg> (3.56 MB) 3g=39.789s🙁
 <public/2008/10/01/natalies-hat/cover.jpg> (84.94 KB) 3g=0.928s😊
-```
+{{< /console >}}
 
-Plenty of build process artifacts in there. The long image names come from using
-Hugo [image processing][] functions for thumbnails and inline images. I also have
-many tiny redirect files, letting Hugo's [aliasing][] behavior make up for the
-site's inconsistent organization over time.
-
-[image processing]:https://gohugo.io/content-management/image-processing/
-[aliasing]: https://gohugo.io/content-management/urls/#aliases/
+Plenty of build process artifacts in there. The long image names come
+from using Hugo [image
+processing](https://gohugo.io/content-management/image-processing/)
+functions for thumbnails and inline images. I also have many tiny
+redirect files, letting Hugo’s
+[aliasing](https://gohugo.io/content-management/urls/#aliases/) behavior
+make up for the site’s inconsistent organization over time.
 
 A FileWeight object can now describe the details I care about for a
-single file, including where it fits in the attention span thresholds. How many
-of my files are too big?
+single file, including where it fits in the attention span thresholds.
+How many of my files are too big?
 
 ## Putting it all together
 
-Ideally I would measure all the files associated with each post – HTML, CSS,
-fonts, JavaScript if any, and images – then add those together for a total page weight.
-Someday I may even do that! Not today, though. Today I focus on
-information about downloading each file individually. This post is long enough
-already.
+Ideally I would measure all the files associated with each post – HTML,
+CSS, fonts, JavaScript if any, and images – then add those together for
+a total page weight. Someday I may even do that\! Not today, though.
+Today I focus on information about downloading each file individually.
+This post is long enough already.
 
 ### All the files
 
-``` python
+{{< code file="report-weight.py" >}}
 from typing import List
 
 # ...
@@ -501,13 +496,13 @@ class SiteWeight:
 if __name__ == '__main__':
     site = SiteWeight("public")
     site.print_summary()
-```
+{{< /code >}}
 
-I spent too much time on that download table. I could have spent even more,
-sizing each column to the longest field and *anyways* that wasn't the point.
-Let's look at my download estimates.
+I spent too much time on that download table. I could have spent even
+more, sizing each column to the longest field and *anyways* that wasn’t
+the point. Let’s look at my download estimates.
 
-```
+``` console
 $ python report-weight.py
 All files in public
 1,886 files (418.71 MB)
@@ -518,30 +513,32 @@ Download guesses for 750.00 Kbps
  😁 ≤ 0.1s     ≤ 9.16 KB                     895
 ```
 
-Way too many files take more than ten seconds to load. I know better than to be
-pleased about the large number of files that load instantly. As I mentioned,
-quite a few of them are redirects. On the latency side of things those are
-*worse* because the visitor then has to load the real post.
+Way too many files take more than ten seconds to load. I know better
+than to be pleased about the large number of files that load instantly.
+As I mentioned, quite a few of them are redirects. On the latency side
+of things those are *worse* because the visitor then has to load the
+real post.
 
-I also said I'm not worrying about latency today.
+I also said I’m not worrying about latency today.
 
-The median list was helpful in showing me that my biggest offenders are image
-files, so what about adding a report on those?
+The median list was helpful in showing me that my biggest offenders are
+image files, so what about adding a report on those?
 
 ### Just the media files
 
-The easiest way would be to base it off file extension. But that ends up looking
-a bit untidy, because extensions have accumulated over the years. JPEG files are
-the worst offender, being stored as `.jpeg`, `.jpg`, and even `.JPG`.
+The easiest way would be to base it off file extension. But that ends up
+looking a bit untidy, because extensions have accumulated over the
+years. JPEG files are the worst offender, being stored as `.jpeg`,
+`.jpg`, and even `.JPG`.
 
-I'll use the standard [mimetypes][] library instead. FileWeight can use
-that to guess what kind of file it's looking at, and SiteWeight will make
-another download table for media files. It still uses file extensions, but
-with a smarter list than what I could build.
+I’ll use the standard
+[mimetypes](https://docs.python.org/3/library/mimetypes.html#mimetypes.guess_type)
+library instead. FileWeight can use that to guess what kind of file it’s
+looking at, and SiteWeight will make another download table for media
+files. It still uses file extensions, but with a smarter list than what
+I could build.
 
-[mimetypes]: https://docs.python.org/3/library/mimetypes.html#mimetypes.guess_type
-
-``` python
+{{< code file="weight-with-media.py" >}}
 # ...
 import mimetypes
 
@@ -563,7 +560,6 @@ class FileWeight:
     def is_media(self) -> bool:
         """is this an image or video?"""
         return self.filetype.split("/")[0] in ("image", "video")
-
 
 @attr.s(auto_attribs=True)
 class SiteWeight:
@@ -617,13 +613,94 @@ class SiteWeight:
                                        f"Media files in {self.public_dir}")
         print(media_summary)
 
-
 if __name__ == '__main__':
     # ...
-```
+{{< /code >}}
 
-The script makes two download reports now, with only a little more work!
+The script makes two download reports now, with only a little more
+work!
 
-```
+{{< console >}}
 $ python weight-with-media.py
+---
+All files in public
+1,886 files (418.71 MB)
+Download guesses for 750.00 Kbps
+ 🙁 > 10s      > 915.53 KB                   111
+ 😐 1s - 10s   91.55 KB - 915.53 KB          269
+ 😊 0.1s - 1s  9.16 KB - 91.55 KB            611
+ 😁 ≤ 0.1s     ≤ 9.16 KB                     895
+---
+Media files in public
+802 files (392.19 MB)
+Download guesses for 750.00 Kbps
+ 🙁 > 10s      > 915.53 KB                   107
+ 😐 1s - 10s   91.55 KB - 915.53 KB          236
+ 😊 0.1s - 1s  9.16 KB - 91.55 KB            339
+ 😁 ≤ 0.1s     ≤ 9.16 KB                     120
+{{< /console >}}
 
+Yeah, that’s what I thought. The majority of those small files are text,
+and the vast majority of the large files are image or video. Yes, I
+noticed that a few of my excessively large files are text. Probably
+archive pages of one sort or another. I’ll gather the information on
+those later.
+
+But it looks like I have an answer to my question.
+
+## My question?
+
+Whether it’s worth my time to try optimizing image file sizes.
+
+## Oh right right. The answer?
+
+The answer is "yes."
+
+Nearly half of my media files would be noticeably slow to download on a
+3G connection. Over a hundred are large enough to stretch the patience
+of any visitor not blessed with a constant high speed pipe. That’s not
+very nice on my part.
+
+*Now* I know I can make it better. Even better: with this script, I can
+ask the question again whenever I want\!
+
+Optimizing images is another post, though.
+
+## Could I improve my weighing script?
+
+Of course\! Here are some ideas I got while writing this, including a
+couple I included but removed to maintain focus.
+
+- additional thresholds beyond "excessive" so I can determine how many
+  files contribute to painfully long download times
+- verbose mode to list file details on request
+- options to estimate for different download rates
+- more detail on media files, perhaps to see if compression has been
+  applied and how much
+- report base on page weight rather than individual fileweight, to get
+  a more realistic idea of visitor experience.
+- format the list in JSON to simplify handing off to other reporting
+  tools
+- include median and mean file sizes for more number crunching
+  goodness
+- list the ten largest files, so I know where to focus my optimization
+  efforts
+
+### Should I optimize my weighing script?
+
+Good question\! Let’s look at the numbers.
+
+{{< console >}}
+$ time make weight
+python weight-with-media.py
+...
+real    0m0.131s
+user    0m0.083s
+sys     0m0.044s
+{{< /console >}}
+
+No.
+
+Seriously though. I assembled this in a few hours. Half of it’s too
+clever and the other half’s too stupid. But it gets the answers I need
+in a timely fashion.

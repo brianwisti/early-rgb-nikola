@@ -1,18 +1,20 @@
 ---
+slug: elisp-functions-described-in-the-emacs-tutorial
 aliases:
 - /emacs/2014/05/27_elisp-functions-described-in-the-emacs-tutorial.html
 - /post/2014/elisp-functions-described-in-the-emacs-tutorial/
-date: 2014-05-27T00:00:00Z
+- /2014/05/27/elisp-functions-described-in-the-emacs-tutorial/
+date: 2014-05-27 00:00:00+00:00
 tags:
 - emacs
 - elisp
 - tutorial
+- tools
 title: Elisp Functions Described in the Emacs Tutorial
-type: post
-year: '2014'
-category: tools
+uuid: 772fe617-fda6-4b86-bc92-509632ce2953
 ---
-[other day]: /post/2014/the-emacs-tutorial-as-elisp-tour/
+[other day]: {{< ref "post/2014-05-the-emacs-tutorial-as-elisp-tour/index.md" >}}
+
 The [other day][] I talked some sort of nonsense about organizing my
 notes into some sort of coherent blog post. Heck with that. Life is
 too short. Instead I will just dump them here and hope somebody

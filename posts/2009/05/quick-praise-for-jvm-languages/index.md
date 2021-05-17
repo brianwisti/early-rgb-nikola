@@ -1,17 +1,18 @@
 ---
+slug: quick-praise-for-jvm-languages
 aliases:
 - /blogspot/2009/05/15_quick-praise-for-jvm-languages.html
 - /post/2009/quick-praise-for-jvm-languages/
-date: 2009-05-15T00:00:00Z
+- /2009/05/15/quick-praise-for-jvm-languages/
+date: 2009-05-15 00:00:00+00:00
 tags:
 - groovy
 - java
 - jruby
 - ruby
+- blogspot
 title: Quick Praise for JVM languages
-type: post
-year: '2009'
-archived_category: blogspot
+uuid: db6461b4-ab9b-48d3-8a46-347c071f3413
 ---
 I've been digging a lot into the [Java][] world in the last few months at work. Not Java
 specifically, because the language still bugs me. Why does Java bug me? Honestly at this

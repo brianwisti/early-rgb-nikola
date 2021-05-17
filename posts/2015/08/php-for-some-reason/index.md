@@ -1,16 +1,17 @@
 ---
+slug: php-for-some-reason
 aliases:
 - /programming/2015/08/14_php-for-some-reason.html
 - /post/2015/php-for-some-reason/
-date: 2015-08-14T00:00:00Z
-description: I have been looking at PHP for the first time in years. I don't know
-  why.
+- /2015/08/14/php-for-some-reason/
+date: 2015-08-14 00:00:00+00:00
+description: "I have been looking at PHP for the first time in years. I don't know\
+  \ why.\n"
 tags:
 - php
+- programming
 title: PHP, for Some Reason
-type: post
-year: '2015'
-category: programming
+uuid: 108bcbf4-4fe8-465a-970b-bd2d357b77ca
 ---
 I have been looking at [PHP][] for the first time in years. I don't know why.
 [PHP]: http://php.net/

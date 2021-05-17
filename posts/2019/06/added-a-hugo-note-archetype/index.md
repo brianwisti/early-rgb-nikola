@@ -1,10 +1,9 @@
 ---
+slug: added-a-hugo-note-archetype
 aliases:
 - /note/2019/0003/
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102324468805367109
-  twitter: https://twitter.com/brianwisti/status/1143000378511941632
-date: 2019-06-23T19:55:11-07:00
+- /note/2019/174/added-a-hugo-note-archetype/
+date: 2019-06-23 19:55:11-07:00
 tags:
 - notes
 - hugo
@@ -13,11 +12,10 @@ tags:
 - mobile hotspot
 - my data usage is gonna hurt
 title: Added a Hugo note archetype
-year: '2019'
+uuid: 603031a1-1b51-44d9-94cb-396c6af2fe8d
 category: note
 type: micro
 ---
-
 Moved into a new apartment. Waiting for Internet on Tuesday. It's Sunday.
 
 Continuing to work slow but sure on my [notes][] experiment. Today: a Hugo
@@ -36,12 +34,11 @@ Continuing to work slow but sure on my [notes][] experiment. Today: a Hugo
 
     SAY SOMETHING
 
-And yeah, [hashtags][] are related to but distinct from [tags][]. Basically,
+And yeah, hashtags are related to but distinct from [tags][]. Basically,
 I have a particular protocol for tags and posts. I can be more informal
 with notes and hashtags. The silly name reminds me they're supposed to be fun.
 
 Working out the occasional overlap is a pending item in [Taskwarrior].
 
-[hashtags]: /hashtags
 [tags]: /tags
 [Taskwarrior]: /tags/taskwarrior

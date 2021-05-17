@@ -1,0 +1,25 @@
+---
+title: Just noticed Okular PDF is on Windows
+slug: just-noticed-okular-pdf-is-on-windows
+caption: Okular document viewer with several tabs open including "Programming Crystal"
+format: adoc
+tags:
+- windows
+- tools
+date: 2021-02-19 11:37:37.906351-08:00
+category: note
+type: micro
+previewimage: /images/2021/02/just-noticed-okular-pdf-is-on-windows/cover.png
+---
+<div class="paragraph">
+<p><a href="https://okular.kde.org">Okular</a>, the <a href="https://kde.org">KDE</a> document viewer, works on Windows.
+Not only that, but it&#8217;s available in the <a href="https://www.microsoft.com/en-us/p/okular/9n41msq1wnm8?activetab=pivot:overviewtab">Microsoft Store</a>.</p>
+</div>
+<div class="paragraph">
+<p>Free, obviously.</p>
+</div>
+<div class="paragraph">
+<p>This should help keep annotations in order as I work through my TOREAD stack —
+three chapters down, only several hundred books to go! —
+regardless of current operating system.</p>
+</div>

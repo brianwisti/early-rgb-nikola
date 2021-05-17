@@ -1,15 +1,16 @@
 ---
+slug: dv9310-bios-issues
 aliases:
 - /blogspot/2007/12/29_now-that-both-of-my-machines-are.html
 - /post/2007/now-that-both-of-my-machines-are/
-date: 2007-12-29T00:00:00Z
+- /2007/12/29/dv9310-bios-issues/
+date: 2007-12-29 00:00:00+00:00
 tags:
 - troubleshooting
+- I fixed it!
+- blogspot
 title: dv9310 bios issues
-type: post
-update: 2008-01-08
-year: '2007'
-archived_category: blogspot
+uuid: 2f5e1715-8fa6-4c1d-ba2f-25898e7f0796
 ---
 <b>Update:</b> I turned my offhand comment about how I fixed my problem into more of a step-by-step guide, in case some poor soul is in the same spot and finds me via Google.
 <!-- TEASER_END -->

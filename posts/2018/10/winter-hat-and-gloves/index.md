@@ -1,18 +1,20 @@
 ---
-announcements:
-  twitter: https://twitter.com/brianwisti/status/1056381446934286336
-date: 2018-10-27T00:00:00Z
+slug: winter-hat-and-gloves
+date: 2018-10-27 00:00:00+00:00
 draft: false
 tags:
 - knitting
 - hat
 - gloves
+- craft
 title: Winter Hat and Gloves
-year: '2018'
+uuid: 8cd6c535-f17f-4fe7-b72b-89c587ad3153
+aliases:
+- /2018/10/27/winter-hat-and-gloves/
 category: craft
+type: micro
 previewimage: /images/2018/10/winter-hat-and-gloves/cover.jpg
 ---
-
 I made  myself a hat and gloves in matching colors for winter.
 <!-- TEASER_END -->
 
@@ -22,7 +24,7 @@ yarn is far too stiff for gloves. I would prefer a sportweight blend to this wor
 for things that need to move with my hands.
 
 [Son of Stitch 'n Bitch]: https://www.goodreads.com/book/show/170305.Son_of_Stitch_n_Bitch
-[purple beer gloves]: {{< ref "/post/2018/beer-gloves/index.md" >}}
+[purple beer gloves]: {{< ref "/post/2018-08-beer-gloves/index.md" >}}
 
 I lost the label for the hat yarn but it's probably Patons North America Classic Wool Worsted. So soft and
 cozy on my head. I accidentally changed tension once I picked up speed, resulting in an interesting gauge
@@ -40,4 +42,3 @@ memories of gaming books. The tables are just math helpers though. I can see not
 point. That's the day I'll be able to knit custom fit stuff from memory. Something to look forward to!
 
 [The Knitter's Handy Book of Patterns]: https://www.goodreads.com/book/show/85015.Knitters_Handy_Book_Of_Patterns
-

@@ -1,0 +1,38 @@
+---
+title: testing a thing
+slug: testing-a-thing
+format: adoc
+date: 2021-02-14 18:29:10-08:00
+tags:
+- asciidoctor
+- hugo
+- site
+category: note
+type: micro
+---
+<div class="paragraph">
+<p>Sometime <a href="/post/2020/05/letting-ruby-build-asciidoctor-files-for-hugo/">last year</a> I had half of a great idea for better <a href="https://asciidoctor.org/">Asciidoctor</a> handling in <a href="https://gohugo.io">Hugo</a>.
+I <em>might</em> have the other half now:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>keep my content in the content folder.</p>
+</li>
+<li>
+<p>Use <code>adoc.txt</code> for the extension so Hugo ignores it.</p>
+</li>
+<li>
+<p>Point my <code>build-adoc</code> script there instead of a neighboring <code>adoc</code> folder.</p>
+</li>
+<li>
+<p>profit?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Would work for <a href="/tags/rst">reStructuredText</a> too.</p>
+</div>
+<div class="paragraph">
+<p>Need to get through a few post cycles to see how it works.</p>
+</div>

@@ -9,11 +9,13 @@ tags:
 - the old ways die hard
 - read my twitter masterpiece though
 title: Be proud of your blog site thing
-year: '2019'
+slug: be-proud-of-your-blog-site-thing
+uuid: 3310ed1f-d78c-4324-b929-344c45334a94
+aliases:
+- /note/2019/314/be-proud-of-your-blog-site-thing/
 category: note
 type: micro
 ---
-
 > It‘s tempting to think that The Thing of my career has been NetNewsWire. And that’s kinda true. But the
 > thing I’ve done the longest, love the most, and am most proud of is this blog.
 

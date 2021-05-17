@@ -1,0 +1,35 @@
+---
+title: Tweaking my tools
+slug: tweaking-my-tools
+format: adoc
+tags:
+- ruby
+- site
+date: 2021-02-16 14:40:03.058286-08:00
+category: note
+type: micro
+---
+<div class="paragraph">
+<p>Playing a little more with <a href="https://ttytoolkit.org">TTY Toolkit</a> for the site workflow.
+I wanted to say I&#8217;m tightening focus, but with a <code>require</code> list like this for one tool?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ruby"><span></span><span class="tok-nb">require</span> <span class="tok-s1">&#39;pastel&#39;</span>
+<span class="tok-nb">require</span> <span class="tok-s1">&#39;ruby-slugify&#39;</span>
+<span class="tok-nb">require</span> <span class="tok-s1">&#39;tty-editor&#39;</span>
+<span class="tok-nb">require</span> <span class="tok-s1">&#39;tty-exit&#39;</span>
+<span class="tok-nb">require</span> <span class="tok-s1">&#39;tty-logger&#39;</span>
+<span class="tok-nb">require</span> <span class="tok-s1">&#39;tty-option&#39;</span>
+<span class="tok-nb">require</span> <span class="tok-s1">&#39;tty-prompt&#39;</span>
+<span class="tok-nb">require</span> <span class="tok-s1">&#39;tty-screen&#39;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>"Tightening focus" would be a lie.</p>
+</div>
+<div class="paragraph">
+<p>Anyways, it seems to function correctly.
+Huzzah!
+Now back to work.</p>
+</div>

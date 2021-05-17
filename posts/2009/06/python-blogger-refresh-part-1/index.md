@@ -1,27 +1,27 @@
 ---
+slug: python-blogger-refresh-part-1
 aliases:
 - /blogspot/2009/06/09_python-blogger-refresh-part-1.html
 - /post/2009/python-blogger-refresh-part-1/
-date: 2009-06-09T00:00:00Z
+- /2009/06/09/python-blogger-refresh-part-1/
+date: 2009-06-09 00:00:00+00:00
 tags:
 - blogger
 - gdata
 - markdown
 - python
+- blogspot
 title: Python Blogger Refresh, Part 1
-type: post
-updated: 2009-06-12T00:00:00Z
-year: '2009'
+updated: 2009-06-12 00:00:00+00:00
 series:
 - Python Blogger Refresh
-archived_category: blogspot
+uuid: f726a5e8-1e58-474b-b6d6-d257c517e066
 ---
-
 <!-- TEASER_END -->
 
 ## The Idea
 
-[wrote a post]: /post/2007/python-loves-blogger/
+[wrote a post]: /post/2007/12/python-loves-blogger-part-1/
 [Python]: /tags/python/
 [Blogspot]: http://blogspot.com
 [Python Markdown]: https://pypi.python.org/pypi/Markdown
@@ -77,8 +77,8 @@ repository. There are a fair number of bug fixes and new features in the latest 
 
 ## The Starting Code
 
-[first]: /post/2007/python-loves-blogger/
-[second]: /post/2008/adding-categories-to-python-blogger/
+[first]: /post/2007/12/python-loves-blogger-part-1/
+[second]: /post/2008/01/adding-categories-to-the-python-blogger-client/
 
 Now that I have the most important dependencies installed, I can revisit the code from
 the [first][] and [second][] posts. 
@@ -241,7 +241,8 @@ if __name__ == '__main__':
 
 ## Coming Up Next
 
-[next time]: /post/2009/python-blogger-refresh-part-2-settings/
+[next time]: post/2009/06/python-blogger-refresh-part-2-settings/
+
 These posts will be short, since I want to get *something* up while still getting things done at
 work. We have our starting point reestablished, and [next time][] we will be concentrating on loading user
 settings rather than embedding those details right in our code.

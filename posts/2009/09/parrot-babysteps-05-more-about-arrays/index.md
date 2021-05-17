@@ -1,27 +1,29 @@
 ---
+slug: parrot-babysteps-05-more-about-arrays
 aliases:
 - /coolnamehere/2009/09/29_05-more-about-arrays.html
 - /post/2009/05-more-about-arrays/
-date: 2009-09-29T00:00:00Z
+- /2009/09/29/parrot-babysteps-05-more-about-arrays/
+date: 2009-09-29 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 05 - More About Arrays
-type: post
-updated: 2010-02-12T00:00:00Z
-year: '2009'
+updated: 2010-02-12 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 8fc531c0-a0f3-4ad1-af01-a306951bcab7
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 5 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
 ## Introduction
 
-[last step]: /post/2009/04-adding-command-line-arguments/
+[last step]: {{< ref "post/2009-09-parrot-babysteps-04-adding-command-line-arguments/index.md" >}}
+
 We started looking at arrays in the [last step][].
 We're going to take a closer look today, exploring different ways of looking at Parrot
 arrays to build an averaging calculator. We'll start with no array at all, to
@@ -573,7 +575,7 @@ is still the same.
 
 ## Conclusion
 
-[command line]: /post/2009/04-adding-command-line-arguments/
+[command line]: {{< ref "post/2009-09-parrot-babysteps-04-adding-command-line-arguments/index.md" >}}
 
 We had already taken a glance at arrays when we worked with the
 [command line][]. Today we dove a little
@@ -582,5 +584,3 @@ Now you understand how to treat a 'ResizableFloatArray' like a stack, a queue,
 a plain old array, or an iterable collection. These principles should work for 
 other array types as well. Parrot has many array PMCs, and you can find them on 
 the list of core PMCs [here](http://docs.parrot.org/parrot/devel/html/pmc.html).
-
-

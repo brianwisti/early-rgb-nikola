@@ -1,0 +1,107 @@
+---
+aliases:
+- /post/2017/elscreen/
+- /2017/01/11/elscreen/
+date: 2017-01-11
+draft: false
+format: adoc
+tags:
+- emacs
+- elscreen
+- tools
+title: elscreen
+slug: elscreen
+uuid: 07380976-b527-46ff-b398-cfe9e5670290
+previewimage: /images/2017/01/elscreen/cover.png
+---
+<div class="paragraph">
+<p>I use <a href="https://github.com/knu/elscreen/">ElScreen</a> every time I open Emacs.
+May as well make a quick note about it.</p>
+</div>
+<div class="paragraph">
+<p>I admit it.
+I’m still more of a <a href="http://www.vim.org/">Vim</a> user.
+The workflow I’m used to is Vim with some tabs, usually sitting in a <a href="https://tmux.github.io/">tmux</a> session.
+When in Emacs I use ElScreen, which basically gives me tmux inside Emacs.</p>
+</div>
+<div class="paragraph">
+<p>If you know what that means, great.
+If not, then pretend ElScreen is a weird way to make emacs a tabbed editor.</p>
+</div>
+<div class="sect1">
+<h2 id="_install_it">Install It</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://ergoemacs.org/">ErgoEmacs</a> has a nice <a href="http://ergoemacs.org/emacs/emacs_package_system.html">guide</a> to using the Emacs package manager.
+With that as your guide, find and install the <a href="https://melpa.org/#/elscreen">elscreen package</a> from <a href="https://melpa.org/">MELPA</a>.</p>
+</div>
+<div class="paragraph">
+<p>Start ElScreen in your init file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="elisp"><span></span><span class="tok-p">(</span><span class="tok-nv">elscreen-start</span><span class="tok-p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now the elscreen commands are available throughout your Emacs session.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_use_it">Use It</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/knu/elscreen#usage">ElScreen Usage</a> shows <em>many</em> commands for ElScreen.
+I manage with just a few.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Function</th>
+<th class="tableblock halign-left valign-top">Keys</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elscreen-create</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Ctrl</kbd>+<kbd>z c</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create a new screen and switch to it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elscreen-next</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Ctrl</kbd>+<kbd>z n</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cycle to the next screen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elscreen-previous</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Ctrl</kbd>+<kbd>z p</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cycle to the previous screen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elscreen-kill</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Ctrl</kbd>+<kbd>z k</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kill the current screen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>elscreen-help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Ctrl</kbd>+<kbd>z ?</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show ElScreen key bindings</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>I know.
+A tutorial or something would be nice.
+But every time I start to write a tutorial for something,
+I think of one more detail that hasn&#8217;t been covered and the cycle starts all over again on the new detail.
+Just needed <em>something</em> here so I could shut my brain up about "why don&#8217;t you mention ElScreen?"</p>
+</div>
+</div>
+</div>

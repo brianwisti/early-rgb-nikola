@@ -1,4 +1,5 @@
 ---
+slug: checking-in-on-my-idea-bucket
 date: 2019-06-29 12:52:00-07:00
 tags:
 - coffee thoughts
@@ -6,14 +7,13 @@ tags:
 - TODO
 - forgot to post this yesterday
 title: Checking in on my idea bucket
-updated: 2019-07-03T09:18:47-07:00
-year: '2019'
+updated: 2019-07-03 09:18:47-07:00
+aliases:
+- /note/2019/180/checking-in-on-my-idea-bucket/
 category: note
 type: micro
 ---
-
-
-    $ task '(+learn or +idea)' count
+$ task '(+learn or +idea)' count
     117
 
 I know I won't get to 90% of these, but I'm glad to have [Taskwarrior][] for
@@ -31,11 +31,8 @@ Curious about the latest? I want to try out the [entropic][] package manager for
 
 [entropic]: https://github.com/entropic-dev/entropic
 
-****
-
+{{< aside >}}
 [Oops][]: This was bad Taskwarrior usage. Use `newest` and `limit`.
 
-****
-
-[Oops]: {{< ref "/note/2019-07-03-0978/index.md" >}}
-
+[Oops]: /note/2019/07/task-add-admit-a-mistake/
+{{< /aside >}}

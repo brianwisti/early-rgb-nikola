@@ -1,16 +1,17 @@
 ---
+slug: learning-xml
 aliases:
 - /coolnamehere/2006/03/17_learning-xml.html
 - /post/2006/learning-xml/
-date: 2006-03-17T00:00:00Z
+- /2006/03/17/learning-xml/
+date: 2006-03-17 00:00:00+00:00
 tags:
 - xml
 - learn
+- coolnamehere
 title: Learning XML
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2006'
-archived_category: coolnamehere
+updated: 2009-07-11 00:00:00+00:00
+uuid: 9dffaa2a-3ef3-4507-a133-82f3f6f6364c
 ---
 A mountain of standards and specifications have piled on top of XML over the 
 years, but the core language is still pretty easy to get started in. Because it 
@@ -249,5 +250,3 @@ The best resource for additional information is the [World Wide Web
 Consortium](http://www.w3.org/). But if standards and specifications aren't 
 your cup of tea, there are also a number of good tutorial sites, such as 
 [XML.com](http://www.xml.com/) and [W3 Schools](http://www.w3schools.com/).
-
-

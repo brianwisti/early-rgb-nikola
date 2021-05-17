@@ -1,19 +1,23 @@
 ---
+slug: rainys-mish-mash-socks
 aliases:
 - /craft/2016/rainys-mishmash-socks/
-date: 2016-04-14T00:00:00Z
-image: /img/2016/rainys-mishmash-socks.jpg
+- /2016/04/14/rainys-mish-mash-socks/
+date: 2016-04-14 00:00:00+00:00
 tags:
 - knitting
 - socks
-thumbnail: /img/2016/rainys-mishmash-socks-thumbnail.jpg
+- craft
 title: Rainy's Mish-Mash Socks
-year: '2016'
+uuid: 6e57a959-6281-48e5-a5cc-51aa9346243d
 category: craft
+type: micro
 previewimage: /images/2016/04/rainys-mish-mash-socks/cover.jpg
 ---
+[the gloves]: {{< ref "post/2016-03-rainys-mish-mash-gloves/index.md" >}}
+
 Some socks to go with [the gloves][] I made a few weeks ago.
-[the gloves]: /craft/2016/rainys-mishmash-gloves/
+
 <!-- TEASER_END -->
 
 <aside>

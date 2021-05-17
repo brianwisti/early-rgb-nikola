@@ -1,15 +1,16 @@
 ---
+slug: fxruby-mplayer-idea
 aliases:
 - /blogspot/2007/01/30_fxruby-mplayer-idea.html
 - /post/2007/fxruby-mplayer-idea/
-date: 2007-01-30T00:00:00Z
+- /2007/01/30/fxruby-mplayer-idea/
+date: 2007-01-30 00:00:00+00:00
 tags:
 - project
 - ruby
+- blogspot
 title: FXRuby MPlayer Idea
-type: post
-year: '2007'
-archived_category: blogspot
+uuid: a9d294e0-12b4-4176-8af5-01f0a28284d1
 previewimage: /images/2007/01/fxruby-mplayer-idea/cover.png
 ---
 A few weeks back I wrote up a GUI front-end for <a href="http://www.mplayerhq.hu/">mplayer</a>. It works nice enough, but it suffers from a few aesthetic issues:

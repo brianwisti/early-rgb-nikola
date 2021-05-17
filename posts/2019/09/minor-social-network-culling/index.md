@@ -1,20 +1,19 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102851356933698431
-  twitter: https://twitter.com/brianwisti/status/1176721279736569856
-date: 2019-09-24T21:25:13-07:00
+date: 2019-09-24 21:25:13-07:00
 tags:
 - disgruntled
 - housecleaning
 - drawing
 - because just cranky is boring
 title: minor social network culling
-year: '2019'
+slug: minor-social-network-culling
+uuid: 2e230bdf-ed51-4d15-9f2f-a3614afbf901
+aliases:
+- /note/2019/267/minor-social-network-culling/
 category: note
 type: micro
 previewimage: /images/2019/09/minor-social-network-culling/cover.jpg
 ---
-
 [Ello]: https://ello.co
 [MeWe]: https://mewe.com
 [Classmates]: https://classmates.com

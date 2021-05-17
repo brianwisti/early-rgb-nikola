@@ -1,63 +1,67 @@
 ---
+slug: ruby-itunes-ratings-fun
 aliases:
 - /programming/2015/03/16_ruby-itunes-ratings-fun.html
 - /post/2015/ruby-itunes-ratings-fun/
-announcements:
-  twitter: https://twitter.com/brianwisti/status/577379613657042944
-date: 2015-03-16T00:00:00Z
-description: I use the plist and gruff gems to summarize my iTunes music ratings.
+- /2015/03/16/ruby-itunes-ratings-fun/
+date: 2015-03-16 00:00:00+00:00
 tags:
 - ruby
 - itunes
 - graphing
 - music
+- programming
 title: Ruby iTunes Ratings Fun
-type: post
-updated: 2015-07-26T00:00:00Z
-year: '2015'
-category: programming
+description: Using Ruby to summarize my iTunes music ratings
+updated: 2015-07-26 00:00:00+00:00
+uuid: 5229ba59-6edf-417a-b69e-9c3536164480
 ---
-[plist]: https://github.com/bleything/plist
-[gruff]: https://github.com/topfunky/gruff
-I use the [plist][] and [gruff][] gems to summarize my iTunes music ratings.
-<!-- TEASER_END -->
+I use the [plist](https://github.com/bleything/plist) and
+[gruff](https://github.com/topfunky/gruff) gems to summarize my iTunes
+music ratings.
 
-### 2015-07-26 Update
+{{< aside title="updates" >}}
+2015-07-26
+: There was a missing `format` in the version of `graph-ratings.rb` that I pasted here. I am properly shamed.
+{{< /aside >}}
 
-There was a missing `format` in the version of `graph-ratings.rb` that I pasted here. I am properly shamed.
+Introduction
+------------
 
-## Introduction
-
-Earlier this year I did a fresh operating system install on my laptop. Part of that install involved moving all my
-music from an older machine. I moved the music, but not the iTunes details. My tastes changed over the
-years. Why not start with a fresh listen and fresh ratings for all?
+Earlier this year I did a fresh operating system install on my laptop.
+Part of that install involved moving all my music from an older machine.
+I moved the music, but not the iTunes details. My tastes changed over
+the years. Why not start with a fresh listen and fresh ratings for all?
 
 A few months passed. How much progress have I made?
 
-First off let me roll 1d100 and check the Random Language Chart. I rolled a 73, and that means I write this in
-Ruby.
+First off let me roll 1d100 and check the Random Language Chart. I
+rolled a 73, and that means I write this in Ruby.
 
-[Property List XML]: https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man5/plist.5.html
+I decided to look at the XML file that gets exported by iTunes whenever
+a library detail changes. [Property List
+XML](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man5/plist.5.html)
+frustrates quickly if you attack it with naive XML parsing. Fortunately,
+Ben Bleything wrote a [plist](https://github.com/bleything/plist) gem
+that simplifies the task in Ruby.
 
-I decided to look at the XML file that gets exported by iTunes whenever a library detail
-changes. [Property List XML][] frustrates quickly if you attack it with naive XML parsing. Fortunately, Ben
-Bleything wrote a [plist][] gem that simplifies the task in Ruby.
-
-Since I like pretty pictures, I may as well use Geoffrey Grosenbach's [gruff][] to make a pretty pie chart.
+Since I like pretty pictures, I may as well use Geoffrey Grosenbach’s
+[gruff](https://github.com/topfunky/gruff) to make a pretty pie chart.
 
     $ ruby --version
     ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-darwin14]
     $ gem install plist
     $ gem install gruff
 
-### Here It Is
+Here It Is
+----------
 
-No big code explanation this time around. My last few attempts at that have gone stale in my drafts
-folder. Plus, I'm worn out. I *tried* the naive XML parsing thing, and it frustrated me quickly. Thank
-goodness for [plist][].
+No big code explanation this time around. My last few attempts at that
+have gone stale in my drafts folder. Plus, I’m worn out. I *tried* the
+naive XML parsing thing, and it frustrated me quickly. Thank goodness
+for [plist](https://github.com/bleything/plist).
 
-``` ruby
-# graph-ratings.rb
+{{< code file="graph-ratings.rb" >}}
 require 'plist'
 require 'gruff'
 
@@ -108,9 +112,10 @@ graph.title = "Songs Grouped By Rating"
 ratings.keys.sort.each { |rating| graph.data rating, ratings[rating][:songs] }
 
 graph.write "song-pie.png"
-```
+{{< /code >}}
 
-Running it shows me that I have more than a month of music to rate, and only if I can rate music in my sleep.
+Running it shows me that I have more than a month of music to rate, and
+only if I can rate music in my sleep.
 
     Rating Songs Percent Duration
          0 13907   83.0% 38:05:56:14
@@ -120,11 +125,12 @@ Running it shows me that I have more than a month of music to rate, and only if 
         80   984    5.9% 02:14:57:47
        100   273    1.6% 00:17:44:35
 
-It seems I still like most of the music I own at least a little bit. Many former favorites have drifted
-to the 60 rating (3 stars), though. Time does change tastes a little bit.
+It seems I still like most of the music I own at least a little bit.
+Many former favorites have drifted to the 60 rating (3 stars), though.
+Time does change tastes a little bit.
 
-The graph. Let's look at that pretty picture.
+The graph. Let’s look at that pretty picture.
 
-{{< show-figure image="song-pie.png" description="Ratings pie chart" >}}
+![Ratings pie chart](song-pie.png)
 
 Yes. I have much music listening ahead of me.

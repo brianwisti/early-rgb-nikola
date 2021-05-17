@@ -1,20 +1,22 @@
 ---
+slug: next-hugo
 aliases:
 - /post/2015/hugo/
-announcements:
-  twitter: https://twitter.com/brianwisti/status/648310702290022400
-date: 2015-09-27T13:36:30-07:00
+- /2015/09/27/next-hugo/
+date: 2015-09-27 13:36:30-07:00
 description: I Rebuilt Random Geekery with Hugo
 tags:
 - site
 - hugo
+- tools
 title: Next? Hugo
-year: '2015'
-category: tools
+uuid: e15550df-5dee-4535-a348-f6cac5b6ac35
 ---
 Hey it has been a while since I shuffled the site around completely. I'll
 just redo the whole thing in [Hugo][].
+
 [Hugo]: http://gohugo.io/
+
 <!-- TEASER_END -->
 
 [Jekyll][] is nice enough, but the long build times are tiresome. Even the 3.0
@@ -42,5 +44,3 @@ Okay I need to get back to it. There are a lot of rough edges to smooth out.
 [aliases]: http://gohugo.io/extras/aliases/
 [taxonomies]: http://gohugo.io/taxonomies/overview/
 [Hyde-X]: https://github.com/zyro/hyde-x
-
-

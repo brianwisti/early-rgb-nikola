@@ -1,19 +1,19 @@
 ---
+slug: pagetemplate-for-site-generation
 aliases:
 - /blogspot/2008/01/06_pagetemplate-for-site-generation.html
 - /post/2008/pagetemplate-for-site-generation/
-date: 2008-01-06T00:00:00Z
+- /2008/01/06/pagetemplate-for-site-generation/
+date: 2008-01-06 00:00:00+00:00
 tags:
 - pagetemplate
 - ruby
+- blogspot
 title: PageTemplate for Site Generation
-type: post
-updated: 2015-03-28T00:00:00Z
-year: '2008'
-archived_category: blogspot
+updated: 2015-03-28 00:00:00+00:00
+uuid: a0b992ad-9140-4c61-af51-8c38479c2c45
 ---
-
-[Python Blogger client]: /post/2007/python-loves-blogger/
+[Python Blogger client]: /post/2007/12/python-loves-blogger-part-1/
 [gdata-ruby]: https://code.google.com/p/gdata-ruby-util/
 [PageTemplate]: /tags/pagetemplate/
 

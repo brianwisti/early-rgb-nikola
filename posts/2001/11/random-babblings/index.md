@@ -1,18 +1,17 @@
 ---
+slug: random-babblings
 aliases:
 - /coolnamehere/2001/11/11_random-babblings.html
 - /post/2001/random-babblings/
-date: 2001-11-11T00:00:00Z
+- /2001/11/11/random-babblings/
+date: 2001-11-11 00:00:00+00:00
 title: Random Babblings
-type: post
-updated: 2001-11-11T00:00:00Z
-year: '2001'
-archived_category: coolnamehere
+updated: 2001-11-11 00:00:00+00:00
+uuid: a9c8d6c2-c228-4b53-86ee-6578da96c5fa
+tags:
+- coolnamehere
 ---
-<!-- TEASER_END -->
-I occasionally have thoughts or comments that have no bearing on geekery or 
-art. No direct bearing, anyhow. Actually, they could be about nearly 
-anything.  Or nothing. Insane rantings, if you will. Anyways, they get dumped 
-in the Babblings (or Insane Rantings) section.
-
-
+I occasionally have thoughts or comments that have no bearing on geekery
+or art. No direct bearing, anyhow. Actually, they could be about nearly
+anything. Or nothing. Insane rantings, if you will. Anyways, they get
+dumped in the Babblings (or Insane Rantings) section.

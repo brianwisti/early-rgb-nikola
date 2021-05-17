@@ -1,25 +1,26 @@
 ---
+slug: parrot-babysteps-0d-the-space-trade-project
 aliases:
 - /coolnamehere/2010/08/02_0d-the-spacetrade-project.html
 - /post/2010/0d-the-spacetrade-project/
-date: 2010-08-02T00:00:00Z
+- /2010/08/02/parrot-babysteps-0d-the-spacetrade-project/
+date: 2010-08-02 00:00:00+00:00
 tags:
 - parrot
 - learn
+- coolnamehere
 title: Parrot Babysteps 0d - The SpaceTrade Project
-type: post
-updated: 2010-08-30T00:00:00Z
-year: '2010'
+updated: 2010-08-30 00:00:00+00:00
 series:
 - Parrot Babysteps
-archived_category: coolnamehere
+uuid: 9445ddb9-240f-46a9-b838-19ccd5c129e4
 ---
+[Parrot Babysteps]: {{< ref "post/2009-07-parrot-babysteps/index.md" >}}
 
-[Parrot Babysteps]: /post/2009/parrot-babysteps/
 This is part 13 of [Parrot Babysteps][], my ongoing Parrot PIR tutorial.
 <!-- TEASER_END -->
 
-[Stellar]: /post/2010/0c-the-stellar-app/
+[Stellar]: {{< ref "post/2010-07-parrot-babysteps-0c-the-stellar-app/index.md" >}}
 [Star Trader]: https://en.wikipedia.org/wiki/Star_Trader
 [Trade Wars Rising]: http://tradewarsrising.com
 [Oolite]: http://www.oolite.org/
@@ -114,7 +115,7 @@ This should be fun. Let's get started!
 
 ## Setting up the project
 
-[Step 09]: /post/2010/09-simple-projects/
+[Step 09]: {{< ref "post/2010-04-parrot-babysteps-09-simple-projects/index.md" >}}
 
 Thanks to [Stellar][], I already know how I like to prepare my workspace for a new project.  The setup 
 from [Step 09][] will provide the starting point for SpaceTrade.
@@ -288,7 +289,7 @@ appropriate information.
 There is no special magic going on here. `command[':dude']` points to a Hash containing a subroutine name and
 an explanation of the command. `commands` is returned to the caller once the new command has been added.
 
-[step 06]: /post/2009/06-files-and-hashes/
+[step 06]: {{< ref "post/2009-10-parrot-babysteps-06-files-and-hashes/index.md" >}}
 [variable opcode]: http://docs.parrot.org/parrot/latest/html/src/ops/var.ops.html
 
 You can probably figure out what I expect to happen from the test code. I have a `say_dude` sub, and somehow
@@ -725,4 +726,3 @@ core behavior from the original, and we have shown that it will not be hard to a
 new commands. There is still a large part of me that thinks the code for the shell 
 should be tucked into its own corner, where it cannot get mixed up with the code for 
 the actual game. That will have to wait for the next step, though.
-

@@ -1,18 +1,18 @@
 ---
+slug: perl-5-babysteps-02-user-input
 aliases:
 - /coolnamehere/2009/05/05_02-user-input.html
 - /post/2009/02-user-input/
-date: 2009-05-05T00:00:00Z
+- /2009/05/05/perl-5-babysteps-02-user-input/
+date: 2009-05-05 00:00:00+00:00
 tags:
 - perl
 - learn
+- coolnamehere
 title: Perl 5 Babysteps 02 - User Input
-type: post
-updated: 2009-07-11T00:00:00Z
-year: '2009'
-archived_category: coolnamehere
+updated: 2009-07-11 00:00:00+00:00
+uuid: 7eeacafa-7996-4abf-ae30-291cc0d5f6d7
 ---
-
 Having a program that displays the exact same message every time you
 run is nice when it comes to being consistent, but not so entertaining
 as a program. "What does it do?" "It prints out my name." "Oh."
@@ -207,5 +207,3 @@ and explore its features. Definitely explore the available libraries,
 because you will be amazed by how much you can improve your programs. And
 I don't forget to explore [CPAN](http://www.cpan.org/), the gigantic repository
 of libraries for Perl.
-
-

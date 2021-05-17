@@ -1,9 +1,6 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102871305091759777
-  twitter: https://twitter.com/brianwisti/status/1177997950590603265
 caption: three brands of bottled coffee
-date: 2019-09-28T10:02:01-07:00
+date: 2019-09-28 10:02:01-07:00
 tags:
 - coffee
 - coffeecoffeecoffee
@@ -11,12 +8,14 @@ tags:
 - watch
 - music
 title: Do not shop on first coffee
-year: '2019'
+slug: do-not-shop-on-first-coffee
+uuid: 24828b55-967f-40f5-9292-f2c084667817
+aliases:
+- /note/2019/271/do-not-shop-on-first-coffee/
 category: note
 type: micro
 previewimage: /images/2019/09/do-not-shop-on-first-coffee/cover.jpg
 ---
-
 Got sidetracked while picking up breakfast stuff from [Uwajimaya][]. Should probably have finished my first
 cup of coffee before I left. Could have been worse. There was an entire boy band worth of that Babinski Cold
 Brew. I only took one.

@@ -5,11 +5,13 @@ tags:
 - bowie
 - the internet is an alien life form
 title: Watched Netflix Explained; remembered Bowie
-year: '2019'
+slug: watched-netflix-explained-remembered-bowie
+uuid: ab1ad252-7d04-4cd5-9183-27346d297c46
+aliases:
+- /note/2019/306/watched-netflix-explained-remembered-bowie/
 category: note
 type: micro
 ---
-
 We watched the "Code" episode of Netflix's [explained][].There's only so much that can be covered in 24
 minutes, but I enjoyed the high level overview of concepts, history, and issues they presented within their
 constraints.

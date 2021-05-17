@@ -1,23 +1,22 @@
 ---
-announcements:
-  mastodon: https://hackers.town/@randomgeek/102378568642490016
-  twitter: https://twitter.com/brianwisti/status/1146464654262095872
-date: 2019-07-03T09:18:47-07:00
+date: 2019-07-03 09:18:47-07:00
 tags:
 - taskwarrior
 - oops
 title: task add 'admit a mistake'
-year: '2019'
+slug: task-add-admit-a-mistake
+uuid: 7db7a148-0a29-418b-9b3a-6f1d05db7a95
+aliases:
+- /note/2019/184/task-add-admit-a-mistake/
 category: note
 type: micro
 ---
-
 My [glance][] at the Idea Bucket only worked by luck. The `+LATEST` virtual tag
 is for the latest task in the system, not just the latest in the filter. I want
 the `newest` report, which lists tasks by freshness, then `limit:` to control
 the number of tasks reported.
 
-[glance]: {{< ref "/note/2019-06-28-0994/index.md" >}}
+[glance]: /note/2019/06/checking-in-on-my-idea-bucket/
 
 ```
 $ task '(+idea or +learn)' newest limit:1

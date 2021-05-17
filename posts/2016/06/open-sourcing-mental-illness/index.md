@@ -1,14 +1,16 @@
 ---
+slug: open-sourcing-mental-illness
 aliases:
 - /post/2016/osmi/
-date: 2016-06-21T00:00:00Z
-updated: 2018-06-13T00:00:00Z
+- /2016/06/21/open-sourcing-mental-illness/
+date: 2016-06-21 00:00:00+00:00
+updated: 2018-06-13 00:00:00+00:00
 description: Ed Finkler's OSMI project
 tags:
 - mental health
+- marginalia
 title: Open Sourcing Mental Illness
-year: '2016'
-category: marginalia
+uuid: a45eb314-f967-41e1-93b0-ee6d60acaa78
 ---
 Watching [YAPCNA][] videos, and the most important to me today is
 [Ed Finkler][]'s talk about

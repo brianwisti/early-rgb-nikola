@@ -1,70 +1,61 @@
 ---
+slug: repl-in-perl-with-reply
 aliases:
 - /tools/2014/08/14_perl-reply-repl.html
 - /post/2014/perl-reply-repl/
-announcements:
-  twitter: https://twitter.com/brianwisti/status/500033601124052992
-date: 2014-08-14T00:00:00Z
+- /2014/08/14/repl-in-perl-with-reply/
+date: 2014-08-14 00:00:00+00:00
 series:
 - The Reply Perl REPL
 tags:
 - perl
 - reply
 - mojolicious
+- tools
 title: REPL In Perl With Reply
-type: post
-updated: 2017-04-10T00:00:00Z
-year: '2014'
-category: tools
+updated: 2017-04-10 00:00:00+00:00
+uuid: 90227570-df13-4a8d-8142-2baff74cfb12
 previewimage: /images/2014/08/repl-in-perl-with-reply/cover.png
 ---
+Time for a quick post about [Reply](https://metacpan.org/release/Reply),
+a new [Perl](http://perl.org) toy from [Jesse Luers](http://tozt.net/).
+There will not be much for me to say, because I have only been playing
+with it for about twenty minutes.
 
-[Reply]: https://metacpan.org/release/Reply
-[Perl]: http://perl.org
-[Jesse Luers]: http://tozt.net/
+{{< note >}}
+This post used Questhub.io for a subject. Unfortunately, that site is no
+longer with us. Updating the content for an active site is on my TODO
+list.
+{{< /note >}}
 
-Time for a quick post about [Reply][], a new [Perl][] toy from 
-[Jesse Luers][]. There will not be much for me to say, because 
-I have only been playing with it for about twenty minutes.
-<!-- TEASER_END -->
-
-****
-
-This post used Questhub.io for a subject. Unfortunately, that site is no longer with us.
-Updating the content for an active site is on my TODO list.
-
-****
-
-[REPL]: http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop
-[plugin]: https://metacpan.org/source/DOY/Reply-0.35/lib/Reply/Plugin.pm
-
-[Reply][] is a [REPL][] for Perl. It is an interactive shell that
-simplifies quick experimentation with language features. It is extensible
-via a [plugin][] system that I may look at later if I have more time.
+Reply is a
+[REPL](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)
+for Perl. It is an interactive shell that simplifies quick
+experimentation with language features. It is extensible via a
+[plugin](https://metacpan.org/source/DOY/Reply-0.35/lib/Reply/Plugin.pm)
+system that I may look at later if I have more time.
 
 ## Installation
 
-[perlbrew]: http://perlbrew.pl
-[cpanm]: https://github.com/miyagawa/cpanminus
+I use [perlbrew](http://perlbrew.pl) and
+[cpanm](https://github.com/miyagawa/cpanminus), so installation was
+easy.
 
-I use [perlbrew][] and [cpanm][], so installation was easy.
-
-~~~ console
+{{< console >}}
 $ cpanm Reply
-~~~ 
+{{< /console >}}
 
-[GNU Readline]: http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
-
-Oh. It is worth pointing out that if you do not have [GNU Readline][] or a 
-similar library installed, you will not get command-line editing or history
-in Reply.
+Oh. It is worth pointing out that if you do not have [GNU
+Readline](http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html) or a
+similar library installed, you will not get command-line editing or
+history in Reply.
 
 ## Hello Reply
 
-The `reply` command starts a new session. Once the session is going, it's 
-pretty much just Perl.
+The `reply` command starts a new session. Once the session is going,
+it’s pretty much just Perl.
 
-``` text
+{{< console >}}
 $ reply
 0> "Hello World"
 $res[0] = 'Hello World'
@@ -74,44 +65,42 @@ $res[1] = 'Brian'
 
 2> "Hello $name"
 $res[2] = 'Hello Brian'
-```
+{{< /console >}}
 
 Getting user input via `STDIN` works pretty much how you would expect.
 
-``` text
+{{< console >}}
 3> chomp( $name = <STDIN> )
 Brian
 $res[3] = 1
 
 4> $name
 $res[4] = 'Brian'
-```
+{{< /console >}}
 
 Defining subroutines is no big deal.
 
-``` text
+{{< console >}}
 5> sub greeting { "Hello $_[0]" }
 6> greeting $name
 $res[5] = 'Hello Brian'
-```
+{{< /console >}}
 
 And `exit` will quit Reply. It all seems straightforward.
 
-``` text
+{{< console >}}
 7> exit
 $
-```
+{{< /console >}}
 
 ## A Marginally More Complex Example
 
-[Mojo::UserAgent]: http://mojolicio.us/perldoc/Mojo/UserAgent
-[Mojo::JSON]: http://mojolicio.us/perldoc/Mojo/JSON
+I have been working on a little experiment: fetching Questhub.io JSON
+with [Mojo::UserAgent](http://mojolicio.us/perldoc/Mojo/UserAgent) and
+[Mojo::JSON](http://mojolicio.us/perldoc/Mojo/JSON). I decided to see if
+I could try some of that experiment in Reply.
 
-I have been working on a little experiment: fetching Questhub.io JSON with 
-[Mojo::UserAgent][] and [Mojo::JSON][]. I decided to see if I could try some
-of that experiment in [Reply][].
-
-~~~ text
+{{< console >}}
 0> use Mojo::UserAgent
 1> use Mojo::JSON 'decode_json'
 2> my $ua = Mojo::UserAgent->new
@@ -137,18 +126,17 @@ $res[1] = [
   'Testing',
   'Yoga + Meditation'
 ]
-~~~ 
+{{< /console >}}
 
 Yes, I can.
 
 ## What Do I Think?
 
-I like [Reply][] overall. I am not used to thinking in REPL terms when it 
-comes to Perl, and need to spend more than twenty minutes with it. I like
-Reply enough that I do expect to spend more time with it.
+I like Reply overall. I am not used to thinking in REPL terms when it
+comes to Perl, and need to spend more than twenty minutes with it. I
+like Reply enough that I do expect to spend more time with it.
 
-[Editor plugin]: https://metacpan.org/pod/Reply::Plugin::Editor
-
-I noticed that my coding style was more terse within the confines of Reply.
-Maybe I should install GNU Readline support on my machine or enable the [Editor plugin][].
-
+I noticed that my coding style was more terse within the confines of
+Reply. Maybe I should install GNU Readline support on my machine or
+enable the [Editor
+plugin](https://metacpan.org/pod/Reply::Plugin::Editor).

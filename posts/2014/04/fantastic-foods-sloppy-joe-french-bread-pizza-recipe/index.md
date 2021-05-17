@@ -1,17 +1,17 @@
 ---
+slug: fantastic-foods-sloppy-joe-french-bread-pizza-recipe
 aliases:
 - /marginalia/2014/04/12_sloppy-joe-french-bread-pizza-recipe.html
 - /post/2014/sloppy-joe-french-bread-pizza-recipe/
-date: 2014-04-12T00:00:00Z
+- /2014/04/12/fantastic-foods-sloppy-joe-french-bread-pizza-recipe/
+date: 2014-04-12 00:00:00+00:00
 updated: 2019-10-21
-slug: sloppy-joe-french-bread-pizza-recipe
 tags:
 - food
 - recipe
+- marginalia
 title: Fantastic Foods' Sloppy Joe French Bread Pizza Recipe
-type: post
-year: '2014'
-category: marginalia
+uuid: dd8dc9ac-6e57-4492-92ce-7a8be31376da
 previewimage: /images/2014/04/fantastic-foods-sloppy-joe-french-bread-pizza-recipe/cover.jpg
 ---
 [Fantastic Foods]: http://www.fantasticfoods.com/
