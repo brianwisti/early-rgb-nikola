@@ -20,7 +20,8 @@ BLOG_AUTHOR = "Brian Wisti"  # (translatable)
 BLOG_TITLE = "Random Geekery"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
-SITE_URL = "https://randomgeekery.org/"
+# SITE_URL = "https://randomgeekery.org/"
+SITE_URL = "http://localhost:8000/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://randomgeekery.org/"
@@ -142,6 +143,7 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ("/about/", "About"),
+        ("/galleries/", "Pics"),
         ("/now/", "Now"),
         ("/follow/", "Follow"),
         ("/contact/", "Contact"),
@@ -598,7 +600,7 @@ FRONT_INDEX_HEADER = {DEFAULT_LANG: ""}
 
 # RSS filename base (without extension); used for indexes and galleries.
 # (translatable)
-# RSS_FILENAME_BASE = "rss"
+RSS_FILENAME_BASE = "index"
 
 # Final location for the blog main RSS feed is:
 # output / TRANSLATION[lang] / RSS_PATH / RSS_FILENAME_BASE RSS_EXTENSION
@@ -754,7 +756,7 @@ GITHUB_COMMIT_SOURCE = True
 # "source/" and the results will be located in
 # "OUTPUT_PATH/relative_destination/gallery_name"
 # Default is:
-# GALLERY_FOLDERS = {"galleries": "galleries"}
+GALLERY_FOLDERS = {"galleries": "galleries"}
 # More gallery options:
 # THUMBNAIL_SIZE = 180
 # MAX_IMAGE_SIZE = 1280
