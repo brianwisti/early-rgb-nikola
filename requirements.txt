@@ -62,13 +62,13 @@ ipykernel==6.2.0
     # via
     #   nikola
     #   notebook
+ipython==7.26.0
+    # via ipykernel
 ipython-genutils==0.2.0
     # via
     #   nbformat
     #   notebook
     #   traitlets
-ipython==7.26.0
-    # via ipykernel
 jedi==0.18.0
     # via ipython
 jinja2==3.0.1
@@ -193,9 +193,7 @@ pyzmq==22.2.1
     #   notebook
 requests==2.26.0
     # via nikola
-ruamel.yaml.clib==0.2.6
-    # via ruamel.yaml
-ruamel.yaml==0.17.14
+ruamel-yaml==0.17.14
     # via nikola
 send2trash==1.8.0
     # via notebook
@@ -249,7 +247,7 @@ webencodings==0.5.1
     # via
     #   bleach
     #   html5lib
-wheel==0.37.0
+wheel==0.38.1
     # via pip-tools
 yapsy==1.12.2
     # via nikola
